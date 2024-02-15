@@ -3,6 +3,7 @@
 namespace App\Livewire\Components;
 
 use App\Models\AppSection;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Sidebar extends Component
@@ -15,5 +16,11 @@ class Sidebar extends Component
     public function render()
     {
         return view('livewire.components.sidebar');
+    }
+
+    #[On('reloadSidebar')]
+    public function reloadSidebar()
+    {
+        $this->render();
     }
 }

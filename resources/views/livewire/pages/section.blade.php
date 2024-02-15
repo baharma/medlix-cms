@@ -26,8 +26,8 @@
                                 <tr>
                                     <th>
                                         <select type="text" wire:model='newsection' class="form-control form-select">
-                                            <option disabled>Select New Section</option>
-                                            @foreach ($allSection as $item)
+                                            <option selected>Select New Section</option>
+                                            @foreach ($appSection as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}
                                                 </option>
                                             @endforeach
@@ -60,7 +60,11 @@
                                 <th>Name</th>
                                 <th>Url</th>
                                 <th>Icon</th>
-                                <th>Option</th>
+                                <th>
+                                    @if (auth()->user()->is_admin)
+                                        Option
+                                    @endif
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -70,7 +74,9 @@
                                     <td>{{ $all->url }}</td>
                                     <td><i class="{{ $all->icon }}"></i> {{ $all->icon }}</td>
                                     <td>
-                                        <button class="btn btn-warning btn-sm">edit</button>
+                                        @if (auth()->user()->is_admin)
+                                            <button class="btn btn-warning btn-sm">edit</button>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
