@@ -13,7 +13,19 @@ return new class extends Migration
     {
         Schema::create('plan_details', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('plan_id');
+            $table->unsignedBigInteger('feature_id');
+            $table->boolean('check')->default(true);
             $table->timestamps();
+
+            $table->foreign('plan_id')
+                ->references('id')
+                ->on('plans')
+                ->onDelete('cascade');
+            $table->foreign('feature_id')
+                ->references('id')
+                ->on('plan_featues')
+                ->onDelete('cascade');
         });
     }
 

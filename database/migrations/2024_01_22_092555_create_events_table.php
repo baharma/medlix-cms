@@ -11,9 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('app_sections', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('app_id');
+            $table->string('name');
+            $table->string('image');
+            $table->string('details')->nullable();
             $table->timestamps();
+
+            $table->foreign('app_id')
+                ->references('id')
+                ->on('cms_apps')
+                ->onDelete('cascade');
         });
     }
 
@@ -22,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('app_sections');
+        Schema::dropIfExists('events');
     }
 };

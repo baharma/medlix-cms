@@ -11,9 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cms_apps', function (Blueprint $table) {
+        Schema::create('visi_misis', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('app_id');
+            $table->string('visi');
+            $table->text('misi');
             $table->timestamps();
+            
+            $table->foreign('app_id')
+                ->references('id')
+                ->on('cms_apps')
+                ->onDelete('cascade');
         });
     }
 
@@ -22,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cms_apps');
+        Schema::dropIfExists('visi_misis');
     }
 };

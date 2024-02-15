@@ -11,9 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('plans', function (Blueprint $table) {
+        Schema::create('solutions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('app_id');
+            $table->string('title');
+            $table->string('sub_title');
             $table->timestamps();
+
+            $table->foreign('app_id')
+                ->references('id')
+                ->on('cms_apps')
+                ->onDelete('cascade');
         });
     }
 
@@ -22,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('plans');
+        Schema::dropIfExists('solutions');
     }
 };

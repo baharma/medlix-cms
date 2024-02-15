@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('testimonis', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('app_id');
+            $table->string('testi');
+            $table->string('testi_by');
+            $table->string('testi_img');
             $table->timestamps();
+
+            $table->foreign('app_id')
+                ->references('id')
+                ->on('cms_apps')
+                ->onDelete('cascade');
+            
         });
     }
 

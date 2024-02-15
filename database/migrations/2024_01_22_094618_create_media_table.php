@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('app_products', function (Blueprint $table) {
+        Schema::create('media', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('images')->nullable();
+            $table->string('url')->nullable();
+            $table->string('mark')->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('app_products');
+        Schema::dropIfExists('media');
     }
 };
