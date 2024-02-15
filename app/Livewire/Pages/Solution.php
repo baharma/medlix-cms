@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class Solution extends Component
 {
     #[Title('Solution')] 
-    public $id,$title,$sub_title,$solution,$model,$user;
+    public $id,$title,$sub_title,$solution,$model,$user,$app_id,$solution_id;
 
     protected $rules = [
         'title'         => 'required|min:6',
@@ -58,17 +58,35 @@ class Solution extends Component
         }
         
     }
+    #[On('ClearInput')]
+    public function ClearInput(){
+      $this->reset();
+    }
 
     #[On('dataToEdit')]
     public function dataToEdit($id){
-      $data = $this->solution->find($id);
+      $data = SolutionModel::find($id);
       $this->title = $data->title;
       $this->sub_title = $data->sub_title;
-      $this->id = $data->id;
-    //   $this->dispatch('showDelete',['event'=>true]);
-    //   $this->dispatch('showAlldata',['event'=>false]);
-    //   $this->dispatch('dataUpdate',['event'=>true]);
+      $this->solution_id = $data->id;
+      $this->app_id = $data->app_id;
       $this->render();
+    }
+
+    public function update(){
+     
+        $solution = SolutionModel::find($this->solution_id);
+        if (!$solution) {
+            $this->dispatch('sweet-alert',icon:'error',title:'Solution Not Found');
+        }
+        $solution->update([
+            'title'     => $this->title,
+            'sub_title' => $this->sub_title
+        ]);
+        $this->reset();
+        $this->dispatch('sweet-alert',icon:'success',title:'Created Solution Success');
+        $this->dispatch('closeModalUpdate');
+        $this->updateSolution();
     }
 
     public function render()

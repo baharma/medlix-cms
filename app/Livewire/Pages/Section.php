@@ -5,6 +5,7 @@ namespace App\Livewire\Pages;
 use App\Models\AllSection;
 use App\Models\AppSection;
 use App\Models\CmsApp;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -14,6 +15,8 @@ use Livewire\Component;
 
 class Section extends Component
 {
+    public $section,$allSection,$app,$appSection;
+    
     public function confirmDelete($id)
     {
         $section = AppSection::find($id);
@@ -21,7 +24,7 @@ class Section extends Component
             $this->dispatch('sweet-alert',icon:'error',title:'Delete Failed');
         }
         $section->delete();
-        
+        $this->dispatch('reload');
         $this->dispatch('reloadSidebar');
         $this->dispatch('sweet-alert',icon:'success',title:'Section Deleted');
         
@@ -36,19 +39,40 @@ class Section extends Component
         }else{
             AppSection::create(['section_id'=>$this->newsection,'app_id'=>auth()->user()->default_cms]);
             $this->dispatch('sweet-alert',icon:'success',title:'New Section Added');
+            $this->dispatch('reload');
             $this->dispatch('reloadSidebar');
         }
+    }
+    public function mount(){
+        $this->section = AppSection::with('section')->where('app_id',auth()->user()->default_cms)->get();
        
+        $notIn  = [];
+        foreach ($this->section as $key => $value) {
+            $notIn[]  = $value->section_id;
+        }
+        $this->allSection = AllSection::all();
+        $this->appSection = AllSection::whereNotIn('id',$notIn)->get();
+        
+        // dd($notIn,$this->appSection);
+        $this->app = CmsApp::find(auth()->user()->default_cms);
 
     }
-
     
     public function render()
     {
-        $data['title'] = 'APP Section';
-        $data['section']  = AppSection::with('section')->where('app_id',auth()->user()->default_cms)->get();
-        $data['allSection'] = AllSection::all();
-        $data['app'] = CmsApp::find(auth()->user()->default_cms);
-        return view('livewire.pages.section',$data);
+        return view('livewire.pages.section');
+    }
+
+    #[On('reload')]
+    public function reload(){
+        $this->section = AppSection::with('section')->where('app_id',auth()->user()->default_cms)->get();
+        $notIn  = [];
+        foreach ($this->section as $key => $value) {
+            $notIn[]  = $value->section_id;
+        }
+        $this->appSection = AllSection::whereNotIn('id',$notIn)->get();
+
+        $this->app = CmsApp::find(auth()->user()->default_cms);
+        $this->render();
     }
 }

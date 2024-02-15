@@ -20,5 +20,6 @@ class AppSectionSeeder extends Seeder
         AppSection::create(['app_id'=>2,'section_id'=>6]);
         AppSection::create(['app_id'=>2,'section_id'=>7]);
         AppSection::create(['app_id'=>2,'section_id'=>8]);
+        AppSection::create(['app_id'=>2,'section_id'=>9]);
     }
 }
