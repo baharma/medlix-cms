@@ -1,4 +1,5 @@
 <div>
+
     <div class="card">
         <div class="card-body">
             <div class="d-lg-flex align-items-center mb-4 gap-3">
@@ -8,9 +9,10 @@
                     <span class="position-absolute top-50 product-show translate-middle-y"><i
                             class="bx bx-search"></i></span>
                 </div>
-                <div class="ms-auto"><a href="javascript:;" class="btn btn-primary radius-30 mt-2 mt-lg-0"
-                        data-bs-toggle="modal" data-bs-target="#ModalEventCreate"><i class="bx bxs-plus-square"
-                            wire:click="closeEdit"></i>Add New Event</a></div>
+                <div class="ms-auto"><a href="javascript:;"
+                        style="background-color: #3652AD; color: white; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
+                        class="btn mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#ModalEventCreate"><i
+                            class="bx bxs-plus-square" wire:click="closeEdit"></i>Add New Event</a></div>
             </div>
             <div class="table-responsive">
                 <table class="table mb-0">
