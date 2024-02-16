@@ -65,6 +65,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'checkDefaultCms' => \App\Http\Middleware\CheckDefaultCMS::class,
-         'preventRedirectLoop' => \App\Http\Middleware\PreventRedirectLoop::class,
+        'preventRedirectLoop' => \App\Http\Middleware\PreventRedirectLoop::class,
     ];
 }

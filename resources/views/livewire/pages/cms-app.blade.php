@@ -17,7 +17,7 @@
                             <x-componen-form.input-form idInput="app_url" label="URL" wireModel="app_url"
                                 placeholder="" name="app_url" classInput="col-sm-10" classLabels="col-sm-2" />
                         </div>
-                        <div class="row mb-3">
+                        {{-- <div class="row mb-3">
                             <x-componen-form.input-form idInput="app_title" label="Title" wireModel="app_title"
                                 placeholder="" name="app_title" classInput="col-sm-10" classLabels="col-sm-2" />
                         </div>
@@ -25,7 +25,7 @@
                             <x-componen-form.input-form idInput="app_sub_title" label="Sub Title"
                                 wireModel="app_sub_title" placeholder="" name="app_sub_title" classInput="col-sm-10"
                                 classLabels="col-sm-2" />
-                        </div>
+                        </div> --}}
                         <div class="row mb-3">
                             <x-componen-form.textarea-input label="Address" classInput="col-sm-10"
                                 classLabels="col-sm-2" idTextarea="app_address" wireModel="app_address" cols="30"
@@ -54,10 +54,11 @@
                             <x-componen-form.input-image-dropify label='Logo' wireModel="logo"
                                 imageDefault="{{ $logo }}" name="image" />
                         </div>
-                        <div class="form-group mb-3">
+                        {{-- <div class="form-group mb-3">
                             <x-componen-form.input-image-dropify label='Hero Image' wireModel="app_hero_img"
                                 imageDefault="{{ $app_hero_img }}" name="app_hero_img" />
-                        </div>
+                        </div> --}}
+
                     </div>
                 </div>
 

@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Livewire\Pages\About;
 use App\Livewire\Pages\CmsApp;
+use App\Livewire\Pages\Dashboard;
 use App\Livewire\Pages\Event;
+use App\Livewire\Pages\Heroes;
 use App\Livewire\Pages\Plan;
 use App\Livewire\Pages\Section;
 use App\Livewire\Pages\Solution;
@@ -32,11 +35,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/set-cms',[AuthController::class,'setCms'])->name('set.cms');
     Route::get('/set-cms-id/{cmsId}',[AuthController::class,'setCmsId'])->name('cms.set');
 
+    Route::get('/dashboard', Dashboard::class);
     Route::get('/starter', Starter::class);
     Route::get('/cms',CmsApp::class);
     Route::get('/event',Event::class);
     Route::get('/pricing',Plan::class);
     Route::get('/solution',Solution::class);
+    Route::get('/about',About::class);
+    Route::get('/hero',Heroes::class);
+
 
     Route::get('/app-section', Section::class);
 

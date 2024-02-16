@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('visi_misis', function (Blueprint $table) {
+        Schema::create('app_heroes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('app_id');
-            $table->string('visi');
-            $table->longText('misi');
+            $table->string('image');
+            $table->string('title');
+            $table->string('subtitle')->nullable();
+            $table->longText('extend')->nullable();
             $table->timestamps();
-            
+
             $table->foreign('app_id')
                 ->references('id')
                 ->on('cms_apps')
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('visi_misis');
+        Schema::dropIfExists('app_heroes');
     }
 };

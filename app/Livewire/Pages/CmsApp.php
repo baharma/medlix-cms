@@ -17,9 +17,9 @@ class CmsApp extends Component
     public $app_name;
     public $app_url;
     public $logo;
-    public $app_title;
-    public $app_sub_title;
-    public $app_hero_img;
+    // public $app_title;
+    // public $app_sub_title;
+    // public $app_hero_img;
     public $app_address;
     public $app_mail;
     public $app_phone;
@@ -49,9 +49,9 @@ class CmsApp extends Component
             $this->app_name = $cms->app_name??'';
             $this->app_url = $cms->app_url??'';
             $this->logo = $cms->logo??"";
-            $this->app_title = $cms->app_title??"";
-            $this->app_sub_title = $cms->app_sub_title??'';
-            $this->app_hero_img = $cms->app_hero_img??"";
+            // $this->app_title = $cms->app_title??"";
+            // $this->app_sub_title = $cms->app_sub_title??'';
+            // $this->app_hero_img = $cms->app_hero_img??"";
             $this->app_address = $cms->app_address??"";
             $this->app_mail = $cms->app_mail??'';
             $this->app_phone = $cms->app_phone??"";
@@ -66,11 +66,11 @@ class CmsApp extends Component
         $this->validate();
 
         $cms = $this->renderRefresh();
-        if ($cms->app_hero_img == $this->app_hero_img) {
-            $heroimg = $cms->app_hero_img;
-        } else {
-            $heroimg = saveImageLocal($this->app_hero_img, 'Hero');
-        }
+        // if ($cms->app_hero_img == $this->app_hero_img) {
+        //     $heroimg = $cms->app_hero_img;
+        // } else {
+        //     $heroimg = saveImageLocal($this->app_hero_img, 'Hero');
+        // }
         if ($cms->logo == $this->logo) {
             $logoName = $cms->logo;
         } else {
@@ -82,9 +82,9 @@ class CmsApp extends Component
             'app_name'  => $this->app_name,
             'app_url'   => $this->app_url,
             'logo'      => $logoName,
-            'app_title' => $this->app_title,
-            'app_sub_title' => $this->app_sub_title,
-            'app_hero_img' => $heroimg,
+            // 'app_title' => $this->app_title,
+            // 'app_sub_title' => $this->app_sub_title,
+            // 'app_hero_img' => $heroimg,
             'app_address' => $this->app_address,
             'app_mail' => $this->app_mail,
             'app_phone' => $this->app_phone,

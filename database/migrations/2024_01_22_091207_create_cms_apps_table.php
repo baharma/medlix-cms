@@ -16,9 +16,6 @@ return new class extends Migration
             $table->string('app_name');
             $table->string('app_url');
             $table->string('logo')->nullable();
-            $table->string('app_title')->nullable();
-            $table->string('app_sub_title')->nullable();
-            $table->string('app_hero_img')->nullable();
             $table->string('app_address')->nullable();
             $table->string('app_mail')->nullable();
             $table->string('app_phone')->nullable();
