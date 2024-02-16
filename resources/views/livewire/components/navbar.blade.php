@@ -94,7 +94,7 @@
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
                         <div class="user-info ps-3">
-                            <p class="user-name mb-0">{{ strtoupper(Auth::user()->name . ' Pratama') }}</p>
+                            <p class="user-name mb-0">{{ strtoupper(Auth::user()->name) }}</p>
                             <p class="designattion mb-0 text-primary">Active</p>
                         </div>
                     </a>

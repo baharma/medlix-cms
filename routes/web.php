@@ -5,7 +5,11 @@ use App\Livewire\Pages\About;
 use App\Livewire\Pages\CmsApp;
 use App\Livewire\Pages\Dashboard;
 use App\Livewire\Pages\Event;
+use App\Livewire\Pages\Hero\Izidok;
+use App\Livewire\Pages\Hero\Iziklaim;
+use App\Livewire\Pages\Hero\Medlinx;
 use App\Livewire\Pages\Heroes;
+use App\Livewire\Pages\HeroMedlinx;
 use App\Livewire\Pages\Plan;
 use App\Livewire\Pages\Section;
 use App\Livewire\Pages\Solution;
@@ -31,21 +35,22 @@ Route::group(['middleware' => ['guest']], function () {
 });    
 
 Route::group(['middleware' => ['auth']], function () {
-
     Route::get('/set-cms',[AuthController::class,'setCms'])->name('set.cms');
     Route::get('/set-cms-id/{cmsId}',[AuthController::class,'setCmsId'])->name('cms.set');
-
+    Route::get('/app-section', Section::class);
     Route::get('/dashboard', Dashboard::class);
     Route::get('/starter', Starter::class);
+
     Route::get('/cms',CmsApp::class);
     Route::get('/event',Event::class);
-    Route::get('/pricing',Plan::class);
+    Route::get('/izidok-pricing',Plan::class);
     Route::get('/solution',Solution::class);
     Route::get('/about',About::class);
-    Route::get('/hero',Heroes::class);
+    
+    Route::get('/izidok-hero',Izidok::class);
+    Route::get('/medlinx-hero',Medlinx::class);
+    Route::get('/iziklaim-hero',Iziklaim::class);
 
-
-    Route::get('/app-section', Section::class);
 
     Route::post('/logout', [AuthController::class,'logout'])->name('logout');
 });
