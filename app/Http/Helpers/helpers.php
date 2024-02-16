@@ -8,10 +8,10 @@ use Illuminate\Http\UploadedFile;
 function ActiveApp($get = 'null'){
     $user = Auth::user();
     $app = CmsApp::find($user->default_cms);
-    $data['id'] = $app->id;
-    $data['name'] = strtoupper($app->app_name);
-    $data['url'] = $app->app_url;
-    $data['logo'] = $app->logo;
+    $data['id'] = $app?->id??0;
+    $data['name'] = strtoupper($app?->app_name)??'';
+    $data['url'] = $app?->app_url??null;
+    $data['logo'] = $app?->logo??null;
 
     return $data[$get];
 }

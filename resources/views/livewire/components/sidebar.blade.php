@@ -1,7 +1,7 @@
 <div>
     <ul class="metismenu" id="menu">
         <li>
-            <a href="{{ url('/') }}" wire:navigate>
+            <a href="{{ url('/dashboard') }}" wire:navigate>
                 <div class="parent-icon"><i class="bx bx-home-circle"></i>
                 </div>
                 <div class="menu-title">Dashboard</div>
