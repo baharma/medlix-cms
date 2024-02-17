@@ -30,6 +30,7 @@
     <script src="{{ asset('/assets/sweetalert2') }}/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="{{ asset('/assets/sweetalert2') }}/sweetalert2.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/dropify/css/dropify.min.css') }}">
+    <script src="{{asset('assets/js/ckeditor.js')}}"></script>
     @stack('style')
 </head>
 
