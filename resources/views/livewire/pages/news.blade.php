@@ -30,5 +30,6 @@ window.onload = function() {
             console.error(error);
         });
 };
+// test
 </script>
 @endscript
