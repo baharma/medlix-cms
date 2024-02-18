@@ -10,7 +10,10 @@ class FormNews extends Component
     #[Title('News Form')]
     public $artikelId;
     public $title, $thumnail, $discription;
-
+    protected $rules = [
+        'title' => 'required|min:5',
+        'thumnail'=> 'required',
+    ];
     public function render()
     {
         return view('livewire.pages.news.form-news');
@@ -18,6 +21,7 @@ class FormNews extends Component
 
 
     public function save(){
+        $this->validate();
 
     }
 }

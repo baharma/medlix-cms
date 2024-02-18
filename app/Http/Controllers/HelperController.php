@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 
 class HelperController extends Controller
 {
-
-
-
     public function UploadImageCkEditor(Request $request){
 
         if ($request->hasFile('upload')) {
