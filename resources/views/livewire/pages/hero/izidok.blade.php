@@ -13,7 +13,7 @@
     <div class="card">
         <div class="card-body row">
             <div class="col-md-6">
-                <img src="{{ asset($image) }}" alt="HeroImage" style="max-width: 500px">
+                <img src="{{ checkImage($image) }}" alt="HeroImage" style="max-width: 500px">
             </div>
             <div class="col-md-6 text-center p-5">
                 <h4>{{ $title }}</h4>

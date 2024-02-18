@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('app_id');
             $table->string('title');
-            $table->string('sub_title');
+            $table->longText('sub_title')->nullable();
+            $table->longText('extend')->nullable();
             $table->timestamps();
 
             $table->foreign('app_id')

@@ -16,9 +16,10 @@
                                             {{ $side->section->name }}</div>
                                     </th>
                                     <th class="text-end">
-                                        <button class="btn btn-danger btn-sm"
+                                        <button class="btn btn-sm btm-danger text-danger"
                                             @click="$dispatch('confirm-delete', { get_id: {{ $side->id }} })">
-                                            <i class="bx bx-trash-alt"></i></button>
+                                            <i class="bx bx-trash"></i>
+                                        </button>
                                     </th>
                                 </tr>
                             @endforeach

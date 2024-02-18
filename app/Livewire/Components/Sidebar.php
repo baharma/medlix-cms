@@ -21,6 +21,7 @@ class Sidebar extends Component
     #[On('reloadSidebar')]
     public function reloadSidebar()
     {
+        $this->mount();
         $this->render();
     }
 }
