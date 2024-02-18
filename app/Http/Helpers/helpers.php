@@ -26,7 +26,7 @@ function mataUang($num){
 function saveImageLocal(UploadedFile $file,$path){
     $filename = uniqid() . '_' . $file->getClientOriginalName();
     $file->storeAs($path, $filename, 'images_local');
-    $FilePath = 'Image/'.$path.'/'.$filename;
+    $FilePath = '/Image/'.$path.'/'.$filename;
     return $FilePath;
 }
 function saveImageLocalNew(UploadedFile $file, $path, $name = 'default') {
@@ -49,7 +49,7 @@ function saveImageLocalNew(UploadedFile $file, $path, $name = 'default') {
     return $FilePath;
 }
 function isNull($data){
-    return is_null($data)? true: false; 
+    return is_null($data)? true: false;
 }
 function decode($data){
     return json_decode($data,true);

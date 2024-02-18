@@ -12,6 +12,7 @@ use App\Livewire\Pages\Hero\Medlinx;
 use App\Livewire\Pages\Heroes;
 use App\Livewire\Pages\HeroMedlinx;
 use App\Livewire\Pages\News;
+use App\Livewire\Pages\News\FormNews;
 use App\Livewire\Pages\Plan;
 use App\Livewire\Pages\Section;
 use App\Livewire\Pages\Solution;
@@ -50,6 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/solution',Solution::class);
     Route::get('/about',About::class);
     Route::get('/news',News::class);
+    Route::get('/news/form/{artikelId?}',FormNews::class)->name('artikel.create');
 
     Route::get('/izidok-hero',Izidok::class);
     Route::get('/medlinx-hero',Medlinx::class);
