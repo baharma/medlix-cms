@@ -8,11 +8,11 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
-#[Title('Solution')] 
 class Iziklaim extends Component
 {
     use WithFileUploads;
-
+    
+    #[Title('Solution')] 
     public $model,$image,$miniImage,$svg,$title,$subtitle,$left,$right,$url,$postion;
     public $extend  = [];
 
@@ -97,6 +97,19 @@ class Iziklaim extends Component
         $this->postion   = $extend['img_postion'];
         $this->dispatch('setSubTitle',$cms->sub_title);
 
+    }
+
+     public function confirmDelete($id)
+    {
+        $section = Solution::find($id);
+        if(!$section){
+            $this->dispatch('sweet-alert',icon:'error',title:'Delete Failed');
+        }
+        $section->delete();
+        
+        $this->mount();
+        $this->dispatch('sweet-alert',icon:'success',title:'Solution Deleted');
+        
     }
 
     public function renderRefresh(){
