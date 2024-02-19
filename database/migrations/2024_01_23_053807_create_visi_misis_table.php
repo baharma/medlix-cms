@@ -16,6 +16,9 @@ return new class extends Migration
             $table->unsignedBigInteger('app_id');
             $table->string('visi');
             $table->longText('misi');
+            $table->string('visi_img')->nullable();
+            $table->string('misi_img')->nullable();
+            $table->string('detail_img')->nullable();
             $table->timestamps();
             
             $table->foreign('app_id')
