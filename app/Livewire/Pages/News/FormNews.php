@@ -33,11 +33,11 @@ class FormNews extends Component
     }
     public function save(){
         $this->validate();
-        if($this->thumbnail->file){
+        if($this->thumbnail->isFile()){
+            $thumbnail = saveImageLocal($this->thumbnail, 'News/Thumbnail');
+        }else{
             $artikel = Article::find($this->artikelId);
             $thumbnail = $artikel->thumbnail;
-        }else{
-            $thumbnail = saveImageLocal($this->thumbnail, 'News/Thumbnail');
         }
 
         $data = [
