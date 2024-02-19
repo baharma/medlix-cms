@@ -15,9 +15,11 @@ use App\Livewire\Pages\News\FormNews;
 use App\Livewire\Pages\Plan;
 use App\Livewire\Pages\Section;
 use App\Livewire\Pages\Solution;
+use App\Livewire\Pages\Solution\EditIziklaim;
 use App\Livewire\Pages\Solution\Iziklaim as SolutionIziklaim;
 use App\Livewire\Pages\Solution\Medlinx as SolutionMedlinx;
 use App\Livewire\Pages\Starter;
+use App\Livewire\Pages\Teams;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,12 +56,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/news/detail/{artikelId}',DetailNews::class)->name('artikel.detail');
 
     Route::get('/medlinx-solution',SolutionMedlinx::class);
-    Route::get('/iziklaim-solution',SolutionIziklaim::class);
+    Route::get('/iziklaim-solution',SolutionIziklaim::class)->name('solution') ;
+    Route::get('/iziklaim-solution-edit/{id}',EditIziklaim::class)->name('solution.edit');
 
     Route::get('/izidok-hero',Izidok::class);
     Route::get('/iziklaim-hero',Iziklaim::class);
     Route::get('/medlinx-hero',Medlinx::class);
 
+    Route::get('/teams',Teams::class);
 
     Route::controller(HelperController::class)->group(function(){
         Route::post('/imageCkEditor','UploadImageCkEditor')->name('image.upload');
