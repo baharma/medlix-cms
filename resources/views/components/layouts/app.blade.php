@@ -9,6 +9,7 @@
     <!--favicon-->
     <link rel="icon" href="{{ asset('assets/images/favico.png') }} " type="image/png" />
     <!--plugins-->
+    <link rel="stylesheet" href="{{asset('assets/scss/main-scss.css')}}">
     <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />

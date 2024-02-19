@@ -1,33 +1,31 @@
 <div>
 
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-end mb-3">
         <a type="button" class="btn btn-primary" href="{{ route('artikel.create') }}">
             <i class='bx bx-add-to-queue'></i>
             Add News</a>
     </div>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4">
-
+        @foreach ($data as $item)
         <div class="col">
             <div class="card border-primary border-bottom border-3 border-0">
-                <img src="assets/images/gallery/01.png" class="card-img-top" alt="...">
+                <img src="{{$item->thumbnail}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title text-primary">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <h5 class="card-title text-primary">{{$item->title}}</h5>
                     <hr>
                     <div class="d-flex align-items-center gap-2">
-                        <a href="javascript:;" class="btn btn-inverse-primary"><i class='bx bx-star'></i>Button</a>
-                        <a href="javascript:;" class="btn btn-primary"><i class='bx bx-microphone'></i>Button</a>
+                        <a href="javascript:;" @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })" class="btn btn-inverse-danger"><i class='bx bxs-trash-alt' ></i>Delete</a>
+                        <a href="{{route('artikel.create',$item->id)}}" class="btn btn-warning"><i class='bx bxs-pencil'></i>Edit</a>
                     </div>
                 </div>
             </div>
         </div>
- <textarea class="form-control"   placeholder="Leave a comment here" id="editor" style="height: 500px"></textarea>
-
+        @endforeach
     </div>
+
+
+    @include('layouts.component.confirm-delete')
 </div>
-
-
 
 
 
