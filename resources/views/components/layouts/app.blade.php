@@ -5,9 +5,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--favicon-->
     <link rel="icon" href="{{ asset('assets/images/favico.png') }} " type="image/png" />
     <!--plugins-->
+    <link rel="stylesheet" href="{{asset('assets/scss/main-scss.css')}}">
     <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />

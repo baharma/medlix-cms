@@ -10,6 +10,8 @@ use App\Livewire\Pages\Hero\Izidok;
 use App\Livewire\Pages\Hero\Iziklaim;
 use App\Livewire\Pages\Hero\Medlinx;
 use App\Livewire\Pages\News;
+use App\Livewire\Pages\News\DetailNews;
+use App\Livewire\Pages\News\FormNews;
 use App\Livewire\Pages\Plan;
 use App\Livewire\Pages\Section;
 use App\Livewire\Pages\Solution;
@@ -47,11 +49,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/cms',CmsApp::class);
     Route::get('/event',Event::class);
     Route::get('/izidok-pricing',Plan::class);
-    Route::get('/about',About::class);
+    Route::get('/about',About::class);]
+    Route::get('/news/form/{artikelId?}',FormNews::class)->name('artikel.create');
+    Route::get('/news/detail/{artikelId}',DetailNews::class)->name('artikel.detail');
 
     Route::get('/medlinx-solution',SolutionMedlinx::class);
     Route::get('/iziklaim-solution',SolutionIziklaim::class);
-
 
     Route::get('/izidok-hero',Izidok::class);
     Route::get('/iziklaim-hero',Iziklaim::class);

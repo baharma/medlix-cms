@@ -14,6 +14,7 @@ class FormEvent extends Component
     public $name, $detail , $image;
     public $editEmit,$model;
     protected $listeners = ['editEvent','clearText'];
+
     protected $rules = [
         'name'=> 'required',
         'image'=>'required'
