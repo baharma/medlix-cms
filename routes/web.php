@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HelperController;
 use App\Livewire\Pages\About;
 use App\Livewire\Pages\CmsApp;
 use App\Livewire\Pages\Dashboard;
@@ -8,6 +9,7 @@ use App\Livewire\Pages\Event;
 use App\Livewire\Pages\Hero\Izidok;
 use App\Livewire\Pages\Hero\Iziklaim;
 use App\Livewire\Pages\Hero\Medlinx;
+use App\Livewire\Pages\News;
 use App\Livewire\Pages\Plan;
 use App\Livewire\Pages\Section;
 use App\Livewire\Pages\Solution;
@@ -34,7 +36,7 @@ Route::get('/',function(){
 Route::group(['middleware' => ['guest']], function () {
     Route::get('/login',[AuthController::class,'login'])->name('login');
     Route::post('/login',[AuthController::class,'authenticate'])->name('auth.post');
-});    
+});
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/set-cms',[AuthController::class,'setCms'])->name('set.cms');
@@ -43,20 +45,26 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', Dashboard::class);
     Route::get('/starter', Starter::class);
 
+
     Route::get('/cms',CmsApp::class);
     Route::get('/event',Event::class);
     Route::get('/izidok-pricing',Plan::class);
     Route::get('/about',About::class);
-    
+
     Route::get('/medlinx-solution',SolutionMedlinx::class);
     Route::get('/iziklaim-solution',SolutionIziklaim::class)->name('solution') ;
     Route::get('/iziklaim-solution-edit/{id}',EditIziklaim::class)->name('solution.edit');
+
 
     Route::get('/izidok-hero',Izidok::class);
     Route::get('/iziklaim-hero',Iziklaim::class);
     Route::get('/medlinx-hero',Medlinx::class);
 
     Route::get('/teams',Teams::class);
+
+    Route::controller(HelperController::class)->group(function(){
+        Route::post('/imageCkEditor','UploadImageCkEditor')->name('image.upload');
+    });
 
     Route::post('/logout', [AuthController::class,'logout'])->name('logout');
 });
