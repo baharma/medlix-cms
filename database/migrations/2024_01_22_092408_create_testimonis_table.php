@@ -16,7 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('app_id');
             $table->string('testi');
             $table->string('testi_by');
-            $table->string('testi_img');
+            $table->string('testi_by_title')->nullable();
+            $table->string('testi_by_img');
             $table->timestamps();
 
             $table->foreign('app_id')
