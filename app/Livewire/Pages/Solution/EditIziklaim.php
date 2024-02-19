@@ -73,7 +73,7 @@ class EditIziklaim extends Component
             $data['image'] = $imageName;
         }else{
             $name = 'iziklaim-solution-img-'. $cms->id;
-            $imageName = saveImageLocalNew($this->image, 'Solution/iziklaim',$name);
+            $imageName = saveImageLocalNew($this->image, 'solution',$name);
             $data['image'] = $imageName;
         }
 
@@ -83,7 +83,7 @@ class EditIziklaim extends Component
         }else{
            if( $this->miniImage != null){
                $name = 'iziklaim-solution-mini-img-'. $cms->id;
-               $mini_img = saveImageLocalNew($this->miniImage, 'Solution/iziklaim',$name);
+               $mini_img = saveImageLocalNew($this->miniImage, 'solution',$name);
                $data['mini_image'] = $mini_img;
            }
         }
@@ -93,7 +93,7 @@ class EditIziklaim extends Component
             $data['icon'] = $icon;
         }else{
             if($this->svg != null){
-                $icon = saveImageLocalNew($this->svg, 'Solution/iziklaim');
+                $icon = saveImageLocalNew($this->svg, 'solution');
                 $data['icon'] = $icon;
             }
             

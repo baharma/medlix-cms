@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('app_id')->nullable();
             $table->string('image');
             $table->string('name');
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->boolean('up_lv')->default(false);
             $table->timestamps();
         });
