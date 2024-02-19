@@ -41,16 +41,16 @@
                         @endif
                     </div>
                     <div class="col-md-6">
-                        <img src="{{ $image }}" alt="image" style="max-width: 300px">
+                        <img src="{{ asset($image) }}" alt="image" style="max-width: 300px">
                         @if ($mini_image)
-                            <img src="{{ $mini_image }}" alt="image" style="max-width: 100px">
+                            <img src="{{ asset($mini_image) }}" alt="image" style="max-width: 100px">
                         @endif
                     </div>
                 @else
                     <div class="col-md-6">
                         <img src="{{ $image }}" alt="image" style="max-width: 300px">
                         @if ($mini_image)
-                            <img src="{{ $mini_image }}" alt="image" style="max-width: 100px">
+                            <img src="{{ asset($mini_image) }}" alt="image" style="max-width: 100px">
                         @endif
                     </div>
                     <div class="col-md-6">
