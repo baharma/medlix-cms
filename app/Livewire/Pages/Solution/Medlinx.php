@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Livewire\Pages;
+namespace App\Livewire\Pages\Solution;
 
-use Illuminate\Support\Facades\Auth;
-use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use App\Models\Solution as SolutionModel;
 use Illuminate\Support\Facades\DB;
+use Livewire\Attributes\On;
 
-class Solution extends Component
+class Medlinx extends Component
 {
     #[Title('Solution')] 
     public $id,$title,$sub_title,$solution,$model,$user,$app_id,$solution_id;
@@ -58,12 +57,9 @@ class Solution extends Component
         }
         
     }
-    #[On('ClearInput')]
     public function ClearInput(){
       $this->reset();
     }
-
-    #[On('dataToEdit')]
     public function dataToEdit($id){
       $data = SolutionModel::find($id);
       $this->title = $data->title;
@@ -91,6 +87,6 @@ class Solution extends Component
 
     public function render()
     {
-        return view('livewire.pages.solution',);
+        return view('livewire.pages.solution.medlinx');
     }
 }

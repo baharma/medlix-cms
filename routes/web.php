@@ -9,12 +9,12 @@ use App\Livewire\Pages\Event;
 use App\Livewire\Pages\Hero\Izidok;
 use App\Livewire\Pages\Hero\Iziklaim;
 use App\Livewire\Pages\Hero\Medlinx;
-use App\Livewire\Pages\Heroes;
-use App\Livewire\Pages\HeroMedlinx;
 use App\Livewire\Pages\News;
 use App\Livewire\Pages\Plan;
 use App\Livewire\Pages\Section;
 use App\Livewire\Pages\Solution;
+use App\Livewire\Pages\Solution\Iziklaim as SolutionIziklaim;
+use App\Livewire\Pages\Solution\Medlinx as SolutionMedlinx;
 use App\Livewire\Pages\Starter;
 use Illuminate\Support\Facades\Route;
 
@@ -47,13 +47,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/cms',CmsApp::class);
     Route::get('/event',Event::class);
     Route::get('/izidok-pricing',Plan::class);
-    Route::get('/solution',Solution::class);
     Route::get('/about',About::class);
-    Route::get('/news',News::class);
+
+    Route::get('/medlinx-solution',SolutionMedlinx::class);
+    Route::get('/iziklaim-solution',SolutionIziklaim::class);
+
 
     Route::get('/izidok-hero',Izidok::class);
-    Route::get('/medlinx-hero',Medlinx::class);
     Route::get('/iziklaim-hero',Iziklaim::class);
+    Route::get('/medlinx-hero',Medlinx::class);
 
 
     Route::controller(HelperController::class)->group(function(){

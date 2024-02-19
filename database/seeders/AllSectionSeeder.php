@@ -63,7 +63,23 @@ class AllSectionSeeder extends Seeder
                 'name' => 'Select CMS',
                 'url'  => '/select-cms',
                 'icon'  => 'bx bx-layer'
-            ]
+            ],
+            [
+                'name' => 'Hero Medlinx',
+                'url'  => '/medlinx-hero',
+                'icon'  => 'bx bx-credit-card-front'
+            ],
+            [
+                'name' => 'Hero Izidok',
+                'url'  => '/izidok-hero',
+                'icon'  => 'bx bx-credit-card-front'
+            ],
+            [
+                'name' => 'Hero Iziklaim',
+                'url'  => '/iziklaim-hero',
+                'icon'  => 'bx bx-credit-card-front'
+            ],
+
         ];
 
         for ($i=0; $i < count($data); $i++) {

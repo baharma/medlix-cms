@@ -14,15 +14,15 @@
         <div class="card-body row text-center">
             <h4 class="mb-5">{{ $title }}</h4>
             <div class="col-md-6 ">
+                <h6>Hero Image</h6>
                 <div class="hero-image border">
-                    <h6>Hero Image</h6>
-                    <img src="{{ asset($image) }}" alt="HeroImage" style="max-width: 500px">
+                    <img src="{{ checkImage($image) }}" alt="HeroImage" style="max-width: 500px">
                 </div>
             </div>
             <div class="col-md-6">
+                <h6>Hero Sub Image</h6>
                 <div class="hero-image border">
-                    <h6>Hero Sub Image</h6>
-                    <img src="{{ asset($subimage) }}" alt="HeroSubImage" style="max-width: 200px">
+                    <img src="{{ checkImage($subimage) }}" alt="HeroSubImage" style="max-width: 200px">
                 </div>
             </div>
 

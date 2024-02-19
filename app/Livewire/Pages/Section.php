@@ -24,22 +24,22 @@ class Section extends Component
             $this->dispatch('sweet-alert',icon:'error',title:'Delete Failed');
         }
         $section->delete();
-        $this->dispatch('reload');
+        $this->mount();
         $this->dispatch('reloadSidebar');
         $this->dispatch('sweet-alert',icon:'success',title:'Section Deleted');
         
     }
-    #[Validate('required')] 
     public $newsection = '';
 
     public function save(){
+      
         $section = AppSection::where(['section_id'=>$this->newsection,'app_id'=>auth()->user()->default_cms])->first();
         if($section){
              $this->dispatch('sweet-alert',icon:'error',title:'Section Alredy On APP');
         }else{
             AppSection::create(['section_id'=>$this->newsection,'app_id'=>auth()->user()->default_cms]);
             $this->dispatch('sweet-alert',icon:'success',title:'New Section Added');
-            $this->dispatch('reload');
+            $this->mount(); 
             $this->dispatch('reloadSidebar');
         }
     }
@@ -53,7 +53,6 @@ class Section extends Component
         $this->allSection = AllSection::all();
         $this->appSection = AllSection::whereNotIn('id',$notIn)->get();
         
-        // dd($notIn,$this->appSection);
         $this->app = CmsApp::find(auth()->user()->default_cms);
 
     }
@@ -61,18 +60,5 @@ class Section extends Component
     public function render()
     {
         return view('livewire.pages.section');
-    }
-
-    #[On('reload')]
-    public function reload(){
-        $this->section = AppSection::with('section')->where('app_id',auth()->user()->default_cms)->get();
-        $notIn  = [];
-        foreach ($this->section as $key => $value) {
-            $notIn[]  = $value->section_id;
-        }
-        $this->appSection = AllSection::whereNotIn('id',$notIn)->get();
-
-        $this->app = CmsApp::find(auth()->user()->default_cms);
-        $this->render();
     }
 }

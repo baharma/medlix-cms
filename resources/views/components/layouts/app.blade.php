@@ -105,6 +105,12 @@
 
         });
     </script>
+    <script>
+        $(function() {
+            $('[data-bs-toggle="popover"]').popover();
+            $('[data-bs-toggle="tooltip"]').tooltip();
+        })
+    </script>
     <!--app JS-->
     <script src="{{ asset('assets/js/app.js') }}"></script>
 
