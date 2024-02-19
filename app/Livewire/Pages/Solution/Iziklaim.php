@@ -46,16 +46,16 @@ class Iziklaim extends Component
 
         $extend	 = json_decode($cms?->extend,true);	
         $name = 'iziklaim-solution-img-'. $cms?->id + 1;
-        $imageName = saveImageLocalNew($this->image, 'Solution/iziklaim',$name);
+        $imageName = saveImageLocalNew($this->image, 'solution',$name);
         $data['image'] = $imageName;
        
         if($this->miniImage){
             $name = 'iziklaim-solution-mini-img-'. $cms?->id + 1;
-            $mini_img = saveImageLocalNew($this->miniImage, 'Solution/iziklaim',$name);
+            $mini_img = saveImageLocalNew($this->miniImage, 'solution',$name);
             $data['mini_image'] = $mini_img;
         }
         if($this->svg){
-            $icon = saveImageLocalNew($this->svg, 'Solution/iziklaim');
+            $icon = saveImageLocalNew($this->svg, 'solution');
             $data['icon'] = $icon;
         }
         $data['img_postion'] = $this->postion;

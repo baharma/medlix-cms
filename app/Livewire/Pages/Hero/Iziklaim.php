@@ -30,13 +30,13 @@ class Iziklaim extends Component
         if ($cms?->image == $this->image) {
             $imageName = $cms->image;        
         } else {
-            $imageName = saveImageLocalnew($this->image, 'Hero/iziklaim','iziklaim-hero-img');
+            $imageName = saveImageLocalnew($this->image, 'hero','iziklaim-hero-img');
         }
         $extend = json_decode($cms->extend,true);
         if ($extend!=null && $extend['sub_image'] == $this->image) {
             $subImageName = $extend['sub_image'];
         }else{
-            $subImageName = saveImageLocalnew($this->subimage, 'Hero/iziklaim','iziklaim-sub-hero-img');
+            $subImageName = saveImageLocalnew($this->subimage, 'hero','iziklaim-sub-hero-img');
         }
         AppHero::updateOrCreate(['app_id' => 3],[
             'app_id' => 3,

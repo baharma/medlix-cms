@@ -13,7 +13,7 @@
                     @foreach ($model as $item)
                         <tr>
                             <td>
-                                <img src="{{ $item->image }}" alt="" style="max-width: 200px">
+                                <img src="{{ $item->image }}" alt="{{ $item->image }}" style="width: 100px">
                             </td>
                             <td>
                                 <p>{{ $item->title }}</p>
@@ -85,7 +85,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 
