@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/cms',CmsApp::class);
     Route::get('/event',Event::class);
     Route::get('/izidok-pricing',Plan::class);
-    Route::get('/about',About::class);]
+    Route::get('/about',About::class);
     Route::get('/news/form/{artikelId?}',FormNews::class)->name('artikel.create');
     Route::get('/news/detail/{artikelId}',DetailNews::class)->name('artikel.detail');
 
