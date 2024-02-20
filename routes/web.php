@@ -18,6 +18,7 @@ use App\Livewire\Pages\Solution;
 use App\Livewire\Pages\Solution\Iziklaim as SolutionIziklaim;
 use App\Livewire\Pages\Solution\Medlinx as SolutionMedlinx;
 use App\Livewire\Pages\Starter;
+use App\Livewire\Pages\VisiMisi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,7 +50,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/cms',CmsApp::class);
     Route::get('/event',Event::class);
     Route::get('/izidok-pricing',Plan::class);
-    Route::get('/about',About::class);]
+    Route::get('/about',About::class);
     Route::get('/news/form/{artikelId?}',FormNews::class)->name('artikel.create');
     Route::get('/news/detail/{artikelId}',DetailNews::class)->name('artikel.detail');
 
@@ -59,6 +60,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/izidok-hero',Izidok::class);
     Route::get('/iziklaim-hero',Iziklaim::class);
     Route::get('/medlinx-hero',Medlinx::class);
+
+    Route::get('/visi-misi',VisiMisi::class);
 
 
     Route::controller(HelperController::class)->group(function(){

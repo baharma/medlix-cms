@@ -13,6 +13,7 @@ class FormNews extends Component
     use WithFileUploads;
 
     #[Title('News Form')]
+
     public $artikelId;
     public $title, $thumbnail, $description,$check;
     protected $rules = [
