@@ -3,45 +3,40 @@
 namespace App\Livewire\Pages;
 
 use App\Models\Media;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
-class Slider extends Component
+class SliderInput extends Component
 {
-     use WithFileUploads;
+    use WithFileUploads;
     #[Title('Image Slider')] 
     public $name,$value,$slider,$provider,$image,$mark,$maps,$client,$edit;
-    public function mount(){
-        $this->slider = Media::where('title','izidok')->get();
+
+    #[On('setEdit')]
+    public function mount($id){
+        $this->edit = Media::find($id);
+        $this->image = $this->edit->images;
     }
-     public function save(){
+    public function save(){
         if(is_string($this->image) && $this->image != null){
             $imageName = $this->image;
         }else{
             $imageName = saveImageLocalNew($this->image, 'slider');
         }
-        $this->slider->update([
+        Media::create([
             'title' => 'izidok',
             'images' => $imageName,
             'mark'  => 'slider'
         ]);
-        $this->dispatch('sweet-alert',icon:'success',title:'Image Slider Updated');
+        $this->dispatch('sweet-alert',icon:'success',title:'New Slider Saved');
         $this->render();
-        $this->mount();
-        $this->dispatch('closeModal');
+        return redirect()->to('slider');
     }
-     public  function confirmDelete($id){
-        $media = Media::find($id);
-        $media->delete();
-        $this->dispatch('sweet-alert',icon:'success',title:'Deleted Success');
-        $this->mount();
-        $this->render();
-
-    }
-
     public function render()
     {
-        return view('livewire.pages.slider');
+        return view('livewire.pages.slider-input');
     }
+    
 }

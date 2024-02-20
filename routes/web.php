@@ -16,6 +16,8 @@ use App\Livewire\Pages\Plan;
 use App\Livewire\Pages\Provider;
 use App\Livewire\Pages\ProviderEdit;
 use App\Livewire\Pages\Section;
+use App\Livewire\Pages\Slider;
+use App\Livewire\Pages\SliderInput;
 use App\Livewire\Pages\Solution;
 use App\Livewire\Pages\Solution\EditIziklaim;
 use App\Livewire\Pages\Solution\Iziklaim as SolutionIziklaim;
@@ -72,6 +74,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/provider',Provider::class)->name('provider');
     Route::get('/provider/{id}',ProviderEdit::class)->name('provider.edit');
+
+    Route::get('/slider',Slider::class);
+    Route::get('/slider/{id}',SliderInput::class)->name('slider.inp');
 
     Route::controller(HelperController::class)->group(function(){
         Route::post('/imageCkEditor','UploadImageCkEditor')->name('image.upload');
