@@ -64,6 +64,8 @@ class Teams extends Component
          try {
             if($team){
                 $team->delete();
+                DB::commit();
+                
                 $this->dispatch('sweet-alert', icon: 'success', title: 'Team Deleted');
                 $this->mount();
                 $this->render();
