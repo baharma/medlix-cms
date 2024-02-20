@@ -4,7 +4,7 @@
     'imageDefault'=>null,
     'label'=>null,
     'name'=>null,
-    'classInputValidate'
+    'classInputValidate',
     'id' => null,
 
 ])

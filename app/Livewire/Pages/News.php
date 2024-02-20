@@ -9,7 +9,6 @@ use Livewire\Component;
 class News extends Component
 {
     #[Title('News')]
-
     public function render()
     {
         $data = Article::all();

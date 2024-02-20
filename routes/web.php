@@ -19,6 +19,7 @@ use App\Livewire\Pages\Solution\Iziklaim as SolutionIziklaim;
 use App\Livewire\Pages\Solution\Medlinx as SolutionMedlinx;
 use App\Livewire\Pages\Starter;
 use App\Livewire\Pages\VisiMisi;
+use App\Livewire\Pages\VisiMisi\FormVisiMisi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/event',Event::class);
     Route::get('/izidok-pricing',Plan::class);
     Route::get('/about',About::class);
+    Route::get('/news',News::class)->name('news');
     Route::get('/news/form/{artikelId?}',FormNews::class)->name('artikel.create');
     Route::get('/news/detail/{artikelId}',DetailNews::class)->name('artikel.detail');
 
@@ -61,8 +63,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/iziklaim-hero',Iziklaim::class);
     Route::get('/medlinx-hero',Medlinx::class);
 
-    Route::get('/visi-misi',VisiMisi::class);
-
+    Route::get('/visi-misi',VisiMisi::class)->name('visi-misi');
+    Route::get('/visi-misi/form/{idVisiMisi?}',FormVisiMisi::class)->name('visi-misi.form');
 
     Route::controller(HelperController::class)->group(function(){
         Route::post('/imageCkEditor','UploadImageCkEditor')->name('image.upload');
