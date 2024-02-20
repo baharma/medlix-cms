@@ -13,6 +13,8 @@ use App\Livewire\Pages\News;
 use App\Livewire\Pages\News\DetailNews;
 use App\Livewire\Pages\News\FormNews;
 use App\Livewire\Pages\Plan;
+use App\Livewire\Pages\Provider;
+use App\Livewire\Pages\ProviderEdit;
 use App\Livewire\Pages\Section;
 use App\Livewire\Pages\Solution;
 use App\Livewire\Pages\Solution\EditIziklaim;
@@ -68,10 +70,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/teams',Teams::class)->name('team');
     Route::get('/teams/{id}',TeamsEdit::class)->name('team.edit');
 
+    Route::get('/provider',Provider::class)->name('provider');
+    Route::get('/provider/{id}',ProviderEdit::class)->name('provider.edit');
+
     Route::controller(HelperController::class)->group(function(){
         Route::post('/imageCkEditor','UploadImageCkEditor')->name('image.upload');
     });
-
     Route::post('/logout', [AuthController::class,'logout'])->name('logout');
 });
 
