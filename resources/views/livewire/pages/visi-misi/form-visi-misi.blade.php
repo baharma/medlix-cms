@@ -1,6 +1,6 @@
 <div>
     <div class="card p-3">
-        <form wire:submit='save'>
+        <form wire:submit='save' id="myForm">
             <div class="row mb-3">
                 <div class="col">
                     <x-componen-form.input-image-dropify label='Detail Visi-Misi Image' wireModel="imageVisi"
@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="d-flex flex-row-reverse bd-highlight mb-3">
-                <button type="submit" class="btn btn-success">Save</button>
+                <button class="btn btn-success" type="button" wire:click='SureSave'>Save</button>
             </div>
         </form>
     </div>
@@ -65,9 +65,7 @@
                     });
                     stop();
                 });
-
                 editor.ui.addButton('MyButton', {
-
                     icon: '_ bx bx-check-double _' // this hacks the existing classes and injects extra classes to the icon span
                 });
             })
@@ -79,5 +77,24 @@
         initializeEditor('#editorVisi', 'visi');
         initializeEditor('#editorMisi', 'misi');
     };
+
 </script>
 @endpush
+
+@script
+    <script>
+        $wire.on('saveVisiMisi',()=>{
+            Swal.fire({
+                title: 'Are you sure you want to save this?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'No'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    @this.save(); // This invokes the Livewire component method 'save'
+                }
+            });
+        })
+    </script>
+@endscript

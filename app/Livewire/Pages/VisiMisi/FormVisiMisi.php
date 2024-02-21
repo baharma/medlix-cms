@@ -11,12 +11,26 @@ use Livewire\WithFileUploads;
 class FormVisiMisi extends Component
 {
     use WithFileUploads;
-    #[Title('Form Visi-Misi')]
-    public $visi,$misi,$imageVisi,$imageMisi,$image;
-    public $model,$idVisiMisi;
 
-    public function mount(VisiMisi $visiMisi){
+    #[Title('Form Visi-Misi')]
+
+    public $visi,$misi,$imageVisi,$imageMisi,$image;
+    public $model,$idVisiMisi,$visiMisiEdit;
+
+    public function mount(VisiMisi $visiMisi)
+    {
         $this->model = $visiMisi;
+
+        if ($this->idVisiMisi) {
+            $this->visiMisiEdit = $this->model->find($this->idVisiMisi);
+            $this->fill([
+                'visi' => $this->visiMisiEdit->visi,
+                'misi' => $this->visiMisiEdit->misi,
+                'imageVisi' => $this->visiMisiEdit->visi_img,
+                'imageMisi' => $this->visiMisiEdit->misi_img,
+                'image' => $this->visiMisiEdit->detail_img,
+            ]);
+        }
     }
 
     public function render()
@@ -25,11 +39,25 @@ class FormVisiMisi extends Component
     }
 
     public function save(){
-        $visiImage = $this->imageVisi ? saveImageLocal($this->imageVisi, 'VisiMisi/Visi') : null;
-        $misiImage = $this->imageMisi ? saveImageLocal($this->imageMisi, 'VisiMisi/Misi') : null;
-        $image = $this->image ? saveImageLocal($this->image, 'VisiMisi/Detail') : null;
-        $visi = $this->visi;
-        $misi = $this->misi;
+        if (is_object($this->imageVisi) && method_exists($this->imageVisi, 'isFile') && $this->imageVisi->isFile()) {
+            $visiImage = saveImageLocal($this->imageVisi, 'VisiMisi/Visi');
+        } else {
+            $visiImage = $this->visiMisiEdit->visi_img ?? null;
+        }
+
+        if (is_object($this->imageMisi) && method_exists($this->imageMisi, 'isFile') && $this->imageMisi->isFile()) {
+            $misiImage = saveImageLocal($this->imageMisi, 'VisiMisi/Misi');
+        } else {
+            $misiImage = $this->visiMisiEdit->misi_img ?? null;
+        }
+
+        if (is_object($this->image) && method_exists($this->image, 'isFile') && $this->image->isFile()) {
+            $image = saveImageLocal($this->image, 'VisiMisi/Detail');
+        } else {
+            $image = $this->visiMisiEdit->detail_img ?? null;
+        }
+        $visi = insertIcon($this->visi);
+        $misi = insertIcon($this->misi);
         $property = [
             'app_id'=>Auth::user()->default_cms,
             'visi'=>$visi,
@@ -38,9 +66,16 @@ class FormVisiMisi extends Component
             'misi_img'=>$misiImage,
             'detail_img'=>$image
         ];
-
-        $this->model->create($property);
+        if($this->idVisiMisi){
+            $this->visiMisiEdit->update($property);
+        }else{
+            $this->model->create($property);
+        }
         $this->dispatch('sweet-alert',icon:'success',title:'Visi-Misi Saved');
         return to_route('visi-misi');
+    }
+
+    public function SureSave(){
+        $this->dispatch('saveVisiMisi');
     }
 }
