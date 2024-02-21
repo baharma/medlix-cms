@@ -65,6 +65,6 @@ class AuthController extends Controller
         $user = User::find(Auth::user()->id);
         $user->default_cms = $id;
         $user->save();
-        return redirect()->intended('/starter');
+        return redirect()->intended('/dashboard');
     }
 }

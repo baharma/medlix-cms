@@ -13,13 +13,20 @@ use App\Livewire\Pages\News;
 use App\Livewire\Pages\News\DetailNews;
 use App\Livewire\Pages\News\FormNews;
 use App\Livewire\Pages\Plan;
+use App\Livewire\Pages\Provider;
+use App\Livewire\Pages\ProviderEdit;
 use App\Livewire\Pages\Section;
+use App\Livewire\Pages\Slider;
+use App\Livewire\Pages\SliderInput;
 use App\Livewire\Pages\Solution;
+use App\Livewire\Pages\Solution\EditIziklaim;
 use App\Livewire\Pages\Solution\Iziklaim as SolutionIziklaim;
 use App\Livewire\Pages\Solution\Medlinx as SolutionMedlinx;
 use App\Livewire\Pages\Starter;
 use App\Livewire\Pages\VisiMisi;
 use App\Livewire\Pages\VisiMisi\FormVisiMisi;
+use App\Livewire\Pages\Teams;
+use App\Livewire\Pages\TeamsEdit;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,17 +54,18 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', Dashboard::class);
     Route::get('/starter', Starter::class);
 
-
     Route::get('/cms',CmsApp::class);
     Route::get('/event',Event::class);
     Route::get('/izidok-pricing',Plan::class);
     Route::get('/about',About::class);
+
     Route::get('/news',News::class)->name('news');
     Route::get('/news/form/{artikelId?}',FormNews::class)->name('artikel.create');
     Route::get('/news/detail/{artikelId}',DetailNews::class)->name('artikel.detail');
 
     Route::get('/medlinx-solution',SolutionMedlinx::class);
-    Route::get('/iziklaim-solution',SolutionIziklaim::class);
+    Route::get('/iziklaim-solution',SolutionIziklaim::class)->name('solution') ;
+    Route::get('/iziklaim-solution-edit/{id}',EditIziklaim::class)->name('solution.edit');
 
     Route::get('/izidok-hero',Izidok::class);
     Route::get('/iziklaim-hero',Iziklaim::class);
@@ -65,11 +73,18 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/visi-misi',VisiMisi::class)->name('visi-misi');
     Route::get('/visi-misi/form/{idVisiMisi?}',FormVisiMisi::class)->name('visi-misi.form');
+    Route::get('/teams',Teams::class)->name('team');
+    Route::get('/teams/{id}',TeamsEdit::class)->name('team.edit');
+
+    Route::get('/provider',Provider::class)->name('provider');
+    Route::get('/provider/{id}',ProviderEdit::class)->name('provider.edit');
+
+    Route::get('/slider',Slider::class);
+    Route::get('/slider/{id}',SliderInput::class)->name('slider.inp');
 
     Route::controller(HelperController::class)->group(function(){
         Route::post('/imageCkEditor','UploadImageCkEditor')->name('image.upload');
     });
-
     Route::post('/logout', [AuthController::class,'logout'])->name('logout');
 });
 

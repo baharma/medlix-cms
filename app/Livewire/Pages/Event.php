@@ -42,7 +42,7 @@ class Event extends Component
 
     public function confirmDelete($id){
         $event = $this->model->find($id);
-        Storage::disk('images_local')->delete('Event/'.$event->image);
+        Storage::disk('images_local')->delete('event/'.$event->image);
         $event->delete();
         $this->updateEvent();
     }

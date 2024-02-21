@@ -28,7 +28,7 @@ class Medlinx extends Component
                 $imageName = $hero->image;        
             } else {
                 $name  = $hero->image;
-                $imageName = saveImageLocalnew($this->image, 'Hero/iziklaim',$name);
+                $imageName = saveImageLocalnew($this->image, 'hero',$name);
             }
             
             
@@ -45,8 +45,8 @@ class Medlinx extends Component
             if ($cms?->image == $this->image) {
                 $imageName = $cms->image;        
             } else {
-                $name  = 'iziklaim-hero-img-'.$this->count;
-                $imageName = saveImageLocalnew($this->image, 'Hero/iziklaim',$name);
+                $name  = 'medlinx-hero-img-'.$this->count;
+                $imageName = saveImageLocalnew($this->image, 'hero',$name);
             }
             
             AppHero::create([

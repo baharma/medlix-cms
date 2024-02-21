@@ -13,6 +13,7 @@ function ActiveApp($get = 'null'){
     $data['name'] = strtoupper($app?->app_name)??'';
     $data['url'] = $app?->app_url??null;
     $data['logo'] = $app?->logo??null;
+    // dd($app);
 
     return $data[$get];
 }
@@ -22,6 +23,9 @@ function appLogo(){
 
 function mataUang($num){
     return 'Rp'. number_format($num,0,',' ,'.');
+}
+function num($num){
+    return number_format($num,0,',' ,'.');
 }
 
 function saveImageLocal(UploadedFile $file,$path){
@@ -98,8 +102,7 @@ function process_html($html) {
     return $result;
 }
 function insertIcon($html) {
-    $dom = new DOMDocument();
-
+    $dom = new \DOMDocument();
     // Load HTML content
     $dom->loadHTML($html);
 
