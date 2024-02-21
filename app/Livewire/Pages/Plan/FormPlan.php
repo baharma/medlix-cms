@@ -57,7 +57,6 @@ class FormPlan extends Component
                     }
                 });
             }
-
             $this->dispatch('sweet-alert',icon:'success',title:'Your Plan Is update!');
         }else{
             $plan =  $this->plan->create([

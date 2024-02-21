@@ -23,6 +23,8 @@ use App\Livewire\Pages\Solution\EditIziklaim;
 use App\Livewire\Pages\Solution\Iziklaim as SolutionIziklaim;
 use App\Livewire\Pages\Solution\Medlinx as SolutionMedlinx;
 use App\Livewire\Pages\Starter;
+use App\Livewire\Pages\VisiMisi;
+use App\Livewire\Pages\VisiMisi\FormVisiMisi;
 use App\Livewire\Pages\Teams;
 use App\Livewire\Pages\TeamsEdit;
 use Illuminate\Support\Facades\Route;
@@ -69,6 +71,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/iziklaim-hero',Iziklaim::class);
     Route::get('/medlinx-hero',Medlinx::class);
 
+    Route::get('/visi-misi',VisiMisi::class)->name('visi-misi');
+    Route::get('/visi-misi/form/{idVisiMisi?}',FormVisiMisi::class)->name('visi-misi.form');
     Route::get('/teams',Teams::class)->name('team');
     Route::get('/teams/{id}',TeamsEdit::class)->name('team.edit');
 

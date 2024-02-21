@@ -76,18 +76,18 @@ function checkImage($filePath, $placeholderURL = 'https://placehold.co/400') {
 function process_html($html) {
     // Create a DOMDocument object
     $dom = new DOMDocument();
-    
+
     // Load HTML content
     $dom->loadHTML($html);
-    
+
     $result = [];
-    
+
     // Extract text within <p> tags and add to result array
     $paragraphs = $dom->getElementsByTagName('p');
     foreach ($paragraphs as $paragraph) {
         $result[] = $paragraph->nodeValue;
     }
-    
+
     // Extract list items within <ul> tags and add to result array
     $ul_tags = $dom->getElementsByTagName('ul');
     foreach ($ul_tags as $ul) {
@@ -98,15 +98,14 @@ function process_html($html) {
         }
         $result[] = $list_items;
     }
-    
+
     return $result;
 }
 function insertIcon($html) {
     $dom = new \DOMDocument();
-    
     // Load HTML content
     $dom->loadHTML($html);
-    
+
     // Add <i> tag with class to <li> tags
     $ul_tags = $dom->getElementsByTagName('ul');
     foreach ($ul_tags as $ul) {
@@ -117,7 +116,7 @@ function insertIcon($html) {
             $li->insertBefore($icon, $li->firstChild);
         }
     }
-    
+
     // Output the modified HTML without doctype, html, and body tags
     $output_html = '';
     foreach ($dom->getElementsByTagName('body')->item(0)->childNodes as $node) {
