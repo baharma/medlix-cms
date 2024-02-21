@@ -26,13 +26,21 @@ class AllSectionSeeder extends Seeder
             ],
             [
                 'name'  => 'Pricing',
-                'url'   => '/pricing',
-                'icon'  => 'bx bx-credit-card'
+                'url'   => '/izidok-pricing',
+                'icon'  => 'bx bx-credit-card',
+                'group' => 2,
             ],
             [
                 'name'  => 'Visi-Misi',
                 'url'   => '/visi-misi',
-                'icon'  => 'bx bx-message-square-detail'
+                'icon'  => 'bx bx-message-square-detail',
+                'group' => 1,
+            ],
+            [
+                'name'  => 'Visi-Misi',
+                'url'   => '/visi-misi',
+                'icon'  => 'bx bx-message-square-detail',
+                'group' => 3
             ],
             [
                 'name'  => 'News',
@@ -45,49 +53,71 @@ class AllSectionSeeder extends Seeder
                 'icon'  => 'bx bx-chalkboard'
             ],
             [
-                'name'  => 'Contact',
-                'url'   => '/contact',
-                'icon'  => 'bx bx-directions'
-            ],
-            [
                 'name'  => 'Soluton',
-                'url'   => '/solution',
-                'icon'  => 'bx bx-at'
+                'url'   => '/medlinx-solution',
+                'icon'  => 'bx bx-at',
+                'group' => 1,
+            ],
+             [
+                'name'  => 'Soluton',
+                'url'   => '/iziklaim-solution',
+                'icon'  => 'bx bx-at',
+                'group' => 3,
             ],
             [
-                'name'  => 'APP Section',
-                'url'   => '/app-section',
-                'icon'  => 'bx bx-right-indent'
+                'name'  => 'Provider',
+                'url'   => '/provider',
+                'icon'  => 'bx bx-right-indent',
+                'group' => 3,
             ],
             [
-                'name' => 'Select CMS',
-                'url'  => '/select-cms',
-                'icon'  => 'bx bx-layer'
+                'name'  => 'Teams',
+                'url'   => '/teams',
+                'icon'  => 'bx bx-trophy',
+                'group' => 1,
             ],
             [
-                'name' => 'Hero Medlinx',
+                'name'  => 'Teams',
+                'url'   => '/teams',
+                'icon'  => 'bx bx-trophy',
+                'group' => 3,
+            ],
+             [
+                'name'  => 'Portofolio',
+                'url'   => '/porto',
+                'icon'  => 'bx bx-image',
+                'group' => 1,
+            ],
+            [
+                'name'  => 'IMG Slider',
+                'url'   => '/slider',
+                'icon'  => 'bx bx-image',
+                'group' => 2,
+            ],
+            [
+                'name' => 'Page Hero',
                 'url'  => '/medlinx-hero',
-                'icon'  => 'bx bx-credit-card-front'
+                'icon' => 'bx bx-credit-card-front',
+                'group'=> 1
             ],
             [
-                'name' => 'Hero Izidok',
+                'name' => 'Page Hero',
                 'url'  => '/izidok-hero',
-                'icon'  => 'bx bx-credit-card-front'
+                'icon' => 'bx bx-credit-card-front',
+                'group'=> 2
+
             ],
             [
-                'name' => 'Hero Iziklaim',
+                'name' => 'Page Hero',
                 'url'  => '/iziklaim-hero',
-                'icon'  => 'bx bx-credit-card-front'
+                'icon' => 'bx bx-credit-card-front',
+                'group'=> 3
             ],
 
         ];
 
-        for ($i=0; $i < count($data); $i++) {
-            AllSection::create([
-                'name' => $data[$i]['name'],
-                'url' => $data[$i]['url'],
-                'icon' => $data[$i]['icon'],
-            ]);
-        }
+       foreach ($data as $item) {
+          AllSection::create($item);
+       }
     }
 }

@@ -9,9 +9,9 @@
             max-width: 50%;
         }
     </style>
-    <div class="row row-cols-1 row-cols-md-1 row-cols-lg-3 row-cols-xl-3 p-5 ">
+    <div class="row row-cols-1 row-cols-md-1 row-cols-lg-3 row-cols-xl-3 p-5 d-flex justify-content-center">
         @foreach ($cms as $item)
-            <div class="col p-4">
+            <div class="col p-4 ">
                 <div class="card" style="height: 300px; border-radius: 15px;">
                     <div class="card-body d-flex justify-center">
                         <img src="{{ asset($item->logo) }}" class="img-responsive card-img-top" alt="..." style=" ">

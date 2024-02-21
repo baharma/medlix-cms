@@ -3,8 +3,8 @@
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
                 <h4>Slider Image</h4>
-                <a class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#modalFaskes"><i
-                        class="bx bx-plus "></i> Add</a>
+                <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#modalFaskes"><i
+                        class="bx bx-plus "></i> Add</button>
             </div>
             <table class="table">
                 <thead>

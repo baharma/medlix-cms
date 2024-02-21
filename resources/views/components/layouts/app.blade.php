@@ -60,8 +60,12 @@
                         <div class="menu-title">Dashboard</div>
                     </a>
                 </li>
-                <li class="menu-label">Section</li>
-                <livewire:components.sidebar />
+                <li class="menu-label">{{ auth()->user()->is_admin ? 'Admin' : '' }} Section</li>
+                @if (auth()->user()->is_admin)
+                    <livewire:components.admin-sidebar />
+                @else
+                    <livewire:components.sidebar />
+                @endif
                 <li class="menu-label">End Section</li>
                 <form action="{{ route('logout') }}" method="post" id="formLogout">
                     @csrf
@@ -130,12 +134,7 @@
 
         });
     </script>
-    <script>
-        $(function() {
-            $('[data-bs-toggle="popover"]').popover();
-            $('[data-bs-toggle="tooltip"]').tooltip();
-        })
-    </script>
+
     <!--app JS-->
     <script src="{{ asset('assets/js/app.js') }}"></script>
 
