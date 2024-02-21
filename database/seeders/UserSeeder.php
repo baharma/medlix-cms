@@ -17,8 +17,8 @@ class UserSeeder extends Seeder
         $users = [
             [
                 'name' => 'Admin',
-                'email' => 'admin@gmail.com',
-                'password' => Hash::make('admin123'),
+                'email' => 'admin@mail.com',
+                'password' => Hash::make('123123'),
                 'access' => json_encode(['app_id' => [1,2,3]]),
                 'is_admin'=>true
             ],

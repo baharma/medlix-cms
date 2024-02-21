@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HelperController;
+use App\Livewire\Admin\ManageUser;
+use App\Livewire\Admin\Section as AdminSection;
 use App\Livewire\Pages\About;
 use App\Livewire\Pages\CmsApp;
 use App\Livewire\Pages\Dashboard;
@@ -13,6 +15,8 @@ use App\Livewire\Pages\News;
 use App\Livewire\Pages\News\DetailNews;
 use App\Livewire\Pages\News\FormNews;
 use App\Livewire\Pages\Plan;
+use App\Livewire\Pages\Porto;
+use App\Livewire\Pages\PortoEdit;
 use App\Livewire\Pages\Provider;
 use App\Livewire\Pages\ProviderEdit;
 use App\Livewire\Pages\Section;
@@ -46,9 +50,9 @@ Route::group(['middleware' => ['guest']], function () {
 });
 
 Route::group(['middleware' => ['auth']], function () {
+
     Route::get('/set-cms',[AuthController::class,'setCms'])->name('set.cms');
     Route::get('/set-cms-id/{cmsId}',[AuthController::class,'setCmsId'])->name('cms.set');
-    Route::get('/app-section', Section::class);
     Route::get('/dashboard', Dashboard::class);
     Route::get('/starter', Starter::class);
 
@@ -78,9 +82,19 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/slider',Slider::class);
     Route::get('/slider/{id}',SliderInput::class)->name('slider.inp');
 
+    Route::get('/porto',Porto::class);
+    Route::get('/porto/{id}',PortoEdit::class);
+
     Route::controller(HelperController::class)->group(function(){
         Route::post('/imageCkEditor','UploadImageCkEditor')->name('image.upload');
     });
     Route::post('/logout', [AuthController::class,'logout'])->name('logout');
+
+    Route::get('/section', Section::class);
+    Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
+        Route::get('/section',AdminSection::class);
+        Route::get('/users',ManageUser::class);
+    });
+
 });
 

@@ -201,7 +201,11 @@
 
 
     @push('scripts')
-
+        <script>
+            $(function() {
+                $('[data-bs-toggle="tooltip"]').tooltip();
+            })
+        </script>
 
         @script
             <script>
