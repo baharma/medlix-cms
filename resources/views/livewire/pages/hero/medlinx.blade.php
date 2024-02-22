@@ -8,12 +8,12 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <table class="table table-bordered">
+            <table class="table">
                 <tbody>
                     @foreach ($model as $item)
                         <tr>
                             <td>
-                                <img src="{{ $item->image }}" alt="" style="max-width: 200px">
+                                <img src="{{ $item->image }}" alt="{{ $item->image }}" style="width: 100px">
                             </td>
                             <td>
                                 <p>{{ $item->title }}</p>
@@ -23,12 +23,15 @@
                                     {{ decode($item->extend)['btn_action'] }}</span>
                             </td>
                             <td>
-                                <button class="btn btn-warning btn-sm mr-2 mb-2"
-                                    wire:click="editEvent('{{ $item->id }}')" data-bs-toggle="modal"
-                                    data-bs-target="#ModalHero"><i class="bx bx-pencil"></i></button>
-                                <button class="btn btn-danger btn-sm"
-                                    @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })"><i
-                                        class="bx bx-trash"></i></button>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button class="btn btn-warning btn-sm mr-2 mt-2"
+                                        wire:click="editEvent('{{ $item->id }}')" data-bs-toggle="modal"
+                                        data-bs-target="#ModalHero"><i class="bx bx-pencil"></i></button>
+                                    <button class="btn btn-danger btn-sm mt-2"
+                                        @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })"><i
+                                            class="bx bx-trash"></i></button>
+                                </div>
+
                             </td>
                         </tr>
                     @endforeach
@@ -82,7 +85,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 

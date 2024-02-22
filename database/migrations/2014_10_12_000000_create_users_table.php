@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('access')->comment('array of app_id');
             $table->integer('default_cms')->nullable();
             $table->boolean('is_admin');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

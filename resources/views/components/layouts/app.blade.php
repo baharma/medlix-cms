@@ -5,9 +5,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--favicon-->
     <link rel="icon" href="{{ asset('assets/images/favico.png') }} " type="image/png" />
     <!--plugins-->
+    <link rel="stylesheet" href="{{ asset('assets/scss/main-scss.css') }}">
     <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
@@ -30,6 +32,7 @@
     <script src="{{ asset('/assets/sweetalert2') }}/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="{{ asset('/assets/sweetalert2') }}/sweetalert2.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/dropify/css/dropify.min.css') }}">
+    <script src="{{ asset('assets/js/ckeditor.js') }}"></script>
     @stack('style')
 </head>
 
@@ -39,15 +42,42 @@
         <!--sidebar wrapper -->
         <div class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
-                <div>
-                    {!! appLogo() !!}
-                </div>
+                <a href="{{ url('set-cms') }}">
+                    <div>
+                        {!! appLogo() !!}
+                    </div>
+                </a>
 
                 <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
                 </div>
             </div>
             <!--navigation-->
-            <livewire:components.sidebar />
+            <ul class="metismenu" id="menu">
+                <li>
+                    <a href="{{ url('/dashboard') }}" wire:navigate>
+                        <div class="parent-icon"><i class="bx bx-home-circle"></i>
+                        </div>
+                        <div class="menu-title">Dashboard</div>
+                    </a>
+                </li>
+                <li class="menu-label">{{ auth()->user()->is_admin ? 'Admin' : '' }} Section</li>
+                @if (auth()->user()->is_admin)
+                    <livewire:components.admin-sidebar />
+                @else
+                    <livewire:components.sidebar />
+                @endif
+                <li class="menu-label">End Section</li>
+                <form action="{{ route('logout') }}" method="post" id="formLogout">
+                    @csrf
+                    <li>
+                        <a href="#" id="logout" type="submit">
+                            <div class="parent-icon"><i class="bx bx-log-out"></i>
+                            </div>
+                            <div class="menu-title">Logout</div>
+                        </a>
+                    </li>
+                </form>
+            </ul>
             <!--end navigation-->
         </div>
 
@@ -104,6 +134,7 @@
 
         });
     </script>
+
     <!--app JS-->
     <script src="{{ asset('assets/js/app.js') }}"></script>
 

@@ -14,10 +14,13 @@ return new class extends Migration
         Schema::create('visi_misis', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('app_id');
-            $table->string('visi');
+            $table->longText('visi');
             $table->longText('misi');
+            $table->longText('visi_img')->nullable();
+            $table->longText('misi_img')->nullable();
+            $table->longText('detail_img')->nullable();
             $table->timestamps();
-            
+
             $table->foreign('app_id')
                 ->references('id')
                 ->on('cms_apps')

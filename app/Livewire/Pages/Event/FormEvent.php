@@ -14,6 +14,7 @@ class FormEvent extends Component
     public $name, $detail , $image;
     public $editEmit,$model;
     protected $listeners = ['editEvent','clearText'];
+
     protected $rules = [
         'name'=> 'required',
         'image'=>'required'
@@ -33,7 +34,7 @@ class FormEvent extends Component
             if ($this->image == $event->image) {
                     $filename = $event->image;
                 }else{
-                    $filename = saveImageLocal($this->image,'Event');
+                    $filename = saveImageLocal($this->image,'event');
                 }
                 $dataEvent = [
                     'app_id' => Auth::user()->default_cms,

@@ -47,7 +47,7 @@ class Izidok extends Component
         if ($cms?->image == $this->image) {
             $imageName = $cms->image;
         } else {
-            $imageName = saveImageLocalNew($this->image, 'Hero/izidok','izidok-hero-img');
+            $imageName = saveImageLocalNew($this->image, 'hero','izidok-hero-img');
         }
         AppHero::updateOrCreate(['app_id' => 2],[
             'app_id' => 2,

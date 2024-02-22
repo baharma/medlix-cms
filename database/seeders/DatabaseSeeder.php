@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             PlanSeeder::class,
             PlanDetailSeeder::class,
             AllSectionSeeder::class,
-            AppSectionSeeder::class,
+            // AppSectionSeeder::class,
             UserSeeder::class
         ]);
     }

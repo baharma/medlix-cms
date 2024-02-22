@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('url');
             $table->string('icon');
+            $table->string('group')->nullable()->comment('group by app_id');
             $table->timestamps();
         });
     }

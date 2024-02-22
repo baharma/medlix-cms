@@ -19,7 +19,7 @@ class AuthController extends Controller
         
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
-            'password' => 'required|min:6',
+            'password' => 'required|min:5',
         ]);
 
         // Check if validation fails
@@ -65,6 +65,6 @@ class AuthController extends Controller
         $user = User::find(Auth::user()->id);
         $user->default_cms = $id;
         $user->save();
-        return redirect()->intended('/starter');
+        return redirect()->intended('/dashboard');
     }
 }

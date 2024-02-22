@@ -3,7 +3,6 @@
 namespace App\Livewire\Pages\Hero;
 
 use App\Models\AppHero;
-use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
@@ -29,7 +28,7 @@ class Medlinx extends Component
                 $imageName = $hero->image;        
             } else {
                 $name  = $hero->image;
-                $imageName = saveImageLocalnew($this->image, 'Hero/iziklaim',$name);
+                $imageName = saveImageLocalnew($this->image, 'hero',$name);
             }
             
             
@@ -46,8 +45,8 @@ class Medlinx extends Component
             if ($cms?->image == $this->image) {
                 $imageName = $cms->image;        
             } else {
-                $name  = 'iziklaim-hero-img-'.$this->count;
-                $imageName = saveImageLocalnew($this->image, 'Hero/iziklaim',$name);
+                $name  = 'medlinx-hero-img-'.$this->count;
+                $imageName = saveImageLocalnew($this->image, 'hero',$name);
             }
             
             AppHero::create([
@@ -91,7 +90,7 @@ class Medlinx extends Component
 
         $this->image = $data->image;
         $this->title = $data->title;
-         $this->action = json_decode($data->extend,true)['btn_action'];
+        $this->action = json_decode($data->extend,true)['btn_action'];
     }
     public function renderRefresh(){
         return AppHero::where('app_id',1)->first();
