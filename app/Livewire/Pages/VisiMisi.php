@@ -11,11 +11,14 @@ class VisiMisi extends Component
 {
     #[Title('Visi-Misi')]
 
-    public $model;
+    public $model, $dataEdit;
 
 
     public function mount(ModelsVisiMisi $visiMisi){
         $this->model = $visiMisi;
+        if($this->model){
+            $this->dataEdit = $this->model->first();
+        }
     }
 
     public function render()
@@ -32,4 +35,6 @@ class VisiMisi extends Component
         $visi->delete();
         $this->dispatch('sweet-alert',icon:'success',title:'Visi-Misi Deleted');
     }
+
+
 }
