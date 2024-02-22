@@ -99,6 +99,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/section',AdminSection::class);
         Route::get('/users',ManageUser::class);
     });
+    
 
 });
 
