@@ -38,9 +38,9 @@ class AllSectionSeeder extends Seeder
             ],
             [
                 'name'  => 'Visi-Misi',
-                'url'   => '/visi-misi',
+                'url'   => '/medlinx-visi-misi',
                 'icon'  => 'bx bx-message-square-detail',
-                'group' => 3
+                'group' => 1
             ],
             [
                 'name'  => 'News',
