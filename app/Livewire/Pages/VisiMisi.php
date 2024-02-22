@@ -16,14 +16,14 @@ class VisiMisi extends Component
 
     public function mount(ModelsVisiMisi $visiMisi){
         $this->model = $visiMisi;
-        if($this->model){
-            $this->dataEdit = $this->model->first();
+        if($this->model->where('app_id',1)->get()){
+            $this->dataEdit = $this->model->where('app_id',1)->first();
         }
     }
 
     public function render()
     {
-        $dataVisi = $this->model->all();
+        $dataVisi = $this->model->where('app_id',1)->get();
         return view('livewire.pages.visi-misi',compact('dataVisi'));
     }
 

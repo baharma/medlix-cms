@@ -1,11 +1,11 @@
 <div>
     <div class="d-flex flex-row-reverse mb-4">
         @if ($dataEdit)
-            <a type="button" class="btn btn-primary" href="{{route('visi-misi.form',$dataEdit->id)}}">
+            <a type="button" class="btn btn-primary" href="{{route('visi-misi.medlinx-form',$dataEdit->id)}}">
             <i class='bx bx-add-to-queue'></i>
             Edit Visi Misi</a>
         @else
-            <a type="button" class="btn btn-primary" href="{{route('visi-misi.form')}}">
+            <a type="button" class="btn btn-primary" href="{{route('visi-misi.medlinx-form')}}">
             <i class='bx bx-add-to-queue'></i>
             Add New Visi Misi</a>
         @endif
@@ -44,18 +44,6 @@
                         style="height:200px;width:100%;object-fit: cover;" />
                 </a>
             </div>
-            {{-- <div class="d-flex flex-row-reverse bd-highlight">
-                <div class="p-2">
-                    <a type="button" class="btn btn-primary mx-2" href="{{route('visi-misi.form',$item->id)}}">
-                        <i class='bx bx-edit'></i>
-                        Edit</a>
-                    <button type="button" class="btn btn-danger mx-2"
-                    @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })"
-                    >
-                        <i class='bx bxs-trash-alt'></i>
-                        Delete</button>
-                </div>
-            </div> --}}
         </div>
     </div>
     @empty

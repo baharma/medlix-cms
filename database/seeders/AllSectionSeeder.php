@@ -32,9 +32,9 @@ class AllSectionSeeder extends Seeder
             ],
             [
                 'name'  => 'Visi-Misi',
-                'url'   => '/visi-misi',
+                'url'   => '/iziklaim-visi-misi',
                 'icon'  => 'bx bx-message-square-detail',
-                'group' => 1,
+                'group' => 3
             ],
             [
                 'name'  => 'Visi-Misi',

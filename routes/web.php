@@ -31,6 +31,8 @@ use App\Livewire\Pages\VisiMisi;
 use App\Livewire\Pages\VisiMisi\FormVisiMisi;
 use App\Livewire\Pages\Teams;
 use App\Livewire\Pages\TeamsEdit;
+use App\Livewire\Pages\VisiMisi\FormIziklaimVisiMisi;
+use App\Livewire\Pages\VisiMisi\VisiMisiiziklaim;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,10 +77,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/iziklaim-hero',Iziklaim::class);
     Route::get('/medlinx-hero',Medlinx::class);
 
-    Route::get('/izidok-visi-misi',VisiMisi::class)->name('visi-misi');
-    Route::get('/izidok-visi-misi/form/{idVisiMisi?}',FormVisiMisi::class)->name('visi-misi.form');
+    Route::get('/medlinx-visi-misi',VisiMisi::class)->name('visi-misi.medlinx');
+    Route::get('/medlinx-visi-misi/form/{idVisiMisi?}',FormVisiMisi::class)->name('visi-misi.medlinx-form');
 
-
+    Route::get('/iziklaim-visi-misi',VisiMisiiziklaim::class)->name('visi-misi.iziklaim');
+    Route::get('/iziklaim-visi-misi/form/{idVisiMisi?}',FormIziklaimVisiMisi::class)->name('visi-misi.iziklaim-form');
 
     Route::get('/teams',Teams::class)->name('team');
     Route::get('/teams/{id}',TeamsEdit::class)->name('team.edit');
@@ -102,7 +105,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/section',AdminSection::class);
         Route::get('/users',ManageUser::class);
     });
-    
+
 
 });
 
