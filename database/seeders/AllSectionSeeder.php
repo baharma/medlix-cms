@@ -82,7 +82,7 @@ class AllSectionSeeder extends Seeder
                 'icon'  => 'bx bx-trophy',
                 'group' => 3,
             ],
-             [
+            [
                 'name'  => 'Portofolio',
                 'url'   => '/porto',
                 'icon'  => 'bx bx-image',

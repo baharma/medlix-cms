@@ -1,0 +1,55 @@
+<div>
+    <div class="modal fade" id="modalPenghargaan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        wire:ignore.self aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" wire:ignore.self>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mb-0 text-info" id="staticBackdropLabel">Form Image</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form wire:submit.prevent="save" enctype="multipart/form-data" id="formInp">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6" id="inpList">
+                                <div class="form-group mb-3">
+                                    <x-componen-form.input-image-dropify label='Icon' wireModel="icon" name="icon"
+                                        imageDefault="{{ $icon }}" />
+                                </div>
+                            </div>
+                            <div class="col-md-6" id="inpList">
+                                <div class="form-group mb-3">
+                                    <x-componen-form.input-image-dropify label='Logo' wireModel="logo" name="logo"
+                                        imageDefault="{{ $logo }}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <x-componen-form.textarea-input label='Text' wireModel="text" name="text" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="close-modal" class="btn btn-warning" data-bs-dismiss="modal"><i
+                                class="bx bx-x"></i> Close</button>
+                        <button type="submit" class="btn btn-primary"><i class="bx bx-save"></i> Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@push('script')
+    @script
+        <script>
+            $wire.on('closeModal', () => {
+                const closeButton = document.getElementById('close-modal');
+                if (closeButton) {
+                    closeButton.click();
+                } else {
+                    console.error('Button with ID "close-modal" not found');
+                }
+            })
+        </script>
+    @endscript
+@endpush
