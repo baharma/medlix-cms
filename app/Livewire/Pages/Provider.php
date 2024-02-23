@@ -33,7 +33,7 @@ class Provider extends Component
                 'mark'  => 'provider'
             ]);
            }else{
-             Media::create([
+            Media::create([
                 'title' => $name,
                 'text'  => $val,
                 'mark'  => 'provider'
