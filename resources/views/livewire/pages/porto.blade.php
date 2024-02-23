@@ -194,8 +194,8 @@
                     <div class="col-md-12">
                         <div class="d-flex justify-content-between mb-3">
                             <h5>Portofolio Slider</h5>
-                            <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#modalAdd"
-                                wire:click="setType(slider1)"><i class="bx bx-plus "></i> Add</button>
+                            <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#modalAdd"><i
+                                    class="bx bx-plus "></i> Add</button>
                         </div>
                     </div>
                     <hr>
@@ -367,4 +367,5 @@
 
     </div>
     <livewire:pages.porto.form-penghargaan />
+    <livewire:pages.porto.form />
 </div>

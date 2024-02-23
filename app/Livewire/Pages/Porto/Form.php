@@ -24,6 +24,7 @@ class Form extends Component
             'mark'  => $this->type
         ]);
         $this->dispatch('sweet-alert',icon:'success',title:'Image Slider Updated');
+        $this->reset();
         $this->dispatch('refresh');
         $this->dispatch('closeModal');
     }

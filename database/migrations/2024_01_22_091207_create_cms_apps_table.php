@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('app_mail')->nullable();
             $table->string('app_phone')->nullable();
             $table->string('app_wa')->nullable();
-            $table->string('app_gmaps')->nullable();
+            $table->longText('app_gmaps')->nullable();
             $table->timestamps();
         });
     }

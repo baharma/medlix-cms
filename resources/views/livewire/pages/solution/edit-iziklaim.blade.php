@@ -90,7 +90,6 @@
                         </div>
                         <div class="col-md-12" id="inpList">
                             <div class="form-group mb-3" wire:ignore>
-
                                 <x-componen-form.textarea-input label='subtitle' wireModel="subtitle" cols="30"
                                     rows="5" idTextarea="subtitleEdit" name="subtitle"
                                     inpVal="{{ $subtitle }}" />

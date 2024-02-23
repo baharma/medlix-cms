@@ -21,7 +21,7 @@ class Teams extends Component
             $this->only = 3;
         }else{
             $this->model = Team::where('up_lv',null)->get();
-            $this->team = Team::where('app_id',null)->get();
+            $this->team = Team::where('app_id',null)->orWhere('app_id',0)->get();
             $this->only = false;
         }
     }
