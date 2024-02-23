@@ -12,7 +12,7 @@
             <img src="{{$news->thumbnail}}" alt="" class="image-news">
         </div>
         <div class="d-flex justify-content-center">
-            <div class="container-fluid">
+            <div class="container">
                 {!! $news->description !!}
             </div>
         </div>
