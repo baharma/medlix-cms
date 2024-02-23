@@ -31,6 +31,8 @@ use App\Livewire\Pages\VisiMisi;
 use App\Livewire\Pages\VisiMisi\FormVisiMisi;
 use App\Livewire\Pages\Teams;
 use App\Livewire\Pages\TeamsEdit;
+use App\Livewire\Pages\Testimoni\FormTestimoni;
+use App\Livewire\Pages\Testimoni\Testimoni;
 use App\Livewire\Pages\VisiMisi\FormIziklaimVisiMisi;
 use App\Livewire\Pages\VisiMisi\VisiMisiiziklaim;
 use Illuminate\Support\Facades\Route;
@@ -91,6 +93,13 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/slider',Slider::class);
     Route::get('/slider/{id}',SliderInput::class)->name('slider.inp');
+
+    Route::get('/medlinx-testimoni',Testimoni::class)->name('medlinx-testimoni');
+    Route::get('/izidok-testimoni',Testimoni::class)->name('izidok-testimoni');
+
+    Route::get('/medlinx-testimoni/form/{idTestimoni?}',FormTestimoni::class)->name('testimoni-medlinx.form');
+    Route::get('/izidok-testimoni/form/{idTestimoni?}',FormTestimoni::class)->name('izidok-testimoni.form');
+
 
     Route::get('/porto',Porto::class);
     Route::get('/porto/{id}',PortoEdit::class);

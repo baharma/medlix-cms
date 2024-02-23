@@ -44,6 +44,18 @@ class AllSectionSeeder extends Seeder
                 'group' => 1
             ],
             [
+                'name'  => 'Testimoni',
+                'url'   => '/medlinx-testimoni',
+                'icon'  => 'bx bxs-like',
+                'group' => 1
+            ],
+            [
+                'name'  => 'Testimoni',
+                'url'   => '/izidok-testimoni',
+                'icon'  => 'bx bxs-like',
+                'group' => 2
+            ],
+            [
                 'name'  => 'News',
                 'url'   => '/news',
                 'icon'  => 'bx bx-news',
