@@ -15,7 +15,7 @@
     </li>
 
     <li class="menu-label">Section CMS</li>
-    <li>
+    <li class="@if (auth()->user()->default_cms != 1) d-none @endif">
         <a href="javascript:;" class="has-arrow">
             <div class="parent-icon"><i class='bx bx-building-house'></i>
             </div>
@@ -31,7 +31,7 @@
 
         </ul>
     </li>
-    <li>
+    <li class="@if (auth()->user()->default_cms != 2) d-none @endif">
         <a href="javascript:;" class="has-arrow">
             <div class="parent-icon"><i class='bx bx-devices'></i>
             </div>
@@ -47,7 +47,7 @@
 
         </ul>
     </li>
-    <li>
+    <li class="@if (auth()->user()->default_cms != 3) d-none @endif">
         <a href="javascript:;" class="has-arrow">
             <div class="parent-icon"><i class='bx bx-shield-alt-2'></i>
             </div>
@@ -56,7 +56,7 @@
         <ul>
             @foreach ($iziklaim as $izik)
                 <li>
-                    <a href="{{ $izid->section->url }}" wire:navigate><i
+                    <a href="{{ $izik->section->url }}" wire:navigate><i
                             class="bx bx-right-arrow-alt"></i>{{ $izik->section->name }}</a>
                 </li>
             @endforeach

@@ -17,7 +17,7 @@ class About extends Component
 {
     use WithFileUploads;
     
-    public $model, $image, $title;
+    public $model, $image, $title,$subtitle;
     public $toArr = [];
     public $lists = [];
     public $fistList;
@@ -27,12 +27,12 @@ class About extends Component
         if (!$this->model) {
             $this->image = '';
             $this->title = '';
-            $this->lists = [];
+            $this->subtitle = '';
            
         }else{
             $this->image = $this->model->image;
             $this->title = $this->model->title;
-            $this->lists = json_decode($this->model->list);
+            $this->subtitle = json_decode($this->model->list,true);
         }
       
     }
@@ -50,32 +50,22 @@ class About extends Component
         unset($this->fistList);
     }
     
-
-
     public function save(){
-        // dd($this->image);
-        if ($this->fistList != '') {
-            $this->toArr = [ $this->fistList ];
-        }
-        foreach ($this->lists as $list) {
-            if ($list == '') {
-                continue;
-            }
-            $this->toArr[] = $list;
-        }
+
         $cms = $this->renderRefresh();
         if ($cms?->image) {
             $imageName = $cms->image;
         } else {
             $imageName = saveImageLocal($this->image, 'About');
         }
+        $list = insertIcon($this->subtitle);
         DB::beginTransaction();
         try {
             ModelsAbout::updateOrCreate(['app_id'=>auth()->user()->default_cms], [
                 'app_id'=> auth()->user()->default_cms,
                 'image'=> $imageName,
                 'title'=> $this->title,
-                'list'=> json_encode($this->toArr)
+                'list'=> json_encode($list)
             ]);
             DB::commit();
             $this->dispatch('sweet-alert',icon:'success',title:'Data About Saved');
