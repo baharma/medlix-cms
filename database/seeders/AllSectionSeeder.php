@@ -22,7 +22,8 @@ class AllSectionSeeder extends Seeder
             [
                 'name'  => 'About',
                 'url'   => '/about',
-                'icon'  => 'bx bx-credit-card-front'
+                'icon'  => 'bx bx-credit-card-front',
+                'group' => 2,
             ],
             [
                 'name'  => 'Pricing',
@@ -45,12 +46,20 @@ class AllSectionSeeder extends Seeder
             [
                 'name'  => 'News',
                 'url'   => '/news',
-                'icon'  => 'bx bx-news'
+                'icon'  => 'bx bx-news',
+                'group' => 2,
             ],
             [
                 'name'  => 'Event',
                 'url'   => '/event',
-                'icon'  => 'bx bx-chalkboard'
+                'icon'  => 'bx bx-chalkboard',
+                'group' => 2
+            ],
+             [
+                'name'  => 'Event',
+                'url'   => '/event',
+                'icon'  => 'bx bx-chalkboard',
+                'group' => 3
             ],
             [
                 'name'  => 'Soluton',

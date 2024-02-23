@@ -21,7 +21,7 @@ class Slider extends Component
         }else{
             $imageName = saveImageLocalNew($this->image, 'slider');
         }
-        $this->slider->update([
+        Media::create([
             'title' => 'izidok',
             'images' => $imageName,
             'mark'  => 'slider'

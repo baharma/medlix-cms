@@ -32,7 +32,7 @@ class Iziklaim extends Component
         } else {
             $imageName = saveImageLocalnew($this->image, 'hero','iziklaim-hero-img');
         }
-        $extend = json_decode($cms->extend,true);
+        $extend = json_decode($cms?->extend,true);
         if ($extend!=null && $extend['sub_image'] == $this->image) {
             $subImageName = $extend['sub_image'];
         }else{
