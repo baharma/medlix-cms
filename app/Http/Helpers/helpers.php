@@ -31,7 +31,7 @@ function num($num){
 function saveImageLocal(UploadedFile $file,$path){
     $filename = uniqid() . '_' . $file->getClientOriginalName();
     $file->storeAs($path, $filename, 'images_local');
-    $FilePath = '/images/'.$path.'/'.$filename;
+    $FilePath = '/Image/'.$path.'/'.$filename;
     return $FilePath;
 }
 function saveImageLocalNew(UploadedFile $file, $path, $name = false) {
@@ -42,7 +42,7 @@ function saveImageLocalNew(UploadedFile $file, $path, $name = false) {
         $filename = $name . '.' . $extension; // Combine name and extension
     }
     // Check if the file with the same name exists
-    $existingFilePath = public_path('images/' . $path . '/' . $filename);
+    $existingFilePath = public_path('Image/' . $path . '/' . $filename);
     if (file_exists($existingFilePath)) {
         // Remove the existing file
         unlink($existingFilePath);
@@ -52,7 +52,7 @@ function saveImageLocalNew(UploadedFile $file, $path, $name = false) {
     $file->storeAs($path, $filename, 'images_local');
 
     // Construct the file path
-    $FilePath = 'images/' . $path . '/' . $filename;
+    $FilePath = 'Image/' . $path . '/' . $filename;
 
     return $FilePath;
 }

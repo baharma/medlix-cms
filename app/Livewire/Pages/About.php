@@ -64,7 +64,7 @@ class About extends Component
         }
 
         $cms = $this->renderRefresh();
-        if ($cms?->image) {
+        if (is_string($this->image)) {
             $imageName = $cms->image;
         } else {
             $imageName = saveImageLocal($this->image, 'About');
