@@ -22,7 +22,7 @@
                                 <a href="{{route('testimoni-medlinx.form',$item->id)}}" class="btn btn-warning mx-2" >
                                     <i class='bx bxs-edit' ></i>
                                     Edit</a>
-                                <a href="javascript:;" class="btn btn-danger mx-2">
+                                <a href="javascript:;" class="btn btn-danger mx-2" @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })">
                                     <i class='bx bxs-trash-alt' ></i>
                                     Delete</a>
                             </div>
@@ -38,5 +38,6 @@
                 </h4>
             </div>
         @endforelse
+        @include('layouts.component.confirm-delete')
     </div>
 </div>

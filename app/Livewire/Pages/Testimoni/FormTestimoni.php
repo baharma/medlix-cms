@@ -20,8 +20,6 @@ class FormTestimoni extends Component
         'person'=> 'required',
         'image'=> 'required'
     ];
-
-
     public function mount(Testimoni $testimoni){
         $this->model = $testimoni;
         if($this->idTestimoni){

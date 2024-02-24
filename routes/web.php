@@ -11,6 +11,7 @@ use App\Livewire\Pages\Event;
 use App\Livewire\Pages\Hero\Izidok;
 use App\Livewire\Pages\Hero\Iziklaim;
 use App\Livewire\Pages\Hero\Medlinx;
+use App\Livewire\Pages\Keunggulan\Keunggulan;
 use App\Livewire\Pages\News;
 use App\Livewire\Pages\News\DetailNews;
 use App\Livewire\Pages\News\FormNews;
@@ -35,6 +36,7 @@ use App\Livewire\Pages\Testimoni\FormTestimoni;
 use App\Livewire\Pages\Testimoni\Testimoni;
 use App\Livewire\Pages\VisiMisi\FormIziklaimVisiMisi;
 use App\Livewire\Pages\VisiMisi\VisiMisiiziklaim;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -100,6 +102,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/medlinx-testimoni/form/{idTestimoni?}',FormTestimoni::class)->name('testimoni-medlinx.form');
     Route::get('/izidok-testimoni/form/{idTestimoni?}',FormTestimoni::class)->name('izidok-testimoni.form');
 
+    Route::get('/izidok-keunggulan',Keunggulan::class);
 
     Route::get('/porto',Porto::class);
     Route::get('/porto/{id}',PortoEdit::class);

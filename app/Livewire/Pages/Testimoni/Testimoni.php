@@ -23,5 +23,9 @@ class Testimoni extends Component
         return view('livewire.pages.testimoni.testimoni',compact('data'));
     }
 
+    public function confirmDelete($get_id){
+        $this->model->find($get_id)->delete();
+        $this->dispatch('sweet-alert', ['icon' => 'success', 'title' => 'New Event Added']);
+    }
 
 }

@@ -134,6 +134,13 @@ class AllSectionSeeder extends Seeder
                 'icon' => 'bx bx-credit-card-front',
                 'group'=> 3
             ],
+            [
+                'name' => 'Keunggulan',
+                'url'  => '/izidok-keunggulan',
+                'icon' => 'bx bx-trending-up',
+                'group'=> 2
+            ],
+
 
         ];
 
