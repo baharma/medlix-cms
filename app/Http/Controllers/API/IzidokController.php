@@ -28,7 +28,7 @@ class IzidokController extends Controller
         $data['about'] = [
             'image' => asset($about->image),
             'title' => $about->title,
-            'sub_title'=> $about->list
+            'sub_title'=> json_decode($about->list,true)
         ];
         $slider  = Media::where('title','izidok')->get();
         $slide = [];
@@ -46,7 +46,7 @@ class IzidokController extends Controller
         foreach ($article as $value) {
             $news[] = [
                 'title' => $value->title,
-                'images' => $value->thumbnail,
+                'images' => asset($value->thumbnail),
                 'desc' => $value->description,
                 'check' => $value->check
             ];
@@ -66,8 +66,10 @@ class IzidokController extends Controller
             }
 
             $pricing[] =  [
+                'id'   => $value->id,
                 'name' => $value->name,
-                'amount'=> $value->amount,
+                'duration' => $value->duration,
+                'amount'=> split_number($value->amount),
                 'best_seller'=> $value->best_seller,
                 'details' => $detail
             ];

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('app_id');
             $table->string('name');
+            $table->integer('duration')->comment('number per month')->nullable();
             $table->float('amount',10,2);
             $table->boolean('best_seller')->default(false);
             $table->timestamps();

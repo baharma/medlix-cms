@@ -15,18 +15,21 @@ class PlanSeeder extends Seeder
     {
         Plan::create([
             'app_id' => 2,
-            'name' => '300 Visit Pasien Masa Berlaku 12 Bulan',
+            'name' => '300 Visit Pasien',
+            'duration' => 12,
             'amount'=> 549000,
         ]);
         Plan::create([
             'app_id' => 2,
-            'name' => '500 Visit Pasien Masa Berlaku 24 Bulan',
+            'name' => '500 Visit Pasien',
+            'duration' => 24,
             'amount'=> 749000,
             'best_seller' => true
         ]);
         Plan::create([
             'app_id' => 2,
-            'name' => '1000 Visit Pasien Masa Berlaku 24 Bulan',
+            'name' => '1000 Visit Pasien',
+            'duration' => 24,
             'amount'=> 1299000,
         ]);
     }

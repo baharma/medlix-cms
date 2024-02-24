@@ -20,6 +20,16 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="form-group row mb-3">
+                                <label for="name" class="col-sm-4 col-form-label">Plan Duration</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control  @error('name') is-invalid @enderror"
+                                        type="number" wire:model="duration" placeholder="12">
+                                    @error('name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
                             <div class="form-group row  mb-3">
                                 <label for="name" class="col-sm-4 col-form-label">Plan Price</label>
                                 <div class="col-sm-8">

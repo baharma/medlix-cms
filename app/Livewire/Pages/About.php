@@ -28,10 +28,12 @@ class About extends Component
             $this->image = '';
             $this->title = '';
             $this->subtitle = '';
+            $this->lists = [];
            
         }else{
             $this->image = $this->model->image;
             $this->title = $this->model->title;
+            $this->lists = json_decode($this->model->list);
             $this->subtitle = json_decode($this->model->list,true);
         }
       
@@ -51,6 +53,15 @@ class About extends Component
     }
     
     public function save(){
+        if ($this->fistList != '') {
+            $this->toArr = [ $this->fistList ];
+        }
+        foreach ($this->lists as $list) {
+            if ($list == '') {
+                continue;
+            }
+            $this->toArr[] = $list;
+        }
 
         $cms = $this->renderRefresh();
         if ($cms?->image) {
@@ -58,14 +69,14 @@ class About extends Component
         } else {
             $imageName = saveImageLocal($this->image, 'About');
         }
-        $list = insertIcon($this->subtitle);
         DB::beginTransaction();
         try {
             ModelsAbout::updateOrCreate(['app_id'=>auth()->user()->default_cms], [
                 'app_id'=> auth()->user()->default_cms,
                 'image'=> $imageName,
                 'title'=> $this->title,
-                'list'=> json_encode($list)
+                'list'=> json_encode($this->toArr)
+
             ]);
             DB::commit();
             $this->dispatch('sweet-alert',icon:'success',title:'Data About Saved');

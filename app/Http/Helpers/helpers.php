@@ -124,3 +124,18 @@ function insertIcon($html) {
     }
     return $output_html;
 }
+function split_number($number) {
+    $number_str = (string)$number;
+    $length = strlen($number_str);
+    
+    if ($length <= 3) {
+        return array($number_str, '.000');
+    } elseif ($length <= 6) {
+        return array(substr($number_str, 0, $length - 3), '.' . str_pad(substr($number_str, -3), 3, '0'));
+    } else {
+        $first_part = substr($number_str, 0, $length - 6);
+        $second_part = substr($number_str, -6, 3);
+        return array($first_part . '.' . $second_part, '.000');
+    }
+}
+
