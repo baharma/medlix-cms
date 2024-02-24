@@ -123,7 +123,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
-Route::group(['prefix'=>'medlinx'],function(){
+Route::group(['prefix' => 'medlinx'], function () {
     Route::get('/home',[MedlinxController::class,'index']);
     Route::post('/send-message',[MedlinxController::class,'sendMessage'])->name('send-message');
 });

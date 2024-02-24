@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
+use App\Models\AppHero;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class MedlinxController extends Controller
 {
     public function index(){
-        return view('medlinx.landing.app');
+        $data['hero'] = AppHero::where('app_id',1)->get();
+        $data['team'] = Team::where('app_id',0)->get();
+        return view('medlinx.landing.app',$data);
     }
 
     public function sendMessage(Request $req){
