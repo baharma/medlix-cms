@@ -11,7 +11,7 @@ use Livewire\Component;
 
 class FormPlan extends Component
 {
-    public $name,$amount,$plan,$planId,$featues,$planFeatues,$best_seller,$dataFeatues=[],$checkDetail;
+    public $name,$amount,$plan,$planId,$featues,$planFeatues,$best_seller,$dataFeatues=[],$checkDetail,$duration;
     public function render()
     {
         if($this->planId){
@@ -41,6 +41,7 @@ class FormPlan extends Component
         if($this->planId){
            $plan =  $this->plan->find($this->planId)->update([
                 'name'=>$this->name,
+                'duration'=>$this->duration,
                 'amount'=>$this->amount,
             ]);
             $thisPlant = $this->plan->find($this->planId);
@@ -61,6 +62,7 @@ class FormPlan extends Component
         }else{
             $plan =  $this->plan->create([
                 'name'=>$this->name,
+                'duration'=> $this->duration,
                 'amount'=>$this->amount,
                 'best_seller'=>$this->best_seller??0,
                 'app_id'=>Auth::user()->default_cms,
@@ -80,8 +82,10 @@ class FormPlan extends Component
     public function EditPlanToEdit($id){
       $data = $this->plan->find($id);
       $this->name = $data->name;
+      $this->duration = $data->duration;
       $this->amount = $data->amount;
       $this->planId = $data->id;
+      $this->best_seller = $data->best_seller;
       $this->dispatch('showDelete',['event'=>true]);
       $this->dispatch('showAlldata',['event'=>false]);
       $this->dispatch('dataUpdate',['event'=>true]);

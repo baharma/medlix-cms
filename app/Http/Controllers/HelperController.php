@@ -10,7 +10,7 @@ class HelperController extends Controller
 
         if ($request->hasFile('upload')) {
             $filename = saveImageLocal($request->file('upload'),'CkEditor');
-            return response()->json(['fileName' => $filename, 'uploaded'=> 1, 'url' => $filename]);
+            return response()->json(['fileName' => $filename, 'uploaded'=> 1, 'url' => asset($filename)]);
         }
 
     }

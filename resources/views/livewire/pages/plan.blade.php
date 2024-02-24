@@ -17,6 +17,9 @@
                     <div class="card mb-5 mb-lg-0 " style="border-radius:15px">
                         <div class="card-header bg-primary py-3" style="border-radius: 15px 15px 0px 0px">
                             <h5 class="card-title text-white text-uppercase text-center">{{ $item->name }}</h5>
+                            <h6 class="card-title text-white text-uppercase text-center">
+                                Masa Berlaku {{ $item->duration }} Bulan
+                            </h6>
                             <h5 class="card-price text-white text-center">{{ mataUang($item->amount) }}</h5>
                             <div class="d-flex justify-content-between mb-3">
                             </div>
