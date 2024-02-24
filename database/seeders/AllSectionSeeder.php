@@ -33,15 +33,27 @@ class AllSectionSeeder extends Seeder
             ],
             [
                 'name'  => 'Visi-Misi',
-                'url'   => '/visi-misi',
+                'url'   => '/iziklaim-visi-misi',
                 'icon'  => 'bx bx-message-square-detail',
-                'group' => 1,
+                'group' => 3
             ],
             [
                 'name'  => 'Visi-Misi',
-                'url'   => '/visi-misi',
+                'url'   => '/medlinx-visi-misi',
                 'icon'  => 'bx bx-message-square-detail',
-                'group' => 3
+                'group' => 1
+            ],
+            [
+                'name'  => 'Testimoni',
+                'url'   => '/medlinx-testimoni',
+                'icon'  => 'bx bxs-like',
+                'group' => 1
+            ],
+            [
+                'name'  => 'Testimoni',
+                'url'   => '/izidok-testimoni',
+                'icon'  => 'bx bxs-like',
+                'group' => 2
             ],
             [
                 'name'  => 'News',
@@ -122,6 +134,13 @@ class AllSectionSeeder extends Seeder
                 'icon' => 'bx bx-credit-card-front',
                 'group'=> 3
             ],
+            [
+                'name' => 'Keunggulan',
+                'url'  => '/izidok-keunggulan',
+                'icon' => 'bx bx-trending-up',
+                'group'=> 2
+            ],
+
 
         ];
 

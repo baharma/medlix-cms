@@ -12,6 +12,7 @@ use App\Livewire\Pages\Event;
 use App\Livewire\Pages\Hero\Izidok;
 use App\Livewire\Pages\Hero\Iziklaim;
 use App\Livewire\Pages\Hero\Medlinx;
+use App\Livewire\Pages\Keunggulan\Keunggulan;
 use App\Livewire\Pages\News;
 use App\Livewire\Pages\News\DetailNews;
 use App\Livewire\Pages\News\FormNews;
@@ -32,6 +33,11 @@ use App\Livewire\Pages\VisiMisi;
 use App\Livewire\Pages\VisiMisi\FormVisiMisi;
 use App\Livewire\Pages\Teams;
 use App\Livewire\Pages\TeamsEdit;
+use App\Livewire\Pages\Testimoni\FormTestimoni;
+use App\Livewire\Pages\Testimoni\Testimoni;
+use App\Livewire\Pages\VisiMisi\FormIziklaimVisiMisi;
+use App\Livewire\Pages\VisiMisi\VisiMisiiziklaim;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -76,8 +82,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/iziklaim-hero',Iziklaim::class);
     Route::get('/medlinx-hero',Medlinx::class);
 
-    Route::get('/visi-misi',VisiMisi::class)->name('visi-misi');
-    Route::get('/visi-misi/form/{idVisiMisi?}',FormVisiMisi::class)->name('visi-misi.form');
+    Route::get('/medlinx-visi-misi',VisiMisi::class)->name('visi-misi.medlinx');
+    Route::get('/medlinx-visi-misi/form/{idVisiMisi?}',FormVisiMisi::class)->name('visi-misi.medlinx-form');
+
+    Route::get('/iziklaim-visi-misi',VisiMisiiziklaim::class)->name('visi-misi.iziklaim');
+    Route::get('/iziklaim-visi-misi/form/{idVisiMisi?}',FormIziklaimVisiMisi::class)->name('visi-misi.iziklaim-form');
+
     Route::get('/teams',Teams::class)->name('team');
     Route::get('/teams/{id}',TeamsEdit::class)->name('team.edit');
 
@@ -86,6 +96,14 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/slider',Slider::class);
     Route::get('/slider/{id}',SliderInput::class)->name('slider.inp');
+
+    Route::get('/medlinx-testimoni',Testimoni::class)->name('medlinx-testimoni');
+    Route::get('/izidok-testimoni',Testimoni::class)->name('izidok-testimoni');
+
+    Route::get('/medlinx-testimoni/form/{idTestimoni?}',FormTestimoni::class)->name('testimoni-medlinx.form');
+    Route::get('/izidok-testimoni/form/{idTestimoni?}',FormTestimoni::class)->name('izidok-testimoni.form');
+
+    Route::get('/izidok-keunggulan',Keunggulan::class);
 
     Route::get('/porto',Porto::class);
     Route::get('/porto/{id}',PortoEdit::class);
@@ -100,7 +118,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/section',AdminSection::class);
         Route::get('/users',ManageUser::class);
     });
-    
+
 
 });
 

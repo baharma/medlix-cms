@@ -11,16 +11,19 @@ class VisiMisi extends Component
 {
     #[Title('Visi-Misi')]
 
-    public $model;
+    public $model, $dataEdit;
 
 
     public function mount(ModelsVisiMisi $visiMisi){
         $this->model = $visiMisi;
+        if($this->model->where('app_id',1)->get()){
+            $this->dataEdit = $this->model->where('app_id',1)->first();
+        }
     }
 
     public function render()
     {
-        $dataVisi = $this->model->all();
+        $dataVisi = $this->model->where('app_id',1)->get();
         return view('livewire.pages.visi-misi',compact('dataVisi'));
     }
 
@@ -32,4 +35,6 @@ class VisiMisi extends Component
         $visi->delete();
         $this->dispatch('sweet-alert',icon:'success',title:'Visi-Misi Deleted');
     }
+
+
 }

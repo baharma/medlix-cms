@@ -16,6 +16,9 @@
                     <div class="d-flex align-items-center gap-2">
                         <a href="javascript:;" @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })" class="btn btn-inverse-danger"><i class='bx bxs-trash-alt' ></i>Delete</a>
                         <a href="{{route('artikel.create',$item->id)}}" class="btn btn-warning"><i class='bx bxs-pencil'></i>Edit</a>
+                        <a href="{{route('artikel.detail',$item->id)}}" class="btn btn-outline-secondary">
+                            <i class='bx bxs-detail' ></i>
+                            Detail</a>
                     </div>
                 </div>
             </div>

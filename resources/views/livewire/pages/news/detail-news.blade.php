@@ -14,14 +14,9 @@
                 </a>
             </div>
         </div>
-        <div class="card-body">
-            <div class="d-flex justify-content-center">
-                <h5>{{ $news->title }}</h5>
-            </div>
-            <div class="d-flex justify-content-center">
-                <div class="container-fluid">
-                    {!! $news->description !!}
-                </div>
+        <div class="d-flex justify-content-center">
+            <div class="container">
+                {!! $news->description !!}
             </div>
         </div>
     </div>
