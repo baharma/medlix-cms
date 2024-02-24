@@ -21,7 +21,7 @@ class AllSectionSeeder extends Seeder
             ],
             [
                 'name'  => 'About',
-                'url'   => '/about',
+                'url'   => '/izidok-about',
                 'icon'  => 'bx bx-credit-card-front',
                 'group' => 2,
             ],
