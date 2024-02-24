@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HelperController;
-use App\Http\Controllers\Landing\MedlinxController;
+use App\Http\Controllers\Landing\MedlinxController as LandingMedlinxController;
 use App\Livewire\Admin\ManageUser;
 use App\Livewire\Admin\Section as AdminSection;
 use App\Livewire\Pages\About;
@@ -68,7 +68,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/cms',CmsApp::class);
     Route::get('/event',Event::class);
     Route::get('/izidok-pricing',Plan::class);
-    Route::get('/about',About::class);
+    Route::get('/izidok-about',About::class);
 
     Route::get('/news',News::class)->name('news');
     Route::get('/news/form/{artikelId?}',FormNews::class)->name('artikel.create');
@@ -124,6 +124,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 Route::group(['prefix' => 'medlinx'], function () {
-    Route::get('/home',[MedlinxController::class,'index']);
-    Route::post('/send-message',[MedlinxController::class,'sendMessage'])->name('send-message');
+    Route::get('/home',[LandingMedlinxController::class,'index']);
+    Route::post('/send-message',[LandingMedlinxController::class,'sendMessage'])->name('send-message');
 });
