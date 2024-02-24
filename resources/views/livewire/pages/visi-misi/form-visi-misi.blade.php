@@ -1,22 +1,22 @@
 <div>
     <div class="card p-3">
-        <form wire:submit='save' id="myForm">
+        <form wire:submit='save' id="myForm" enctype='multipart/form-data'>
             <div class="row mb-3">
                 <div class="col">
-                    <x-componen-form.input-image-dropify label='Visi Image' wireModel="imageMisi"
-                        imageDefault="{{ $imageMisi }}" name="imageMisi">
+                    <x-componen-form.input-image-dropify label='Visi Image' wireModel="imageVisi"
+                        imageDefault="{{ $imageVisi }}" name="imageVisi">
                         @slot('classInputValidate')
-                            @error('imageMisi')
+                            @error('imageVisi')
                                 is-invalid
                             @enderror
                         @endslot
                     </x-componen-form.input-image-dropify>
                 </div>
                 <div class="col">
-                    <x-componen-form.input-image-dropify label='Misi Images' wireModel="image"
-                        imageDefault="{{ $image }}" name="image">
+                    <x-componen-form.input-image-dropify label='Misi Images' wireModel="imageMisi"
+                        imageDefault="{{ $imageMisi }}" name="imageMisi">
                         @slot('classInputValidate')
-                            @error('image')
+                            @error('imageMisi')
                                 is-invalid
                             @enderror
                         @endslot
@@ -39,10 +39,10 @@
             </div>
             <div class="row mb-12">
                 <div class="col-md-12">
-                    <x-componen-form.input-image-dropify label='Detail Visi-Misi Image' wireModel="imageVisi"
-                        imageDefault="{{ $imageVisi }}" name="imageVisi">
+                    <x-componen-form.input-image-dropify label='Detail Visi-Misi Image' wireModel="image"
+                        imageDefault="{{ $image }}" name="image">
                         @slot('classInputValidate')
-                            @error('imageVisi')
+                            @error('image')
                                 is-invalid
                             @enderror
                         @endslot

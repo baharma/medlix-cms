@@ -18,17 +18,17 @@
                             <div wire:loading.remove>
                                 <div class="row mb-3">
                                     <x-componen-form.input-image-dropify label='Image Event' wireModel="image"
-                                        imageDefault="" imageDefault="{{ $image }}" name="image" />
+                                        imageDefault="" name="image" />
                                 </div>
                                 <div class="row mb-3">
                                     <x-componen-form.input-form idInput="nameEvent" label="Name Event" wireModel="name"
                                         placeholder="Enter Your Name Event" name="name" classInput="col-sm-9"
-                                        classLabels="col-sm-3" />
+                      s                  classLabels="col-sm-3" />
                                 </div>
                                 <div class="row mb-3">
                                     <x-componen-form.textarea-input label="Description details Event"
-                                        idTextarea="DescriptionEvent" wireModel="detail" rows="3"
-                                        classInput="col-sm-9" classLabels="col-sm-3" placeholder="Description Event" />
+                                        idTextarea="DescriptionEvent" wireModel="detail" rows="3" classInput="col-sm-9"
+                                        classLabels="col-sm-3" placeholder="Description Event" />
                                 </div>
                             </div>
                         </div>
@@ -48,22 +48,23 @@
 
 
 @push('scripts')
-    @script
-        <script>
-            $wire.on('modalClosed', () => {
-                const closeButton = document.getElementById('close-modal');
-                if (closeButton) {
-                    closeButton.click();
-                } else {
-                    console.error('Button with ID "close-modal" not found');
-                }
-            });
-            $wire.on('sentToImage', (Image) => {
-                const image = document.getElementById('image');
-                const imageUrl = `${window.location.origin}/${Image}`;
-                image.setAttribute('data-default-file', imageUrl);
+@script
+<script>
+    $wire.on('modalClosed', () => {
+        const closeButton = document.getElementById('close-modal');
+        if (closeButton) {
+            closeButton.click();
+        } else {
+            console.error('Button with ID "close-modal" not found');
+        }
+    });
+    $wire.on('sentToImage', (event) => {
+        const image = document.getElementById('image');
+        image.setAttribute('data-default-file', '');
+        const imageUrl = `${window.location.origin}${event}`;
+        image.setAttribute('data-default-file', imageUrl);
 
-            });
-        </script>
-    @endscript
+    });
+</script>
+@endscript
 @endpush

@@ -21,7 +21,7 @@
                             <th>No</th>
                             <th>name</th>
                             <th>Details</th>
-                            <th>View Modals</th>
+                            <th>Image</th>
                             <th>Actions</th>
                         </tr>
                     </thead>

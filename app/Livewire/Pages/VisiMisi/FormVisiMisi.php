@@ -14,8 +14,11 @@ class FormVisiMisi extends Component
 
     #[Title('Form Visi-Misi')]
 
-    public $visi,$misi,$imageVisi,$imageMisi,$image;
+    public $visi,$misi;
     public $model,$idVisiMisi,$visiMisiEdit;
+    public $imageVisi;
+    public $imageMisi;
+    public $image;
 
     public function mount(VisiMisi $visiMisi)
     {
@@ -38,44 +41,56 @@ class FormVisiMisi extends Component
         return view('livewire.pages.visi-misi.form-visi-misi');
     }
 
-    public function save(){
-        if (is_object($this->imageVisi) && method_exists($this->imageVisi, 'isFile') && $this->imageVisi->isFile()) {
-            $visiImage = saveImageLocal($this->imageVisi, 'VisiMisi/Visi');
-        } else {
+    public function save()
+    {
+        if (is_string($this->imageVisi)) {
             $visiImage = $this->visiMisiEdit->visi_img ?? null;
-        }
-
-        if (is_object($this->imageMisi) && method_exists($this->imageMisi, 'isFile') && $this->imageMisi->isFile()) {
-            $misiImage = saveImageLocal($this->imageMisi, 'VisiMisi/Misi');
         } else {
+            $visiImage = saveImageLocal($this->imageVisi, 'VisiMisi/Visi');
+        }
+        if (is_string($this->imageMisi)) {
             $misiImage = $this->visiMisiEdit->misi_img ?? null;
+        } else {
+            $misiImage = saveImageLocal($this->imageMisi, 'VisiMisi/Misi');
+        }
+        if (is_string($this->image)) {
+            $image = $this->visiMisiEdit->detail_img ?? null;
+        } else {
+            $image = saveImageLocal($this->image, 'VisiMisi/Detail');
         }
 
-        if (is_object($this->image) && method_exists($this->image, 'isFile') && $this->image->isFile()) {
-            $image = saveImageLocal($this->image, 'VisiMisi/Detail');
-        } else {
-            $image = $this->visiMisiEdit->detail_img ?? null;
-        }
         $visi = insertIcon($this->visi);
         $misi = insertIcon($this->misi);
+
         $property = [
-            'app_id'=>Auth::user()->default_cms,
-            'visi'=>$visi,
-            'misi'=>$misi,
-            'visi_img'=>$visiImage,
-            'misi_img'=>$misiImage,
-            'detail_img'=>$image
+            'app_id' => Auth::user()->default_cms ?? 1,
+            'visi' => $visi,
+            'misi' => $misi,
+            'visi_img' => $visiImage,
+            'misi_img' => $misiImage,
+            'detail_img' => $image
         ];
-        if($this->idVisiMisi){
+
+        if ($this->idVisiMisi) {
             $this->visiMisiEdit->update($property);
-        }else{
+        } else {
             $this->model->create($property);
         }
-        $this->dispatch('sweet-alert',icon:'success',title:'Visi-Misi Saved');
-        return to_route('visi-misi');
+        $this->dispatch('sweet-alert', icon: 'success', title: 'Visi-Misi Saved');
+        $this->clear();
+        return to_route('visi-misi.medlinx');
     }
 
     public function SureSave(){
         $this->dispatch('saveVisiMisi');
+    }
+    public function clear(){
+        $this->fill([
+            'visi' => '',
+            'misi' => '',
+            'imageVisi' => '',
+            'imageMisi' => '',
+            'image' =>'',
+        ]);
     }
 }
