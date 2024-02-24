@@ -228,8 +228,11 @@
                             <td><i class="{{ $item->section->icon }}"></i> {{ $item->section->icon }}</td>
                             <td>{{ $item->section->url }}</td>
                             <td>
-                                <button class="btn btn-sm btn-warning"> <i class="bx bx-edit"></i></button>
-                                <button class="btn btn-sm btn-danger"> <i class="bx bx-trash"></i></button>
+                                <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#inpModal"
+                                    wire:click="setEdit({{ $item->section->id }})"> <i class="bx bx-edit"></i></button>
+                                <button class="btn btn-sm btn-danger"
+                                    @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })"> <i
+                                        class="bx bx-trash"></i></button>
                             </td>
                         </tr>
                     @endforeach
@@ -242,8 +245,11 @@
                             <td><i class="{{ $item->section->icon }}"></i> {{ $item->section->icon }}</td>
                             <td>{{ $item->section->url }}</td>
                             <td>
-                                <button class="btn btn-sm btn-warning"> <i class="bx bx-edit"></i></button>
-                                <button class="btn btn-sm btn-danger"> <i class="bx bx-trash"></i></button>
+                                <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#inpModal"
+                                    wire:click="setEdit({{ $item->section->id }})"> <i class="bx bx-edit"></i></button>
+                                <button class="btn btn-sm btn-danger"
+                                    @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })"> <i
+                                        class="bx bx-trash"></i></button>
                             </td>
                         </tr>
                     @endforeach

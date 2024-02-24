@@ -8,7 +8,7 @@
                 <hr />
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         <div class="row mb-3">
                             <x-componen-form.input-form idInput="app_name" label="Name" wireModel="app_name"
                                 placeholder="" name="app_name" classInput="col-sm-10" classLabels="col-sm-2" />
@@ -17,15 +17,6 @@
                             <x-componen-form.input-form idInput="app_url" label="URL" wireModel="app_url"
                                 placeholder="" name="app_url" classInput="col-sm-10" classLabels="col-sm-2" />
                         </div>
-                        {{-- <div class="row mb-3">
-                            <x-componen-form.input-form idInput="app_title" label="Title" wireModel="app_title"
-                                placeholder="" name="app_title" classInput="col-sm-10" classLabels="col-sm-2" />
-                        </div>
-                        <div class="row mb-3">
-                            <x-componen-form.input-form idInput="app_sub_title" label="Sub Title"
-                                wireModel="app_sub_title" placeholder="" name="app_sub_title" classInput="col-sm-10"
-                                classLabels="col-sm-2" />
-                        </div> --}}
                         <div class="row mb-3">
                             <x-componen-form.textarea-input label="Address" classInput="col-sm-10"
                                 classLabels="col-sm-2" idTextarea="app_address" wireModel="app_address" cols="30"
@@ -49,16 +40,56 @@
                         </div>
 
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group mb-3">
-                            <x-componen-form.input-image-dropify label='Logo' wireModel="logo"
-                                imageDefault="{{ $logo }}" name="image" />
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group mb-3">
+                                    <x-componen-form.input-image-dropify label='Logo' wireModel="logo"
+                                        imageDefault="{{ asset($logo) }}" name="image" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-3">
+                                    <x-componen-form.input-image-dropify label='favico' wireModel="favico"
+                                        imageDefault="{{ asset($favico) }}" name="favico" />
+                                </div>
+                            </div>
                         </div>
-                        {{-- <div class="form-group mb-3">
-                            <x-componen-form.input-image-dropify label='Hero Image' wireModel="app_hero_img"
-                                imageDefault="{{ $app_hero_img }}" name="app_hero_img" />
-                        </div> --}}
-
+                        <div class="row">
+                            <div class="col">
+                                <label for="input">Social</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text bg-white" id="basic-addon1"><i
+                                            class="lni lni-facebook-oval text-primary"></i></span>
+                                    <input type="text" class="form-control" placeholder="Facebook"
+                                        wire:model="facebook">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text bg-white" id="basic-addon1"><i
+                                            class="lni lni-youtube text-danger"></i></span>
+                                    <input type="text" class="form-control" placeholder="Youtube"
+                                        wire:model="youtube">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text bg-white" id="basic-addon1"><i
+                                            class="lni lni-instagram text-danger"></i></span>
+                                    <input type="text" class="form-control" placeholder="Instagram"
+                                        wire:model="instagram">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text bg-white" id="basic-addon1"><i
+                                            class="lni lni-twitter-filled text-primary"></i></span>
+                                    <input type="text" class="form-control" placeholder="Twitter"
+                                        wire:model="twitter">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text bg-white" id="basic-addon1"><i
+                                            class="lni lni-linkedin-original text-primary"></i></span>
+                                    <input type="text" class="form-control" placeholder="LinkedIn"
+                                        wire:model="linkedin">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

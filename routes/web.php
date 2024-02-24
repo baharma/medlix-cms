@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HelperController;
+use App\Http\Controllers\Landing\MedlinxController;
 use App\Livewire\Admin\ManageUser;
 use App\Livewire\Admin\Section as AdminSection;
 use App\Livewire\Pages\About;
@@ -103,3 +104,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 });
 
+
+Route::group(['prefix'=>'medlinx'],function(){
+    Route::get('/home',[MedlinxController::class,'index']);
+    Route::post('/send-message',[MedlinxController::class,'sendMessage'])->name('send-message');
+});
