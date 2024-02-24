@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('app_phone')->nullable();
             $table->string('app_wa')->nullable();
             $table->longText('app_gmaps')->nullable();
+            $table->string('favicon')->nullable();
+            $table->longText('extend')->nullable();
             $table->timestamps();
         });
     }
