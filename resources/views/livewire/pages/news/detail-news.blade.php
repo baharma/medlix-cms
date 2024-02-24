@@ -5,7 +5,7 @@
         }
 
         img {
-            max-width: 100px;
+            max-width: 500px;
         }
     </style>
 @endpush
