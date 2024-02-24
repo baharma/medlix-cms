@@ -17,9 +17,13 @@ class CmsApp extends Component
     public $app_name;
     public $app_url;
     public $logo;
-    // public $app_title;
-    // public $app_sub_title;
-    // public $app_hero_img;
+    public $favico;
+    public $facebook;
+    public $youtube;
+    public $instagram;
+    public $twitter;
+    public $linkedin;
+    public $app_hero_img;
     public $app_address;
     public $app_mail;
     public $app_phone;
@@ -44,11 +48,23 @@ class CmsApp extends Component
             $this->app_phone = $cms->app_phone??"";
             $this->app_wa = $cms->app_wa??'';
             $this->app_gmaps = $cms->app_gmaps??'';
+
+
+            $this->favico = $cms->favicon??'';
+            $extend  = json_decode($cms?->extend,true);
+            if($extend){
+                $this->facebook = $extend['facebook']??'';
+                $this->youtube = $extend['youtube']??'';
+                $this->instagram = $extend['instagram']??'';
+                $this->twitter = $extend['twitter']??'';
+                $this->linkedin = $extend['linkedin']??'';
+            }
         }
     }
 
     public function submit()
     {
+
 
         $this->validate();
 
@@ -58,8 +74,22 @@ class CmsApp extends Component
         } else {
             $logoName = saveImageLocal($this->logo, 'Logo');
         }
+        $icos = $this->renderRefresh();
+        if (is_string($icos)) {
+            $ico = $cms->favico;
+        } else {
+            $ico = saveImageLocalNew($this->favico, 'Logo');
+        }
         $user = Auth::user();
         $cms  =  ModelsCmsApp::find($user->default_cms);
+        $social = [
+            'facebook' => $this->facebook,
+            'youtube' => $this->youtube,
+            'instagram' => $this->instagram,
+            'twitter' => $this->twitter,
+            'linkedin' => $this->linkedin,
+        ]; 
+        // dd($social);
         $cms->update([
             'app_name'  => $this->app_name,
             'app_url'   => $this->app_url,
@@ -69,6 +99,8 @@ class CmsApp extends Component
             'app_phone' => $this->app_phone,
             'app_wa' => $this->app_wa,
             'app_gmaps' => $this->app_gmaps,
+            'favicon'    => $ico,
+            'extend'    => json_encode($social)
         ]);
         $this->renderRefresh();
         $this->dispatch('sweet-alert',icon:'success',title:'CMS Updated');

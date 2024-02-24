@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\IzidokController;
 use App\Http\Controllers\API\IziklaimController;
 use App\Http\Controllers\API\MedlinxController;
+use App\Http\Controllers\API\NewsController;
 use App\Livewire\Pages\Hero\Izidok;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,8 @@ Route::group(['prefix'=>'v1'],function(){
     Route::get('/medlinx',[MedlinxController::class,'index']);
     Route::get('/izidok',[IzidokController::class,'index']);
     Route::get('/iziklaim',[IziklaimController::class,'index']);
+
+    Route::get('/news/{slug}',[NewsController::class,'news']);
 });
 
 

@@ -17,12 +17,12 @@ class IzidokController extends Controller
     public function index(){
         
         $hero = AppHero::where('app_id',2)->first();
-        $btnHero = json_decode($hero->extend,true);
+        $btnHero = json_decode($hero?->extend,true);
         $data['hero'] = [
             'image'=> asset($hero->image),
             'title' => $hero->title,
             'subtitle' => $hero->subtitle,
-            'button_url' => $btnHero[0]['val']
+            'button_url' => $btnHero[0]['val']??null
         ];
         $about =  About::where('app_id',2)->first();
         $data['about'] = [
