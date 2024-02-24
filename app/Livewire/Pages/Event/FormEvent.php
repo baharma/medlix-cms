@@ -35,6 +35,7 @@ class FormEvent extends Component
                     $filename = $event->image;
                 }else{
                     $filename = saveImageLocal($this->image,'event');
+
                 }
                 $dataEvent = [
                     'app_id' => Auth::user()->default_cms,
@@ -69,6 +70,7 @@ class FormEvent extends Component
         $this->detail = $event->details;
         $this->image = $event->image ;
         $this->dispatch('sentToImage',$this->image);
+
     }
     public function handleButtonClick(){
         $this->dispatch('modalClosed');

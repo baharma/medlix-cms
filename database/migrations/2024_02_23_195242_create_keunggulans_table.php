@@ -11,19 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('plans', function (Blueprint $table) {
+        Schema::create('keunggulans', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('app_id');
-            $table->string('name');
-            $table->integer('duration')->comment('number per month')->nullable();
-            $table->float('amount',10,2);
-            $table->boolean('best_seller')->default(false);
+            $table->text('title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('image_title')->nullable();
+            $table->text('image')->nullable();
             $table->timestamps();
-
             $table->foreign('app_id')
-                ->references('id')
-                ->on('cms_apps')
-                ->onDelete('cascade');
+            ->references('id')
+            ->on('cms_apps')
+            ->onDelete('cascade');
         });
     }
 
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('plans');
+        Schema::dropIfExists('keunggulans');
     }
 };

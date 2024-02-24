@@ -38,7 +38,6 @@
             <div class="menu-title">Izidok</div>
         </a>
         <ul>
-            {{-- @dd($izidok) --}}
             @foreach ($izidok as $izid)
                 <li>
                     <a href="{{ $izid->section->url }}" wire:navigate><i
