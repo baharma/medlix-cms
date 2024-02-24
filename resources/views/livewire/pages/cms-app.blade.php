@@ -45,13 +45,13 @@
                             <div class="col-md-8">
                                 <div class="form-group mb-3">
                                     <x-componen-form.input-image-dropify label='Logo' wireModel="logo"
-                                        imageDefault="{{ asset($logo) }}" name="image" />
+                                        imageDefault="{{ $logo ? asset($logo) : '' }}" name="image" />
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group mb-3">
                                     <x-componen-form.input-image-dropify label='favico' wireModel="favico"
-                                        imageDefault="{{ asset($favico) }}" name="favico" />
+                                        imageDefault="{{ $favico ? asset($favico) : '' }}" name="favico" />
                                 </div>
                             </div>
                         </div>
