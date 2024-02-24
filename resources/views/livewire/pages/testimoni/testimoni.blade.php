@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="{{ $item->testi_by_img }}" alt="..." class="card-img">
+                            <img src="{{ asset($item->testi_by_img) }}" alt="..." class="card-img">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -34,7 +34,7 @@
                 </div>
             </div>
         @empty
-            <div class="card p-3">
+            <div class="col-md-12 card p-3">
                 <h4>
                     No Available Data, Please Add Testimoni.
                 </h4>
