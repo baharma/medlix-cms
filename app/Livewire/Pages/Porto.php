@@ -14,9 +14,20 @@ class Porto extends Component
     public function mount(){
         $this->slider1 = Media::where('mark','porto1')->get();
         $this->slider2 = Media::where('mark','porto2')->get();
-        $this->award = Media::where('mark','award')->get();
+        $this->award = Media::where('mark','penghargaan')->get();
         $this->mitra = Media::where('mark','mitra')->get();
         $this->diliput = Media::where('mark','diliput')->get();
+    }
+     public  function confirmDelete($id){
+        $media = Media::find($id);
+        $media->delete();
+        $this->dispatch('sweet-alert',icon:'success',title:'Deleted Success');
+        $this->mount();
+        $this->render();
+
+    }
+    public function editAward($id){
+        $this->dispatch('editId',$id);
     }
     public function render()
     {

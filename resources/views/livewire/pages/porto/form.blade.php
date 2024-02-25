@@ -76,6 +76,8 @@
                 } else {
                     console.error('Button with ID "close-modal" not found');
                 }
+                const removeImage = $('.dropify-clear');
+                removeImage.click();
             })
         </script>
     @endscript
