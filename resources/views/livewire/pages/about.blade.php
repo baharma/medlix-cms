@@ -6,7 +6,7 @@
                     <div class="col-md-6">
                         <div class="form-group mb-3">
                             <x-componen-form.input-image-dropify label='Image' wireModel="image"
-                                imageDefault="{{ $image }}" name="image" />
+                                imageDefault="{{ $image ? asset($image) : '' }}" name="image" />
                         </div>
 
                     </div>

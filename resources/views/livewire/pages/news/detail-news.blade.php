@@ -3,6 +3,10 @@
         .image {
             text-align: center;
         }
+
+        img {
+            max-width: 500px;
+        }
     </style>
 @endpush
 <div>

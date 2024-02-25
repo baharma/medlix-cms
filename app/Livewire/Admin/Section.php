@@ -31,7 +31,7 @@ class Section extends Component
 
     public function save(){
         if($this->edit){
-            $this->edit([
+            $this->edit->update([
                 'name'  => $this->name,
                 'url'  => $this->url,
                 'icon'  => $this->icon,
