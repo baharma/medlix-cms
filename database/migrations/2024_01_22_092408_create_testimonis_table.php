@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('testimonis', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('app_id');
-            $table->string('testi');
+            $table->longText('testi');
             $table->string('testi_by');
             $table->string('testi_by_title')->nullable();
             $table->string('testi_by_img');
