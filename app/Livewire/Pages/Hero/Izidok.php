@@ -25,7 +25,7 @@ class Izidok extends Component
         if($extend !== null && $extend[0] !=""){
             $data = $extend;
         }else{
-            $data[] = ['key'=>'null','val'=>'null'];
+            $data[] = ['key'=>'youtube_url','val'=>''];
         }
         $this->fill([
             'extend' => collect($data),

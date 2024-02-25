@@ -69,14 +69,14 @@ class CmsApp extends Component
         $this->validate();
 
         $cms = $this->renderRefresh();
-        if ($cms->logo == $this->logo) {
+        
+        if (is_string($this->logo)) {
             $logoName = $cms->logo;
         } else {
             $logoName = saveImageLocal($this->logo, 'Logo');
         }
-        $icos = $this->renderRefresh();
-        if (is_string($icos)) {
-            $ico = $cms->favico;
+        if (is_string($this->favico)) {
+            $ico = $cms->favicon;
         } else {
             $ico = saveImageLocalNew($this->favico, 'Logo');
         }

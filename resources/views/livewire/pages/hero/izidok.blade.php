@@ -64,9 +64,10 @@
                                         <br>
                                         @foreach ($extend as $index => $post)
                                             <div class="input-group mb-2">
-                                                <span class="input-group-text">Key and Value</span>
+                                                {{-- <span class="input-group-text">Key and Value</span> --}}
                                                 <input type="text" placeholder="Key | exp: app_vid_url"
-                                                    class="form-control" wire:model="extend.{{ $index }}.key">
+                                                    class="form-control" wire:model="extend.{{ $index }}.key"
+                                                    readonly>
                                                 <input type="text"
                                                     placeholder="Value | exp: http://"aria-label="Last name"
                                                     class="form-control" wire:model="extend.{{ $index }}.val">
@@ -79,9 +80,9 @@
 
 
 
-                                        <button type="button" class="btn btn-success btn-sm" wire:click="addItem">
+                                        {{-- <button type="button" class="btn btn-success btn-sm" wire:click="addItem">
                                             <i class="bx bx-plus"></i> Add Item
-                                        </button>
+                                        </button> --}}
 
                                     </div>
 

@@ -22,7 +22,8 @@
                             @if (!$model)
                                 <div class="input-group mb-3">
 
-                                    <textarea name="fistList" class="form-control" id="" cols="30" rows="2" wire:model="fistList"></textarea>
+                                    <input name="fistList" class="form-control" id="" cols="30"
+                                        rows="2" wire:model="fistList"></input>
                                     <button type="button" class="btn btn-danger" wire:click="removeArr">
                                         <i class="bx bx-trash"></i>
                                     </button>
@@ -31,8 +32,8 @@
 
                             @foreach ($lists as $index => $post)
                                 <div class="input-group mb-2">
-                                    <textarea name="lists.{{ $index }}" class="form-control" id="" cols="30" rows="2"
-                                        wire:model="lists.{{ $index }}"></textarea>
+                                    <input name="lists.{{ $index }}" class="form-control" id=""
+                                        cols="30" rows="2" wire:model="lists.{{ $index }}"></input>
 
                                     {{-- <input type="text" class="form-control" wire:model="lists.{{ $index }}"> --}}
                                     <button type="button" class="btn btn-danger"
