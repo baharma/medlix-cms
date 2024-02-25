@@ -11,7 +11,7 @@
 ])
 
 
-<label for="{{ $idTextarea }}" class="{{ $classLabels }} col-form-label">{{ $label }}</label>
+<label for="{{ $idTextarea }}" class="{{ $classLabels }} col-form-label">{!! $label !!}</label>
 <div class="{{ $classInput }}">
     <textarea class="form-control" id="{{ $idTextarea }}" wire:model="{{ $wireModel }}" rows="{{ $rows }}"
         placeholder="{{ $placeholder }}" cols="{{ $cols }}">{!! $inpVal !!}</textarea>

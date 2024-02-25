@@ -9,6 +9,7 @@
                 </div>
                 <form wire:submit.prevent="save" enctype="multipart/form-data" id="formInp">
                     <div class="modal-body">
+
                         <div class="row">
                             <div class="col-md-6" id="inpList">
                                 <div class="form-group mb-3">
@@ -28,8 +29,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="close-modal" class="btn btn-warning" data-bs-dismiss="modal"><i
-                                class="bx bx-x"></i> Close</button>
+                        <button type="button" id="close-modal-penghargaan" class="btn btn-warning"
+                            data-bs-dismiss="modal"><i class="bx bx-x"></i> Close</button>
                         <button type="submit" class="btn btn-primary"><i class="bx bx-save"></i> Submit</button>
                     </div>
 
@@ -43,12 +44,14 @@
     @script
         <script>
             $wire.on('closeModal', () => {
-                const closeButton = document.getElementById('close-modal');
+                const closeButton = document.getElementById('close-modal-penghargaan');
                 if (closeButton) {
                     closeButton.click();
                 } else {
                     console.error('Button with ID "close-modal" not found');
                 }
+                const removeImage = $('.dropify-clear');
+                removeImage.click();
             })
         </script>
     @endscript

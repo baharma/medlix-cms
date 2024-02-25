@@ -20,7 +20,6 @@
                         <tr>
                             <th>No</th>
                             <th>name</th>
-                            <th>Details</th>
                             <th>Image</th>
                             <th>Actions</th>
                         </tr>
@@ -30,8 +29,10 @@
                             @if (!$searchEvent || str_contains(strtolower($item->name), strtolower($searchEvent)))
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->details }}</td>
+                                    <td>{{ $item->name }}
+                                        <br>
+                                        <span class="text-secondary">{{ $item->details }}</span>
+                                    </td>
                                     <td>
                                         <a href="#">
                                             <img src="{{ url($item->image) }}" alt="" height="80px">

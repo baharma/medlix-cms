@@ -212,8 +212,9 @@
                                 @foreach ($slider1 as $item)
                                     <tr>
                                         <td>
-                                            <button class="btn btn-sm btn-warning"><i class="bx bx-edit"></i></button>
-                                            <button class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></button>
+                                            <button class="btn btn-sm btn-danger"
+                                                @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })"><i
+                                                    class="bx bx-trash"></i></button>
                                         </td>
                                         <td>
                                             <div style="height: 100px; overflow:hidden;">
@@ -239,8 +240,10 @@
                                 @foreach ($slider2 as $item)
                                     <tr>
                                         <td>
-                                            <button class="btn btn-sm btn-warning"><i class="bx bx-edit"></i></button>
-                                            <button class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></button>
+
+                                            <button class="btn btn-sm btn-danger"
+                                                @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })"><i
+                                                    class="bx bx-trash"></i></button>
                                         </td>
                                         <td>
                                             <div style="height: 100px; overflow:hidden;">
@@ -282,8 +285,13 @@
                                     </p>
                                 </div>
                                 <div class="card-footer">
-                                    <button class="btn btn-sm btn-warning"><i class="bx bx-edit"></i></button>
-                                    <button class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></button>
+
+                                    <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
+                                        data-bs-target="#modalPenghargaan"
+                                        wire:click="editAward({{ $item->id }})"><i class="bx bx-edit"></i></button>
+                                    <button class="btn btn-sm btn-danger"
+                                        @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })"><i
+                                            class="bx bx-trash"></i></button>
                                 </div>
                             </div>
                         @endforeach
@@ -317,8 +325,10 @@
                                 @foreach ($mitra as $item)
                                     <tr>
                                         <td>
-                                            <button class="btn btn-sm btn-warning"><i class="bx bx-edit"></i></button>
-                                            <button class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></button>
+
+                                            <button class="btn btn-sm btn-danger"
+                                                @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })"><i
+                                                    class="bx bx-trash"></i></button>
                                         </td>
                                         <td>
                                             <div style="height: 100px; overflow:hidden;">
@@ -344,8 +354,10 @@
                                 @foreach ($diliput as $item)
                                     <tr>
                                         <td>
-                                            <button class="btn btn-sm btn-warning"><i class="bx bx-edit"></i></button>
-                                            <button class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></button>
+
+                                            <button class="btn btn-sm btn-danger"
+                                                @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })"><i
+                                                    class="bx bx-trash"></i></button>
                                         </td>
                                         <td>
                                             <div style="height: 100px; overflow:hidden;">
@@ -366,6 +378,8 @@
 
 
     </div>
+    @include('layouts.component.confirm-delete')
+
     <livewire:pages.porto.form-penghargaan />
     <livewire:pages.porto.form />
 </div>

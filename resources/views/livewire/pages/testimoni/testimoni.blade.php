@@ -15,9 +15,9 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $item->testi_by }}</h5>
-                                <p class="card-text">{{ $item->testi_by_title }}</p>
-                                <p class="card-text">{{ $item->testi }}</p>
+                                <h4 class="card-title">{{ $item->testi_by }}</h4>
+                                <span class="h6 text-secondary">{{ $item->testi_by_title }}</span>
+                                <p class="card-text mt-2">{{ $item->testi }}</p>
                                 <div class="d-flex justify-content-start">
                                     <a href="{{ route('testimoni-medlinx.form', $item->id) }}"
                                         class="btn btn-warning mx-2">
@@ -34,11 +34,6 @@
                 </div>
             </div>
         @empty
-            <div class="col-md-12 card p-3">
-                <h4>
-                    No Available Data, Please Add Testimoni.
-                </h4>
-            </div>
         @endforelse
         @include('layouts.component.confirm-delete')
     </div>

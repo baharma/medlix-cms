@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages\Porto;
 
 use App\Models\Media;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -30,6 +31,13 @@ class FormPenghargaan extends Component
         $this->dispatch('sweet-alert',icon:'success',title:'Image Slider Updated');
         $this->dispatch('refresh');
         $this->dispatch('closeModal');
+    }
+    #[On('editId')]
+    public function editId($id){
+        $cms = Media::find($id);
+        $this->text = $cms->text;
+        $this->icon = asset($cms->title);
+        $this->logo = asset($cms->images);
     }
     public function render()
     {
