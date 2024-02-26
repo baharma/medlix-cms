@@ -53,18 +53,22 @@
         @include('preview.izidok.landing.footer')
         <nav class="navbar navbar-expand-lg fixed-bottom navbar-light" style="background-color: #FFF67E;">
             <div class="container">
-                <span class="navbar-text">
-                    <a href="{{ url('/dashboard') }}" class="btn btn-info btn-sm">
-                        <i class="bx bx-arrow-back">Dashboard</i>
-                    </a>
-                    <a href="#" class="btn btn-primary btn-sm">
-                        <i class="bx bx-save">Publish</i>
-                    </a>
-                    <span>
-                        Tampilan Landing page sebelum semua data di publish
-                    </span>
+                <form action="{{ route('publish') }}" method="post">
 
-                </span>
+                    <span class="navbar-text">
+                        <a href="{{ url('/dashboard') }}" class="btn btn-info btn-sm">
+                            <i class="bx bx-arrow-back">Dashboard</i>
+                        </a>
+                        @csrf
+                        <input type="hidden" name="app" value="{{ $app['name'] }}">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            <i class="bx bx-save">Publish</i>
+                        </button>
+                        <span>
+                            Tampilan Landing page sebelum semua data di publish
+                        </span>
+                    </span>
+                </form>
             </div>
         </nav>
     </div>

@@ -9,10 +9,12 @@ use App\Models\Article;
 use App\Models\CmsApp;
 use App\Models\Event;
 use App\Models\Keunggulan;
+use App\Models\MainCmsApp;
 use App\Models\Media;
 use App\Models\Plan;
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PreviewController extends Controller
 {
@@ -32,6 +34,33 @@ class PreviewController extends Controller
         return view('preview.izidok.landing.others.news-update', $data);
        
     }
+
+    public function publish(Request $request){
+        $app = CmsApp::where('app_name',$request->app)->first();
+        $app_id = $app->id;
+        DB::beginTransaction();
+        try {
+            $mainCMS = MainCmsApp::find($app_id);
+            if($mainCMS){
+                $mainCMS->delete();
+            }
+            $cmsToCopy = CmsApp::find($app_id);
+            
+            $cms  = new MainCmsApp();
+            $cms->fill($cmsToCopy->attributesToArray());
+            $cms->save();
+
+            DB::commit();
+            dd($cms);
+
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            dd($th->getMessage());
+        }
+
+    }
+
+
 
     public function newsUpdateDetail($slug){
         $data = [
@@ -54,7 +83,7 @@ class PreviewController extends Controller
             'phone' => $contact->app_phone,
             'wa'    => $contact->app_wa,
             'gmaps' => $contact->app_gmaps,
-            'social'=> json_decode($contact->extend),
+            'social'=> json_decode($contact->extend,true),
             'fav'   => asset($contact->favicon)
         ];
 

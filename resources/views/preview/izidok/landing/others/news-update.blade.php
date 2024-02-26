@@ -1,4 +1,4 @@
-@extends('landing.app')
+@extends('preview.izidok.landing.app')
 
 @section('content')
     @php
@@ -14,14 +14,14 @@
             return $matches[1];
         }
     @endphp
-    @include('landing.header-page')
+    @include('preview.izidok.landing.header-page')
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_content_container" class="app-container container-fluid">
             <div class="container">
                 <div class="d-flex flex-column flex-xl-row">
                     <div class="flex-lg-row-fluid me-xl-15">
 
-                        <div class="mb-17">
+                        <div class="mb-17 text-center">
 
                             <div class="mb-8">
                                 <div class="overlay mb-5">
@@ -35,7 +35,9 @@
                             <div class="fs-5 fw-semibold text-gray-600 text-justify">
 
                                 <p class="mb-8">
-                                    {!! substr(extractParagraphs($news['0']['desc'])[1], 0, 300) !!}...
+                                    @if ($news['0']['desc'] != null)
+                                        {!! substr(extractParagraphs($news['0']['desc'])[1], 0, 300) !!}...
+                                    @endif
                                 </p>
                                 <p>
                                     <a href="{{ route('news-update-detail', $news[0]['slug']) }}">Baca

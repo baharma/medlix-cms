@@ -12,7 +12,7 @@
                                 <span class="path2"></span>
                             </i>
                         </button>
-                        <a href="{{ url('/') }}">
+                        <a href="{{ route('preview', 'izidok') }}">
                             <img alt="Logo" src="{{ asset('preview/izidok/images/logos/logo_izidok-white.png') }}"
                                 class="logo-default h-25px h-lg-25px" />
                             <img alt="Logo" src="{{ asset('preview/izidok/images/logos/logo_izidok-white.png') }}"

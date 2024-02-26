@@ -1,4 +1,4 @@
-@extends('landing.app')
+@extends('preview.izidok.landing.app')
 @push('style')
     <style>
         .image {
@@ -11,7 +11,7 @@
     </style>
 @endpush
 @section('content')
-    @include('landing.header-page')
+    @include('preview.izidok.landing.header-page')
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_content_container" class="app-container container-fluid">
             <div class="container">
