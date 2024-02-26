@@ -58,6 +58,11 @@ class Keunggulan extends Component
         $this->dispatch('renderDrofi',$data->id);
         $this->render();
     }
+    public function delete($id){
+        $keunggulan = KeunggulanList::find($id);
+        $keunggulan->delete();
+        $this->render();
+    }
 
 
     public function save(){

@@ -8,8 +8,11 @@ use App\Models\AppHero;
 use App\Models\Article;
 use App\Models\CmsApp;
 use App\Models\Event;
+use App\Models\Keunggulan;
+use App\Models\KeunggulanList;
 use App\Models\Media;
 use App\Models\Plan;
+use App\Models\Testimoni;
 use Illuminate\Http\Request;
 
 class IzidokController extends Controller
@@ -38,8 +41,24 @@ class IzidokController extends Controller
             ];
         }
         $data['slider'] = $slide;
-        $data['keunggulan'] = null;
-        $data['maps']  = null;
+
+        $keunggulan = Keunggulan::with('KeunggulanList')->where('app_id',2)->first();
+        $keunggulanList =  [];
+        foreach ($keunggulan->KeunggulanList as $value) {
+            $keunggulanList[] = [
+                'title' =>$value->title,
+                'image' => asset($value->image)
+            ];
+        }
+        $data['keunggulan'] = [
+            'title' => $keunggulan->title,
+            'desc'  => $keunggulan->description,
+            'list'  => $keunggulanList
+        ];
+        $data['maps']  = [
+            'title' => $keunggulan->image_title,
+            'image' => asset($keunggulan->image)
+        ];
 
         $article = Article::where('app_id',2)->get();
         $news = [];
@@ -48,7 +67,8 @@ class IzidokController extends Controller
                 'title' => $value->title,
                 'images' => asset($value->thumbnail),
                 'desc' => $value->description,
-                'check' => $value->check
+                'check' => $value->check,
+                'slug' => $value->slug
             ];
         }
 
@@ -85,6 +105,17 @@ class IzidokController extends Controller
             ];
         }
         $data['event'] =  $event;
+        $testi = [];
+        foreach (Testimoni::where('app_id',2)->get() as $t) {
+            $testi[]  = [
+                'testi' => $t->testi,
+                'by'    => $t->testi_by,
+                'title' => $t->testi_by_title,
+                'img'   => asset($t->testi_by_img)
+            ];
+        }
+
+        $data['testi']  = $testi;
         $contact =  CmsApp::find(2);
         $data['app'] = [
             'name'  => $contact->app_name,
@@ -94,7 +125,9 @@ class IzidokController extends Controller
             'mail'  => $contact->app_mail,
             'phone' => $contact->app_phone,
             'wa'    => $contact->app_wa,
-            'gmaps' => $contact->app_gmaps
+            'gmaps' => $contact->app_gmaps,
+            'social'=> json_decode($contact->extend),
+            'fav'   => asset($contact->favicon)
         ];
 
         return response()->json([

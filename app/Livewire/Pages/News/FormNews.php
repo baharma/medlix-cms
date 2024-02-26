@@ -32,11 +32,12 @@ class FormNews extends Component
             $this->title = $data->title;
             $this->thumbnail = $data->thumbnail;
             $this->description = $data->description;
+            $this->check = $data->check;
         }
     }
     public function save(){
         $this->validate();
-        if($this->thumbnail->isFile()){
+        if(!is_string($this->thumbnail)){
             $thumbnail = saveImageLocal($this->thumbnail, 'news/thumbnail');
         }else{
             $artikel = Article::find($this->artikelId);
@@ -49,6 +50,7 @@ class FormNews extends Component
             'title' => $this->title,
             'thumbnail' => $thumbnail,
         ];
+        // dd($this->check);
         if ($this->check) {
             $this->validate(['check' => 'required']);
             $data['check'] = $this->check;
@@ -64,8 +66,15 @@ class FormNews extends Component
             $artikel =  Article::create($data);
             $this->dispatch('sweet-alert', ['icon' => 'success', 'title' => 'New News Added']);
         }
-        $this->reset(['title', 'thumbnail', 'check', 'description']);
-        return to_route('artikel.detail',$artikel->id);
+        
+        if ($this->check) {
+            $this->reset(['title', 'thumbnail', 'check', 'description']);
+
+            return to_route('news');
+        }else{
+            $this->reset(['title', 'thumbnail', 'check', 'description']);
+            return to_route('artikel.detail',$artikel->id);
+        }
     }
 
 }

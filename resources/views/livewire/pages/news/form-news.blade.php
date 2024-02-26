@@ -52,8 +52,10 @@
                     </div>
                 </div>
                 <div class="row mb-3" wire:ignore>
-                    <div class="col" x-show="descriptions">
-                        <label>News Detail</label>
+                    <hr>
+                    <div class="col-md-12" x-show="descriptions">
+                        <h5 class="text-center mt-3 mb-2">The News Artile</h5>
+                        {{-- <label class="h5">The News Article</label> --}}
                         <textarea class="form-control @error('description') is-invalid @enderror" wire:model='description'
                             placeholder="Leave a comment here" id="editor" style="height: 500px"></textarea>
                     </div>

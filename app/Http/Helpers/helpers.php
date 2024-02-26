@@ -62,7 +62,8 @@ function isNull($data){
 function decode($data){
     return json_decode($data,true);
 }
-function checkImage($filePath, $placeholderURL = 'https://placehold.co/400') {
+function checkImage($filePath,$size = 200) {
+    $placeholderURL = 'https://placehold.co/'.$size;
     // Check if the file exists
     if (file_exists($filePath)) {
         // If the file exists, return the file path

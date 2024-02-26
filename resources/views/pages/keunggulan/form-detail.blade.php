@@ -1,27 +1,20 @@
-<div class="row mt-4 mb-2 p-2">
-    <div class="col">
-        <label for="">Title Keunggulan</label>
-        <h6 class="text-capitalize fw-bold">{{$data->title ?? 'data is missing'}}</h6>
-    </div>
-    <div class="col">
-        <label for="">Description Keunggulan</label>
-        <p>{{$data->description ?? 'data is missing'}}</p>
-    </div>
+<div class="row mt-4 mb-5 p-2 text-center">
+    <h4>{{ $data->title ?? '-' }}</h4>
+    <h6>{{ $data->description ?? '-' }}</h6>
+
 </div>
 
 <div class="row mt-4 mb-2 p-2">
-    <h4 class="text-capitalize fw-bold">
-        List Keunggulan
-    </h4>
-    @if($data && isset($data->KeunggulanList))
+    @if ($data && isset($data->KeunggulanList))
         @foreach ($data->KeunggulanList as $items)
-            <div class="col-lg-3 row">
-                <div  style="width: 18rem;">
-                    <img src="{{$items->image}}" class="card-img-top" alt="...">
+            <div class="col row">
+                <div style="width: 18rem;" class="text-center">
+                    <img src="{{ $items->image ? asset($items->image) : checkImage('image.jpg', 200) }}"
+                        class="card-img-top text-center" alt="{{ $items->title }}" style="width: 50px">
                     <div class="card-body">
-                      <p class="card-text">{{$items->title}}</p>
+                        <p class="card-text">{{ $items->title }}</p>
                     </div>
-                  </div>
+                </div>
             </div>
         @endforeach
     @else
