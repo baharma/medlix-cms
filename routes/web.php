@@ -20,6 +20,8 @@ use App\Livewire\Pages\News\FormNews;
 use App\Livewire\Pages\Plan;
 use App\Livewire\Pages\Porto;
 use App\Livewire\Pages\PortoEdit;
+use App\Livewire\Pages\Produk\Produk;
+use App\Livewire\Pages\Produk\ProdukForm;
 use App\Livewire\Pages\Provider;
 use App\Livewire\Pages\ProviderEdit;
 use App\Livewire\Pages\Section;
@@ -105,6 +107,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/izidok-testimoni/form/{idTestimoni?}',FormTestimoni::class)->name('izidok-testimoni.form');
 
     Route::get('/izidok-keunggulan',Keunggulan::class);
+
+    Route::get('/medlinx-produk',Produk::class)->name('produk');
+    Route::get('/medlinx-produk/form/{idproduk?}',ProdukForm::class)->name('produck-form');
 
     Route::get('/porto',Porto::class);
     Route::get('/porto/{id}',PortoEdit::class);

@@ -125,7 +125,7 @@ function insertIcon($html) {
 function split_number($number) {
     $number_str = (string)$number;
     $length = strlen($number_str);
-    
+
     if ($length <= 3) {
         return array($number_str, '.000');
     } elseif ($length <= 6) {
@@ -137,3 +137,22 @@ function split_number($number) {
     }
 }
 
+function insertLineBreaks($text, $maxLength = 15) {
+    $words = explode(' ', $text);
+    $result = '';
+    $lineLength = 0;
+
+    foreach ($words as $word) {
+        $wordLength = strlen($word);
+        $lineLength += $wordLength;
+
+        if ($lineLength > $maxLength) {
+            $result .= "<br>";
+            $lineLength = $wordLength;
+        }
+
+        $result .= $word . ' ';
+    }
+
+    return rtrim($result);
+}

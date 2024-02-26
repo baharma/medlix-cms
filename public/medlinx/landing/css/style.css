@@ -17,7 +17,7 @@
 
 -----------------------------------------------------------------------------------*/
 /*===========================
-      01.COMMON css 
+      01.COMMON css
 ===========================*/
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
 body {
@@ -415,7 +415,7 @@ p {
     -o-transform: rotate(-130deg);
     transform: rotate(-130deg); } }
 /*===========================
-    11.BUTTON css 
+    11.BUTTON css
 ===========================*/
 .buttons-title .title {
   font-size: 36px;
@@ -2007,7 +2007,7 @@ p {
     background-position: right center; }
 
 /*===========================
-    06.FORM ELEMENTS css 
+    06.FORM ELEMENTS css
 ===========================*/
 .form-elements-title {
   font-size: 36px;
@@ -2178,7 +2178,7 @@ p {
     border-radius: 5px; }
 
 /*===========================
-        09.NAVBAR css 
+        09.NAVBAR css
 ===========================*/
 .navbar-area {
   position: absolute;
@@ -2381,7 +2381,7 @@ p {
       color: #fff; }
 
 /*===========================
-       10.SLIDER css 
+       10.SLIDER css
 ===========================*/
 .slider-area{
   padding-top: 80px;
@@ -2401,6 +2401,10 @@ p {
   position: relative;
   background-size: cover;
 }
+.carousel-slide {
+    position: relative;
+    background-size: cover;
+  }
 .carousel-slide2 {
   background-image: url(../images/home/img_slider2.jpg);
   position: relative;
@@ -2581,7 +2585,7 @@ p {
           background-color: #0067f4;
           color: #fff; }
       .slider-portfolio-content .slider-portfolio-btn li a.rounded-two {
-        border-color: #fff; 
+        border-color: #fff;
         background-color: #0067f4; }
         .slider-portfolio-content .slider-portfolio-btn li a.rounded-two:hover {
           background-color: #fff;
@@ -2644,7 +2648,7 @@ p {
           background-color: #0067f4;
           color: #fff; }
       .slider-partner-content .slider-portfolio-btn li a.rounded-two {
-        border-color: #fff; 
+        border-color: #fff;
         background-color: #0067f4; }
         .slider-partner-content .slider-portfolio-btn li a.rounded-two:hover {
           background-color: #fff;
@@ -2654,7 +2658,7 @@ p {
 .slider-media-content {
   position: relative;
   z-index: 9;
-  padding-bottom: 70px; 
+  padding-bottom: 70px;
   display: flex;
   justify-content: center; }
   @media (max-width: 767px) {
@@ -2698,7 +2702,7 @@ p {
           background-color: #0067f4;
           color: #fff; }
       .slider-media-content .slider-portfolio-btn li a.rounded-two {
-        border-color: #fff; 
+        border-color: #fff;
         background-color: #0067f4; }
         .slider-media-content .slider-portfolio-btn li a.rounded-two:hover {
           background-color: #fff;
@@ -2752,7 +2756,7 @@ p {
           background-color: #0067f4;
           color: #fff; }
       .slider-content .slider-btn li a.rounded-two {
-        border-color: #fff; 
+        border-color: #fff;
         background-color: #0067f4; }
         .slider-content .slider-btn li a.rounded-two:hover {
           background-color: #fff;
@@ -2831,7 +2835,7 @@ p {
       right: 30px; } }
 
 /*===========================
-      17.FEATURES css 
+      17.FEATURES css
 ===========================*/
 /*===== features TWO =====*/
 .features-area {
@@ -2891,7 +2895,7 @@ p {
     margin-top: 29px; }
 
 /*===========================
-      18.PORTFOLIO css 
+      18.PORTFOLIO css
 ===========================*/
 .portfolio-area {
   padding-top: 120px;
@@ -3000,7 +3004,7 @@ p {
   visibility: visible; }
 
 /*===========================
-      16.PRODUCT css 
+      16.PRODUCT css
 ===========================*/
 .product-area {
   background-color: #f4f6f7;
@@ -3049,7 +3053,7 @@ p {
         .product-style .product-detail {
           margin: 25px 25px;
           color: #656565;
-          min-height: 315px; } 
+          min-height: 315px; }
         .product-style .product-btn .main-btn {
           max-width: 15rem;
           font-size: 15px;
@@ -3081,15 +3085,15 @@ p {
         box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.16); }
 
 /*===========================
-       15.SOLUSI css 
+       15.SOLUSI css
 ===========================*/
 .solution-area {
   padding-top: 80px;
   padding-bottom: 130px;
-  position: relative; 
+  position: relative;
   background-image: url(../images/bg_solusi.jpg);
   position: relative;
-  background-size: cover; 
+  background-size: cover;
   }
   .solution-area .solution-title .sub-title {
     font-size: 18px;
@@ -3154,7 +3158,7 @@ p {
     @media (max-width: 767px) {
       .solution-area .solution-image img {
         display: none;
-      } 
+      }
     }
   .solution-area .solution-btn {
     margin-top: 31px; }
@@ -3193,14 +3197,14 @@ p {
       top: -20%;
       left: 35%;
       transform: translate(25%);
-    } 
+    }
   }
   @media (max-width: 767px) {
     .icon-why {
       top: -20%;
       left: 40%;
       transform: translate(25%);
-    } 
+    }
   }
   @media (max-width: 575px) {
     .icon-why {
@@ -3226,7 +3230,7 @@ p {
   border-radius: 20px;
   position: relative;
   overflow: hidden;
-  background: #ffffff3d; 
+  background: #ffffff3d;
   min-height: 130px;}
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .why-style {
@@ -3236,12 +3240,12 @@ p {
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .why-style {
       margin-bottom: 4rem;
-    } 
+    }
   }
   @media (max-width: 767px) {
     .why-style {
       margin-bottom: 4rem;
-    } 
+    }
   }
 
 .why-detail{
@@ -3330,7 +3334,7 @@ p {
         box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.16); }
 
 /*===========================
-       15.ABOUT css 
+       15.ABOUT css
 ===========================*/
 .about-area {
   padding-top: 80px;
@@ -3460,7 +3464,7 @@ p {
 
 
 /*===========================
-      26.TESTIMONIAL css 
+      26.TESTIMONIAL css
 ===========================*/
 /*===== TESTIMONIAL STYLE THREE =====*/
 .testimonial-area {
@@ -3613,7 +3617,7 @@ p {
         left: -445px; } }
 
 /*===========================
-        13.TEAM css 
+        13.TEAM css
 ===========================*/
 /*===== TEAM STYLE ELEVEN =====*/
 .team-style-eleven {
@@ -3729,12 +3733,12 @@ p {
       color: #fff; }
 
 /*===========================
-      19.CONTACT css 
+      19.CONTACT css
 ===========================*/
 .contact-area {
   padding-top: 120px;
   padding-bottom: 90px;
-  background-image: url(../images/bg_mitra_kami_contact.jpg); 
+  background-image: url(../images/bg_mitra_kami_contact.jpg);
   background-size: contain; }
 
 p.form-message.success, p.form-message.error {
@@ -3787,7 +3791,7 @@ p.form-message.success, p.form-message.error {
     font-weight: 400; }
 
 /*===========================
-    21.FOOTER css 
+    21.FOOTER css
 ===========================*/
 /*===== FOOTER FIVE =====*/
 .footer-area {
@@ -3880,7 +3884,7 @@ p.form-message.success, p.form-message.error {
 .footer-area2 {
   background-color: #090f25;
   padding-top: 10px;
-  padding-bottom: 10px; }      
+  padding-bottom: 10px; }
   .footer-area2.footer-darkest {
     background-color: #090f25; }
     .footer-area2.footer-darkest .copyright .text {
@@ -3937,7 +3941,7 @@ p.form-message.success, p.form-message.error {
   @media (max-width: 767px) {
     .visi-misi {
       margin-bottom: 1rem;
-    } 
+    }
   }
 
 .vimis-title {
@@ -4077,7 +4081,7 @@ p.form-message.success, p.form-message.error {
       top: 35%;
     }
     .footer-row{
-      margin-top: 5rem;  
+      margin-top: 5rem;
     }
   }
 
@@ -4088,13 +4092,13 @@ p.form-message.success, p.form-message.error {
     .logo-footer{
       max-width: 13rem;
       margin-left: -2rem;
-    }   
+    }
   }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .logo-footer{
       max-width: 13rem;
       margin-left: -4rem;
-    } 
+    }
   }
   @media (max-width: 575px) {
     .logo-footer{
@@ -4146,7 +4150,7 @@ form.contact-form label.error, label.error {
   height: 100%;
   z-index: 9999;
   background-image: url('../images/spinner.gif');
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-color: #ffffff52;
   background-position: center;
 }

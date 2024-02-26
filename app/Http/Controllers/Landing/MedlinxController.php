@@ -4,7 +4,12 @@ namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
 use App\Models\AppHero;
+use App\Models\Media;
+use App\Models\Product;
+use App\Models\Solution;
 use App\Models\Team;
+use App\Models\Testimoni;
+use App\Models\VisiMisi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -12,8 +17,22 @@ class MedlinxController extends Controller
 {
     public function index(){
         $data['hero'] = AppHero::where('app_id',1)->get();
+        $data['solution'] = Solution::where('app_id',1)->get();
         $data['team'] = Team::where('app_id',0)->get();
-        return view('medlinx.landing.app',$data);
+        $data['visimisi'] = VisiMisi::where('app_id',1)->first();
+        $data['produk'] = Product::where('app_id',1)->get();
+        $data['mark1'] = Media::where('mark','porto1')->get();
+        $data['mark2'] = Media::where('mark','porto2')->get();
+        $data['penghargaan'] = Media::where('mark','penghargaan')->get();
+        $data['testimoni'] = Testimoni::where('app_id',1)->get();
+        $data['mitra'] = Media::where('mark','mitra')->get();
+        $data['diliput'] = Media::where('mark','diliput')->get();
+        $dataChunks = $data['mark1']->chunk(4);
+        $porto2Chunks = $data['mark2']->chunk(4);
+
+        $diliputChunk = $data['diliput']->chunk(4);
+        $mitraChunk = $data['mitra']->chunk(4);
+        return view('medlinx.landing.app',compact('data','dataChunks','porto2Chunks','diliputChunk','mitraChunk'));
     }
 
     public function sendMessage(Request $req){
