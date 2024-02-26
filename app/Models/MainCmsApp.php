@@ -10,4 +10,8 @@ class MainCmsApp extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
+    public function Event(){
+        return $this->hasMany(Event::class,'app_id','id');
+    }
+
 }

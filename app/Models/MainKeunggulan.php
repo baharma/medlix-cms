@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class MainKeunggulan extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+
+    public function KeunggulanList(){
+        return $this->hasMany(KeunggulanList::class,'keunggulan_id','id');
+    }
 }
