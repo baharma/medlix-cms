@@ -372,11 +372,7 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
-
-
     </div>
     @include('layouts.component.confirm-delete')
 

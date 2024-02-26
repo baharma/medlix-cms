@@ -75,23 +75,21 @@
         </div>
         <div class="row mt-50">
             <div class="col-lg-6 visi-misi">
-                <img src="{{ asset('medlinx/landing/images/visi.jpg') }}">
+                <img src="{{$data['visimisi']->visi_img}}">
                 <p class="vimis-title">VISI</p>
-                <p class="vimis-desc">Dikenal sebagai penyedia solusi kesehatan terkemuka di Indonesia.</p>
+                <p class="vimis-desc">{{strip_tags($data['visimisi']->visi)}}</p>
             </div>
             <div class="col-lg-6 visi-misi">
-                <img src="{{ asset('medlinx/landing/images/misi.jpg') }}">
+                <img src="{{ $data['visimisi']->misi_img }}">
                 <p class="vimis-title">MISI</p>
-                <p class="vimis-desc">Membantu dan memfasilitasi industri pelayanan kesehatan di Indonesia untuk
-                    beroperasi dan bertumbuh dengan menyediakan solusi berupa sistem kesehatan yang terdigitalisasi dan
-                    terdepan.</p>
+                <p class="vimis-desc">{{ strip_tags($data['visimisi']->misi) }}</p>
             </div>
         </div> <!-- row -->
     </div> <!-- container -->
     <div class="container">
         <div class="row mt-50">
             <div class="col-lg-12">
-                <img src="{{ asset('medlinx/landing/images/timeline.png') }}">
+                <img src="{{ $data['visimisi']->detail_img }}">
             </div>
         </div> <!-- row -->
     </div> <!-- container -->

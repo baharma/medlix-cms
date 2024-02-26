@@ -20,14 +20,12 @@ function ActiveApp($get = 'null'){
 function appLogo(){
     return "<img src=".asset(ActiveApp('logo'))." style='width: 110px' alt='logo icon'>";
 }
-
 function mataUang($num){
     return 'Rp'. number_format($num,0,',' ,'.');
 }
 function num($num){
     return number_format($num,0,',' ,'.');
 }
-
 function saveImageLocal(UploadedFile $file,$path){
     $filename = uniqid() . '_' . $file->getClientOriginalName();
     $file->storeAs($path, $filename, 'images_local');
@@ -73,7 +71,6 @@ function checkImage($filePath,$size = 200) {
         return $placeholderURL;
     }
 }
-
 function process_html($html) {
     // Create a DOMDocument object
     $dom = new DOMDocument();
@@ -128,7 +125,7 @@ function insertIcon($html) {
 function split_number($number) {
     $number_str = (string)$number;
     $length = strlen($number_str);
-    
+
     if ($length <= 3) {
         return array($number_str, '.000');
     } elseif ($length <= 6) {
@@ -140,3 +137,22 @@ function split_number($number) {
     }
 }
 
+function insertLineBreaks($text, $maxLength = 15) {
+    $words = explode(' ', $text);
+    $result = '';
+    $lineLength = 0;
+
+    foreach ($words as $word) {
+        $wordLength = strlen($word);
+        $lineLength += $wordLength;
+
+        if ($lineLength > $maxLength) {
+            $result .= "<br>";
+            $lineLength = $wordLength;
+        }
+
+        $result .= $word . ' ';
+    }
+
+    return rtrim($result);
+}

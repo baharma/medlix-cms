@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\Landing\MedlinxController as LandingMedlinxController;
+use App\Http\Controllers\PreviewController;
 use App\Livewire\Admin\ManageUser;
 use App\Livewire\Admin\Section as AdminSection;
 use App\Livewire\Pages\About;
@@ -19,6 +20,8 @@ use App\Livewire\Pages\News\FormNews;
 use App\Livewire\Pages\Plan;
 use App\Livewire\Pages\Porto;
 use App\Livewire\Pages\PortoEdit;
+use App\Livewire\Pages\Produk\Produk;
+use App\Livewire\Pages\Produk\ProdukForm;
 use App\Livewire\Pages\Provider;
 use App\Livewire\Pages\ProviderEdit;
 use App\Livewire\Pages\Section;
@@ -105,6 +108,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/izidok-keunggulan',Keunggulan::class);
 
+    Route::get('/medlinx-produk',Produk::class)->name('produk');
+    Route::get('/medlinx-produk/form/{idproduk?}',ProdukForm::class)->name('produck-form');
+
     Route::get('/porto',Porto::class);
     Route::get('/porto/{id}',PortoEdit::class);
 
@@ -119,6 +125,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/users',ManageUser::class);
     });
 
+
+    Route::get('/priv/{slug?}',[PreviewController::class,'index'])->name('preview');
+    Route::get('/view/news-update', [PreviewController::class,'newsUpdate'])->name('news-update');
+    Route::get('/view/news-update/{slug}', [PreviewController::class,'newsUpdateDetail'])->name('news-update-detail');
+
+    Route::post('publish',[PreviewController::class,'publish'])->name('publish');
 
 });
 
