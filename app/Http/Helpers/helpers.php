@@ -20,14 +20,12 @@ function ActiveApp($get = 'null'){
 function appLogo(){
     return "<img src=".asset(ActiveApp('logo'))." style='width: 110px' alt='logo icon'>";
 }
-
 function mataUang($num){
     return 'Rp'. number_format($num,0,',' ,'.');
 }
 function num($num){
     return number_format($num,0,',' ,'.');
 }
-
 function saveImageLocal(UploadedFile $file,$path){
     $filename = uniqid() . '_' . $file->getClientOriginalName();
     $file->storeAs($path, $filename, 'images_local');
@@ -73,7 +71,6 @@ function checkImage($filePath,$size = 200) {
         return $placeholderURL;
     }
 }
-
 function process_html($html) {
     // Create a DOMDocument object
     $dom = new DOMDocument();

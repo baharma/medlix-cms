@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\Landing\MedlinxController as LandingMedlinxController;
+use App\Http\Controllers\PreviewController;
 use App\Livewire\Admin\ManageUser;
 use App\Livewire\Admin\Section as AdminSection;
 use App\Livewire\Pages\About;
@@ -124,6 +125,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/users',ManageUser::class);
     });
 
+
+    Route::get('/priv/{slug?}',[PreviewController::class,'index'])->name('preview');
+    Route::get('/view/news-update', [PreviewController::class,'newsUpdate'])->name('news-update');
+    Route::get('/view/news-update/{slug}', [PreviewController::class,'newsUpdateDetail'])->name('news-update-detail');
+
+    Route::post('publish',[PreviewController::class,'publish'])->name('publish');
 
 });
 
