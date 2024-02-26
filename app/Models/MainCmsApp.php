@@ -9,4 +9,5 @@ class MainCmsApp extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+
 }
