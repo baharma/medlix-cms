@@ -12,6 +12,8 @@ use App\Models\Keunggulan;
 use App\Models\MainCmsApp;
 use App\Models\Media;
 use App\Models\Plan;
+use App\Models\PlanDetail;
+use App\Models\PlanFeatue;
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -40,18 +42,11 @@ class PreviewController extends Controller
         $app_id = $app->id;
         DB::beginTransaction();
         try {
-            $mainCMS = MainCmsApp::find($app_id);
-            if($mainCMS){
-                $mainCMS->delete();
-            }
-            $cmsToCopy = CmsApp::find($app_id);
             
-            $cms  = new MainCmsApp();
-            $cms->fill($cmsToCopy->attributesToArray());
-            $cms->save();
+            $this->copyCMS($app_id);
 
             DB::commit();
-            dd($cms);
+            // dd($cms);
 
         } catch (\Throwable $th) {
             DB::rollBack();
@@ -60,7 +55,23 @@ class PreviewController extends Controller
 
     }
 
-
+    public function copyCMS($app_id){
+        $mainCMS = MainCmsApp::find($app_id);
+        if($mainCMS){
+            $mainCMS->delete();
+        }
+        $cmsToCopy = CmsApp::find($app_id);
+        
+        $cms  = new MainCmsApp();
+        $cms->fill($cmsToCopy->attributesToArray());
+        $cms->save();
+    }
+    public function copyPlan($app_id){
+        $feature = PlanFeatue::all();
+        $plan =  Plan::where('app_id',$app_id);
+        $details = PlanDetail::all();
+        
+    }
 
     public function newsUpdateDetail($slug){
         $data = [

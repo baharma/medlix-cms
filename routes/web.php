@@ -52,7 +52,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/',function(){
-    return redirect('/login');
+    return redirect()->route('medlinx.home');
 });
 Route::group(['middleware' => ['guest']], function () {
     Route::get('/login',[AuthController::class,'login'])->name('login');
@@ -130,7 +130,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
-Route::group(['prefix' => 'medlinx'], function () {
-    Route::get('/home',[LandingMedlinxController::class,'index']);
-    Route::post('/send-message',[LandingMedlinxController::class,'sendMessage'])->name('send-message');
-});
+Route::get('/',[LandingMedlinxController::class,'index'])->name('medlinx.home');
+Route::post('/send-message',[LandingMedlinxController::class,'sendMessage'])->name('send-message');
+// Route::group(['prefix' => 'medlinx'], function () {
+// });
