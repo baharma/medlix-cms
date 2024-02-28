@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class MainPlanFeatue extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+    public function plan_detail(){
+        return $this->hasMany(PlanDetail::class);
+    }
+    public function plan(){
+        return $this->belongsToMany(Plan::class,'plan_details','feature_id','plan_id')->withPivot('id');
+    }
 }
