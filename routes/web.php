@@ -126,7 +126,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
 
-    Route::get('/priv/{slug?}',[PreviewController::class,'index'])->name('preview');
+    Route::get('/prev/{slug?}',[PreviewController::class,'index'])->name('preview');
     Route::get('/view/news-update', [PreviewController::class,'newsUpdate'])->name('news-update');
     Route::get('/view/news-update/{slug}', [PreviewController::class,'newsUpdateDetail'])->name('news-update-detail');
 
