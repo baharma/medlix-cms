@@ -9,15 +9,31 @@ use App\Models\Article;
 use App\Models\CmsApp;
 use App\Models\Event;
 use App\Models\Keunggulan;
+use App\Models\KeunggulanList;
+use App\Models\MainAbout;
+use App\Models\MainAppHero;
+use App\Models\MainArticle;
 use App\Models\MainCmsApp;
+use App\Models\MainEvent;
+use App\Models\MainKeunggulan;
+use App\Models\MainKeunggulanList;
+use App\Models\MainMedia;
+use App\Models\MainPlan;
+use App\Models\MainPlanDetail;
+use App\Models\MainPlanFeatue;
+use App\Models\MainTestimoni;
 use App\Models\Media;
 use App\Models\Plan;
+use App\Models\PlanDetail;
+use App\Models\PlanFeatue;
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class PreviewController extends Controller
 {
+    public $app_id;
+
     public function index($slug){
         if($slug == 'izidok'){
             $data['title'] = 'Home';
@@ -40,24 +56,118 @@ class PreviewController extends Controller
         $app_id = $app->id;
         DB::beginTransaction();
         try {
-            $mainCMS = MainCmsApp::find($app_id);
-            if($mainCMS){
-                $mainCMS->delete();
+            $this->copyCMS($app_id);
+            if ($app_id == 1) {
             }
-            $cmsToCopy = CmsApp::find($app_id);
-            
-            $cms  = new MainCmsApp();
-            $cms->fill($cmsToCopy->attributesToArray());
-            $cms->save();
-
+            if ($app_id == 2) {
+                $this->copyAbout($app_id);
+                // $this->copyAbout($app_id);
+                // $this->copyPlan($app_id);
+                // $this->copyTestimony($app_id);
+                // $this->copyNews($app_id);
+                // $this->copyEvent($app_id);
+                // $this->imgSliderIzidok();
+                // $this->copyHero($app_id);
+                // $this->copyKeunggun($app_id);
+            }
+            if ($app_id == 3) {
+            }
             DB::commit();
-            dd($cms);
+            dd('success');
 
         } catch (\Throwable $th) {
             DB::rollBack();
             dd($th->getMessage());
         }
 
+    }
+    public function copyCMS($app_id){
+        $mainCMS = MainCmsApp::find($app_id);
+        if($mainCMS){
+            $mainCMS->delete();
+        }
+        $cmsToCopy = CmsApp::find($app_id);
+        
+        $cms  = new MainCmsApp();
+        $cms->fill($cmsToCopy->attributesToArray());
+        $cms->save();
+    }
+    public function copyPlan($app_id){
+        $plans = Plan::where('app_id',$app_id)->get();
+        foreach ($plans as $plan) {
+            $copyplan =  new MainPlan();
+            $copyplan->fill($plan->attributesToArray());
+            $copyplan->save();
+        }
+        foreach (PlanDetail::all() as $detail) {
+            $PlanDetail =  new MainPlanDetail();
+            $PlanDetail->fill($detail->attributesToArray());
+            $PlanDetail->save();
+        }
+        foreach (PlanFeatue::all() as $feature) {
+            $features =  new MainPlanFeatue();
+            $features->fill($feature->attributesToArray());
+            $features->save();
+        }
+    }
+    public function copyAbout($app_id){
+        $abouts = About::where('app_id',$app_id)->first();
+        foreach ($abouts as $about) {
+            $copyAbout =  new MainAbout();
+            $copyAbout->fill($about->attributesToArray());
+            $copyAbout->save();
+        }
+    }
+    public function copyTestimony($app_id){
+        $testimoni = Testimoni::where('app_id',$app_id)->get();
+        foreach ($testimoni as $testi) {
+           $copyTesti = new MainTestimoni();
+           $copyTesti->fill($testi->attributesToArray());
+           $copyTesti->save();
+        }
+    }
+    public function copyNews($app_id){
+        $newses = Article::where('app_id',$app_id)->get();
+        foreach ($newses as $news) {
+           $copyTesti = new MainArticle();
+           $copyTesti->fill($news->attributesToArray());
+           $copyTesti->save();
+        }
+    }
+    public function copyEvent($app_id){
+        $allEvent = Event::where('app_id',$app_id)->get();
+        foreach ($allEvent as $event) {
+           $copyEvent = new MainEvent();
+           $copyEvent->fill($event->attributesToArray());
+           $copyEvent->save();
+        }
+    }
+    public function imgSliderIzidok(){
+        $allMedia = Media::where(['title'=>'izidok','mark'=>'slider'])->get();
+        foreach ($allMedia as $media) {
+           $copyMedia = new MainMedia();
+           $copyMedia->fill($media->attributesToArray());
+           $copyMedia->save();
+        }
+    }
+    public function copyHero($app_id){
+        $heros = AppHero::where('app_id',$app_id)->first();
+        $cms  = new MainAppHero();
+        $cms->fill($heros->attributesToArray());
+        $cms->save();
+    }
+    public function copyKeunggun($app_id){
+        $keunggulan = Keunggulan::where('app_id',$app_id)->first();
+        $cms  = new MainKeunggulan();
+        $cms->fill($keunggulan->attributesToArray());
+        $cms->save();
+
+        $list = KeunggulanList::where('keunggulan_id',$keunggulan->id)->get();
+        foreach ($list as $value) {
+            $copyMedia = new MainKeunggulanList();
+            $copyMedia->fill($value->attributesToArray());
+            $copyMedia->save();
+        }
     }
 
 
