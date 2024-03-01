@@ -66,6 +66,14 @@
                 @else
                     <livewire:components.sidebar />
                 @endif
+                <li class="menu-label">Preview</li>
+                <li>
+                    <a href="{{ route('preview', strtolower(ActiveApp('name'))) }}" id="logout" type="submit">
+                        <div class="parent-icon"><i class="bx bx-window"></i>
+                        </div>
+                        <div class="menu-title">Preview</div>
+                    </a>
+                </li>
                 <li class="menu-label">End Section</li>
                 <form action="{{ route('logout') }}" method="post" id="formLogout">
                     @csrf
