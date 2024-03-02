@@ -23,7 +23,7 @@ interface PreviewRepository extends Repository{
     public function deleteAddnewMain(Article $article);
     public function deleteAddKeunggulan(Keunggulan $keunggulan);
     public function deleteAddKeunggulanListMain(KeunggulanList $keunggulanList);
-    public function deleteAddSolution(Solution $solution);
-    public function deleteAddVisiMisi(VisiMisi $visiMisi);
-    public function deleteAddMedia(Media $media);
+    // public function deleteAddSolution(Solution $solution);
+    // public function deleteAddVisiMisi(VisiMisi $visiMisi);
+    // public function deleteAddMedia(Media $media);
 }

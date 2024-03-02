@@ -101,39 +101,39 @@ class PreviewController extends Controller
 
     }
 
-    public function copyVisiMisi($app_id){
-        $mainVisiMisi = VisiMisi::find($app_id);
-        foreach($mainVisiMisi as $data){
-            $this->repository->deleteAddVisiMisi($data);
-        }
-    }
+    // public function copyVisiMisi($app_id){
+    //     $mainVisiMisi = VisiMisi::find($app_id);
+    //     foreach($mainVisiMisi as $data){
+    //         $this->repository->deleteAddVisiMisi($data);
+    //     }
+    // }
 
-    public function copyMediaMedlinx(){
-        $mark1 = Media::where('mark','porto1')->get();
-        $mark2= Media::where('mark','porto2')->get();
-        $mitra = Media::where('mark','mitra')->get();
-        $diliput = Media::where('mark','diliput')->get();
+    // public function copyMediaMedlinx(){
+    //     $mark1 = Media::where('mark','porto1')->get();
+    //     $mark2= Media::where('mark','porto2')->get();
+    //     $mitra = Media::where('mark','mitra')->get();
+    //     $diliput = Media::where('mark','diliput')->get();
 
-        foreach($mark1 as $data){
-            $this->repository->deleteAddMedia($data);
-        }
-        foreach($mark2 as $data){
-            $this->repository->deleteAddMedia($data);
-        }
-        foreach($mitra as $data){
-            $this->repository->deleteAddMedia($data);
-        }
-        foreach($diliput as $data){
-            $this->repository->deleteAddMedia($data);
-        }
-    }
+    //     foreach($mark1 as $data){
+    //         $this->repository->deleteAddMedia($data);
+    //     }
+    //     foreach($mark2 as $data){
+    //         $this->repository->deleteAddMedia($data);
+    //     }
+    //     foreach($mitra as $data){
+    //         $this->repository->deleteAddMedia($data);
+    //     }
+    //     foreach($diliput as $data){
+    //         $this->repository->deleteAddMedia($data);
+    //     }
+    // }
 
-    public function copysolution($app_id){
-        $solition = Solution::where('app_id',$app_id)->get();
-        foreach($solition as $item){
-            $this->repository->deleteAddSolution($item);
-        }
-    }
+    // public function copysolution($app_id){
+    //     $solition = Solution::where('app_id',$app_id)->get();
+    //     foreach($solition as $item){
+    //         $this->repository->deleteAddSolution($item);
+    //     }
+    // }
 
     public function copyCMS($app_id){
         $mainCMS = MainCmsApp::find($app_id);
