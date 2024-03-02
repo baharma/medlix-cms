@@ -26,7 +26,9 @@ use App\Models\Media;
 use App\Models\Plan;
 use App\Models\PlanDetail;
 use App\Models\PlanFeatue;
+use App\Models\Solution;
 use App\Models\Testimoni;
+use App\Models\VisiMisi;
 use App\Repositories\Preview\PreviewRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -43,10 +45,12 @@ class PreviewController extends Controller
     public function index($slug){
         if($slug == 'izidok'){
             $data['title'] = 'Home';
-
             $data += $this->izidok();
             return view('preview.izidok.izidok-app',$data);
+        }elseif($slug == 'medlinx'){
+            return to_route('priview-medlinx');
         }
+
     }
     public function newsUpdate(){
 
@@ -60,10 +64,18 @@ class PreviewController extends Controller
     public function publish(Request $request){
         $app = CmsApp::where('app_name',$request->app)->first();
         $app_id = $app->id;
+
         DB::beginTransaction();
         try {
             $this->copyCMS($app_id);
             if ($app_id == 1) {
+                $this->copyHero($app_id);
+                $this->copysolution($app_id);
+                // $this->copyTeam(0);
+                $this->copyTestimony($app_id);
+                $this->copyMediaMedlinx();
+                session()->push('publish', ['message' => "Successful publish Medlinx"]);
+                return to_route('cms.set',$app_id);
             }
             if ($app_id == 2) {
                 $this->copyAbout($app_id);
@@ -76,7 +88,6 @@ class PreviewController extends Controller
                 $this->copyKeunggun($app_id);
                 session()->push('publish', ['message' => "Successful publish Izidok"]);
                 return to_route('cms.set',$app_id);
-
             }
             if ($app_id == 3) {
             }
@@ -89,6 +100,41 @@ class PreviewController extends Controller
         }
 
     }
+
+    public function copyVisiMisi($app_id){
+        $mainVisiMisi = VisiMisi::find($app_id);
+        foreach($mainVisiMisi as $data){
+            $this->repository->deleteAddVisiMisi($data);
+        }
+    }
+
+    public function copyMediaMedlinx(){
+        $mark1 = Media::where('mark','porto1')->get();
+        $mark2= Media::where('mark','porto2')->get();
+        $mitra = Media::where('mark','mitra')->get();
+        $diliput = Media::where('mark','diliput')->get();
+
+        foreach($mark1 as $data){
+            $this->repository->deleteAddMedia($data);
+        }
+        foreach($mark2 as $data){
+            $this->repository->deleteAddMedia($data);
+        }
+        foreach($mitra as $data){
+            $this->repository->deleteAddMedia($data);
+        }
+        foreach($diliput as $data){
+            $this->repository->deleteAddMedia($data);
+        }
+    }
+
+    public function copysolution($app_id){
+        $solition = Solution::where('app_id',$app_id)->get();
+        foreach($solition as $item){
+            $this->repository->deleteAddSolution($item);
+        }
+    }
+
     public function copyCMS($app_id){
         $mainCMS = MainCmsApp::find($app_id);
         if($mainCMS){

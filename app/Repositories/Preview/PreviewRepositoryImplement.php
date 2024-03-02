@@ -9,16 +9,22 @@ use App\Models\MainArticle;
 use App\Models\MainCmsApp;
 use App\Models\MainKeunggulan;
 use App\Models\MainKeunggulanList;
+use App\Models\MainMedia;
 use App\Models\MainPlan;
 use App\Models\MainPlanDetail;
 use App\Models\MainPlanFeatue;
+use App\Models\MainSolution;
 use App\Models\MainTestimoni;
+use App\Models\MainVisiMisi;
+use App\Models\Media;
 use App\Models\Plan;
 use App\Models\PlanDetail;
 use App\Models\PlanFeatue;
 use LaravelEasyRepository\Implementations\Eloquent;
 use App\Models\Preview;
+use App\Models\Solution;
 use App\Models\Testimoni;
+use App\Models\VisiMisi;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
@@ -221,5 +227,85 @@ class PreviewRepositoryImplement extends Eloquent implements PreviewRepository{
         }
     }
 
+    public function deleteAddSolution(Solution $solution){
+        try {
+            DB::transaction(function () use ($solution) {
+                if ($mainSolution = MainSolution::find($solution->id)) {
+                    $mainSolution->delete();
+                }
+
+                MainSolution::updateOrCreate(
+                    ['id' => $solution->id],
+                    $solution->attributesToArray()
+                );
+            });
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Successfully deleted and updated MainSolution.',
+            ], 200);
+        } catch (\Throwable $e) {
+            report($e);
+
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while processing the request.',
+            ], 500);
+        }
+    }
+
+    public function deleteAddVisiMisi(VisiMisi $visiMisi){
+        try {
+            DB::transaction(function () use ($visiMisi) {
+                if ($mainVisiMisi = MainVisiMisi::find($visiMisi->id)) {
+                    $mainVisiMisi->delete();
+                }
+
+                MainVisiMisi::updateOrCreate(
+                    ['id' => $visiMisi->id],
+                    $visiMisi->attributesToArray()
+                );
+            });
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Successfully deleted and updated MainVisiMisi.',
+            ], 200);
+        } catch (\Throwable $e) {
+            report($e);
+
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while processing the request.',
+            ], 500);
+        }
+    }
+
+    public function deleteAddMedia(Media $media){
+        try {
+            DB::transaction(function () use ($media) {
+                if ($mainMedia = MainMedia::find($media->id)) {
+                    $mainMedia->delete();
+                }
+
+                MainMedia::updateOrCreate(
+                    ['id' => $media->id],
+                    $media->attributesToArray()
+                );
+            });
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Successfully deleted and updated MainMedia.',
+            ], 200);
+        } catch (\Throwable $e) {
+            report($e);
+
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while processing the request.',
+            ], 500);
+        }
+    }
 
 }
