@@ -27,12 +27,18 @@ use App\Models\Plan;
 use App\Models\PlanDetail;
 use App\Models\PlanFeatue;
 use App\Models\Testimoni;
+use App\Repositories\Preview\PreviewRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class PreviewController extends Controller
 {
-    public $app_id;
+    public $app_id, $repository;
+
+    public function __construct(PreviewRepository $repo)
+    {
+        $this->repository = $repo;
+    }
 
     public function index($slug){
         if($slug == 'izidok'){
@@ -43,12 +49,12 @@ class PreviewController extends Controller
         }
     }
     public function newsUpdate(){
-       
+
         $data['title'] = 'Home';
         $data['page'] = 'news-update';
         $data += $this->izidok();
         return view('preview.izidok.landing.others.news-update', $data);
-       
+
     }
 
     public function publish(Request $request){
@@ -61,14 +67,16 @@ class PreviewController extends Controller
             }
             if ($app_id == 2) {
                 $this->copyAbout($app_id);
-                // $this->copyAbout($app_id);
-                // $this->copyPlan($app_id);
-                // $this->copyTestimony($app_id);
-                // $this->copyNews($app_id);
-                // $this->copyEvent($app_id);
-                // $this->imgSliderIzidok();
-                // $this->copyHero($app_id);
-                // $this->copyKeunggun($app_id);
+                $this->copyPlan($app_id);
+                $this->copyTestimony($app_id);
+                $this->copyNews($app_id);
+                $this->copyEvent($app_id);
+                $this->imgSliderIzidok();
+                $this->copyHero($app_id);
+                $this->copyKeunggun($app_id);
+                session()->push('publish', ['message' => "Successful publish Izidok"]);
+                return to_route('cms.set',$app_id);
+
             }
             if ($app_id == 3) {
             }
@@ -87,7 +95,7 @@ class PreviewController extends Controller
             $mainCMS->delete();
         }
         $cmsToCopy = CmsApp::find($app_id);
-        
+
         $cms  = new MainCmsApp();
         $cms->fill($cmsToCopy->attributesToArray());
         $cms->save();
@@ -95,25 +103,21 @@ class PreviewController extends Controller
     public function copyPlan($app_id){
         $plans = Plan::where('app_id',$app_id)->get();
         foreach ($plans as $plan) {
-            $copyplan =  new MainPlan();
-            $copyplan->fill($plan->attributesToArray());
-            $copyplan->save();
+            $this->repository->deletePlanAndAddMain($plan);
         }
         foreach (PlanDetail::all() as $detail) {
-            $PlanDetail =  new MainPlanDetail();
-            $PlanDetail->fill($detail->attributesToArray());
-            $PlanDetail->save();
+            $this->repository->deletePlanDetailAddMain($detail);
         }
         foreach (PlanFeatue::all() as $feature) {
-            $features =  new MainPlanFeatue();
-            $features->fill($feature->attributesToArray());
-            $features->save();
+            $this->repository->deletePlanFeatureAddMain($feature);
         }
     }
     public function copyAbout($app_id){
-        $abouts = About::where('app_id',$app_id)->first();
+        $abouts = About::where('app_id',$app_id)->get();
+
         foreach ($abouts as $about) {
             $copyAbout =  new MainAbout();
+
             $copyAbout->fill($about->attributesToArray());
             $copyAbout->save();
         }
@@ -121,17 +125,13 @@ class PreviewController extends Controller
     public function copyTestimony($app_id){
         $testimoni = Testimoni::where('app_id',$app_id)->get();
         foreach ($testimoni as $testi) {
-           $copyTesti = new MainTestimoni();
-           $copyTesti->fill($testi->attributesToArray());
-           $copyTesti->save();
+            $this->repository->deleteAddTestimomni($testi);
         }
     }
     public function copyNews($app_id){
         $newses = Article::where('app_id',$app_id)->get();
         foreach ($newses as $news) {
-           $copyTesti = new MainArticle();
-           $copyTesti->fill($news->attributesToArray());
-           $copyTesti->save();
+            $this->repository->deleteAddnewMain($news);
         }
     }
     public function copyEvent($app_id){
@@ -158,15 +158,11 @@ class PreviewController extends Controller
     }
     public function copyKeunggun($app_id){
         $keunggulan = Keunggulan::where('app_id',$app_id)->first();
-        $cms  = new MainKeunggulan();
-        $cms->fill($keunggulan->attributesToArray());
-        $cms->save();
+        $this->repository->deleteAddKeunggulan($keunggulan);
 
         $list = KeunggulanList::where('keunggulan_id',$keunggulan->id)->get();
         foreach ($list as $value) {
-            $copyMedia = new MainKeunggulanList();
-            $copyMedia->fill($value->attributesToArray());
-            $copyMedia->save();
+            $this->repository->deleteAddKeunggulanListMain($value);
         }
     }
 
@@ -205,7 +201,7 @@ class PreviewController extends Controller
     }
 
     public function izidok(){
-        
+
         $hero = AppHero::where('app_id',2)->first();
         $btnHero = json_decode($hero?->extend,true);
         $data['hero'] = [
