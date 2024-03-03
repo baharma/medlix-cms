@@ -44,21 +44,22 @@ class PreviewRepositoryImplement extends Eloquent implements PreviewRepository{
 
     public function deletePlanAndAddMain(Plan $plan){
         try {
-            DB::transaction(function () use ($plan) {
+            $data = null;
+            DB::transaction(function () use ($plan, &$data) {
                 if ($originalPlan = MainPlan::find($plan->id)) {
                     $originalPlan->delete();
                 }
-
-                MainPlan::updateOrCreate(
-                    ['id' => $plan->id],
-                    $plan->attributesToArray()
-                );
+               $data =  MainPlan::create([
+                    'id'=>$plan->id,
+                    'app_id' => $plan->app_id,
+                    'name' => $plan->name,
+                    'duration' => $plan->duration,
+                    'amount'=> $plan->amount,
+                    'best_seller' => $plan->best_seller
+                    ]);
             });
 
-            return [
-                'success' => true,
-                'message' => 'Success Save And Delete Plan.',
-            ];
+            return $data;
         } catch (\Throwable $e) {
             return [
                 'success' => false,
@@ -74,9 +75,15 @@ class PreviewRepositoryImplement extends Eloquent implements PreviewRepository{
                     $mainDetail->delete();
                 }
 
-                MainPlanDetail::updateOrCreate(
-                    ['id' => $planDetail->id],
-                    $planDetail->attributesToArray()
+                MainPlanDetail::create(
+                  [
+                    "id" => $planDetail->id,
+                    "plan_id" => $planDetail->plan_id,
+                    "feature_id" => $planDetail->plan_id,
+                    "check" => $planDetail->plan_id,
+                    "created_at" => $planDetail->created_at,
+                    "updated_at" =>$planDetail->updated_at
+                  ]
                 );
             });
 
@@ -99,10 +106,15 @@ class PreviewRepositoryImplement extends Eloquent implements PreviewRepository{
                 if ($mainFeature = MainPlanFeatue::find($planFeatue->id)) {
                     $mainFeature->delete();
                 }
-
-                MainPlanFeatue::updateOrCreate(
-                    ['id' => $planFeatue->id],
-                    $planFeatue->attributesToArray()
+                dd($planFeatue);
+                MainPlanFeatue::create(
+                 [
+                    "id" => $planFeatue->id,
+                    "name" => $planFeatue->name,
+                    "status" => $planFeatue->status,
+                    "created_at" =>$planFeatue->created_at,
+                    "updated_at" => $planFeatue->updated_at,
+                 ]
                 );
             });
 
@@ -127,9 +139,17 @@ class PreviewRepositoryImplement extends Eloquent implements PreviewRepository{
                     $mainTestimonial->delete();
                 }
 
-                MainTestimoni::updateOrCreate(
-                    ['id' => $testimoni->id],
-                    $testimoni->attributesToArray()
+                MainTestimoni::create(
+                  [
+                    "id" => $testimoni->id,
+                    "app_id" => $testimoni->app_id,
+                    "testi" => $testimoni->testi,
+                    "testi_by" => $testimoni->testi_by,
+                    "testi_by_title" => $testimoni->testi_by_title,
+                    "testi_by_img" =>$testimoni->testi_by_img,
+                    "created_at" => $testimoni->created_at,
+                    "updated_at" =>$testimoni->updated_at
+                  ]
                 );
             });
 

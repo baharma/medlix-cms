@@ -65,8 +65,8 @@ class PreviewController extends Controller
         $app = CmsApp::where('app_name',$request->app)->first();
         $app_id = $app->id;
 
-        DB::beginTransaction();
-        try {
+        // DB::beginTransaction();
+        // try {
             $this->copyCMS($app_id);
             if ($app_id == 1) {
                 $this->copyHero($app_id);
@@ -91,13 +91,13 @@ class PreviewController extends Controller
             }
             if ($app_id == 3) {
             }
-            DB::commit();
-            dd('success');
+        //     DB::commit();
+        //     dd('success');
 
-        } catch (\Throwable $th) {
-            DB::rollBack();
-            dd($th->getMessage());
-        }
+        // } catch (\Throwable $th) {
+        //     DB::rollBack();
+        //     dd($th->getMessage());
+        // }
 
     }
 
