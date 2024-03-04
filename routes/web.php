@@ -136,6 +136,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 Route::group(['prefix' => 'medlinx'], function () {
-    Route::get('/home',[LandingMedlinxController::class,'index']);
+    Route::get('/prev',[LandingMedlinxController::class,'index'])->name('priview-medlinx');
     Route::post('/send-message',[LandingMedlinxController::class,'sendMessage'])->name('send-message');
 });
