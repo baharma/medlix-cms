@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\API\IzidokController;
+use App\Livewire\Pages\Produk\Produk;
 use App\Models\About;
 use App\Models\AppHero;
 use App\Models\Article;
@@ -26,7 +27,9 @@ use App\Models\Media;
 use App\Models\Plan;
 use App\Models\PlanDetail;
 use App\Models\PlanFeatue;
+use App\Models\Product;
 use App\Models\Solution;
+use App\Models\Team;
 use App\Models\Testimoni;
 use App\Models\VisiMisi;
 use App\Repositories\Preview\PreviewRepository;
@@ -71,8 +74,11 @@ class PreviewController extends Controller
             if ($app_id == 1) {
                 $this->copyHero($app_id);
                 $this->copysolution($app_id);
-                // $this->copyTeam(0);
                 $this->copyTestimony($app_id);
+                $this->copyVisiMisi($app_id);
+                $this->copyTeam(0);
+                $this->copyProduk($app_id);
+                $this->copyHero($app_id);
                 $this->copyMediaMedlinx();
                 session()->push('publish', ['message' => "Successful publish Medlinx"]);
                 return to_route('cms.set',$app_id);
@@ -100,40 +106,52 @@ class PreviewController extends Controller
         // }
 
     }
+    public function copyProduk($app_id){
+        $produk = Product::where('app_id',$app_id)->get();
 
-    // public function copyVisiMisi($app_id){
-    //     $mainVisiMisi = VisiMisi::find($app_id);
-    //     foreach($mainVisiMisi as $data){
-    //         $this->repository->deleteAddVisiMisi($data);
-    //     }
-    // }
+        foreach($produk as $item){
+            $this->repository->deleteAddProduct($item);
+        }
+    }
+    public function copyTeam($app_id){
+        $team = Team::where('app_id',$app_id)->get();
+        foreach($team as $data){
+            $this->repository->deleteAddTeam($data);
+        }
+    }
+    public function copyVisiMisi($app_id){
+        $mainVisiMisi = VisiMisi::where('app_id',$app_id)->get();
+        foreach($mainVisiMisi as $data){
+            $this->repository->deleteAddVisiMisi($data);
+        }
+    }
 
-    // public function copyMediaMedlinx(){
-    //     $mark1 = Media::where('mark','porto1')->get();
-    //     $mark2= Media::where('mark','porto2')->get();
-    //     $mitra = Media::where('mark','mitra')->get();
-    //     $diliput = Media::where('mark','diliput')->get();
+    public function copyMediaMedlinx(){
+        $mark1 = Media::where('mark','porto1')->get();
+        $mark2= Media::where('mark','porto2')->get();
+        $mitra = Media::where('mark','mitra')->get();
+        $diliput = Media::where('mark','diliput')->get();
 
-    //     foreach($mark1 as $data){
-    //         $this->repository->deleteAddMedia($data);
-    //     }
-    //     foreach($mark2 as $data){
-    //         $this->repository->deleteAddMedia($data);
-    //     }
-    //     foreach($mitra as $data){
-    //         $this->repository->deleteAddMedia($data);
-    //     }
-    //     foreach($diliput as $data){
-    //         $this->repository->deleteAddMedia($data);
-    //     }
-    // }
+        foreach($mark1 as $data){
+            $this->repository->deleteAddMedia($data);
+        }
+        foreach($mark2 as $data){
+            $this->repository->deleteAddMedia($data);
+        }
+        foreach($mitra as $data){
+            $this->repository->deleteAddMedia($data);
+        }
+        foreach($diliput as $data){
+            $this->repository->deleteAddMedia($data);
+        }
+    }
 
-    // public function copysolution($app_id){
-    //     $solition = Solution::where('app_id',$app_id)->get();
-    //     foreach($solition as $item){
-    //         $this->repository->deleteAddSolution($item);
-    //     }
-    // }
+    public function copysolution($app_id){
+        $solition = Solution::where('app_id',$app_id)->get();
+        foreach($solition as $item){
+            $this->repository->deleteAddSolution($item);
+        }
+    }
 
     public function copyCMS($app_id){
         $mainCMS = MainCmsApp::find($app_id);
@@ -162,10 +180,7 @@ class PreviewController extends Controller
         $abouts = About::where('app_id',$app_id)->get();
 
         foreach ($abouts as $about) {
-            $copyAbout =  new MainAbout();
-
-            $copyAbout->fill($about->attributesToArray());
-            $copyAbout->save();
+            $this->repository->deleteAddAbout($about);
         }
     }
     public function copyTestimony($app_id){
@@ -183,30 +198,25 @@ class PreviewController extends Controller
     public function copyEvent($app_id){
         $allEvent = Event::where('app_id',$app_id)->get();
         foreach ($allEvent as $event) {
-           $copyEvent = new MainEvent();
-           $copyEvent->fill($event->attributesToArray());
-           $copyEvent->save();
+            $this->repository->deleteAddEvent($event);
         }
     }
     public function imgSliderIzidok(){
         $allMedia = Media::where(['title'=>'izidok','mark'=>'slider'])->get();
         foreach ($allMedia as $media) {
-           $copyMedia = new MainMedia();
-           $copyMedia->fill($media->attributesToArray());
-           $copyMedia->save();
+            $this->repository->deleteAddMedia($media);
         }
     }
     public function copyHero($app_id){
         $heros = AppHero::where('app_id',$app_id)->first();
-        $cms  = new MainAppHero();
-        $cms->fill($heros->attributesToArray());
-        $cms->save();
+        $this->repository->deleteAddHero($heros);
     }
     public function copyKeunggun($app_id){
         $keunggulan = Keunggulan::where('app_id',$app_id)->first();
         $this->repository->deleteAddKeunggulan($keunggulan);
 
         $list = KeunggulanList::where('keunggulan_id',$keunggulan->id)->get();
+
         foreach ($list as $value) {
             $this->repository->deleteAddKeunggulanListMain($value);
         }
