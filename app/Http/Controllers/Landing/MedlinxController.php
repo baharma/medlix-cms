@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
 use App\Models\AppHero;
+use App\Models\CmsApp;
 use App\Models\Media;
 use App\Models\Product;
 use App\Models\Solution;
@@ -29,10 +30,10 @@ class MedlinxController extends Controller
         $data['diliput'] = Media::where('mark','diliput')->get();
         $dataChunks = $data['mark1']->chunk(4);
         $porto2Chunks = $data['mark2']->chunk(4);
-
+        $app = CmsApp::find(1);
         $diliputChunk = $data['diliput']->chunk(4);
         $mitraChunk = $data['mitra']->chunk(4);
-        return view('medlinx.landing.app',compact('data','dataChunks','porto2Chunks','diliputChunk','mitraChunk'));
+        return view('medlinx.landing.app',compact('data','dataChunks','porto2Chunks','diliputChunk','mitraChunk','app'));
     }
 
     public function sendMessage(Request $req){
