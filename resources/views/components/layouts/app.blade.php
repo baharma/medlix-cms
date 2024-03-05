@@ -66,14 +66,35 @@
                 @else
                     <livewire:components.sidebar />
                 @endif
-                <li class="menu-label">Preview</li>
-                <li>
-                    <a href="{{ route('preview', strtolower(ActiveApp('name'))) }}" id="logout" type="submit">
-                        <div class="parent-icon"><i class="bx bx-window"></i>
-                        </div>
-                        <div class="menu-title">Preview</div>
-                    </a>
-                </li>
+                @if (ActiveApp('id') == 1 && checkPreviewMedlinx())
+                    <li class="menu-label">Preview</li>
+                    <li>
+                        <a href="{{ route('preview', strtolower(ActiveApp('name'))) }}" id="logout" type="submit">
+                            <div class="parent-icon"><i class="bx bx-window"></i>
+                            </div>
+                            <div class="menu-title">Preview</div>
+                        </a>
+                    </li>
+                @elseif (ActiveApp('id') == 2 && checkPreviewIzidok())
+                    <li class="menu-label">Preview</li>
+                    <li>
+                        <a href="{{ route('preview', strtolower(ActiveApp('name'))) }}" id="logout" type="submit">
+                            <div class="parent-icon"><i class="bx bx-window"></i>
+                            </div>
+                            <div class="menu-title">Preview</div>
+                        </a>
+                    </li>
+                @elseif (ActiveApp('id') == 3 && checkPreviewIziklaim())
+                    <li class="menu-label">Preview</li>
+                    <li>
+                        <a href="{{ route('preview', strtolower(ActiveApp('name'))) }}" id="logout" type="submit">
+                            <div class="parent-icon"><i class="bx bx-window"></i>
+                            </div>
+                            <div class="menu-title">Preview</div>
+                        </a>
+                    </li>
+                @endif
+
                 <li class="menu-label">End Section</li>
                 <form action="{{ route('logout') }}" method="post" id="formLogout">
                     @csrf
