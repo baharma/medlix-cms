@@ -35,8 +35,6 @@
     @include('layouts.component.confirm-delete')
 </div>
 
-
-
 @script
     <script defer>
         window.onload = function() {

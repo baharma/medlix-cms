@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\AppHero;
+use App\Models\Article;
 use App\Models\CmsApp;
 use App\Models\Event;
 use App\Models\Media;
@@ -100,6 +101,19 @@ class IziklaimController extends Controller
         $data['solution'] = $solution;
         $data['provider'] =  ['text'=>$provider,'slider'=>$providerImg];
         $data['event']  = $event;
+
+        $article = Article::where('app_id',2)->get();
+        $news = [];
+        foreach ($article as $value) {
+            $news[] = [
+                'title' => $value->title,
+                'images' => asset($value->thumbnail),
+                'desc' => $value->description,
+                'check' => $value->check,
+                'slug' => $value->slug
+            ];
+        }
+        $data['news'] = $news;
         $data['app'] = [
             'name'  => $contact->app_name,
             'url'   => $contact->app_url,
