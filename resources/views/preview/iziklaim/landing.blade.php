@@ -38,57 +38,11 @@
         @include('preview.iziklaim.landing.portfolio')
         @include('preview.iziklaim.landing.clients')
         @include('preview.iziklaim.landing.events')
+        @include('preview.iziklaim.landing.news')
         @include('preview.iziklaim.landing.contact')
     </main>
     @include('preview.iziklaim.landing.footer')
-    <nav class="navbar navbar-expand-lg  fixed-bottom " style="background-color: #FFF67E;">
-        <div class="container">
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a href="{{ url('dashboard') }}"> <button class="btn btn-success"> <i
-                                    class="bx bx-arrow-back"></i>
-                                Dashboard</button></a>
-                    </li>
-                    <form action="{{ route('publish') }}" method="post" id="form-publish">
-                        @csrf
-                        <input type="hidden" name="app" value="{{ $app['name'] }}">
-                        <li class="nav-item" type="submit">
-                            <a href="#" id="publish"> <button class="btn btn-primary"> <i
-                                        class="bx bx-cloud-upload"></i>
-                                    PUBLISH</button></a>
-                        </li>
-                    </form>
-                    <li class="nav-item">
-                        <a class="#" href="#"> Tampilan Landing page sebelum semua data di publish</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    {{-- <nav class="navbar navbar-expand-lg fixed-bottom " style="background-color: #FFF67E;">
-        <div class="container">
-            <form action="{{ route('publish') }}" method="post">
-
-                <span class="navbar-text" style="display: flex;justify-content: space-between">
-                    <a href="{{ url('/dashboard') }}" class="btn btn-info btn-sm mr-2">
-                        <i class="bx bx-arrow-back">Dashboard</i>
-                    </a>
-                    @csrf
-
-                    <input type="hidden" name="app" value="{{ $app['name'] }}">
-                    <button type="submit" class="btn btn-primary btn-sm mr-2">
-                        <i class="bx bx-save">Publish</i>
-                    </button>
-                    <span>
-                        Tampilan Landing page sebelum semua data di publish
-                    </span>
-                </span>
-            </form>
-        </div>
-    </nav> --}}
+    @include('preview.iziklaim.landing.publish')
 
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center">

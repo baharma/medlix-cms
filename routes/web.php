@@ -40,7 +40,7 @@ use App\Livewire\Pages\Testimoni\FormTestimoni;
 use App\Livewire\Pages\Testimoni\Testimoni;
 use App\Livewire\Pages\VisiMisi\FormIziklaimVisiMisi;
 use App\Livewire\Pages\VisiMisi\VisiMisiiziklaim;
-
+use App\Livewire\Pages\WhyUs\WhyUs;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -114,6 +114,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/porto',Porto::class);
     Route::get('/porto/{id}',PortoEdit::class);
 
+    Route::get('/medlinx-why-us',WhyUs::class)->name('why-use');
+
     Route::controller(HelperController::class)->group(function(){
         Route::post('/imageCkEditor','UploadImageCkEditor')->name('image.upload');
     });
@@ -127,8 +129,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     Route::get('/prev/{slug?}',[PreviewController::class,'index'])->name('preview');
-    Route::get('/view/news-update', [PreviewController::class,'newsUpdate'])->name('news-update');
-    Route::get('/view/news-update/{slug}', [PreviewController::class,'newsUpdateDetail'])->name('news-update-detail');
+    Route::get('/view/news/{cms?}', [PreviewController::class,'newsUpdate'])->name('news-update');
+    Route::get('/view/news/{cms?}/{slug}', [PreviewController::class,'newsUpdateDetail'])->name('news-update-detail');
 
     Route::post('publish',[PreviewController::class,'publish'])->name('publish');
 

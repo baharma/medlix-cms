@@ -58,12 +58,16 @@ class PreviewController extends Controller
             return view('preview.iziklaim.landing',$data);
         }
     }
-    public function newsUpdate(){
-
-        $data['title'] = 'Home';
+    public function newsUpdate($cms){
+        // dd($cms);
+        $data['title'] = 'News';
         $data['page'] = 'news-update';
         $data += $this->izidok();
-        return view('preview.izidok.landing.others.news-update', $data);
+        if($cms == 'izidok'){
+            return view('preview.izidok.landing.others.news-update', $data);
+        }elseif($cms=='iziklaim'){
+            return view('preview.iziklaim.landing.news-update', $data);
+        }
 
     }
 
@@ -99,6 +103,14 @@ class PreviewController extends Controller
                 return to_route('cms.set',$app_id);
             }
             if ($app_id == 3) {
+                $this->copyTeamIziklaim();
+                $this->copyVisiMisi($app_id);
+                $this->copyHero($app_id);
+                $this->copyEvent($app_id);
+                $this->copysolution($app_id);
+                $this->copyMediaIziklaim();
+                session()->push('publish', ['message' => "Successful publish IziKlaim"]);
+                return to_route('cms.set',$app_id);
             }
         //     DB::commit();
         //     dd('success');
@@ -195,11 +207,13 @@ class PreviewController extends Controller
     public function copyNews($app_id){
         $newses = Article::where('app_id',$app_id)->get();
         foreach ($newses as $news) {
-            $this->repository->deleteAddnewMain($news);
+            $this->repository->deleteAddArticle($news);
         }
     }
     public function copyEvent($app_id){
+
         $allEvent = Event::where('app_id',$app_id)->get();
+
         foreach ($allEvent as $event) {
             $this->repository->deleteAddEvent($event);
         }
@@ -227,13 +241,17 @@ class PreviewController extends Controller
 
 
 
-    public function newsUpdateDetail($slug){
+    public function newsUpdateDetail($cms,$slug){
         $data = [
             'title' => 'News & Update Detail',
             'page' => 'news-update'
         ];
         $data += $this->news($slug);
-        return view('preview.izidok.landing.others.news-detail', $data);
+        if($cms=='izidok'){
+            return view('preview.izidok.landing.others.news-detail', $data);
+        }elseif($cms=='iziklaim'){
+            return view('preview.iziklaim.landing.news-details', $data);
+        }
     }
     public function news($slug){
 
@@ -375,12 +393,34 @@ class PreviewController extends Controller
        return $data;
     }
 
+    public function copyTeamIziklaim(){
+        $teamUp     = Team::where('up_lv',1)->get();
+        $teamDown   = Team::where('up_lv',0)->get();
+
+        foreach($teamUp as $data){
+            $this->repository->deleteAddTeam($data);
+        }
+        foreach($teamDown as $data){
+            $this->repository->deleteAddTeam($data);
+        }
+    }
+    public function copyMediaIziklaim(){
+        $prov = Media::whereIn('mark',['provider'])->get();
+        $provimg = Media::whereIn('title',['provider','client','maps'])->where(['mark'=>'slider'])->get();
+        foreach ($prov as $media) {
+            $this->repository->deleteAddMedia($media);
+        }
+        foreach ($provimg as $media) {
+            $this->repository->deleteAddMedia($media);
+        }
+    }
+
     public function iziklaim(){
         $hero       = AppHero::where('app_id',3)->first();
         $heroMini   = json_decode($hero->extend,true);
         $visiMisi   = VisiMisi::where('app_id',3)->first();
         $teamUp     = Team::where('up_lv',1)->get();
-        $teamDown   = Team::where('up_lv',0)->get(); 
+        $teamDown   = Team::where('up_lv',0)->get();
         $team       = [];
         $team2       = [];
         foreach ($teamUp as $value) {
@@ -404,7 +444,7 @@ class PreviewController extends Controller
             if(isset($extend['button'])){
                 $button = [
                     'name'  => $extend['button']['name'],
-                    'val'   => $extend['button']['val'] 
+                    'val'   => $extend['button']['val']
                 ];
             }else{
                 $button =  false;
@@ -419,7 +459,7 @@ class PreviewController extends Controller
                 'position'  => ($extend['img_postion']),
                 'default'  => ($extend['defauult']),
                 'button'    => $button
-                
+
             ];
         }
 
@@ -456,11 +496,24 @@ class PreviewController extends Controller
         $data['visiMisi']  = [
             'visi'  => $visiMisi->visi,
             'misi'  => $visiMisi->misi
-        ]; 
+        ];
         $data['team'] = ['up'=>$team,'down'=>$team2];
         $data['solution'] = $solution;
         $data['provider'] =  ['text'=>$provider,'slider'=>$providerImg];
         $data['event']  = $event;
+        $article = Article::where('app_id',2)->get();
+        $news = [];
+        foreach ($article as $value) {
+            $news[] = [
+                'title' => $value->title,
+                'images' => asset($value->thumbnail),
+                'desc' => $value->description,
+                'check' => $value->check,
+                'slug' => $value->slug
+            ];
+        }
+
+        $data['news'] = $news;
         $data['app'] = [
             'name'  => $contact->app_name,
             'url'   => $contact->app_url,
