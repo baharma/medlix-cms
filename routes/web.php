@@ -40,7 +40,7 @@ use App\Livewire\Pages\Testimoni\FormTestimoni;
 use App\Livewire\Pages\Testimoni\Testimoni;
 use App\Livewire\Pages\VisiMisi\FormIziklaimVisiMisi;
 use App\Livewire\Pages\VisiMisi\VisiMisiiziklaim;
-
+use App\Livewire\Pages\WhyUs\WhyUs;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -113,6 +113,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/porto',Porto::class);
     Route::get('/porto/{id}',PortoEdit::class);
+
+    Route::get('/medlinx-why-us',WhyUs::class)->name('why-use');
 
     Route::controller(HelperController::class)->group(function(){
         Route::post('/imageCkEditor','UploadImageCkEditor')->name('image.upload');

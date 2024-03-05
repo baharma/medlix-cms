@@ -24,6 +24,7 @@ class MedlinxController extends Controller
         $data['produk'] = Product::where('app_id',1)->get();
         $data['mark1'] = Media::where('mark','porto1')->get();
         $data['mark2'] = Media::where('mark','porto2')->get();
+        $data['why'] = Media::where('mark','why_us')->get();
         $data['penghargaan'] = Media::where('mark','penghargaan')->get();
         $data['testimoni'] = Testimoni::where('app_id',1)->get();
         $data['mitra'] = Media::where('mark','mitra')->get();
