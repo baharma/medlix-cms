@@ -58,12 +58,16 @@ class PreviewController extends Controller
             return view('preview.iziklaim.landing',$data);
         }
     }
-    public function newsUpdate(){
-
-        $data['title'] = 'Home';
+    public function newsUpdate($cms){
+        // dd($cms);
+        $data['title'] = 'News';
         $data['page'] = 'news-update';
         $data += $this->izidok();
-        return view('preview.izidok.landing.others.news-update', $data);
+        if($cms == 'izidok'){
+            return view('preview.izidok.landing.others.news-update', $data);
+        }elseif($cms=='iziklaim'){
+            return view('preview.iziklaim.landing.news-update', $data);
+        }
 
     }
 
@@ -227,13 +231,17 @@ class PreviewController extends Controller
 
 
 
-    public function newsUpdateDetail($slug){
+    public function newsUpdateDetail($cms,$slug){
         $data = [
             'title' => 'News & Update Detail',
             'page' => 'news-update'
         ];
         $data += $this->news($slug);
-        return view('preview.izidok.landing.others.news-detail', $data);
+        if($cms=='izidok'){
+            return view('preview.izidok.landing.others.news-detail', $data);
+        }elseif($cms=='iziklaim'){
+            return view('preview.iziklaim.landing.news-details', $data);
+        }
     }
     public function news($slug){
 
@@ -461,6 +469,19 @@ class PreviewController extends Controller
         $data['solution'] = $solution;
         $data['provider'] =  ['text'=>$provider,'slider'=>$providerImg];
         $data['event']  = $event;
+        $article = Article::where('app_id',2)->get();
+        $news = [];
+        foreach ($article as $value) {
+            $news[] = [
+                'title' => $value->title,
+                'images' => asset($value->thumbnail),
+                'desc' => $value->description,
+                'check' => $value->check,
+                'slug' => $value->slug
+            ];
+        }
+
+        $data['news'] = $news;
         $data['app'] = [
             'name'  => $contact->app_name,
             'url'   => $contact->app_url,

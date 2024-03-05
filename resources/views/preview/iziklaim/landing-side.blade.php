@@ -35,7 +35,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <ol>
                         <li>
-                            <a href="#">Home</a>
+                            <a href="{{ url('prev/iziklaim') }}">Home</a>
                         </li>
                         <li>{{ $title }}</li>
                     </ol>
@@ -46,6 +46,7 @@
     </main>
     <!-- End #main -->
     @include('preview.iziklaim.side.footer')
+    @include('preview.iziklaim.landing.publish')
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
         <i class="bi bi-arrow-up-short"></i>
