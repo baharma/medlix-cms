@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class MainPlan extends Model
 {
     use HasFactory;
+    // protected $fillable = [
+    // 'app_id','name','duration','amount','best_seller'
+    // ];
+    protected $guarded = [];
+    public function details(){
+        return $this->hasMany(PlanDetail::class);
+    }
+    public function feature(){
+        return $this->belongsToMany(PlanFeatue::class,'plan_details','plan_id','feature_id')->withPivot('check', 'id');
+    }
 }

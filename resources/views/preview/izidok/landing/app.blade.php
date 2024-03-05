@@ -60,6 +60,7 @@
                             <i class="bx bx-arrow-back">Dashboard</i>
                         </a>
                         @csrf
+
                         <input type="hidden" name="app" value="{{ $app['name'] }}">
                         <button type="submit" class="btn btn-primary btn-sm">
                             <i class="bx bx-save">Publish</i>

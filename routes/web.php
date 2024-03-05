@@ -20,6 +20,8 @@ use App\Livewire\Pages\News\FormNews;
 use App\Livewire\Pages\Plan;
 use App\Livewire\Pages\Porto;
 use App\Livewire\Pages\PortoEdit;
+use App\Livewire\Pages\Produk\Produk;
+use App\Livewire\Pages\Produk\ProdukForm;
 use App\Livewire\Pages\Provider;
 use App\Livewire\Pages\ProviderEdit;
 use App\Livewire\Pages\Section;
@@ -38,7 +40,7 @@ use App\Livewire\Pages\Testimoni\FormTestimoni;
 use App\Livewire\Pages\Testimoni\Testimoni;
 use App\Livewire\Pages\VisiMisi\FormIziklaimVisiMisi;
 use App\Livewire\Pages\VisiMisi\VisiMisiiziklaim;
-
+use App\Livewire\Pages\WhyUs\WhyUs;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -106,8 +108,13 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/izidok-keunggulan',Keunggulan::class);
 
+    Route::get('/medlinx-produk',Produk::class)->name('produk');
+    Route::get('/medlinx-produk/form/{idproduk?}',ProdukForm::class)->name('produck-form');
+
     Route::get('/porto',Porto::class);
     Route::get('/porto/{id}',PortoEdit::class);
+
+    Route::get('/medlinx-why-us',WhyUs::class)->name('why-use');
 
     Route::controller(HelperController::class)->group(function(){
         Route::post('/imageCkEditor','UploadImageCkEditor')->name('image.upload');
@@ -121,16 +128,16 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
 
-    Route::get('/priv/{slug?}',[PreviewController::class,'index'])->name('preview');
-    Route::get('/view/news-update', [PreviewController::class,'newsUpdate'])->name('news-update');
-    Route::get('/view/news-update/{slug}', [PreviewController::class,'newsUpdateDetail'])->name('news-update-detail');
+    Route::get('/prev/{slug?}',[PreviewController::class,'index'])->name('preview');
+    Route::get('/view/news/{cms?}', [PreviewController::class,'newsUpdate'])->name('news-update');
+    Route::get('/view/news/{cms?}/{slug}', [PreviewController::class,'newsUpdateDetail'])->name('news-update-detail');
 
     Route::post('publish',[PreviewController::class,'publish'])->name('publish');
 
 });
 
 
-Route::get('/',[LandingMedlinxController::class,'index'])->name('medlinx.home');
-Route::post('/send-message',[LandingMedlinxController::class,'sendMessage'])->name('send-message');
-// Route::group(['prefix' => 'medlinx'], function () {
-// });
+Route::group(['prefix' => 'medlinx'], function () {
+    Route::get('/prev',[LandingMedlinxController::class,'index'])->name('priview-medlinx');
+    Route::post('/send-message',[LandingMedlinxController::class,'sendMessage'])->name('send-message');
+});

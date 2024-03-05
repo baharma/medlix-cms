@@ -140,8 +140,18 @@ class AllSectionSeeder extends Seeder
                 'icon' => 'bx bx-trending-up',
                 'group'=> 2
             ],
-
-
+            [
+                'name' => 'produk',
+                'url'  => '/medlinx-produk',
+                'icon' => 'bx bxs-briefcase-alt-2',
+                'group'=> 1
+            ],
+            [
+                'name' => 'Why Us',
+                'url'  => '/medlinx-why-us',
+                'icon' => 'bx bxs-conversation',
+                'group'=> 1
+            ],
         ];
 
        foreach ($data as $item) {

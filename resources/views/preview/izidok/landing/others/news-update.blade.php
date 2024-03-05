@@ -29,8 +29,7 @@
                                         <img class="img-fluid rounded" src="{{ $news[0]['images'] }}" alt="">
                                     </div>
                                 </div>
-                                <p href="#" class="text-dark text-justify fs-2 fw-bold">Menyambut 2024, izidok Siap
-                                    Menjadi Pionir Ekosistem Kesehatan Digital di Indonesia</p>
+                                <p href="#" class="text-dark text-justify fs-2 fw-bold">{{ $news[0]['title'] }}</p>
                             </div>
                             <div class="fs-5 fw-semibold text-gray-600 text-justify">
 
@@ -40,7 +39,7 @@
                                     @endif
                                 </p>
                                 <p>
-                                    <a href="{{ route('news-update-detail', $news[0]['slug']) }}">Baca
+                                    <a href="{{ url('view/news/izidok/' . $news[0]['slug']) }}">Baca
                                         selengkapnya</a>
                                 </p>
                             </div>
@@ -52,11 +51,11 @@
                                     <div class="col-md-4">
                                         <div class="card-xl-stretch">
                                             <a
-                                                href="{{ $item['check'] == null ? route('news-update-detail', $item['slug']) : $item['check'] }}"><img
+                                                href="{{ $item['check'] == null ? url('view/news/izidok/' . $item['slug']) : $item['check'] }}"><img
                                                     class="img-fluid rounded w-100" src="{{ $item['images'] }}"
                                                     alt=""></a>
                                             <div class="mt-3">
-                                                <a href="{{ $item['check'] == null ? route('news-update-detail', $item['slug']) : $item['check'] }}"
+                                                <a href="{{ $item['check'] == null ? url('view/news/izidok/' . $item['slug']) : $item['check'] }}"
                                                     class="fs-4 text-dark fw-bold text-hover-primary text-dark lh-base">{{ $item['title'] }}</a>
 
                                             </div>
