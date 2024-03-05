@@ -10,6 +10,14 @@ use App\Models\CmsApp;
 use App\Models\Event;
 use App\Models\Keunggulan;
 use App\Models\KeunggulanList;
+use App\Models\MainAbout;
+use App\Models\MainAppHero;
+use App\Models\MainArticle;
+use App\Models\MainCmsApp;
+use App\Models\MainEvent;
+use App\Models\MainKeunggulan;
+use App\Models\MainPlan;
+use App\Models\MainTestimoni;
 use App\Models\Media;
 use App\Models\Plan;
 use App\Models\Testimoni;
@@ -19,7 +27,7 @@ class IzidokController extends Controller
 {
     public function index(){
         
-        $hero = AppHero::where('app_id',2)->first();
+        $hero = MainAppHero::where('app_id',2)->first();
         $btnHero = json_decode($hero?->extend,true);
         $data['hero'] = [
             'image'=> asset($hero->image),
@@ -27,7 +35,7 @@ class IzidokController extends Controller
             'subtitle' => $hero->subtitle,
             'button_url' => $btnHero[0]['val']??null
         ];
-        $about =  About::where('app_id',2)->first();
+        $about =  MainAbout::where('app_id',2)->first();
         $data['about'] = [
             'image' => asset($about->image),
             'title' => $about->title,
@@ -42,7 +50,7 @@ class IzidokController extends Controller
         }
         $data['slider'] = $slide;
 
-        $keunggulan = Keunggulan::with('KeunggulanList')->where('app_id',2)->first();
+        $keunggulan = MainKeunggulan::with('KeunggulanList')->where('app_id',2)->first();
         $keunggulanList =  [];
         foreach ($keunggulan->KeunggulanList as $value) {
             $keunggulanList[] = [
@@ -60,7 +68,7 @@ class IzidokController extends Controller
             'image' => asset($keunggulan->image)
         ];
 
-        $article = Article::where('app_id',2)->get();
+        $article = MainArticle::where('app_id',2)->get();
         $news = [];
         foreach ($article as $value) {
             $news[] = [
@@ -74,7 +82,7 @@ class IzidokController extends Controller
 
         $data['news'] = $news;
 
-        $plan = Plan::where('app_id',2)
+        $plan = MainPlan::where('app_id',2)
                     ->with('details','details.feature')
                     ->get();
         $pricing = [];
@@ -96,7 +104,7 @@ class IzidokController extends Controller
         }
         $data['price'] = $pricing;
 
-        $ev  = Event::where('app_id',2)->get();
+        $ev  = MainEvent::where('app_id',2)->get();
         $event = [];
         foreach ($ev as $e) {
             $event[] = [
@@ -106,7 +114,7 @@ class IzidokController extends Controller
         }
         $data['event'] =  $event;
         $testi = [];
-        foreach (Testimoni::where('app_id',2)->get() as $t) {
+        foreach (MainTestimoni::where('app_id',2)->get() as $t) {
             $testi[]  = [
                 'testi' => $t->testi,
                 'by'    => $t->testi_by,
@@ -116,7 +124,7 @@ class IzidokController extends Controller
         }
 
         $data['testi']  = $testi;
-        $contact =  CmsApp::find(2);
+        $contact =  MainCmsApp::find(2);
         $data['app'] = [
             'name'  => $contact->app_name,
             'url'   => $contact->app_url,

@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages\News;
 
 use App\Models\Article;
+use App\Models\CmsApp;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -15,17 +16,19 @@ class FormNews extends Component
 
     #[Title('News Form')]
 
-    public $artikelId;
+    public $artikelId,$app,$cms,$app_id=[];
     public $title, $thumbnail, $description,$check,$slug;
     protected $rules = [
         'title' => 'required|min:5',
         'thumbnail'=> 'required',
+        'app_id'=>'required',
     ];
     public function render()
     {
         return view('livewire.pages.news.form-news');
     }
     public function mount(){
+        $this->cms = CmsApp::all();
         if($this->artikelId){
             $data = Article::find($this->artikelId);
             $this->slug  = $data->slug;
@@ -36,7 +39,8 @@ class FormNews extends Component
         }
     }
     public function save(){
-        $this->validate();
+$this->validate();
+
         if(!is_string($this->thumbnail)){
             $thumbnail = saveImageLocal($this->thumbnail, 'news/thumbnail');
         }else{
@@ -45,12 +49,12 @@ class FormNews extends Component
         }
 
         $data = [
-            'app_id' => Auth::user()->default_cms,
+            // 'app_id' => Auth::user()->default_cms,
             'slug'  => Str::slug($this->title),
             'title' => $this->title,
             'thumbnail' => $thumbnail,
         ];
-        // dd($this->check);
+
         if ($this->check) {
             $this->validate(['check' => 'required']);
             $data['check'] = $this->check;
@@ -63,17 +67,32 @@ class FormNews extends Component
             $artikel->update($data);
             $this->dispatch('sweet-alert', ['icon' => 'success', 'title' => 'New News Update']);
         }else{
-            $artikel =  Article::create($data);
+            $check = CmsApp::all()->sortBy('id')->pluck('id')->toArray();
+            $arrayDiff = array_diff($check, $this->app_id);
+            if (empty($arrayDiff)) {
+                $data['app_id'] = 0;
+              $dataartikel =  Article::create($data);
+            }else{
+            $dataartikel = collect($this->app_id)->map(function($event) use ($data){
+                return  $data['app_id'] = $event;
+                Article::create($data);
+            });
+            }
+            $defaulCms = Auth::user()->default_cms;
+
+            $artikel = $dataartikel->first();
+
+
+
             $this->dispatch('sweet-alert', ['icon' => 'success', 'title' => 'New News Added']);
         }
-        
-        if ($this->check) {
-            $this->reset(['title', 'thumbnail', 'check', 'description']);
 
+        $this->reset(['title', 'thumbnail', 'check', 'description']);
+
+        if ($this->check) {
             return to_route('news');
         }else{
-            $this->reset(['title', 'thumbnail', 'check', 'description']);
-            return to_route('artikel.detail',$artikel->id);
+            return to_route('artikel.detail',$artikel);
         }
     }
 

@@ -18,11 +18,12 @@ class WhyUs extends Component
     }
     public function confirmDelete($get_id)
     {
-
+        $this->model->find($get_id)->delete();
     }
     public function render()
     {
         return view('livewire.pages.why-us.why-us');
+        $this->dispatch('sweet-alert', icon: 'success', title: 'Delete Succes');
     }
     public function Edit($id){
         $this->dispatch('showEdit',$id);
