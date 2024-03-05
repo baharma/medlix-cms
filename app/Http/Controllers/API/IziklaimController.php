@@ -7,6 +7,12 @@ use App\Models\AppHero;
 use App\Models\Article;
 use App\Models\CmsApp;
 use App\Models\Event;
+use App\Models\MainAppHero;
+use App\Models\MainArticle;
+use App\Models\MainCmsApp;
+use App\Models\MainEvent;
+use App\Models\MainMedia;
+use App\Models\MainSolution;
 use App\Models\Media;
 use App\Models\Solution;
 use App\Models\Team;
@@ -16,7 +22,7 @@ use Illuminate\Http\Request;
 class IziklaimController extends Controller
 {
     public function index(){
-        $hero       = AppHero::where('app_id',3)->first();
+        $hero       = MainAppHero::where('app_id',3)->first();
         $heroMini   = json_decode($hero->extend,true);
         $visiMisi   = VisiMisi::where('app_id',3)->first();
         $teamUp     = Team::where('up_lv',1)->get();
@@ -36,7 +42,7 @@ class IziklaimController extends Controller
                 'name'  => $value->name,
             ];
         }
-        $sol = Solution::where('app_id',3)->get();
+        $sol = MainSolution::where('app_id',3)->get();
         $solution = [];
 
       foreach ($sol as $s) {
@@ -64,7 +70,7 @@ class IziklaimController extends Controller
         }
 
         $provider = [];
-        $prov = Media::whereIn('mark',['provider'])->get();
+        $prov = MainMedia::whereIn('mark',['provider'])->get();
         foreach ($prov as $key => $value) {
             $provider[] = [
                 'mark'  => $value->mark,
@@ -73,21 +79,21 @@ class IziklaimController extends Controller
             ];
         }
         $providerImg = [];
-        $provimg = Media::whereIn('title',['provider','client','maps'])->where(['mark'=>'slider'])->get();
+        $provimg = MainMedia::whereIn('title',['provider','client','maps'])->where(['mark'=>'slider'])->get();
         foreach ($provimg as $key => $value) {
             $providerImg[$value->title][] = [
                 'images' => asset($value->images),
             ];
         }
         $event = [];
-        $evt    = Event::where('app_id',3)->get();
+        $evt    = MainEvent::where('app_id',3)->get();
         foreach ($evt as $val) {
             $event[] = [
                 'name'  => $val->name,
                 'image' => asset($val->image)
             ];
         }
-        $contact = CmsApp::find(3);
+        $contact = MainCmsApp::find(3);
         $data['hero']  = [
             'image'         => asset($hero->image),
             'title'         => $hero->title,
@@ -102,7 +108,7 @@ class IziklaimController extends Controller
         $data['provider'] =  ['text'=>$provider,'slider'=>$providerImg];
         $data['event']  = $event;
 
-        $article = Article::where('app_id',2)->get();
+        $article = MainArticle::where('app_id',3)->orWhere('app_id',0)->get();
         $news = [];
         foreach ($article as $value) {
             $news[] = [

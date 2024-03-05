@@ -1,6 +1,17 @@
 <?php
-
+use App\Models\About;
+use App\Models\AppHero;
+use App\Models\Article;
 use App\Models\CmsApp;
+use App\Models\Event;
+use App\Models\Keunggulan;
+use App\Models\Media;
+use App\Models\Plan;
+use App\Models\Product;
+use App\Models\Solution;
+use App\Models\Team;
+use App\Models\Testimoni;
+use App\Models\VisiMisi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
@@ -156,3 +167,175 @@ function insertLineBreaks($text, $maxLength = 15) {
 
     return rtrim($result);
 }
+
+function checkPreviewMedlinx()
+{
+    $hero = AppHero::where('app_id',1)->get();
+    if ($hero->count() < 1) {
+        return false;
+    }
+
+    $solution = Solution::where('app_id',1)->get();
+    if ($solution->count() < 1) {
+        return false;
+    }
+
+    $team = Team::where('app_id',0)->get();
+    if ($team->count() < 1) {
+        return false;
+    }
+
+    $visimisi = VisiMisi::where('app_id',1)->first();
+    if (!$visimisi) {
+        return false;
+    }
+
+    $produk = Product::where('app_id',1)->get();
+    if ($produk->count() < 1) {
+        return false;
+    }
+
+    $mark1 = Media::where('mark','porto1')->get();
+    if ($mark1->count() < 1) {
+        return false;
+    }
+
+    $mark2 = Media::where('mark','porto2')->get();
+    if ($mark2->count() < 1) {
+        return false;
+    }
+
+    $why = Media::where('mark','why_us')->get();
+    if ($why->count() < 1) {
+        return false;
+    }
+
+    $penghargaan = Media::where('mark','penghargaan')->get();
+    if ($penghargaan->count() < 1) {
+        return false;
+    }
+
+    $testimoni = Testimoni::where('app_id',1)->get();
+    if ($testimoni->count() < 1) {
+        return false;
+    }
+
+    $mitra = Media::where('mark','mitra')->get();
+    if ($mitra->count() < 1) {
+        return false;
+    }
+
+    $diliput = Media::where('mark','diliput')->get();
+    if ($diliput->count() < 1) {
+        return false;
+    }
+
+    $app = CmsApp::find(1);
+    if (!$app) {
+        return false;
+    }
+
+    // If all checks pass, return true
+    return true;
+}
+function checkPreviewIzidok(){
+    $hero = AppHero::where('app_id',2)->first();
+    if (!$hero) {
+        return false;
+    }
+
+    $about =  About::where('app_id',2)->first();
+    if (!$about) {
+        return false;
+    }
+
+    $keunggulan = Keunggulan::with('KeunggulanList')->where('app_id',2)->first();
+    if (!$keunggulan) {
+        return false;
+    }
+
+    $article = Article::where('app_id',2)->orWhere('app_id',0)->get();
+    if ($article->count() < 1) {
+        return false;
+    }
+
+    $plan = Plan::where('app_id',2)
+                ->with('details','details.feature')
+                ->get();
+    if ($plan->count() < 1) {
+        return false;
+    }
+
+    $ev  = Event::where('app_id',2)->get();
+    if ($ev->count() < 1) {
+        return false;
+    }
+
+    $testi = Testimoni::where('app_id',2)->get();
+    if ($testi->count() < 1) {
+        return false;
+    }
+
+    $contact =  CmsApp::find(2);
+    if (!$contact) {
+        return false;
+    }
+
+    // If all checks pass, return true
+    return true;
+}
+function checkPreviewIziklaim(){
+    $hero = AppHero::where('app_id',3)->first();
+    if (!$hero) {
+        return false;
+    }
+
+    $visiMisi = VisiMisi::where('app_id',3)->first();
+    if (!$visiMisi) {
+        return false;
+    }
+
+    $teamUp = Team::where('up_lv',1)->get();
+    if ($teamUp->count() < 1) {
+        return false;
+    }
+
+    $teamDown = Team::where('up_lv',0)->get();
+    if ($teamDown->count() < 1) {
+        return false;
+    }
+
+    $sol = Solution::where('app_id',3)->get();
+    if ($sol->count() < 1) {
+        return false;
+    }
+
+    $prov = Media::whereIn('mark',['provider'])->get();
+    if ($prov->count() < 1) {
+        return false;
+    }
+
+    $provimg = Media::whereIn('title',['provider','client','maps'])->where(['mark'=>'slider'])->get();
+    if ($provimg->count() < 1) {
+        return false;
+    }
+
+    $evt = Event::where('app_id',3)->get();
+    if ($evt->count() < 1) {
+        return false;
+    }
+
+    $contact = CmsApp::find(3);
+    if (!$contact) {
+        return false;
+    }
+
+    $article = Article::where('app_id',3)->orWhere('app_id',0)->get();
+    if ($article->count() < 1) {
+        return false;
+    }
+
+    // If all checks pass, return true
+    return true;
+}
+
