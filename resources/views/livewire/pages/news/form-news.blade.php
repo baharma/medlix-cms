@@ -33,6 +33,22 @@
                     @enderror
                 </div>
             </div>
+            @if ($app_id)
+            <div class="row mb-3">
+                <label for="" class="form-label">Website News</label>
+                <div class="col-lg-6">
+                    @foreach ($cms as $item)
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1-{{$item->id}}" value="{{$item->id}}" wire:model='app_id'>
+                        <label class="form-check-label" for="inlineCheckbox1-{{$item->id}}">{{$item->app_name}}</label>
+                      </div>
+                    @endforeach
+                    @error('app_id')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+                </div>
+            </div>
+            @endif
             <div x-data="{ link: false, descriptions: false }" x-init="link = {{ $check ? 'true' : 'false' }};
             descriptions = {{ $description ? 'true' : 'false' }};">
                 <div class="row mb-3 p-3">

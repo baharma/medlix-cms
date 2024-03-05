@@ -74,8 +74,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/izidok-about',About::class);
 
     Route::get('/news',News::class)->name('news');
-    Route::get('/news/form/{artikelId?}',FormNews::class)->name('artikel.update');
-    Route::get('/news/create/{AppIdArray}/{app?}',FormNews::class)->name('artikel.create');
+    Route::get('/news/form/{artikelId?}',FormNews::class)->name('artikel.create');
     Route::get('/news/detail/{artikelId}',DetailNews::class)->name('artikel.detail');
 
     Route::get('/medlinx-solution',SolutionMedlinx::class);
