@@ -131,8 +131,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     Route::get('/prev/{slug?}',[PreviewController::class,'index'])->name('preview');
-    Route::get('/view/news-update', [PreviewController::class,'newsUpdate'])->name('news-update');
-    Route::get('/view/news-update/{slug}', [PreviewController::class,'newsUpdateDetail'])->name('news-update-detail');
+    Route::get('/view/news/{cms?}', [PreviewController::class,'newsUpdate'])->name('news-update');
+    Route::get('/view/news/{cms?}/{slug}', [PreviewController::class,'newsUpdateDetail'])->name('news-update-detail');
 
     Route::post('publish',[PreviewController::class,'publish'])->name('publish');
 
