@@ -33,7 +33,7 @@
                     @enderror
                 </div>
             </div>
-            @if ($app_id)
+            @if (is_null($artikelId))
             <div class="row mb-3">
                 <label for="" class="form-label">Website News</label>
                 <div class="col-lg-6">

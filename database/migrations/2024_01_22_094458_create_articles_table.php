@@ -21,10 +21,6 @@ return new class extends Migration
             $table->text('check')->nullable();
             $table->timestamps();
 
-            $table->foreign('app_id')
-                ->references('id')
-                ->on('cms_apps')
-                ->onDelete('cascade');
         });
     }
 

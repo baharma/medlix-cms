@@ -39,7 +39,7 @@ class FormNews extends Component
         }
     }
     public function save(){
-        $this->validate();
+$this->validate();
 
         if(!is_string($this->thumbnail)){
             $thumbnail = saveImageLocal($this->thumbnail, 'news/thumbnail');
@@ -69,18 +69,20 @@ class FormNews extends Component
         }else{
             $check = CmsApp::all()->sortBy('id')->pluck('id')->toArray();
             $arrayDiff = array_diff($check, $this->app_id);
-
-            if (empty($differences)) {
-                return  $data['app_id'] = 0;
-                Article::create($data);
+            if (empty($arrayDiff)) {
+                $data['app_id'] = 0;
+              $dataartikel =  Article::create($data);
             }else{
             $dataartikel = collect($this->app_id)->map(function($event) use ($data){
-            return  $data['app_id'] = $event;
-            Article::create($data);
+                return  $data['app_id'] = $event;
+                Article::create($data);
             });
             }
+            $defaulCms = Auth::user()->default_cms;
 
-            $artikel = $dataartikel->where('app_id', Auth::user()->default_cms ?? 0)->first();
+            $artikel = $dataartikel->first();
+
+
 
             $this->dispatch('sweet-alert', ['icon' => 'success', 'title' => 'New News Added']);
         }
@@ -90,7 +92,7 @@ class FormNews extends Component
         if ($this->check) {
             return to_route('news');
         }else{
-            return to_route('artikel.detail',$artikel->id);
+            return to_route('artikel.detail',$artikel);
         }
     }
 

@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages;
 
 use App\Models\Article;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -15,7 +16,10 @@ class News extends Component
     ];
     public function render()
     {
-        $data = Article::all();
+        $data = Article::where(function ($query) {
+            $query->where('app_id', '=', Auth::user()->default_cms)
+                  ->orWhere('app_id', '=', 0);
+        })->get();
         return view('livewire.pages.news',compact('data'));
     }
     public function confirmDelete($get_id){
