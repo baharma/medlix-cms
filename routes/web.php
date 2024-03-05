@@ -54,7 +54,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/',function(){
-    return redirect()->route('medlinx.home');
+    return redirect()->route('login');
 });
 Route::group(['middleware' => ['guest']], function () {
     Route::get('/login',[AuthController::class,'login'])->name('login');
