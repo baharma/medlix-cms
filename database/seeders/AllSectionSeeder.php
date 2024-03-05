@@ -59,7 +59,6 @@ class AllSectionSeeder extends Seeder
                 'name'  => 'News',
                 'url'   => '/news',
                 'icon'  => 'bx bx-news',
-                'group' => 2,
             ],
             [
                 'name'  => 'Event',
