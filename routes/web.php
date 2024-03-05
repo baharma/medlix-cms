@@ -74,7 +74,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/izidok-about',About::class);
 
     Route::get('/news',News::class)->name('news');
-    Route::get('/news/form/{artikelId?}',FormNews::class)->name('artikel.create');
+    Route::get('/news/form/{artikelId?}',FormNews::class)->name('artikel.update');
+    Route::get('/news/create/{AppIdArray}/{app?}',FormNews::class)->name('artikel.create');
     Route::get('/news/detail/{artikelId}',DetailNews::class)->name('artikel.detail');
 
     Route::get('/medlinx-solution',SolutionMedlinx::class);
@@ -117,6 +118,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/medlinx-why-us',WhyUs::class)->name('why-use');
 
     Route::controller(HelperController::class)->group(function(){
+        Route::get('/newsOper/{AppIdArray}/{app?}','newsOper')->name('News.oper');
         Route::post('/imageCkEditor','UploadImageCkEditor')->name('image.upload');
     });
     Route::post('/logout', [AuthController::class,'logout'])->name('logout');

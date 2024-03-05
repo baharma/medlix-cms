@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages\News;
 
 use App\Models\Article;
+use App\Models\CmsApp;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -15,7 +16,7 @@ class FormNews extends Component
 
     #[Title('News Form')]
 
-    public $artikelId;
+    public $artikelId,$app,$cms,$AppIdArray;
     public $title, $thumbnail, $description,$check,$slug;
     protected $rules = [
         'title' => 'required|min:5',
@@ -26,6 +27,10 @@ class FormNews extends Component
         return view('livewire.pages.news.form-news');
     }
     public function mount(){
+
+        if($this->app){
+            $this->cms = CmsApp::find($this->app);
+        }
         if($this->artikelId){
             $data = Article::find($this->artikelId);
             $this->slug  = $data->slug;
@@ -66,15 +71,21 @@ class FormNews extends Component
             $artikel =  Article::create($data);
             $this->dispatch('sweet-alert', ['icon' => 'success', 'title' => 'New News Added']);
         }
-        
-        if ($this->check) {
-            $this->reset(['title', 'thumbnail', 'check', 'description']);
 
-            return to_route('news');
+        $this->reset(['title', 'thumbnail', 'check', 'description']);
+        if($this->app){
+           return to_route('News.oper',[
+            'AppIdArray'=>$this->AppIdArray,
+            'app'=>$this->app
+           ]);
         }else{
-            $this->reset(['title', 'thumbnail', 'check', 'description']);
-            return to_route('artikel.detail',$artikel->id);
+            if ($this->check) {
+                return to_route('news');
+            }else{
+                return to_route('artikel.detail',$artikel->id);
+            }
         }
+
     }
 
 }
