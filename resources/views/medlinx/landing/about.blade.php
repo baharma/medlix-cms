@@ -8,10 +8,11 @@
             </div>
         </div> <!-- row -->
         <div class="row">
+            @foreach ($data['team'] as $item)
             <div class="col-lg-4 col-sm-12">
                 <div class="team-style-eleven text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
                     <div class="team-image">
-                        <img src="{{ asset('medlinx/landing/images/management/' . env('DIREKTUR_IMAGE')) }}"
+                        <img src="{{asset($item->image)}}"
                             alt="Team">
                     </div>
                     <div class="team-content">
@@ -26,52 +27,12 @@
                             </ul>
                         </div>
                         <h4 class="team-name"><a href="javascript:;">{{ env('DIREKTUR_NAME') }}</a></h4>
-                        <span class="sub-title">Direktur</span>
+                        <span class="sub-title">{{ $item->title }}</span>
                     </div>
                 </div> <!-- single team -->
             </div>
-            <div class="col-lg-4 col-sm-12">
-                <div class="team-style-eleven text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
-                    <div class="team-image">
-                        <img src="{{ asset('medlinx/landing/images/management/' . env('COO_IMAGE')) }}" alt="Team">
-                    </div>
-                    <div class="team-content">
-                        <div class="team-social">
-                            <ul class="social">
-                                <li><a target="blank" href="{{ env('COO_TWITTER') }}"><i
-                                            class="lni lni-twitter-original"></i></a></li>
-                                <li><a target="blank" href="{{ env('COO_LINKEDIN') }}"><i
-                                            class="lni lni-linkedin-original"></i></a></li>
-                                <li><a target="blank" href="{{ env('COO_IG') }}"><i class="lni lni-instagram"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h4 class="team-name"><a href="javascript:;">{{ env('COO_NAME') }}</a></h4>
-                        <span class="sub-title">COO</span>
-                    </div>
-                </div> <!-- single team -->
-            </div>
-            <div class="col-lg-4 col-sm-12">
-                <div class="team-style-eleven text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
-                    <div class="team-image">
-                        <img src="{{ asset('medlinx/landing/images/management/' . env('GM_IMAGE')) }}" alt="Team">
-                    </div>
-                    <div class="team-content">
-                        <div class="team-social">
-                            <ul class="social">
-                                <li><a target="blank" href="{{ env('GM_FB') }}"><i
-                                            class="lni lni-facebook-original"></i></a></li>
-                                <li><a target="blank" href="{{ env('GM_LINKEDIN') }}"><i
-                                            class="lni lni-linkedin-original"></i></a></li>
-                                <li><a target="blank" href="{{ env('GM_IG') }}"><i class="lni lni-instagram"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h4 class="team-name"><a href="javascript:;">{{ env('GM_NAME') }}</a></h4>
-                        <span class="sub-title">GM Business dan Partnership</span>
-                    </div>
-                </div> <!-- single team -->
-            </div>
+            @endforeach
+
         </div>
         <div class="row mt-50">
             <div class="col-lg-6 visi-misi">
