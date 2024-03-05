@@ -176,16 +176,21 @@ class PreviewRepositoryImplement extends Eloquent implements PreviewRepository{
             ]);
         }
     }
-    public function deleteAddnewMain(Article $article){
+    public function deleteAddArticle(Article $article){
         try {
             DB::transaction(function () use ($article) {
                 if ($mainArticle = MainArticle::find($article->id)) {
                     $mainArticle->delete();
                 }
+
                 MainArticle::create([
                     "id" => $article->id,
-                    "name" => $article->name,
-                    "status" => $article->status,
+                    "app_id" => $article->app_id,
+                    "slug" => $article->slug,
+                    "title" => $article->title,
+                    "thumbnail" => $article->thumbnail,
+                    "description" =>$article->description,
+                    "check" => $article->description
                 ]);
             });
 
@@ -366,10 +371,13 @@ class PreviewRepositoryImplement extends Eloquent implements PreviewRepository{
                 if ($mainEvent = MainEvent::find($event->id)) {
                     $mainEvent->delete();
                 }
+
                 MainEvent::create([
                     "id" => $event->id,
+                    "app_id" =>$event->app_id,
                     "name" => $event->name,
-                    "status" => $event->status
+                    "image" => $event->image,
+                    "details"=>$event->details
                 ]);
             });
             return response()->json([

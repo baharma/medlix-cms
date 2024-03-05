@@ -203,11 +203,13 @@ class PreviewController extends Controller
     public function copyNews($app_id){
         $newses = Article::where('app_id',$app_id)->get();
         foreach ($newses as $news) {
-            $this->repository->deleteAddnewMain($news);
+            $this->repository->deleteAddArticle($news);
         }
     }
     public function copyEvent($app_id){
+
         $allEvent = Event::where('app_id',$app_id)->get();
+
         foreach ($allEvent as $event) {
             $this->repository->deleteAddEvent($event);
         }
