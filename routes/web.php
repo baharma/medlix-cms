@@ -117,6 +117,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/medlinx-why-us',WhyUs::class)->name('why-use');
 
     Route::controller(HelperController::class)->group(function(){
+        Route::get('/newsOper/{AppIdArray}/{app?}','newsOper')->name('News.oper');
         Route::post('/imageCkEditor','UploadImageCkEditor')->name('image.upload');
     });
     Route::post('/logout', [AuthController::class,'logout'])->name('logout');
