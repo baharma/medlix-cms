@@ -57,49 +57,18 @@
             </div>
         </div>
         <div class="row justify-content-center mt-70">
+            @foreach ($data['why'] as $item)
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="icon-why">
-                    <img class="img-why" src="{{ asset('medlinx/landing/images/icon_year.png') }}" alt="">
+                    <img class="img-why" src="{{ $item->images }}" alt="">
                 </div>
                 <div class="why-style">
                     <div class="why-detail text-center mt-20">
-                        10+ Tahun Pengalaman<br>> 1 Juta Pengguna.
+                        {{ $item->text }}
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="icon-why">
-                    <img class="img-why" src="{{ asset('medlinx/landing/images/icon_hour.png') }}" alt="">
-                </div>
-                <div class="why-style">
-                    <div class="why-detail text-center mt-20">
-                        24/7 Customer Support
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="icon-why">
-                    <img class="img-why" src="{{ asset('medlinx/landing/images/icon_customer.png') }}" alt="">
-                </div>
-                <div class="why-style">
-                    <div class="why-detail text-center mt-20">
-                        Customized Solution
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="icon-why">
-                    <img class="img-why" src="{{ asset('medlinx/landing/images/icon_secure.png') }}" alt="">
-                </div>
-                <div class="why-style">
-                    <div class="why-detail text-center mt-20">
-                        Aman & Performa Terbaik
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div> <!-- row -->
     </div> <!-- container -->
 </section>

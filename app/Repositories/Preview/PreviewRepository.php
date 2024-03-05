@@ -25,7 +25,7 @@ interface PreviewRepository extends Repository{
     public function deletePlanDetailAddMain(PlanDetail $planDetail);
     public function deletePlanFeatureAddMain(PlanFeatue $planFeatue);
     public function deleteAddTestimomni(Testimoni $testimoni);
-    public function deleteAddnewMain(Article $article);
+    public function deleteAddArticle(Article $article);
     public function deleteAddKeunggulan(Keunggulan $keunggulan);
     public function deleteAddKeunggulanListMain(KeunggulanList $keunggulanList);
     public function deleteAddSolution(Solution $solution);
