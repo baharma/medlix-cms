@@ -51,7 +51,25 @@ class PreviewController extends Controller
             $data += $this->izidok();
             return view('preview.izidok.izidok-app',$data);
         }elseif($slug == 'medlinx'){
-            return to_route('priview-medlinx');
+            $data['hero'] = AppHero::where('app_id',1)->get();
+            $data['solution'] = Solution::where('app_id',1)->get();
+            $data['team'] = Team::where('app_id',0)->get();
+            $data['visimisi'] = VisiMisi::where('app_id',1)->first();
+            $data['produk'] = Product::where('app_id',1)->get();
+            $data['mark1'] = Media::where('mark','porto1')->get();
+            $data['mark2'] = Media::where('mark','porto2')->get();
+            $data['why'] = Media::where('mark','why_us')->get();
+            $data['penghargaan'] = Media::where('mark','penghargaan')->get();
+            $data['testimoni'] = Testimoni::where('app_id',1)->get();
+            $data['mitra'] = Media::where('mark','mitra')->get();
+            $data['diliput'] = Media::where('mark','diliput')->get();
+            $dataChunks = $data['mark1']->chunk(4);
+            $porto2Chunks = $data['mark2']->chunk(4);
+            $app = CmsApp::find(1);
+            $diliputChunk = $data['diliput']->chunk(4);
+            $mitraChunk = $data['mitra']->chunk(4);
+            $type = 'prev';
+            return view('medlinx.landing.app',compact('data','dataChunks','porto2Chunks','diliputChunk','mitraChunk','app','type'));
         }elseif($slug=='iziklaim'){
             $data['title'] = 'Home';
             $data += $this->iziklaim();
@@ -501,7 +519,7 @@ class PreviewController extends Controller
         $data['solution'] = $solution;
         $data['provider'] =  ['text'=>$provider,'slider'=>$providerImg];
         $data['event']  = $event;
-        $article = Article::where('app_id',2)->get();
+        $article = Article::where('app_id',3)->orWhere('app_id',0)->get();
         $news = [];
         foreach ($article as $value) {
             $news[] = [
