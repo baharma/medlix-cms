@@ -341,12 +341,12 @@ class PreviewRepositoryImplement extends Eloquent implements PreviewRepository{
                 if ($mainMedia = MainMedia::find($media->id)) {
                     $mainMedia->delete();
                 }
-                MainMedia::updateOrCreate([
+                MainMedia::create([
                     "id" => $media->id,
                     "title" => $media->title,
                     "text" => $media->text,
                     "images" => $media->images,
-                    "url" => $media->url,
+                    "url" => $media->url ?? null,
                     "mark" => $media->mark
                 ]);
             });
@@ -414,7 +414,6 @@ class PreviewRepositoryImplement extends Eloquent implements PreviewRepository{
             ], 200);
         } catch (\Throwable $e) {
             report($e);
-
             return response()->json([
                 'success' => false,
                 'message' => 'An error occurred while processing the request.',

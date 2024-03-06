@@ -12,7 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--====== Favicon Icon ======-->
-    <link rel="shortcut icon" href="{{ $app->fav ?? asset('medlinx/landing/images/logo_medlinx_white.png') }}" />
 
     <!--====== Magnific Popup CSS ======-->
     <link rel="stylesheet" href="{{ asset('medlinx/landing/css/magnific-popup.css') }}">
@@ -32,7 +31,7 @@
     <!--====== Style CSS ======-->
     <link rel="stylesheet" href="{{ asset('medlinx/landing/css/style.css') }}">
     <link href="{{ asset('medlinx/landing/css/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{{ asset('preview/izidok/css/plugins.bundle.css') }}">
+    <link rel="stylesheet" href="{{asset('preview/izidok/css/plugins.bundle.css')}}">
 </head>
 
 <body>
@@ -54,17 +53,13 @@
     </div>
 
     @include('medlinx.landing.navbar')
-    @include('medlinx.landing.home')
-    @include('medlinx.landing.about')
-    @include('medlinx.landing.product')
-    @include('medlinx.landing.solution')
-    @include('medlinx.landing.portfolio')
-    @include('medlinx.landing.rewards')
-    @include('medlinx.landing.testimoni')
-    @include('medlinx.landing.partner')
-    @include('medlinx.landing.news')
-    @include('medlinx.landing.contact')
-    @include('medlinx.landing.footer')
+
+    @include('medlinx.landing.landing-detail')
+
+
+
+
+
     @if (isset($type) && $type == 'prev')
         <nav class="navbar navbar-expand-lg fixed-bottom navbar-light" style="background-color: #FFF67E;">
             <div class="container">
@@ -122,104 +117,8 @@
     <script src="{{ asset('medlinx/landing/js/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('medlinx/landing/js/jquery.validate.js') }}"></script>
     <script src="{{ asset('preview/izidok/js/plugins.bundle.js') }}"></script>
-    <script src="{{ asset('preview/izidok/js/scripts.bundle.js') }}"></script>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            var s, t;
-            s = document.createElement('script');
-            s.type = 'text/javascript';
-            s.src = 'https://s3-ap-southeast-1.amazonaws.com/qiscus-sdk/public/qismo/qismo-v4.js';
-            s.async = true;
-            s.onload = s.onreadystatechange = function() {
-                window.QismoApp = new Qismo('aral-ulpeolyn9fplvcb0', {
-                    options: {
-                        channel_id: 823,
-                        extra_fields: [],
-                    },
-                    onRoomChanged(data) {
-                        QismoApp.sendMessage({
-                            event_name: "send-message",
-                            text: "Get Started"
-                        });
-                    }
-                });
-            }
-            t = document.getElementsByTagName('script')[0];
-            t.parentNode.insertBefore(s, t);
-        });
+    <script src="{{asset('preview/izidok/js/scripts.bundle.js')}}"></script>
 
-        $(document).ready(function() {
-            $("#contact-form").validate();
-        });
-
-        $(document).on('click', '.btn-solution', function(e) {
-            e.preventDefault()
-            $('input#subject').val($(this).data('name'))
-            $('.kontak').trigger('click')
-        });
-        $(document).on('click', 'input[name=type]', function(e) {
-            $('.btn-contact').prop('disabled', false)
-        })
-
-        $(document).on('click', '.btn-contact', function(e) {
-            e.preventDefault()
-            subject = $('input[name=subject]').val()
-            name = $('input[name=name]').val()
-            hp = $('input[name=phone]').val()
-            email = $('input[name=email]').val()
-            type = $('input[name=type]:checked').val()
-            message = $('textarea#message').val()
-
-            if (name == '' || hp == '' || email == '' || message == '') {
-                Swal.fire(
-                    'Oops!',
-                    "Silakan lengkapi inputan terlebih dahulu.",
-                    'error'
-                )
-            } else {
-                $('.loading').show();
-                $('.loading').fadeIn('slow');
-                $.ajax({
-                    type: "POST",
-                    url: "{{ route('send-message') }}",
-                    dataType: "JSON",
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                        subject: subject,
-                        name: name,
-                        hp: hp,
-                        email: email,
-                        type: type,
-                        message: message,
-                    },
-                    success: function(data) {
-                        if (data.status) {
-                            $('.loading').fadeOut('slow');
-                            $('.loading').hide();
-                            $('input[name=subject]').val('')
-                            $('input[name=name]').val('')
-                            $('input[name=phone]').val('')
-                            $('input[name=email]').val('')
-                            $('input[name=type]').prop('checked', false)
-                            $('textarea#message').val('')
-                            $('.btn-contact').prop('disabled', true)
-                            Swal.fire(
-                                'Success!',
-                                "Pesan akan kami proses. Terima kasih sudah menghubungi kami.",
-                                'success'
-                            )
-                        } else {
-                            Swal.fire(
-                                'Oops!',
-                                data.message,
-                                'error'
-                            )
-                        }
-                    }
-                });
-            }
-        })
-    </script>
 
 </body>
 

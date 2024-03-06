@@ -39,7 +39,7 @@ class FormNews extends Component
         }
     }
     public function save(){
-$this->validate();
+    $this->validate();
 
         if(!is_string($this->thumbnail)){
             $thumbnail = saveImageLocal($this->thumbnail, 'news/thumbnail');
@@ -49,7 +49,6 @@ $this->validate();
         }
 
         $data = [
-            // 'app_id' => Auth::user()->default_cms,
             'slug'  => Str::slug($this->title),
             'title' => $this->title,
             'thumbnail' => $thumbnail,
@@ -71,15 +70,14 @@ $this->validate();
             $arrayDiff = array_diff($check, $this->app_id);
             if (empty($arrayDiff)) {
                 $data['app_id'] = 0;
-              $dataartikel =  Article::create($data);
+                $dataartikel =  Article::create($data);
             }else{
+
             $dataartikel = collect($this->app_id)->map(function($event) use ($data){
-                return  $data['app_id'] = $event;
-                Article::create($data);
+                    $data['app_id'] = $event;
+                    return Article::create($data);
             });
             }
-            $defaulCms = Auth::user()->default_cms;
-
             $artikel = $dataartikel->first();
 
 

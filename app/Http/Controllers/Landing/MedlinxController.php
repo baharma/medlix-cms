@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
 use App\Models\AppHero;
+use App\Models\Article;
 use App\Models\CmsApp;
 use App\Models\MainAppHero;
+use App\Models\MainArticle;
 use App\Models\MainCmsApp;
 use App\Models\MainMedia;
 use App\Models\MainProduct;
@@ -37,6 +39,7 @@ class MedlinxController extends Controller
         $data['testimoni'] = MainTestimoni::where('app_id',1)->get();
         $data['mitra'] = MainMedia::where('mark','mitra')->get();
         $data['diliput'] = MainMedia::where('mark','diliput')->get();
+        $data['news'] = MainArticle::where('app_id',1)->orWhere('app_id',0)->get();
         $dataChunks = $data['mark1']->chunk(4);
         $porto2Chunks = $data['mark2']->chunk(4);
         $app = MainCmsApp::find(1);
@@ -74,5 +77,17 @@ class MedlinxController extends Controller
         }
 
         return response()->json($ret);
+    }
+
+    public function NewsDetail($slug){
+        $article = Article::where('slug',$slug)->first();
+        $cms = CmsApp::find($article->app_id);
+        return view('medlinx.landing.detail-news',compact('article','cms'));
+    }
+    public function prevDetailNews($slug){
+        $article = Article::where('slug',$slug)->first();
+        $cms = CmsApp::find($article->app_id);
+        $prev = "prev";
+        return view('medlinx.landing.detail-news',compact('article','cms'));
     }
 }

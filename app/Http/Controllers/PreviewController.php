@@ -66,10 +66,14 @@ class PreviewController extends Controller
             $dataChunks = $data['mark1']->chunk(4);
             $porto2Chunks = $data['mark2']->chunk(4);
             $app = CmsApp::find(1);
+            $news = Article::where(function ($query) {
+                $query->where('app_id', '=', 1)
+                      ->orWhere('app_id', '=', 0);
+            })->get();
             $diliputChunk = $data['diliput']->chunk(4);
             $mitraChunk = $data['mitra']->chunk(4);
             $type = 'prev';
-            return view('medlinx.landing.app',compact('data','dataChunks','porto2Chunks','diliputChunk','mitraChunk','app','type'));
+            return view('medlinx.landing.app',compact('data','news','dataChunks','porto2Chunks','diliputChunk','mitraChunk','app','type'));
         }elseif($slug=='iziklaim'){
             $data['title'] = 'Home';
             $data += $this->iziklaim();
@@ -164,8 +168,12 @@ class PreviewController extends Controller
         $mark2= Media::where('mark','porto2')->get();
         $mitra = Media::where('mark','mitra')->get();
         $diliput = Media::where('mark','diliput')->get();
+        $why = Media::where('mark','why_us')->get();
 
         foreach($mark1 as $data){
+            $this->repository->deleteAddMedia($data);
+        }
+        foreach($why as $data){
             $this->repository->deleteAddMedia($data);
         }
         foreach($mark2 as $data){

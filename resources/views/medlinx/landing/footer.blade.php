@@ -12,18 +12,19 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 footer-xs">
                         <div class="footer-support">
                             <div class="footer-title">Address</div>
-                            <div class="footer-sub-title">PT. Medlinx Asia Teknologi<br>Jl. RS. Fatmawati No 7,
-                                12140<br>Jakarta Selatan</div>
+                            <div class="footer-sub-title">{!! $app->address ??
+                                'PT. Medlinx Asia Teknologi<br>Jl. RS. Fatmawati No 7,
+                                                                                                                                                                                                        12140<br>Jakarta Selatan' !!}</div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 footer-xs">
                         <div class="footer-support">
                             <div class="footer-title">Email</div>
-                            <div class="footer-sub-title">sales@medlinx.co.id</div>
+                            <div class="footer-sub-title">{{ $app->email ?? 'sales@medlinx.co.id' }}</div>
                         </div>
                         <div class="footer-support">
                             <div class="footer-title">Phone Number</div>
-                            <div class="footer-sub-title">021 723 7982</div>
+                            <div class="footer-sub-title">{{ $app->phone ?? '021 723 7982' }}</div>
                         </div>
                     </div>
                 </div>
