@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
 use App\Models\AppHero;
+use App\Models\Article;
 use App\Models\CmsApp;
 use App\Models\MainAppHero;
 use App\Models\MainCmsApp;
@@ -74,5 +75,17 @@ class MedlinxController extends Controller
         }
 
         return response()->json($ret);
+    }
+
+    public function NewsDetail($slug){
+        $article = Article::where('slug',$slug)->first();
+        $cms = CmsApp::find($article->app_id);
+        return view('medlinx.landing.detail-news',compact('article','cms'));
+    }
+    public function prevDetailNews($slug){
+        $article = Article::where('slug',$slug)->first();
+        $cms = CmsApp::find($article->app_id);
+        $prev = "prev";
+        return view('medlinx.landing.detail-news',compact('article','cms'));
     }
 }
