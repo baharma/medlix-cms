@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="{{ $app->fav ?? asset('medlinx/landing/images/logo_medlinx_white.png') }}" />
 
     <!--====== Magnific Popup CSS ======-->
     <link rel="stylesheet" href="{{ asset('medlinx/landing/css/magnific-popup.css') }}">
@@ -31,7 +32,7 @@
     <!--====== Style CSS ======-->
     <link rel="stylesheet" href="{{ asset('medlinx/landing/css/style.css') }}">
     <link href="{{ asset('medlinx/landing/css/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{{asset('preview/izidok/css/plugins.bundle.css')}}">
+    <link rel="stylesheet" href="{{ asset('preview/izidok/css/plugins.bundle.css') }}">
 </head>
 
 <body>
@@ -121,7 +122,7 @@
     <script src="{{ asset('medlinx/landing/js/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('medlinx/landing/js/jquery.validate.js') }}"></script>
     <script src="{{ asset('preview/izidok/js/plugins.bundle.js') }}"></script>
-    <script src="{{asset('preview/izidok/js/scripts.bundle.js')}}"></script>
+    <script src="{{ asset('preview/izidok/js/scripts.bundle.js') }}"></script>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             var s, t;
