@@ -196,14 +196,14 @@ class PreviewController extends Controller
 
     public function copyCMS($app_id){
         $mainCMS = MainCmsApp::find($app_id);
-        if($mainCMS){
-            $mainCMS->delete();
-        }
         $cmsToCopy = CmsApp::find($app_id);
-
-        $cms  = new MainCmsApp();
-        $cms->fill($cmsToCopy->attributesToArray());
-        $cms->save();
+        if($mainCMS){
+            $mainCMS->update($cmsToCopy->attributesToArray());
+        }else {
+            $cms  = new MainCmsApp();
+            $cms->fill($cmsToCopy->attributesToArray());
+            $cms->save();
+        }
     }
     public function copyPlan($app_id){
         $plans = Plan::where('app_id',$app_id)->get();
