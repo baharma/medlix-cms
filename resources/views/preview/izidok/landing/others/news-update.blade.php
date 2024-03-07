@@ -2,17 +2,23 @@
 
 @section('content')
     @php
-        function extractParagraphs($data)
-        {
-            // Remove <figure> elements
-            $dataWithoutFigure = preg_replace('/<figure[^>]*>.*?<\/figure>/s', '', $data);
+function extractParagraphs($data)
+{
+    // Check if <figure> element exists in data
+        if (strpos($data, '<figure') === false) {
+        return $data; // Return early if no <figure> element found
+    }
 
-            // Extract content inside <p> tags
-            preg_match_all('/<p>(.*?)<\/p>/', $dataWithoutFigure, $matches);
+    // Remove <figure> elements
+    $dataWithoutFigure = preg_replace('/<figure[^>]>.?<\/figure>/s', '', $data);
 
-            // Return the extracted content as an array
-            return $matches[1];
-        }
+    // Extract content inside <p> tags
+    preg_match_all('/<p>(.*?)<\/p>/', $dataWithoutFigure, $matches);
+
+    // Return the extracted content as an array
+    return $matches[1];
+}
+
     @endphp
     @include('preview.izidok.landing.header-page')
     <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -35,11 +41,11 @@
 
                                 <p class="mb-8">
                                     @if ($news['0']['desc'] != null)
-                                        {!! substr(extractParagraphs($news['0']['desc'])[1], 0, 300) !!}...
+                                        {!! substr(extractParagraphs($news['0']['desc']), 0, 300) !!}...
                                     @endif
                                 </p>
                                 <p>
-                                    <a href="{{ url('view/news/izidok/' . $news[0]['slug']) }}">Baca
+                                    <a >Baca
                                         selengkapnya</a>
                                 </p>
                             </div>

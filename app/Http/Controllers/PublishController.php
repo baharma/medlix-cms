@@ -305,7 +305,19 @@ class PublishController extends Controller
                     'extend' => $hero->extend,
                 ];
             });
-
+            $cms = CmsApp::find(1);
+            $data['cms'] = [
+                'app_name'=>$cms->app_name,
+                'app_url'=>$cms->app_url,
+                'logo'=>$cms->logo,
+                'app_address'=>$cms->app_address,
+                'app_mail'=>$cms->app_mail,
+                'app_phone'=>$cms->app_phone,
+                'app_wa'=>$cms->app_wa,
+                'app_gmaps'=>$cms->app_gmaps,
+                'favicon'=>$cms->favicon,
+                'extend'=>$cms->extend
+            ];
             $data['solution'] = collect(Solution::where('app_id',1)->get())->map(function($event){
                 return [
                     'title'=>$event->title,

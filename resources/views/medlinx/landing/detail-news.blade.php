@@ -57,30 +57,6 @@
     @include('medlinx.landing.landing-detail')
 
 
-
-
-
-    @if (isset($type) && $type == 'prev')
-        <nav class="navbar navbar-expand-lg fixed-bottom navbar-light" style="background-color: #FFF67E;">
-            <div class="container">
-                <form action="{{ route('publish') }}" method="post">
-                    <span class="navbar-text">
-                        <a href="{{ url('/dashboard') }}" class="btn btn-info btn-sm">
-                            <i class="bx bx-arrow-back">Dashboard</i>
-                        </a>
-                        @csrf
-                        <input type="hidden" name="app" value="{{ $app->app_name }}">
-                        <button type="submit" class="btn btn-primary btn-sm">
-                            <i class="bx bx-save">Publish</i>
-                        </button>
-                        <span>
-                            Tampilan Landing page sebelum semua data di publish
-                        </span>
-                    </span>
-                </form>
-            </div>
-        </nav>
-    @endif
     <div class="loading" style="display: none;">
         <p>Sedang proses pengiriman...</p>
     </div>

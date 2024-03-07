@@ -8,7 +8,7 @@
                         <h3 class="text-primary">News & Update</h3>
                     </div>
                     <div class="col-4 col-md-2 text-end my-auto">
-                        <a href="{{ route('news-update') }}" class="fs-6 fw-semibold link-primary">Lihat Semua</a>
+                        <a href="{{ route('news-update','izidok') }}" class="fs-6 fw-semibold link-primary">Lihat Semua</a>
                     </div>
                 </div>
             </div>

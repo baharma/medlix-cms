@@ -148,4 +148,5 @@ Route::group(['prefix' => 'medlinx'], function () {
     Route::get('/detail-news-prev/{prev}',[LandingMedlinxController::class,'prevDetailNews'])->name('medlinx.news-detail-prev');
     Route::get('/home',[LandingMedlinxController::class,'index'])->name('medlinx.home');
     Route::post('/send-message',[LandingMedlinxController::class,'sendMessage'])->name('send-message');
+    Route::get('/detail-news-medlix/{slug}',[LandingMedlinxController::class,'DetailNewsPublis'])->name('medlinx.news-detail');
 });

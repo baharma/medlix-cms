@@ -76,8 +76,24 @@ class MedlinxController extends Controller
     }
     public function prevDetailNews($slug){
         $article = Article::where('slug',$slug)->first();
-        $cms = CmsApp::find($article->app_id);
-        $prev = "prev";
+        $app = CmsApp::find($article->app_id);
+        $type = "prev";
+        return view('medlinx.landing.detail-news',compact('article','app','type'));
+    }
+    public function DetailNewsPublis($slug){
+
+        $path = public_path('publishfile/medlinx.json');
+        $dataget = file_get_contents($path);
+
+        $data = json_decode($dataget, true);
+
+        $filteredNews = array_filter($data['news'], function ($item) use ($slug) {
+            return $item['slug'] == $slug;
+        });
+
+        $article = reset($filteredNews);
+        $cms = $data['cms'];
+
         return view('medlinx.landing.detail-news',compact('article','cms'));
     }
 }
