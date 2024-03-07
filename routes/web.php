@@ -138,6 +138,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('publish-izidok',[PublishController::class,'publishIzidok'])->name('publish.izidok');
     Route::post('publish-iziklaim',[PublishController::class,'publishIziklaim'])->name('publish.iziklaim');
+    Route::post('publish-madlinx',[PublishController::class,'PublisMedlinx'])->name('publish.medlinx');
 
 });
 

@@ -22,17 +22,17 @@
                         @foreach ($data['testimoni'] as $item)
                         <div class="single-testimonial">
                             <div class="testimonial-text">
-                                <p class="text">{{$item->testi}}</p>
+                                <p class="text">{{$item['testi']}}</p>
                             </div>
                             <div class="testimonial-author d-sm-flex justify-content-between">
                                 <div class="author-info d-flex align-items-center">
                                     <div class="author-image">
-                                        <img src="{{ $item->testi_by_img }}"
+                                        <img src="{{ $item['testi_by_img'] }}"
                                             alt="author">
                                     </div>
                                     <div class="author-name media-body">
-                                        <h5 class="name">{{$item->testi_by}}</h5>
-                                        <span class="sub-title">{{$item->testi_by_title}}</span>
+                                        <h5 class="name">{{$item['testi_by']}}</h5>
+                                        <span class="sub-title">{{$item['testi_by_title']}}</span>
                                     </div>
                                 </div>
                             </div>

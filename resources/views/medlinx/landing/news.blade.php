@@ -22,19 +22,19 @@
                         <div class="card-xl-stretch mx-3 ">
                             @if (isset($type) && $type == 'prev')
                             <a
-                            href="{{ $item->check == null ? route('medlinx.news-detail',$item->slug) : $item->check }}"><img
-                                class="img-fluid rounded w-100" src="{{ $item->thumbnail }}" alt=""></a>
+                            href="{{ $item['check'] == null ? route('medlinx.news-detail',$item['slug']) : $item['check'] }}"><img
+                                class="img-fluid rounded w-100" src="{{ $item['thumbnail'] }}" alt=""></a>
                         <div class="py-5 px-4 text-start text-md-justify rounded-bottom">
-                            <a href="{{ $item->check == null ? route('medlinx.news-detail',$item->slug) : $item->check }}"
-                                class="text-gray-800 fw-bold text-hover-primary text-dark lh-base">{{ $item->title }}</a>
+                            <a href="{{ $item['check'] == null ? route('medlinx.news-detail',$item['slug']) : $item['check'] }}"
+                                class="text-gray-800 fw-bold text-hover-primary text-dark lh-base">{{ $item['title'] }}</a>
                         </div>
                             @else
                             <a
-                            href="{{ $item->check == null ? route('medlinx.news-detail-prev',$item->slug) : $item->check }}"><img
-                                class="img-fluid rounded w-100" src="{{ $item->thumbnail }}" alt=""></a>
+                            href="{{ $item['check'] == null ? route('medlinx.news-detail-prev',$item['slug']) : $item['check'] }}"><img
+                                class="img-fluid rounded w-100" src="{{ $item['thumbnail'] }}" alt=""></a>
                         <div class="py-5 px-4 text-start text-md-justify rounded-bottom">
-                            <a href="{{ $item->check == null ? route('medlinx.news-detail-prev',$item->slug) : $item->check }}"
-                                class="text-gray-800 fw-bold text-hover-primary text-dark lh-base">{{ $item->title }}</a>
+                            <a href="{{ $item['check'] == null ? route('medlinx.news-detail-prev',$item['slug']) : $item['check'] }}"
+                                class="text-gray-800 fw-bold text-hover-primary text-dark lh-base">{{ $item['title'] }}</a>
                         </div>
 
                             @endif

@@ -18,25 +18,24 @@ use Illuminate\Support\Facades\Mail;
 class MedlinxController extends Controller
 {
     public function index(){
-        $data['hero'] = AppHero::where('app_id',1)->get();
-        $data['solution'] = Solution::where('app_id',1)->get();
-        $data['team'] = Team::where('app_id',0)->get();
-        $data['visimisi'] = VisiMisi::where('app_id',1)->first();
-        $data['produk'] = Product::where('app_id',1)->get();
-        $data['mark1'] = Media::where('mark','porto1')->get();
-        $data['mark2'] = Media::where('mark','porto2')->get();
-        $data['why'] = Media::where('mark','why_us')->get();
-        $data['penghargaan'] = Media::where('mark','penghargaan')->get();
-        $data['testimoni'] = Testimoni::where('app_id',1)->get();
-        $data['mitra'] = Media::where('mark','mitra')->get();
-        $data['diliput'] = Media::where('mark','diliput')->get();
-        $data['news'] = Article::where('app_id',1)->orWhere('app_id',0)->get();
-        $dataChunks = $data['mark1']->chunk(4);
-        $porto2Chunks = $data['mark2']->chunk(4);
+
+
         $app = CmsApp::find(1);
-        $diliputChunk = $data['diliput']->chunk(4);
-        $mitraChunk = $data['mitra']->chunk(4);
-        return view('medlinx.landing.app',compact('data','dataChunks','porto2Chunks','diliputChunk','mitraChunk','app'));
+
+
+        $path = public_path('publishfile/medlinx.json');
+        $dataget = file_get_contents($path);
+
+        $data = json_decode($dataget, true);
+
+        $news = $data['news'];
+
+        $dataChunks = collect($data['mark1'])->chunk(4);
+        $porto2Chunks = collect($data['mark2'])->chunk(4);
+        $diliputChunk = collect($data['diliput'])->chunk(4);
+        $mitraChunk = collect($data['mitra'])->chunk(4);
+
+        return view('medlinx.landing.app',compact('data','dataChunks','porto2Chunks','diliputChunk','mitraChunk','app','news'));
     }
 
     public function sendMessage(Request $req){

@@ -10,7 +10,7 @@
 
          <div class="carousel-inner">
             @foreach ($data['hero'] as $index => $item)
-             <div class="carousel-item carousel-slide {{ $index === 0 ? 'active' : '' }}" style="background-image:url('{{ asset($item->image) }}')" >
+             <div class="carousel-item carousel-slide {{ $index === 0 ? 'active' : '' }}" style="background-image:url('{{ asset($item['image']) }}')" >
                  <div class="container">
                      <div class="row">
                          <div class="col-lg-10">
