@@ -8,7 +8,12 @@
                         <h3 class="title text-uppercase">News & Update</h3>
                     </div>
                     <div class="col-4 col-md-2 text-end my-auto">
-                        <a href="{{ route('news-update') }}" class="fs-6 fw-semibold link-primary">Lihat Semua</a>
+                        @if (isset($type) && $type == 'prev')
+                        <a href="{{ route('news-update','medlinx') }}" class="fs-6 fw-semibold link-primary">Lihat Semua</a>
+                        @else
+                        <a href="{{ route('publis-medlinx','medlinx') }}" class="fs-6 fw-semibold link-primary">Lihat Semua</a>
+                        @endif
+
                     </div>
                 </div>
             </div>

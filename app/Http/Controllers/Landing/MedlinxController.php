@@ -96,4 +96,14 @@ class MedlinxController extends Controller
 
         return view('medlinx.landing.detail-news',compact('article','cms'));
     }
+    public function ListNews($slug){
+        $data['title'] = 'News';
+        $data['page'] = 'news-update';
+        $path = public_path('publishfile/medlinx.json');
+        $dataget = file_get_contents($path);
+
+        $data += json_decode($dataget, true);
+
+        return view('medlinx.landing.all-news',$data);
+    }
 }
