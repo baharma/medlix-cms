@@ -5,8 +5,18 @@ use App\Models\Article;
 use App\Models\CmsApp;
 use App\Models\Event;
 use App\Models\Keunggulan;
+use App\Models\MainAbout;
+use App\Models\MainAppHero;
+use App\Models\MainArticle;
+use App\Models\MainKeunggulan;
+use App\Models\MainMedia;
+use App\Models\MainPlan;
+use App\Models\MainPlanDetail;
+use App\Models\MainPlanFeatue;
 use App\Models\Media;
 use App\Models\Plan;
+use App\Models\PlanDetail;
+use App\Models\PlanFeatue;
 use App\Models\Product;
 use App\Models\Solution;
 use App\Models\Team;
@@ -238,7 +248,8 @@ function checkPreviewMedlinx()
     // If all checks pass, return true
     return true;
 }
-function checkPreviewIzidok(){
+function checkPreviewIzidok()
+{
     $hero = AppHero::where('app_id',2)->first();
     if (!$hero) {
         return false;
@@ -284,7 +295,8 @@ function checkPreviewIzidok(){
     // If all checks pass, return true
     return true;
 }
-function checkPreviewIziklaim(){
+function checkPreviewIziklaim()
+{
     $hero = AppHero::where('app_id',3)->first();
     if (!$hero) {
         return false;
@@ -339,3 +351,75 @@ function checkPreviewIziklaim(){
     return true;
 }
 
+function copyIzidok(){
+        
+    $hero =AppHero::where('app_id',2)->first();
+    $mainHero  = MainAppHero::updateOrCreate(['id',$hero->id],$hero->attributesToArray());
+
+    $about = About::where('app_id',2)->first();
+    $mainAbout = MainAbout::updateOrCreate(['id',$about->id],$about->attributesToArray());
+
+
+    $slider  = Media::where('title','izidok')->get();
+    foreach ($slider as $slide) {
+        MainMedia::updateOrCreate(['id',$slide->id],$slide->attributesToArray());
+    }
+    $keunggulan =Keunggulan::with('KeunggulanList')->where('app_id',2)->first();
+    $mianKeunggulan =  MainKeunggulan::updateOrCreate(['id',$keunggulan->id],$keunggulan->attributesToArray());
+
+    $article =Article::where('app_id',2)->get();
+    foreach ($article as $news) {
+        MainArticle::updateOrCreate(['id',$news->id],$news->attributesToArray());
+    }
+    $features = PlanFeatue::all();
+    foreach ($features as $feature) {
+        MainPlanFeatue::updateOrCreate(['id',$feature->id],$feature->attributesToArray());
+    }
+    $plans  = Plan::all();
+    foreach ($plans as $plan) {
+        MainPlan::updateOrCreate(['id',$plan->id],$plan->attributesToArray());
+    }
+    $plansdetails = PlanDetail::all();
+    foreach ($plansdetails as $detail) {
+        MainPlanDetail::updateOrCreate(['id',$detail->id],$detail->attributesToArray());
+    }
+        $ev  =Event::where('app_id',2)->get();
+        $event = [];
+        foreach ($ev as $e) {
+            $event[] = [
+                'image' => asset($e->image),
+                'name'  => $e->name
+            ];
+        }
+        $data['event'] =  $event;
+        $testi = [];
+        foreach (Testimoni::where('app_id',2)->get() as $t) {
+            $testi[]  = [
+                'testi' => $t->testi,
+                'by'    => $t->testi_by,
+                'title' => $t->testi_by_title,
+                'img'   => asset($t->testi_by_img)
+            ];
+        }
+
+        $data['testi']  = $testi;
+        $contact = CmsApp::find(2);
+        $data['app'] = [
+            'name'  => $contact->app_name,
+            'url'   => $contact->app_url,
+            'logo'  => $contact->logo,
+            'address'   => $contact->app_address,
+            'mail'  => $contact->app_mail,
+            'phone' => $contact->app_phone,
+            'wa'    => $contact->app_wa,
+            'gmaps' => $contact->app_gmaps,
+            'social'=> json_decode($contact->extend),
+            'fav'   => asset($contact->favicon)
+        ];
+
+        return response()->json([
+            'status' => 200,
+            'message'   => 'Izidok Landing API',
+            'data'      => $data
+        ]);
+}

@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\Landing\MedlinxController as LandingMedlinxController;
 use App\Http\Controllers\PreviewController;
+use App\Http\Controllers\PublishController;
 use App\Livewire\Admin\ManageUser;
 use App\Livewire\Admin\Section as AdminSection;
 use App\Livewire\Pages\About;
@@ -134,6 +135,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/view/news/{cms?}/{slug}', [PreviewController::class,'newsUpdateDetail'])->name('news-update-detail');
 
     Route::post('publish',[PreviewController::class,'publish'])->name('publish');
+
+    Route::post('publish-izidok',[PublishController::class,'publishIzidok'])->name('publish.izidok');
 
 });
 

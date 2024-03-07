@@ -81,7 +81,6 @@ class PreviewController extends Controller
         }
     }
     public function newsUpdate($cms){
-        // dd($cms);
         $data['title'] = 'News';
         $data['page'] = 'news-update';
         $data += $this->izidok();
@@ -96,9 +95,6 @@ class PreviewController extends Controller
     public function publish(Request $request){
         $app = CmsApp::where('app_name',$request->app)->first();
         $app_id = $app->id;
-
-        // DB::beginTransaction();
-        // try {
             $this->copyCMS($app_id);
             if ($app_id == 1) {
                 $this->copyHero($app_id);
@@ -134,14 +130,6 @@ class PreviewController extends Controller
                 session()->push('publish', ['message' => "Successful publish IziKlaim"]);
                 return to_route('cms.set',$app_id);
             }
-        //     DB::commit();
-        //     dd('success');
-
-        // } catch (\Throwable $th) {
-        //     DB::rollBack();
-        //     dd($th->getMessage());
-        // }
-
     }
     public function copyProduk($app_id){
         $produk = Product::where('app_id',$app_id)->get();
@@ -162,7 +150,6 @@ class PreviewController extends Controller
             $this->repository->deleteAddVisiMisi($data);
         }
     }
-
     public function copyMediaMedlinx(){
         $mark1 = Media::where('mark','porto1')->get();
         $mark2= Media::where('mark','porto2')->get();
@@ -186,7 +173,6 @@ class PreviewController extends Controller
             $this->repository->deleteAddMedia($data);
         }
     }
-
     public function copysolution($app_id){
         $solition = Solution::where('app_id',$app_id)->get();
         foreach($solition as $item){
@@ -251,8 +237,17 @@ class PreviewController extends Controller
         }
     }
     public function copyHero($app_id){
-        $heros = AppHero::where('app_id',$app_id)->first();
-        $this->repository->deleteAddHero($heros);
+        $heros = AppHero::where('app_id',$app_id)->get();
+        foreach ($heros as $key => $value) {
+            $mainCMS = MainAppHero::find($value->id);
+            if($mainCMS){
+                $mainCMS->update($value->attributesToArray());
+            }else {
+                $cms  = new MainAppHero();
+                $cms->fill($value->attributesToArray());
+                $cms->save();
+            }
+        }
     }
     public function copyKeunggun($app_id){
         $keunggulan = Keunggulan::where('app_id',$app_id)->first();
@@ -264,9 +259,6 @@ class PreviewController extends Controller
             $this->repository->deleteAddKeunggulanListMain($value);
         }
     }
-
-
-
     public function newsUpdateDetail($cms,$slug){
         $data = [
             'title' => 'News & Update Detail',
@@ -302,7 +294,6 @@ class PreviewController extends Controller
         ];
         return $data;
     }
-
     public function izidok(){
 
         $hero = AppHero::where('app_id',2)->first();
@@ -418,7 +409,6 @@ class PreviewController extends Controller
 
        return $data;
     }
-
     public function copyTeamIziklaim(){
         $teamUp     = Team::where('up_lv',1)->get();
         $teamDown   = Team::where('up_lv',0)->get();
@@ -440,7 +430,6 @@ class PreviewController extends Controller
             $this->repository->deleteAddMedia($media);
         }
     }
-
     public function iziklaim(){
         $hero       = AppHero::where('app_id',3)->first();
         $heroMini   = json_decode($hero->extend,true);
