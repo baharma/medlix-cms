@@ -5,8 +5,18 @@ use App\Models\Article;
 use App\Models\CmsApp;
 use App\Models\Event;
 use App\Models\Keunggulan;
+use App\Models\MainAbout;
+use App\Models\MainAppHero;
+use App\Models\MainArticle;
+use App\Models\MainKeunggulan;
+use App\Models\MainMedia;
+use App\Models\MainPlan;
+use App\Models\MainPlanDetail;
+use App\Models\MainPlanFeatue;
 use App\Models\Media;
 use App\Models\Plan;
+use App\Models\PlanDetail;
+use App\Models\PlanFeatue;
 use App\Models\Product;
 use App\Models\Solution;
 use App\Models\Team;
@@ -238,7 +248,8 @@ function checkPreviewMedlinx()
     // If all checks pass, return true
     return true;
 }
-function checkPreviewIzidok(){
+function checkPreviewIzidok()
+{
     $hero = AppHero::where('app_id',2)->first();
     if (!$hero) {
         return false;
@@ -284,7 +295,8 @@ function checkPreviewIzidok(){
     // If all checks pass, return true
     return true;
 }
-function checkPreviewIziklaim(){
+function checkPreviewIziklaim()
+{
     $hero = AppHero::where('app_id',3)->first();
     if (!$hero) {
         return false;

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\AppHero;
 use App\Models\Team;
-use Illuminate\Http\Request;
 
 class MedlinxController extends Controller
 {
