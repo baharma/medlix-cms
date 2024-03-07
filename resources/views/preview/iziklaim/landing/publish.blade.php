@@ -7,7 +7,7 @@
                     <a href="{{ url('dashboard') }}"> <button class="btn btn-success"> <i class="bx bx-arrow-back"></i>
                             Dashboard</button></a>
                 </li>
-                <form action="{{ route('publish') }}" method="post" id="form-publish">
+                <form action="{{ route('publish.iziklaim') }}" method="post" id="form-publish">
                     @csrf
                     <input type="hidden" name="app" value="{{ $app['name'] }}">
                     <li class="nav-item" type="submit">

@@ -28,14 +28,10 @@ use Illuminate\Support\Facades\Storage;
 class IzidokController extends Controller
 {
     public function index(){
-        // Specify the file path
-        $filePath = 'publishfile/izidok.json';
+        $path = public_path('publishfile/izidok.json');
+        $data = file_get_contents($path);
 
-        // Read the contents of the JSON file using the Storage facade
-        $jsonData = Storage::get($filePath);
-
-        // Decode the JSON data into a PHP array
-        $dataArray = json_decode($jsonData, true);
+        $dataArray = json_decode($data, true);
 
         return response()->json([
             'status' => 200,

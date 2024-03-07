@@ -88,7 +88,6 @@
     <script src="{{ asset('preview/izidok/js/fslightbox.bundle.js') }}"></script>
     <script src="{{ asset('preview/izidok/js/typedjs.bundle.js') }}"></script>
     <script src="{{ asset('preview/izidok/js/landing.js') }}"></script>
-    {{-- <script src="{{ asset('preview/izidok/js/general.js') }}"></script> --}}
     <script src="{{ asset('preview/izidok/js/custom.js') }}"></script>
     <script src="{{ asset('preview/izidok/js/jquery.validate.js') }}"></script>
     <script>
