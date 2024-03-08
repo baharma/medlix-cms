@@ -65,7 +65,7 @@ class PreviewController extends Controller
             $data += $this->iziklaim();
             return view('preview.iziklaim.landing.news-update', $data);
         }elseif('medlinx'){
-
+            $data['type'] = 'prev';
             $data += $this->priviewMadlinx();
 
             return view('medlinx.landing.all-news', $data);
@@ -376,7 +376,7 @@ class PreviewController extends Controller
         if($cms=='izidok'){
             return view('preview.izidok.landing.others.news-detail', $data);
         }elseif($cms=='iziklaim'){
-
+            $data['type'] = "prev";
             return view('preview.iziklaim.landing.news-details', $data);
         }
     }
