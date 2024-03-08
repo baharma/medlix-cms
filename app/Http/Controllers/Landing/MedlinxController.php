@@ -99,6 +99,7 @@ class MedlinxController extends Controller
     public function ListNews($slug){
         $data['title'] = 'News';
         $data['page'] = 'news-update';
+
         $path = public_path('publishfile/medlinx.json');
         $dataget = file_get_contents($path);
 
