@@ -4,11 +4,16 @@
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-0 col-md-2"></div>
-                    <div class="col-8 text-center">
-                        <h3 class="text-primary">News & Update</h3>
+                    <div class="col-8 section-title text-center pb-30">
+                        <h3 class="title text-uppercase">News & Update</h3>
                     </div>
                     <div class="col-4 col-md-2 text-end my-auto">
-                        <a href="{{ route('news-update') }}" class="fs-6 fw-semibold link-primary">Lihat Semua</a>
+                        @if (isset($type) && $type == 'prev')
+                        <a href="{{ route('news-update','medlinx') }}" class="fs-6 fw-semibold link-primary">Lihat Semua</a>
+                        @else
+                        <a href="{{ route('publis-medlinx','medlinx') }}" class="fs-6 fw-semibold link-primary">Lihat Semua</a>
+                        @endif
+
                     </div>
                 </div>
             </div>
@@ -19,22 +24,23 @@
                     data-tns-dots="false" data-tns-prev-button="#kt_news_slider_prev1"
                     data-tns-next-button="#kt_news_slider_next1" >
                     @foreach ($news as $item)
-                        <div class="card-xl-stretch mx-3 ">
+                        <div class="card-xl-stretch mx-3 text-center font-weight-bold ">
                             @if (isset($type) && $type == 'prev')
-                            <a
-                            href="{{ $item->check == null ? route('medlinx.news-detail',$item->slug) : $item->check }}"><img
-                                class="img-fluid rounded w-100" src="{{ $item->thumbnail }}" alt=""></a>
-                        <div class="py-5 px-4 text-start text-md-justify rounded-bottom">
-                            <a href="{{ $item->check == null ? route('medlinx.news-detail',$item->slug) : $item->check }}"
-                                class="text-gray-800 fw-bold text-hover-primary text-dark lh-base">{{ $item->title }}</a>
-                        </div>
+
+                        <a
+                        href="{{ $item['check'] == null ? route('medlinx.news-detail-prev',$item['slug']) : $item['check'] }}"><img
+                            class="img-fluid rounded w-100" src="{{ $item['thumbnail'] }}" alt=""></a>
+                    <div class="py-5 px-4 text-start text-md-justify rounded-bottom">
+                        <a href="{{ $item['check'] == null ? route('medlinx.news-detail-prev',$item['slug']) : $item['check'] }}"
+                            class="text-gray-800 fw-bold text-hover-primary text-dark lh-base">{{ $item['title'] }}</a>
+                    </div>
                             @else
                             <a
-                            href="{{ $item->check == null ? route('medlinx.news-detail-prev',$item->slug) : $item->check }}"><img
-                                class="img-fluid rounded w-100" src="{{ $item->thumbnail }}" alt=""></a>
+                            href="{{ $item['check'] == null ? route('medlinx.news-detail',$item['slug']) : $item['check'] }}"><img
+                                class="img-fluid rounded w-100" src="{{ $item['thumbnail'] }}" alt=""></a>
                         <div class="py-5 px-4 text-start text-md-justify rounded-bottom">
-                            <a href="{{ $item->check == null ? route('medlinx.news-detail-prev',$item->slug) : $item->check }}"
-                                class="text-gray-800 fw-bold text-hover-primary text-dark lh-base">{{ $item->title }}</a>
+                            <a href="{{ $item['check'] == null ? route('medlinx.news-detail',$item['slug']) : $item['check'] }}"
+                                class="text-gray-800 fw-bold text-hover-primary text-dark lh-base">{{ $item['title'] }}</a>
                         </div>
 
                             @endif

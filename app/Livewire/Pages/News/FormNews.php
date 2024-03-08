@@ -39,7 +39,7 @@ class FormNews extends Component
         }
     }
     public function save(){
-    $this->validate();
+
 
         if(!is_string($this->thumbnail)){
             $thumbnail = saveImageLocal($this->thumbnail, 'news/thumbnail');
@@ -66,6 +66,7 @@ class FormNews extends Component
             $artikel->update($data);
             $this->dispatch('sweet-alert', ['icon' => 'success', 'title' => 'New News Update']);
         }else{
+            $this->validate(['app_id'=>'required']);
             $check = CmsApp::all()->sortBy('id')->pluck('id')->toArray();
             $arrayDiff = array_diff($check, $this->app_id);
             if (empty($arrayDiff)) {
@@ -79,8 +80,6 @@ class FormNews extends Component
             });
             }
             $artikel = $dataartikel->first();
-
-
 
             $this->dispatch('sweet-alert', ['icon' => 'success', 'title' => 'New News Added']);
         }

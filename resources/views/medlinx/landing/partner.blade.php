@@ -22,7 +22,7 @@
                             @foreach ($chunk as $item)
                             <div class="col-lg-3 col-md-3 col-sm-3 part-sm">
                                 <div class="slider-partner-content">
-                                    <img src="{{ asset($item->images) }}">
+                                    <img src="{{ asset($item['images']) }}">
                                 </div>
                             </div>
                             @endforeach
@@ -58,7 +58,7 @@
                             @foreach ($chunk as $item)
                             <div class="col-lg-3 col-md-3 col-sm-3 part-sm">
                                 <div class="slider-media-content">
-                                    <img src="{{ asset($item->images) }}">
+                                    <img src="{{ asset($item['images']) }}">
                                 </div>
                             </div>
                             @endforeach

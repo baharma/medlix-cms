@@ -16,20 +16,19 @@
                 <div class="d-flex flex-column flex-xl-row">
                     <div class="flex-lg-row-fluid me-xl-15">
                         <div class="mb-10">
-                            <div class="mb-8">
-                                <h1 href="#" class="text-dark text-center fw-bold">{{ $article->title }}</h1>
+                            <div class="mb-8 " style="margin-bottom:50px ">
+                                <h2 href="#" class="text-dark text-center fw-bold">{{ $article['title'] }}</h2>
                             </div>
                             <div class="fs-5 text-justify">
-                                {!! $article->description !!}
+                                {!! $article['description'] !!}
                             </div>
                         </div>
 
 
                     @if (isset($type) && $type == 'prev')
-                    <a href="{{ route('medlinx.home') }}" class="fs-6 fw-semibold link-primary">Kembali</a>
-                    @else
                     <a href="{{ route('preview', 'medlinx') }}" class="fs-6 fw-semibold link-primary">Kembali</a>
-
+                    @else
+                    <a href="{{ route('medlinx.home') }}" class="fs-6 fw-semibold link-primary">Kembali</a>
                     @endif
 
                     </div>

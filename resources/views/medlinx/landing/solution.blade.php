@@ -20,12 +20,12 @@
                                             true
                                         @else
                                             false
-                                        @endif" aria-controls="collapse-{{$index}}">{{$item->title}}</a>
+                                        @endif" aria-controls="collapse-{{$index}}">{{$item['title']}}</a>
                                 </div>
                                 <div id="collapse-{{$index}}" class="collapse  @if ($index == 0) show @endif"
                                     aria-labelledby="heading-{{$index}}" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        <p class="text">{{$item->sub_title}}</p>
+                                        <p class="text">{{$item['sub_title']}}</p>
                                         <div class="solution-btn semi-rounded-buttons">
                                             <a class="main-btn rounded-one page-scroll btn-solution"
                                                 data-name="Chatbot untuk Korporasi">Hubungi Kami</a>
@@ -60,11 +60,11 @@
             @foreach ($data['why'] as $item)
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="icon-why">
-                    <img class="img-why" src="{{ $item->images }}" alt="">
+                    <img class="img-why" src="{{ $item['images'] }}" alt="">
                 </div>
                 <div class="why-style">
                     <div class="why-detail text-center mt-20">
-                        {{ $item->text }}
+                        {{ $item['text'] }}
                     </div>
                 </div>
             </div>

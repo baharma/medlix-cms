@@ -12,7 +12,7 @@
             <div class="col-lg-4 col-sm-12">
                 <div class="team-style-eleven text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
                     <div class="team-image">
-                        <img src="{{asset($item->image)}}"
+                        <img src="{{asset($item['image'])}}"
                             alt="Team">
                     </div>
                     <div class="team-content">
@@ -27,7 +27,7 @@
                             </ul>
                         </div>
                         <h4 class="team-name"><a href="javascript:;">{{ env('DIREKTUR_NAME') }}</a></h4>
-                        <span class="sub-title">{{ $item->title }}</span>
+                        <span class="sub-title">{{ $item['title'] }}</span>
                     </div>
                 </div> <!-- single team -->
             </div>
@@ -36,21 +36,21 @@
         </div>
         <div class="row mt-50">
             <div class="col-lg-6 visi-misi">
-                <img src="{{$data['visimisi']->visi_img}}">
+                <img src="{{$data['visimisi']['visi_img']}}">
                 <p class="vimis-title">VISI</p>
-                <p class="vimis-desc">{{strip_tags($data['visimisi']->visi)}}</p>
+                <p class="vimis-desc">{{strip_tags($data['visimisi']['visi'])}}</p>
             </div>
             <div class="col-lg-6 visi-misi">
-                <img src="{{ $data['visimisi']->misi_img }}">
+                <img src="{{ $data['visimisi']['misi_img'] }}">
                 <p class="vimis-title">MISI</p>
-                <p class="vimis-desc">{{ strip_tags($data['visimisi']->misi) }}</p>
+                <p class="vimis-desc">{{ strip_tags($data['visimisi']['misi']) }}</p>
             </div>
         </div> <!-- row -->
     </div> <!-- container -->
     <div class="container">
         <div class="row mt-50">
             <div class="col-lg-12">
-                <img src="{{ $data['visimisi']->detail_img }}">
+                <img src="{{ $data['visimisi']['detail_img'] }}">
             </div>
         </div> <!-- row -->
     </div> <!-- container -->

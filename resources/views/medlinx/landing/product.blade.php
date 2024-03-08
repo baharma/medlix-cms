@@ -12,17 +12,17 @@
             <div class="col-lg-4 col-md-12 col-sm-12">
                 <div class="product-style mt-30">
                     <div class="product-icon text-center">
-                        <img src="{{$item->image}}" alt="">
+                        <img src="{{$item['image']}}" alt="">
                     </div>
                     <div class="product-header text-center">
-                        <img class="sub-title" src="{{ $item->logo }}"
+                        <img class="sub-title" src="{{ $item['logo'] }}"
                             alt="">
                     </div>
                     <div class="product-detail">
-                        {{$item->text}}
+                        {{$item['text']}}
                     </div>
                     <div class="product-btn semi-rounded-buttons text-center">
-                        <a class="main-btn rounded-one" target="blank" href="{{$item->url}}">Selengkapnya, klik di
+                        <a class="main-btn rounded-one" target="blank" href="{{$item['url']}}">Selengkapnya, klik di
                             sini!</a>
                     </div>
                 </div> <!-- pricing style one -->

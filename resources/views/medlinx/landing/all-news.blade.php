@@ -54,7 +54,7 @@
 
     @include('medlinx.landing.navbar')
 
-    @include('medlinx.landing.landing-detail')
+    @include('medlinx.landing.news-list')
 
 
     <div class="loading" style="display: none;">

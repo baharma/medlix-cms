@@ -65,10 +65,11 @@
     @include('medlinx.landing.news')
     @include('medlinx.landing.contact')
     @include('medlinx.landing.footer')
+
     @if (isset($type) && $type == 'prev')
         <nav class="navbar navbar-expand-lg fixed-bottom navbar-light" style="background-color: #FFF67E;">
             <div class="container">
-                <form action="{{ route('publish') }}" method="post">
+                <form action="{{ route('publish.medlinx') }}" method="post">
                     <span class="navbar-text">
                         <a href="{{ url('/dashboard') }}" class="btn btn-info btn-sm">
                             <i class="bx bx-arrow-back">Dashboard</i>
