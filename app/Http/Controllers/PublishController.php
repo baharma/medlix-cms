@@ -11,6 +11,7 @@ use App\Models\Keunggulan;
 use App\Models\Testimoni;
 use App\Models\Media;
 use App\Models\Plan;
+use App\Models\Product;
 use App\Models\Solution;
 use App\Models\Team;
 use App\Models\VisiMisi;
@@ -143,8 +144,8 @@ class PublishController extends Controller
             if (file_exists($path)) {
                 // If the file exists, delete it
                 unlink($path);
-            } 
-            
+            }
+
 
             // Encode the new data to JSON format
             $jsonData = json_encode($data);
@@ -162,7 +163,7 @@ class PublishController extends Controller
         $heroMini   = json_decode($hero->extend,true);
         $visiMisi   = VisiMisi::where('app_id',3)->first();
         $teamUp     = Team::where('up_lv',1)->get();
-        $teamDown   = Team::where('up_lv',0)->get(); 
+        $teamDown   = Team::where('up_lv',0)->get();
         $team       = [];
         $team2       = [];
         foreach ($teamUp as $value) {
@@ -186,7 +187,7 @@ class PublishController extends Controller
             if(isset($extend['button'])){
                 $button = [
                     'name'  => $extend['button']['name'],
-                    'val'   => $extend['button']['val'] 
+                    'val'   => $extend['button']['val']
                 ];
             }else{
                 $button =  false;
@@ -201,7 +202,7 @@ class PublishController extends Controller
                 'position'  => ($extend['img_postion']),
                 'default'  => ($extend['defauult']),
                 'button'    => $button
-                
+
             ];
         }
 
@@ -238,7 +239,7 @@ class PublishController extends Controller
         $data['visiMisi']  = [
             'visi'  => $visiMisi->visi,
             'misi'  => $visiMisi->misi
-        ]; 
+        ];
         $data['team'] = ['up'=>$team,'down'=>$team2];
         $data['solution'] = $solution;
         $data['provider'] =  ['text'=>$provider,'slider'=>$providerImg];
@@ -281,8 +282,8 @@ class PublishController extends Controller
             if (file_exists($path)) {
                 // If the file exists, delete it
                 unlink($path);
-            } 
-            
+            }
+
             // Encode the new data to JSON format
             $jsonData = json_encode($data);
             file_put_contents($filePath, $jsonData);
@@ -290,7 +291,170 @@ class PublishController extends Controller
             session()->push('publish', ['message' => "Successful Publish Iziklaim"]);
             return to_route('cms.set',3);
         } catch (\Exception $e) {
-            dd($e->getMessage()); 
+            dd($e->getMessage());
         }
+    }
+
+    public function PublisMedlinx(){
+
+            $data['hero'] = collect(AppHero::where('app_id',1)->get())->map(function($hero){
+                return [
+                    'image' => $hero->image,
+                    'title' => $hero->title,
+                    'subtitle' => $hero->subtitle,
+                    'extend' => $hero->extend,
+                ];
+            });
+            $cms = CmsApp::find(1);
+            $data['cms'] = [
+                'app_name'=>$cms->app_name,
+                'app_url'=>$cms->app_url,
+                'logo'=>$cms->logo,
+                'app_address'=>$cms->app_address,
+                'app_mail'=>$cms->app_mail,
+                'app_phone'=>$cms->app_phone,
+                'app_wa'=>$cms->app_wa,
+                'app_gmaps'=>$cms->app_gmaps,
+                'favicon'=>$cms->favicon,
+                'extend'=>$cms->extend
+            ];
+            $data['solution'] = collect(Solution::where('app_id',1)->get())->map(function($event){
+                return [
+                    'title'=>$event->title,
+                    'sub_title'=>$event->sub_title,
+                    'extend'=>$event->extend
+                ];
+            });
+
+            $data['team'] = collect(Team::where('app_id',0)->get())->map(function($event){
+                return [
+                    'image'=>$event->image,
+                    'name'=>$event->name,
+                    'title'=>$event->title,
+                    'up_lv'=>$event->up_lv
+                ];
+            });
+
+            $data['visimisi'] = collect(VisiMisi::where('app_id',1)->get())->map(function($event){
+                return  [
+                    'visi'=>$event->visi,
+                    'misi'=>$event->misi,
+                    'visi_img'=>$event->visi_img ?? null,
+                    'misi_img'=>$event->misi_img ?? null,
+                    'detail_img'=>$event->detail_img ?? null
+                ];
+            })->first();
+
+
+            $data['produk'] = collect( Product::where('app_id',1)->get())->map(function($event){
+                return [
+                    'image'=>$event->image,
+                    'logo'=>$event->logo,
+                    'text'=>$event->text,
+                    'url'=>$event->url
+                ];
+            });
+
+            $data['mark1'] = collect(Media::where('mark', 'porto1')->get())->map(function ($item) {
+                return [
+                    'title'=>$item->title,
+                    'text'=>$item->text,
+                    'images'=>$item->images,
+                    'url'=>$item->url,
+                    'mark'=>$item->mark
+                ];
+            });
+
+            $data['mark2'] = collect(Media::where('mark', 'porto2')->get())->map(function ($item) {
+                return [
+                    'title'=>$item->title,
+                    'text'=>$item->text,
+                    'images'=>$item->images,
+                    'url'=>$item->url,
+                    'mark'=>$item->mark
+                ];
+            });
+
+            $data['why'] = collect(Media::where('mark', 'why_us')->get())->map(function ($item) {
+                return [
+                    'title'=>$item->title,
+                    'text'=>$item->text,
+                    'images'=>$item->images,
+                    'url'=>$item->url,
+                    'mark'=>$item->mark
+                ];
+            });
+
+            $data['penghargaan'] = collect(Media::where('mark', 'penghargaan')->get())->map(function ($item) {
+                return [
+                    'title'=>$item->title,
+                    'text'=>$item->text,
+                    'images'=>$item->images,
+                    'url'=>$item->url,
+                    'mark'=>$item->mark
+                ];
+            });
+
+            $data['testimoni'] = collect(Testimoni::where('app_id', 1)->get())->map(function ($item) {
+                return [
+                    'testi'=>$item->testi,
+                    'testi_by'=>$item->testi_by,
+                    'testi_by_title'=>$item->testi_by_title,
+                    'testi_by_img'=>$item->testi_by_img
+                ];
+            });
+
+            $data['mitra'] = collect(Media::where('mark', 'mitra')->get())->map(function ($item) {
+                return [
+                    'title'=>$item->title,
+                    'text'=>$item->text,
+                    'images'=>$item->images,
+                    'url'=>$item->url,
+                    'mark'=>$item->mark
+                ];
+            });
+
+            $data['diliput'] = collect(Media::where('mark', 'diliput')->get())->map(function ($item) {
+                return [
+                    'title'=>$item->title,
+                    'text'=>$item->text,
+                    'images'=>$item->images,
+                    'url'=>$item->url,
+                    'mark'=>$item->mark
+                ];
+            });
+
+            $data['news'] = Article::where(function ($query) {
+                $query->where('app_id', '=', 1)
+                      ->orWhere('app_id', '=', 0);
+            })->get();
+
+        try {
+            $directoryPath = public_path('publishfile');
+
+            // Create the directory if it doesn't exist
+            if (!file_exists($directoryPath)) {
+                mkdir($directoryPath, 0777, true); // Create directory recursively
+            }
+
+            $filePath = 'publishfile/medlinx.json';
+
+            // Check if the file exists
+            $path = public_path('publishfile/medlinx.json');
+            if (file_exists($path)) {
+                // If the file exists, delete it
+                unlink($path);
+            }
+
+            // Encode the new data to JSON format
+            $jsonData = json_encode($data);
+            file_put_contents($filePath, $jsonData);
+
+            session()->push('publish', ['message' => "Successful Publish medlinx"]);
+            return to_route('cms.set',1);
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+
     }
 }

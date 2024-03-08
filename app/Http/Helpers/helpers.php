@@ -350,4 +350,3 @@ function checkPreviewIziklaim()
     // If all checks pass, return true
     return true;
 }
-

@@ -1,7 +1,5 @@
-@extends('preview.izidok.landing.app')
+@php
 
-@section('content')
-    @php
 function extractParagraphs($data)
 {
     // Check if <figure> element exists in data
@@ -32,7 +30,7 @@ function extractParagraphs($data)
                             <div class="mb-8">
                                 <div class="overlay mb-5">
                                     <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded">
-                                        <img class="img-fluid rounded" src="{{ $news[0]['images'] }}" alt="">
+                                        <img class="img-fluid rounded" src="{{ $news[0]['thumbnail'] }}" alt="">
                                     </div>
                                 </div>
                                 <p href="#" class="text-dark text-justify fs-2 fw-bold">{{ $news[0]['title'] }}</p>
@@ -40,9 +38,8 @@ function extractParagraphs($data)
                             <div class="fs-5 fw-semibold text-gray-600 text-justify">
 
                                 <p class="mb-8">
-                                    @if ($news['0']['desc'] != null)
-                                        {!! substr(extractParagraphs($news['0']['desc']), 0, 300) !!}...
-                                    @endif
+
+                                    {!! substr(extractParagraphs($news['0']['description']), 0, 300) !!}...
                                 </p>
                                 <p>
                                     <a >Baca
@@ -57,11 +54,11 @@ function extractParagraphs($data)
                                     <div class="col-md-4">
                                         <div class="card-xl-stretch">
                                             <a
-                                                href="{{ $item['check'] == null ? url('view/news/izidok/' . $item['slug']) : $item['check'] }}"><img
-                                                    class="img-fluid rounded w-100" src="{{ $item['images'] }}"
+                                                href="{{ $item['check'] == null ? route('medlinx.news-detail-prev',$item['slug']) : $item['check'] }}"><img
+                                                    class="img-fluid rounded w-100" src="{{ $item['thumbnail'] }}"
                                                     alt=""></a>
                                             <div class="mt-3">
-                                                <a href="{{ $item['check'] == null ? url('view/news/izidok/' . $item['slug']) : $item['check'] }}"
+                                                <a href="{{ $item['check'] == null ? route('medlinx.news-detail-prev',$item['slug']) : $item['check'] }}"
                                                     class="fs-4 text-dark fw-bold text-hover-primary text-dark lh-base">{{ $item['title'] }}</a>
 
                                             </div>
@@ -77,4 +74,3 @@ function extractParagraphs($data)
             </div>
         </div>
     </div>
-@endsection
