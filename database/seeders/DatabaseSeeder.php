@@ -22,7 +22,18 @@ class DatabaseSeeder extends Seeder
             PlanDetailSeeder::class,
             AllSectionSeeder::class,
             AppSectionSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            AboutsSeeder::class,
+            AppHeroesSeeder::class,
+            ArtikelSeeder::class,
+            EventSeeder::class,
+            KeunggulanSeeder::class,
+            MediaSeeder::class,
+            ProductsSeeder::class,
+            SolutionsSeeder::class,
+            TeamsSeeder::class,
+            TestimonySeeder::class,
+            VisiMisiSeeder::class
         ]);
     }
 }

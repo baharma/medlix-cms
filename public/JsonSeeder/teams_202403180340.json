@@ -1,0 +1,103 @@
+{
+"teams": [
+	{
+		"id" : 1,
+		"app_id" : 0,
+		"image" : "assets\/images\/teams\/\/fauzi-sungkar.png",
+		"name" : "Fauzi Sungkar",
+		"title" : "Direktur",
+		"up_lv" : 1,
+		"created_at" : "2024-03-17 10:26:42",
+		"updated_at" : "2024-03-17 10:26:42"
+	},
+	{
+		"id" : 2,
+		"app_id" : 0,
+		"image" : "assets\/images\/teams\/\/alan-maulana.png",
+		"name" : "Alan Maulana",
+		"title" : "COO",
+		"up_lv" : 1,
+		"created_at" : "2024-03-17 10:27:39",
+		"updated_at" : "2024-03-17 10:27:39"
+	},
+	{
+		"id" : 3,
+		"app_id" : 0,
+		"image" : "assets\/images\/teams\/\/marisa-sibarani.png",
+		"name" : "Marisa Sibarani",
+		"title" : "GM Business dan Partnership",
+		"up_lv" : 1,
+		"created_at" : "2024-03-17 10:28:17",
+		"updated_at" : "2024-03-17 10:28:17"
+	},
+	{
+		"id" : 4,
+		"app_id" : null,
+		"image" : "assets\/images\/teams\/\/business-sales-and-partnership.png",
+		"name" : "Business, Sales and Partnership",
+		"title" : null,
+		"up_lv" : 0,
+		"created_at" : "2024-03-17 18:49:50",
+		"updated_at" : "2024-03-17 18:49:50"
+	},
+	{
+		"id" : 5,
+		"app_id" : null,
+		"image" : "assets\/images\/teams\/\/setyo-harsoyo.png",
+		"name" : "Setyo Harsoyo",
+		"title" : "Business Advisor",
+		"up_lv" : 1,
+		"created_at" : "2024-03-17 18:59:20",
+		"updated_at" : "2024-03-17 18:59:20"
+	},
+	{
+		"id" : 6,
+		"app_id" : null,
+		"image" : "assets\/images\/teams\/\/finance-and-ga.png",
+		"name" : "Finance and GA",
+		"title" : null,
+		"up_lv" : 0,
+		"created_at" : "2024-03-17 19:00:06",
+		"updated_at" : "2024-03-17 19:00:06"
+	},
+	{
+		"id" : 7,
+		"app_id" : null,
+		"image" : "assets\/images\/teams\/\/it-dev-and-infra.png",
+		"name" : "IT Dev and Infra",
+		"title" : null,
+		"up_lv" : 0,
+		"created_at" : "2024-03-17 19:00:36",
+		"updated_at" : "2024-03-17 19:00:36"
+	},
+	{
+		"id" : 8,
+		"app_id" : null,
+		"image" : "assets\/images\/teams\/\/operational-and-customer-care.png",
+		"name" : "Operational and Customer Care",
+		"title" : null,
+		"up_lv" : 0,
+		"created_at" : "2024-03-17 19:00:59",
+		"updated_at" : "2024-03-17 19:00:59"
+	},
+	{
+		"id" : 9,
+		"app_id" : 3,
+		"image" : "assets\/images\/teams\/\/pm-and-qa.png",
+		"name" : "PM and QA",
+		"title" : null,
+		"up_lv" : 0,
+		"created_at" : "2024-03-17 19:01:16",
+		"updated_at" : "2024-03-17 19:01:16"
+	},
+	{
+		"id" : 10,
+		"app_id" : null,
+		"image" : "assets\/images\/teams\/\/product-management.png",
+		"name" : "Product Management",
+		"title" : null,
+		"up_lv" : 0,
+		"created_at" : "2024-03-17 19:01:39",
+		"updated_at" : "2024-03-17 19:01:39"
+	}
+]}

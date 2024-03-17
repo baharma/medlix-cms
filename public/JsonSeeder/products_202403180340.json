@@ -1,0 +1,33 @@
+{
+"products": [
+	{
+		"id" : 1,
+		"app_id" : 1,
+		"image" : "\/assets\/images\/produk\/image\/65f6caf813c23_produk_izidok.png",
+		"logo" : "\/assets\/images\/produk\/logo\/65f6caf814154_logo_izidok.png",
+		"text" : "Klaim asuransi kesehatan lebih mudah dengan elektronik klaim berbasis web. Anda dapat melacak laporan transaksi klaim asuransi, melihat daftar kode diagnosa, dan mendapatkan bantuan dalam bentuk video panduan transaksi. Digunakan oleh lebih dari 2200 provider di Indonesia.\n",
+		"url" : "https:\/\/izidok.id\/",
+		"created_at" : "2024-03-17 10:50:07",
+		"updated_at" : "2024-03-17 10:50:32"
+	},
+	{
+		"id" : 2,
+		"app_id" : 1,
+		"image" : "\/assets\/images\/produk\/image\/65f6cb2c148ea_produk_iziklaim.png",
+		"logo" : "\/assets\/images\/produk\/logo\/65f6cb2c15059_logo_iziklaim.png",
+		"text" : "Klaim asuransi kesehatan lebih mudah dengan elektronik klaim berbasis web. Anda dapat melacak laporan transaksi klaim asuransi, melihat daftar kode diagnosa, dan mendapatkan bantuan dalam bentuk video panduan transaksi. Digunakan oleh lebih dari 2200 provider di Indonesia",
+		"url" : "https:\/\/iziklaim.com\/",
+		"created_at" : "2024-03-17 10:51:24",
+		"updated_at" : "2024-03-17 10:51:24"
+	},
+	{
+		"id" : 3,
+		"app_id" : 1,
+		"image" : "\/assets\/images\/produk\/image\/65f6cb4b81693_produk_farmazi.png",
+		"logo" : "\/assets\/images\/produk\/logo\/65f6cb4b81dd4_logo_farmazi.png",
+		"text" : "Platform Marketplace B2B Farmasi terlengkap, aman, dan terpercaya yang dirancang khusus untuk Apotek dan distributor (PBF) di seluruh Indonesia. Dengan Farmazi, Apotek dan distributor (PBF) dapat melakukan transaksi kapan saja dan di mana saja.\n",
+		"url" : "https:\/\/farmazi.id\/",
+		"created_at" : "2024-03-17 10:51:55",
+		"updated_at" : "2024-03-17 10:51:55"
+	}
+]}

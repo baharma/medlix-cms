@@ -1,0 +1,138 @@
+{
+"events": [
+	{
+		"id" : 1,
+		"app_id" : 2,
+		"name" : "Kegiatan Donor Darah izidok x PMI",
+		"image" : "\/assets\/images\/Event\/65f6cf74df4c8_donordarah.jpg",
+		"details" : "",
+		"created_at" : "2024-03-17 11:09:40",
+		"updated_at" : "2024-03-17 11:09:40"
+	},
+	{
+		"id" : 2,
+		"app_id" : 2,
+		"name" : "Kunjungan Klinik dr. Andreas Kurniawan, SpKJ",
+		"image" : "\/assets\/images\/Event\/65f6cf905033e_event3.png",
+		"details" : "",
+		"created_at" : "2024-03-17 11:10:08",
+		"updated_at" : "2024-03-17 11:10:08"
+	},
+	{
+		"id" : 3,
+		"app_id" : 2,
+		"name" : "Kunjungan Klinik dr. A.Fadlan",
+		"image" : "\/assets\/images\/Event\/65f6cfa49b52b_event4.png",
+		"details" : "",
+		"created_at" : "2024-03-17 11:10:28",
+		"updated_at" : "2024-03-17 11:10:28"
+	},
+	{
+		"id" : 4,
+		"app_id" : 2,
+		"name" : "Kunjungan Klinik dr. Fauliza Rakhima, Sp.PD",
+		"image" : "\/assets\/images\/Event\/65f6cfbb97312_event5.png",
+		"details" : "",
+		"created_at" : "2024-03-17 11:10:51",
+		"updated_at" : "2024-03-17 11:10:51"
+	},
+	{
+		"id" : 5,
+		"app_id" : 2,
+		"name" : "Kunjungan Klinik dr. Moch. Fauzan Hamzah",
+		"image" : "\/assets\/images\/Event\/65f6cfd66f06f_event6.png",
+		"details" : "",
+		"created_at" : "2024-03-17 11:11:18",
+		"updated_at" : "2024-03-17 11:11:18"
+	},
+	{
+		"id" : 6,
+		"app_id" : 2,
+		"name" : "Bagaimana Tetap Bugar di Adaptasi Kebiasaan Baru",
+		"image" : "\/assets\/images\/Event\/65f6cfee4fd4e_event2.png",
+		"details" : "",
+		"created_at" : "2024-03-17 11:11:42",
+		"updated_at" : "2024-03-17 11:11:42"
+	},
+	{
+		"id" : 7,
+		"app_id" : 2,
+		"name" : "Bagaimana Tetap Bugar di Adaptasi Kebiasaan Baru",
+		"image" : "\/assets\/images\/Event\/65f6d00214c3c_raker-2024.jpg",
+		"details" : "",
+		"created_at" : "2024-03-17 11:12:02",
+		"updated_at" : "2024-03-17 11:12:02"
+	},
+	{
+		"id" : 8,
+		"app_id" : 2,
+		"name" : "Kegiatan Donor Darah izidok x PMI",
+		"image" : "\/assets\/images\/Event\/65f6d013a94f8_donordarah1.jpg",
+		"details" : "",
+		"created_at" : "2024-03-17 11:12:19",
+		"updated_at" : "2024-03-17 11:12:19"
+	},
+	{
+		"id" : 9,
+		"app_id" : 3,
+		"name" : "Kunjungan sosialisasi iziklaim oleh Medlinx dan Medika Plaza di RS Fatmawati",
+		"image" : "\/assets\/images\/Event\/65f72bfd934d2_1.png",
+		"details" : "",
+		"created_at" : "2024-03-17 17:44:29",
+		"updated_at" : "2024-03-17 17:44:29"
+	},
+	{
+		"id" : 10,
+		"app_id" : 3,
+		"name" : "Kunjungan sosialisasi iziklaim oleh Medlinx di Klinik Fisio",
+		"image" : "\/assets\/images\/Event\/65f72c19a7e68_2.png",
+		"details" : "",
+		"created_at" : "2024-03-17 17:44:57",
+		"updated_at" : "2024-03-17 17:44:57"
+	},
+	{
+		"id" : 11,
+		"app_id" : 3,
+		"name" : "Kunjungan sosialisasi iziklaim oleh Medlinx dan Medika Plaza di RS Fatmawati",
+		"image" : "\/assets\/images\/Event\/65f72c29b22dd_3.png",
+		"details" : "",
+		"created_at" : "2024-03-17 17:45:13",
+		"updated_at" : "2024-03-17 17:45:13"
+	},
+	{
+		"id" : 12,
+		"app_id" : 3,
+		"name" : "iziklaim mendapatkan Nominasi Portal Administrasi Terbaik di event gathering RS JIH Jogyakarta",
+		"image" : "\/assets\/images\/Event\/65f72c541410a_4.png",
+		"details" : "",
+		"created_at" : "2024-03-17 17:45:56",
+		"updated_at" : "2024-03-17 17:45:56"
+	},
+	{
+		"id" : 13,
+		"app_id" : 3,
+		"name" : "iziklaim mendapatkan Nominasi Portal Administrasi Terbaik di event gathering RS JIH Jogyakarta",
+		"image" : "\/assets\/images\/Event\/65f72ef236fe4_5.png",
+		"details" : "",
+		"created_at" : "2024-03-17 17:57:06",
+		"updated_at" : "2024-03-17 17:57:06"
+	},
+	{
+		"id" : 14,
+		"app_id" : 3,
+		"name" : "iziklaim dan Good Doctor menjalin kemitraan untuk peningkatan proses layanan Telemedisin secara digital",
+		"image" : "\/assets\/images\/Event\/65f72f0ef40f3_6.png",
+		"details" : "",
+		"created_at" : "2024-03-17 17:57:35",
+		"updated_at" : "2024-03-17 17:57:35"
+	},
+	{
+		"id" : 15,
+		"app_id" : 3,
+		"name" : "Sambut 2024, iziklaim Kedepankan teknologi AI Mudahkan Proses Klaim Asuransi Kesehatan",
+		"image" : "\/assets\/images\/Event\/65f72f29dd667_raker-izikalim.png",
+		"details" : "",
+		"created_at" : "2024-03-17 17:58:01",
+		"updated_at" : "2024-03-17 17:58:01"
+	}
+]}

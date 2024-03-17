@@ -1,0 +1,63 @@
+{
+"app_heroes": [
+	{
+		"id" : 1,
+		"app_id" : 1,
+		"image" : "assets\/images\/hero\/medlinx-hero-img-0.jpg",
+		"title" : "Berinovasi\nmemberikan solusi\nteknologi bagi industri\nkesehatan Indonesia\n",
+		"subtitle" : "",
+		"extend" : "{\"btn_action\":\"#product\"}",
+		"created_at" : "2024-03-17 10:48:17",
+		"updated_at" : "2024-03-17 10:48:17"
+	},
+	{
+		"id" : 2,
+		"app_id" : 1,
+		"image" : "assets\/images\/hero\/medlinx-hero-img-1.jpg",
+		"title" : "Klaim asuransi lebih\nmudah, aman, dan\npraktis dengan\niziklaim\n",
+		"subtitle" : "",
+		"extend" : "{\"btn_action\":\"#product\"}",
+		"created_at" : "2024-03-17 10:48:37",
+		"updated_at" : "2024-03-17 10:48:37"
+	},
+	{
+		"id" : 3,
+		"app_id" : 1,
+		"image" : "assets\/images\/hero\/medlinx-hero-img-2.jpg",
+		"title" : "Platform Rekam Medis Elektronik\nterintegrasi untuk Dokter\nPraktek Mandiri dan Klinik\ndengan izidok",
+		"subtitle" : "",
+		"extend" : "{\"btn_action\":\"#product\"}",
+		"created_at" : "2024-03-17 10:49:00",
+		"updated_at" : "2024-03-17 10:49:00"
+	},
+	{
+		"id" : 4,
+		"app_id" : 1,
+		"image" : "assets\/images\/hero\/medlinx-hero-img-3.jpg",
+		"title" : "Transaksi Farmasi antara\nApotek dan distributor (PBF)\nyang aman dan terpercaya\ndengan Farmazi",
+		"subtitle" : "",
+		"extend" : "{\"btn_action\":\"#product\"}",
+		"created_at" : "2024-03-17 10:49:25",
+		"updated_at" : "2024-03-17 10:49:25"
+	},
+	{
+		"id" : 5,
+		"app_id" : 2,
+		"image" : "assets\/images\/hero\/izidok-hero-img.png",
+		"title" : "izidok Memastikan Klinik Anda Memiliki Rekam Medis Elektronik Sesuai Standar Permenkes No.24 Tahun 2022\n",
+		"subtitle" : "Aplikasi berbasis web dengan fitur yang lengkap untuk membantu operasional Dokter Praktik Mandiri dan Klinik. Sudah tersertifikasi ISO 27001:2013, terdaftar PSE Kominfo, dan berstandar Satu Sehat.",
+		"extend" : "[{\"key\":\"youtube_url\",\"val\":\"https:\/\/www.youtube.com\/watch?v=gC-k51pxP8A&ab_channel=izidokID\"}]",
+		"created_at" : "2024-03-17 11:15:28",
+		"updated_at" : "2024-03-17 11:15:28"
+	},
+	{
+		"id" : 6,
+		"app_id" : 3,
+		"image" : "assets\/images\/hero\/iziklaim-hero-img.png",
+		"title" : "Solusi Sistem Klaim Elektronik bagi peserta Asuransi\/TPA\/ASO\nyang Terbaik, Termudah dan Tercepat digunakan oleh\nRumah sakit, Klinik dan Faskes lainnya",
+		"subtitle" : "",
+		"extend" : "{\"sub_image\":\"assets\/images\/hero\/iziklaim-sub-hero-img.png\"}",
+		"created_at" : "2024-03-17 18:50:38",
+		"updated_at" : "2024-03-17 18:50:38"
+	}
+]}

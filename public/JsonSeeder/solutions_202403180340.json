@@ -1,0 +1,102 @@
+{
+"solutions": [
+	{
+		"id" : 1,
+		"app_id" : 1,
+		"title" : "Chatbot untuk Korporasi",
+		"sub_title" : "Bangun chatbot secara kustom sesuai kebutuhan dan dapat terintegrasi dengan sistem yang Anda miliki.",
+		"extend" : null,
+		"created_at" : "2024-03-17 10:22:28",
+		"updated_at" : "2024-03-17 10:22:28"
+	},
+	{
+		"id" : 2,
+		"app_id" : 1,
+		"title" : "Digital QA",
+		"sub_title" : "Sistem yang dapat menganalisis dan melakukan penilaian terhadap file audio dan menyajikannya ke dalam Dashboard. Menggunakan teknologi Kecerdasan Buatan, sistem ini dapat bekerja layaknya seorang Quality Assurance.",
+		"extend" : null,
+		"created_at" : "2024-03-17 10:23:02",
+		"updated_at" : "2024-03-17 10:23:02"
+	},
+	{
+		"id" : 3,
+		"app_id" : 1,
+		"title" : "Smart Capture\/OCR",
+		"sub_title" : "Media untuk melakukan capture dan proses dokumen digital dengan teknologi AI(Artificial Intelligence) dan Machine Learning, serta engine OCR(Optical Character Recognition) terbaik yang dapat mengenali berbagai bentuk tulisan baik hasil cetak maupun tulisan tangan secara cepat dan akurat.",
+		"extend" : null,
+		"created_at" : "2024-03-17 10:23:53",
+		"updated_at" : "2024-03-17 10:23:53"
+	},
+	{
+		"id" : 4,
+		"app_id" : 1,
+		"title" : "Voicebot\/Callbot",
+		"sub_title" : "Berkomunikasi layaknya berbicara dengan manusia, Callbot dapat menangani berbagai skenario percakapan. Menggunakan Natural Language Processor (NLP), sistem dapat mengenali bahasa yang digunakan dan memberikan respon yang sesuai.",
+		"extend" : null,
+		"created_at" : "2024-03-17 10:24:28",
+		"updated_at" : "2024-03-17 10:24:28"
+	},
+	{
+		"id" : 5,
+		"app_id" : 1,
+		"title" : "Manajemen ReAsuransi",
+		"sub_title" : "Sistem yang dapat melakukan proses Reasuransi antara perusahaan asuransi yang bertindak sebagai penanggung utama dengan perusahaan Reasuradur yang menyediakan jasa pengalihan risiko klaim asuransi untuk perusahaan asuransi.",
+		"extend" : null,
+		"created_at" : "2024-03-17 10:24:53",
+		"updated_at" : "2024-03-17 10:24:53"
+	},
+	{
+		"id" : 6,
+		"app_id" : 1,
+		"title" : "Solusi Digital Lainnya",
+		"sub_title" : "Kami siap untuk berkolaborasi dan menjadi partner teknologi sesuai kebutuhan bisnis Anda.",
+		"extend" : null,
+		"created_at" : "2024-03-17 10:25:17",
+		"updated_at" : "2024-03-17 10:25:17"
+	},
+	{
+		"id" : 7,
+		"app_id" : 3,
+		"title" : "Solusi Klaim Elektronis bagi Fasilitas Kesehatan di seluruh Indonesia\n",
+		"sub_title" : "<p>Lebih dari 14 tahun, iziklaim hadir sebagai solusi klaim peserta asuransi termudah, cepat dan aman.<\/p><ul><li><i class=\"bx bx-check-double\"><\/i>Tersertifikasi ISO 27001<\/li><li><i class=\"bx bx-check-double\"><\/i>Terdapat PSE Kemenkominfo<\/li><li><i class=\"bx bx-check-double\"><\/i>Jaringan healthcare provider tersebar di seluruh provinsi di Indonesia<\/li><li><i class=\"bx bx-check-double\"><\/i>Full Customized<\/li><li><i class=\"bx bx-check-double\"><\/i>Unlimited user iziklaim<\/li><li><i class=\"bx bx-check-double\"><\/i>Layanan customer care 24 jam<\/li><li><i class=\"bx bx-check-double\"><\/i>Terintegrasi dengan platform penunjang seperti payment gateway, mobile apps, media chat dll<\/li><\/ul><p>Menjadi sistem klaim elektronik termudah dan terdepan dengan standar layanan kesehatan Digital Internasional<\/p>",
+		"extend" : "{\"image\":\"assets\\\/images\\\/solution\\\/iziklaim-solution-img-1.png\",\"img_postion\":\"right\",\"defauult\":0}",
+		"created_at" : "2024-03-17 17:59:30",
+		"updated_at" : "2024-03-17 17:59:30"
+	},
+	{
+		"id" : 8,
+		"app_id" : 3,
+		"title" : "Web Claim System",
+		"sub_title" : "<ul><li><i class=\"bx bx-check-double\"><\/i>Transaksi registrasi, pembayaran &amp; pembatalan<\/li><li><i class=\"bx bx-check-double\"><\/i>Upload\/download dokumen klaim<\/li><li><i class=\"bx bx-check-double\"><\/i>Laporan transaksi lengkap<\/li><li><i class=\"bx bx-check-double\"><\/i>Mendukung integrasi sistem mobile apps<\/li><li><i class=\"bx bx-check-double\"><\/i>Mendukung pelayanan peserta dengan kartu digital<\/li><li><i class=\"bx bx-check-double\"><\/i>Pelacakan status klaim dokumen<\/li><\/ul>",
+		"extend" : "{\"image\":\"assets\\\/images\\\/solution\\\/iziklaim-solution-img-8.png\",\"mini_image\":\"assets\\\/images\\\/solution\\\/iziklaim-solution-mini-img-8.png\",\"img_postion\":\"left\",\"defauult\":0}",
+		"created_at" : "2024-03-17 18:13:11",
+		"updated_at" : "2024-03-17 19:03:18"
+	},
+	{
+		"id" : 9,
+		"app_id" : 3,
+		"title" : "Quick Home",
+		"sub_title" : "<p>Akses layanan kesehatan lebih mudah dalam genggaman<\/p><ul><li><i class=\"bx bx-check-double\"><\/i>Izi-Pointment<br>Digitalisasi proses reservasi layanan kesehatan terintegrasi dengan sistem internal Rumah Sakit &amp; Klinik<\/li><li><i class=\"bx bx-check-double\"><\/i>Izi-Payment<br>Digitalisasi proses pembayaran layanan kesehatan terintegrasi dengan sistem internal Rumah Sakit &amp; Klinik<\/li><li><i class=\"bx bx-check-double\"><\/i>Izi-Pharmacy<br>Digitalisasi proses pengambilan obat dengan memanfaatkan layanan jasa pengiriman langsung ke alamat pasien<\/li><\/ul>",
+		"extend" : "{\"image\":\"assets\\\/images\\\/solution\\\/iziklaim-solution-img-9.png\",\"icon\":\"assets\\\/images\\\/solution\\\/quick.svg\",\"img_postion\":\"right\",\"defauult\":0}",
+		"created_at" : "2024-03-17 18:15:34",
+		"updated_at" : "2024-03-17 18:15:34"
+	},
+	{
+		"id" : 10,
+		"app_id" : 3,
+		"title" : "izi-Messenger",
+		"sub_title" : "<ul><li><i class=\"bx bx-check-double\"><\/i>Omni Channel (Multi Channel)<\/li><li><i class=\"bx bx-check-double\"><\/i>Tracking Invoice Insurance<\/li><li><i class=\"bx bx-check-double\"><\/i>Case Monitoring<\/li><\/ul><p><br> <\/p>",
+		"extend" : "{\"image\":\"assets\\\/images\\\/solution\\\/iziklaim-solution-img-10.png\",\"mini_image\":\"assets\\\/images\\\/solution\\\/iziklaim-solution-mini-img-10.png\",\"img_postion\":\"left\",\"defauult\":0}",
+		"created_at" : "2024-03-17 18:16:17",
+		"updated_at" : "2024-03-17 19:03:35"
+	},
+	{
+		"id" : 11,
+		"app_id" : 3,
+		"title" : "Customize Solutions",
+		"sub_title" : "<p>Mendukung proses digitalisasi layananan Kesehatan di Rumah Sakit dan Klinik.<\/p>",
+		"extend" : "{\"image\":\"assets\\\/images\\\/solution\\\/iziklaim-solution-img-11.png\",\"icon\":\"assets\\\/images\\\/solution\\\/software.svg\",\"img_postion\":\"right\",\"defauult\":0}",
+		"created_at" : "2024-03-17 18:18:21",
+		"updated_at" : "2024-03-17 18:18:21"
+	}
+]}
