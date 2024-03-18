@@ -67,8 +67,13 @@ function saveImageLocalNew(UploadedFile $file, $path, $name = false) {
         $extension = $file->getClientOriginalExtension(); // Get the original extension
         $filename = $name . '.' . $extension; // Combine name and extension
     }
+
+    $directoryPath = public_path('/upload/images/' . $path);
+    if (!file_exists($directoryPath)) {
+        mkdir($directoryPath, 0777, true); // Create directory recursively with 777 permissions
+    }
     // Check if the file with the same name exists
-    $existingFilePath = public_path('assets/images/' . $path . '/' . $filename);
+    $existingFilePath = public_path('upload/images/' . $path . '/' . $filename);
     if (file_exists($existingFilePath)) {
         unlink($existingFilePath);
     }
@@ -77,7 +82,7 @@ function saveImageLocalNew(UploadedFile $file, $path, $name = false) {
     $file->storeAs($path, $filename, 'images_local');
 
     // Construct the file path
-    $FilePath = 'assets/images/' . $path . '/' . $filename;
+    $FilePath = '/upload/images/' . $path . '/' . $filename;
 
     return $FilePath;
 }
