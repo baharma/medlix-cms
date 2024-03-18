@@ -104,28 +104,31 @@
                                     <ul
                                         class="menu menu-gray-600 menu-hover-primary fw-semibold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
                                         <li class="menu-item">
-                                            <a href="{{ $app['social']['facebook'] }}" target="blank" class="facebook">
+                                            <a href="{{ $app['social']['facebook'] ?? '#' }}" target="blank"
+                                                class="facebook">
                                                 <i class="bx bxl-facebook"></i>
                                             </a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="{{ $app['social']['youtube'] }}" target="blank" class="youtube">
+                                            <a href="{{ $app['social']['youtube'] ?? '#' }}" target="blank"
+                                                class="youtube">
                                                 <i class="bx bxl-youtube"></i>
                                             </a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="{{ $app['social']['instagram'] }}" target="blank"
+                                            <a href="{{ $app['social']['instagram'] ?? '#' }}" target="blank"
                                                 class="instagram">
                                                 <i class="bx bxl-instagram"></i>
                                             </a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="{{ $app['social']['twitter'] }}" target="blank" class="twitter">
+                                            <a href="{{ $app['social']['twitter'] ?? '#' }}" target="blank"
+                                                class="twitter">
                                                 <i class="bx bxl-twitter"></i>
                                             </a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="{{ $app['social']['linkedin'] }}" target="blank"
+                                            <a href="{{ $app['social']['linkedin'] ?? '#' }}" target="blank"
                                                 class="linkedin">
                                                 <i class="bx bxl-linkedin"></i>
                                             </a>
