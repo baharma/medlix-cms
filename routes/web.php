@@ -73,10 +73,13 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/set-cms',[AuthController::class,'setCms'])->name('set.cms');
     Route::get('/set-cms-id/{cmsId}',[AuthController::class,'setCmsId'])->name('cms.set');
-    Route::get('/dashboard', Dashboard::class);
+    Route::get('/dashboard', function(){
+        return redirect()->route('cms');
+    });
+    // Route::get('/dashboard', Dashboard::class);
     Route::get('/starter', Starter::class);
 
-    Route::get('/cms',CmsApp::class);
+    Route::get('/cms',CmsApp::class)->name('cms');
     Route::get('/event',Event::class);
     Route::get('/izidok-pricing',Plan::class);
     Route::get('/izidok-about',About::class);
