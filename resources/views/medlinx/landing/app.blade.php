@@ -119,11 +119,11 @@
     <script src="{{ asset('medlinx/landing/js/scrolling-nav.js') }}"></script>
 
     <!--====== Main js ======-->
+    <script src="{{asset('medlinx/landing/js/cu')}}"></script>
     <script src="{{ asset('medlinx/landing/js/main.js') }}"></script>
     <script src="{{ asset('medlinx/landing/js/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('medlinx/landing/js/jquery.validate.js') }}"></script>
-    <script src="{{ asset('preview/izidok/js/plugins.bundle.js') }}"></script>
-    <script src="{{ asset('preview/izidok/js/scripts.bundle.js') }}"></script>
+    @stack('script')
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             var s, t;

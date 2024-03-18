@@ -1,14 +1,14 @@
 $(function() {
-    
+
     "use strict";
-    
+
     //===== Prealoder
-    
+
     $(window).on('load', function(event) {
         $('.preloader').delay(500).fadeOut(500);
     });
-    
-    
+
+
     //===== Sticky
 
     // $(window).on('scroll', function (event) {
@@ -22,7 +22,7 @@ $(function() {
     //     }
     // });
 
-    
+
     //===== Section Menu Active
 
     var scrollLink = $('.page-scroll');
@@ -41,8 +41,8 @@ $(function() {
             }
         });
     });
-    
-    
+
+
     //===== close navbar-collapse when a  clicked
 
     $(".navbar-nav a").on('click', function () {
@@ -58,8 +58,8 @@ $(function() {
         // $(this).parent().addClass('active');
         // $(this).parent().siblings().removeClass('active');
     });
-    
-    
+
+
     //===== Sidebar
 
     $('[href="#side-menu-left"], .overlay-left').on('click', function (event) {
@@ -69,8 +69,8 @@ $(function() {
     $('[href="#close"], .overlay-left').on('click', function (event) {
         $('.sidebar-left, .overlay-left').removeClass('open');
     });
-    
-    
+
+
     //===== Slick
 
     $('.slider-items-active').slick({
@@ -112,8 +112,8 @@ $(function() {
             }
         ]
     });
-    
-    
+
+
     //===== Isotope Project 4
 
     $('.container').imagesLoaded(function () {
@@ -137,10 +137,10 @@ $(function() {
             event.preventDefault();
         });
     });
-    
-    
+
+
     //===== slick Testimonial Four
-    
+
     $('.testimonial-active').slick({
         dots: false,
         arrows: true,
@@ -152,28 +152,39 @@ $(function() {
         speed: 800,
         slidesToShow: 1,
     });
-    
-    
+
+    $('.testimonial-active-public').slick({
+        dots: false,
+        arrows: true,
+        prevArrow: '<span class="prev"><i class="lni lni-arrow-left"></i></span>',
+        nextArrow: '<span class="next"><i class="lni lni-arrow-right"></i></span>',
+        infinite: true,
+       autoplay: true,
+        autoplaySpeed: 5000,
+        speed: 800,
+        slidesToShow: 3,
+    });
+
     //====== Magnific Popup
-    
+
     $('.video-popup').magnificPopup({
         type: 'iframe'
         // other options
     });
-    
-    
+
+
     //===== Magnific Popup
-    
+
     $('.image-popup').magnificPopup({
       type: 'image',
       gallery:{
         enabled:true
       }
     });
-    
-    
+
+
     //===== Back to top
-    
+
     // Show or hide the sticky footer button
     $(window).on('scroll', function(event) {
         if($(this).scrollTop() > 500){
@@ -182,33 +193,33 @@ $(function() {
             $('.back-to-top').fadeOut(200)
         }
     });
-    
-    
+
+
     //Animate the scroll to yop
     $('.back-to-top').on('click', function(event) {
         event.preventDefault();
-        
+
         $('html, body').animate({
             scrollTop: 0,
         }, 1500);
     });
-    
-    
-    //===== 
 
 
-    $(".number").on("keypress keyup blur",function (event) {    
+    //=====
+
+
+    $(".number").on("keypress keyup blur",function (event) {
         $(this).val($(this).val().replace(/[^\d].+/, ""));
         if ((event.which < 48 || event.which > 57)) {
             event.preventDefault();
         }
     });
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
 });
