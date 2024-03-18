@@ -13,7 +13,7 @@ class VisiMisiSeeder extends Seeder
      */
     public function run(): void
     {
-        $dataJson = public_path('JsonSeeder\visi_misis_202403180341.json');
+        $dataJson = public_path('JsonSeeder/visi_misis_202403180341.json');
         $dataget = file_get_contents($dataJson);
         $data = json_decode($dataget, true);
 

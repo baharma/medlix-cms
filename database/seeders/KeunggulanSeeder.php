@@ -14,11 +14,11 @@ class KeunggulanSeeder extends Seeder
      */
     public function run(): void
     {
-        $dataJson = public_path('JsonSeeder\keunggulans_202403180339.json');
+        $dataJson = public_path('JsonSeeder/keunggulans_202403180339.json');
         $dataget = file_get_contents($dataJson);
         $data = json_decode($dataget, true);
 
-        $dataJsonList = public_path('JsonSeeder\keunggulan_lists_202403180339.json');
+        $dataJsonList = public_path('JsonSeeder/keunggulan_lists_202403180339.json');
         $datagetList = file_get_contents($dataJsonList);
         $dataList = json_decode($datagetList, true);
 

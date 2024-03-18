@@ -13,7 +13,7 @@ class ArtikelSeeder extends Seeder
      */
     public function run(): void
     {
-        $dataJson = public_path('JsonSeeder\articles_202403180339.json');
+        $dataJson = public_path('JsonSeeder/articles_202403180339.json');
         $dataget = file_get_contents($dataJson);
         $data = json_decode($dataget, true);
 
