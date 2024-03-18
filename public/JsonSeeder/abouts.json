@@ -1,0 +1,12 @@
+{
+"abouts": [
+	{
+		"id" : 1,
+		"app_id" : 2,
+		"image" : "\/assets\/images\/About\/65f6cd3965cbc_about.png",
+		"title" : "Rekam Medis Elektronik yang Aman & Mudah Digunakan",
+		"list" : "[\"Menggunakan Kode Diagnosa ICD 10\",\"Menyediakan gambar organ yang akurat dan lengkap\",\"Pengelolaan lengkap: pendaftaran & antrean pasien, kasir, dan pembayaran\",\"Follow Up pasien dengan fitur pengingat WhatsApp, SMS, & E-Mail\",\"Keamanan data terjamin dengan teknologi enkripsi\",\"Fitur Bulk Upload untuk memudahkan pemindahan data pasien sebelumnya\",\"Fitur manajemen komisi dengan perhitungan secara otomatis\",\"Dashboard analytic yang disajikan secara otomatis dan mudah dipahami\",\"Terintegrasi dengan IHS\"]",
+		"created_at" : "2024-03-17 11:00:09",
+		"updated_at" : "2024-03-17 11:00:09"
+	}
+]}

@@ -49,8 +49,10 @@ class PreviewController extends Controller
             $type = 'prev';
             return view('medlinx.landing.app',compact('data','news','dataChunks','porto2Chunks','diliputChunk','mitraChunk','app','type'));
         }elseif($slug=='iziklaim'){
+
             $data['title'] = 'Home';
             $data += $this->iziklaim();
+            // dd($data['solution']);
             return view('preview.iziklaim.landing',$data);
         }
     }

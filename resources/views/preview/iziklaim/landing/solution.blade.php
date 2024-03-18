@@ -1,19 +1,22 @@
 <section id="solution" class="solution">
+    <div class="section-title">
+        <h2>Solusi Kami</h2>
+    </div>
     @foreach ($solution as $item)
         @if ($item['position'] == 'right')
             @if ($item['default'] == 1)
                 <div class="container" data-aos="fade-up">
-                    <div class="section-title">
-                        <h2>Solusi Kami</h2>
-                    </div>
+
                     <div class="row">
                         <div class="col-lg-6 pt-3 content" data-aos="fade-left" data-aos-delay="100">
                             <h3>{{ $item['title'] }}</h3>
                             <br>
                             {!! $item['sub_title'] !!}
                             <div class="text-center text-sm-start d-grid d-md-block">
-                                <a href="{{ $item['button']['val'] }}"
-                                    class="btn btn-download-profile">{{ $item['button']['name'] }}</a>
+
+                                @if(is_array($item['button']))
+                                <a href="{{ $item['button']['val'] }}" class="btn btn-download-profile">{{ $item['button']['name'] }}</a>
+                            @endif
                             </div>
                         </div>
                         <div class="col-lg-6 video-box align-self-baseline d-none d-lg-block m-auto"

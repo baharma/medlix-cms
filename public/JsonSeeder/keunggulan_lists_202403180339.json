@@ -1,0 +1,43 @@
+{
+"keunggulan_lists": [
+	{
+		"id" : 1,
+		"keunggulan_id" : 1,
+		"title" : "Fitur Rekam Medis Lengkap (ICD 10, write & type ready)",
+		"image" : "\/assets\/images\/KeunggulanList\/65f6d181bc85e_rekam_medis.png",
+		"created_at" : "2024-03-17 11:16:09",
+		"updated_at" : "2024-03-17 11:18:25"
+	},
+	{
+		"id" : 2,
+		"keunggulan_id" : 1,
+		"title" : "Bridging BPJS & Satu Sehat",
+		"image" : "\/assets\/images\/KeunggulanList\/65f6d181bcbc4_bridging.png",
+		"created_at" : "2024-03-17 11:16:29",
+		"updated_at" : "2024-03-17 11:18:25"
+	},
+	{
+		"id" : 3,
+		"keunggulan_id" : 1,
+		"title" : "Pengaturan Komisi",
+		"image" : "\/assets\/images\/KeunggulanList\/65f6d181bce0d_komisi.png",
+		"created_at" : "2024-03-17 11:16:48",
+		"updated_at" : "2024-03-17 11:18:25"
+	},
+	{
+		"id" : 4,
+		"keunggulan_id" : 1,
+		"title" : "Keamanan Sistem dan Database (ISO 27001)",
+		"image" : "\/assets\/images\/KeunggulanList\/65f6d181bcfd6_iso.png",
+		"created_at" : "2024-03-17 11:17:03",
+		"updated_at" : "2024-03-17 11:18:25"
+	},
+	{
+		"id" : 5,
+		"keunggulan_id" : 1,
+		"title" : "Follow up pasien melalui Whatsapp, SMS dan Email",
+		"image" : "\/assets\/images\/KeunggulanList\/65f6d181bd19e_follow_up.png",
+		"created_at" : "2024-03-17 11:18:12",
+		"updated_at" : "2024-03-17 11:18:25"
+	}
+]}

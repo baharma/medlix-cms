@@ -1,0 +1,83 @@
+{
+"testimonis": [
+	{
+		"id" : 1,
+		"app_id" : 1,
+		"testi" : "Kolaborasi Medlinx, Kata.ai dan Tempo dalam project chatbot Tempo Advanced Research Assistant atau TARA berhasil merealisasikan sebuah konsep futuristik mengenai berita dan jurnalisme sebagai percakapan antara redaksi dan komunitas pembacanya. Melalui TARA, pembaca Tempo bisa bercakap-cakap dengan redaksi, mengirimkan informasi dan mencari berita yang paling relevan dengan kebutuhannya. TARA membawa masa depan berita langsung ke hadapan kita.",
+		"testi_by" : "Tempo Media Group",
+		"testi_by_title" : null,
+		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6be4477d35_tempo.png",
+		"created_at" : "2024-03-17 09:56:20",
+		"updated_at" : "2024-03-17 09:56:20"
+	},
+	{
+		"id" : 2,
+		"app_id" : 1,
+		"testi" : "Fitur klaim Medlinx yang terbaru ini sangat cepat dan lebih baik daripada versi sebelumnya. Semoga Medlinx semakin sukses ya, terima kasih.",
+		"testi_by" : "Hartini",
+		"testi_by_title" : "Staff Counter Rawat Jalan RS Pondok Indah",
+		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6beed4aef4_rs_pondok_indah.png",
+		"created_at" : "2024-03-17 09:59:09",
+		"updated_at" : "2024-03-17 09:59:09"
+	},
+	{
+		"id" : 3,
+		"app_id" : 1,
+		"testi" : "Aplikasi izidok sangat efisien. Mulai dari pendaftaran pasien, pengolahan data pasien, pengisian rekam medis, hingga selesai konsultasi terasa lebih efektif. Hal yang saya suka adalah dokter dan asisten bisa mengelola informasi pasien secara bersamaan. Setelah pakai izidok waktu konsultasi untuk 1 pasien kurang dari 10 menit dan dalam mengisi rekam medis saya hanya tinggal isi sedikit saja, karena sebelumnya data pasien sudah diisi oleh Asisten. Meskipun pasien saya tidak banyak namun izidok lebih terintegrasi datanya, siap setiap saat jika diperlukan dan fitur reminder kunjungan berikutnya ke pasien secara otomatis, membuat izidok jauh lebih unggul dibanding sistem manual.",
+		"testi_by" : "dr. Sauri Putra, SpKK",
+		"testi_by_title" : "Batam",
+		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6bf490e45a_dr. Sauri Putra, SpKK.png",
+		"created_at" : "2024-03-17 10:00:41",
+		"updated_at" : "2024-03-17 10:00:41"
+	},
+	{
+		"id" : 4,
+		"app_id" : 1,
+		"testi" : "Website iziklaim Medlinx terbaru ini sangat membantu sekali terutama tabel transaksi hari ini yang memudahkan kita dalam mencari data peserta tanpa perlu melihat kartu peserta lagi. Saya berharap Medlinx semakin jaya, maju ke depan.”",
+		"testi_by" : "Ani Krisnawati",
+		"testi_by_title" : "Pelaksana Bagian Penjaminan RSIA Bunda Jakarta",
+		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6c029e1b54_rs_bunda.png",
+		"created_at" : "2024-03-17 10:04:25",
+		"updated_at" : "2024-03-17 10:04:25"
+	},
+	{
+		"id" : 5,
+		"app_id" : 1,
+		"testi" : "Dari pengalaman menjalani Klinik selama 10 tahun, izidok adalah EMR system yang paling mudah digunakan dengan UX dan UI berstandar modern. Nilai plus juga kami berikan untuk pelayanan technical support yang kompeten dan akomodatif",
+		"testi_by" : "Firdaus Artoni, Sp.OG",
+		"testi_by_title" : "Klinik Salma Nisa-Cileungsi, Bogor",
+		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6c2ab0cdfb_dr. Firdaus Artoni, Sp.OG.png",
+		"created_at" : "2024-03-17 10:15:07",
+		"updated_at" : "2024-03-17 10:15:07"
+	},
+	{
+		"id" : 6,
+		"app_id" : 1,
+		"testi" : "Menurut saya fitur klaim dari Medlinx lebih cepat, lebih baik, dan lebih mudah dioperasikan. Harapannya jika kita konfirmasi baik via telepon maupun via chat akan lebih cepat diresponnya.”",
+		"testi_by" : "Mawi Astri",
+		"testi_by_title" : "Staff Counter Rawat Jalan RS Premier Jatinegara",
+		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6c30a478bb_rs_remier.png",
+		"created_at" : "2024-03-17 10:16:42",
+		"updated_at" : "2024-03-17 10:16:42"
+	},
+	{
+		"id" : 7,
+		"app_id" : 1,
+		"testi" : "izidok sangat mudah digunakan baik dari perangkat mobile maupun komputer\/laptop. Rekam medis pasien dapat tersimpan dengan rapi dan lebih lengkap karena bisa upload foto & dokumen.”",
+		"testi_by" : "dr. Kishanty Hardaningtyas, M. Biomed (AAM)",
+		"testi_by_title" : "Wakil Ketua Bidang Kerjasama PERDAWERI Pusat",
+		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6c3608bc34_dr. Kishanty Hardaningtyas, M. Biomed (AAM).png",
+		"created_at" : "2024-03-17 10:18:08",
+		"updated_at" : "2024-03-17 10:18:08"
+	},
+	{
+		"id" : 8,
+		"app_id" : 2,
+		"testi" : "\"Saya sudah berpraktik mandiri selama 9 tahun, selama ini sering kesulitan dalam mencari rekam medis. Sejak menggunakan izidok, saya sangat terbantu untuk melihat riwayat pengobatan pasien. Dengan izidok penulisan rekam medis menjadi jauh lebih cepat. Hal ini membuat saya terlihat lebih profesional sekalipun berpraktik di daerah.\"",
+		"testi_by" : "dr. Johanes Akolutos Emerald Nalenan",
+		"testi_by_title" : null,
+		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6cd85afd72_dr1.png",
+		"created_at" : "2024-03-17 11:01:25",
+		"updated_at" : "2024-03-17 11:01:25"
+	}
+]}

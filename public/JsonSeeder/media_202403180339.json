@@ -1,0 +1,803 @@
+{
+"media": [
+	{
+		"id" : 1,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/01.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:31:02",
+		"updated_at" : "2024-03-17 10:31:02"
+	},
+	{
+		"id" : 2,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/02.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:31:09",
+		"updated_at" : "2024-03-17 10:31:09"
+	},
+	{
+		"id" : 3,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/03.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:31:17",
+		"updated_at" : "2024-03-17 10:31:17"
+	},
+	{
+		"id" : 4,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/04.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:32:24",
+		"updated_at" : "2024-03-17 10:32:24"
+	},
+	{
+		"id" : 5,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/05.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:32:49",
+		"updated_at" : "2024-03-17 10:32:49"
+	},
+	{
+		"id" : 6,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/06.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:33:08",
+		"updated_at" : "2024-03-17 10:33:08"
+	},
+	{
+		"id" : 7,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/07.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:33:17",
+		"updated_at" : "2024-03-17 10:33:17"
+	},
+	{
+		"id" : 8,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/08.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:33:28",
+		"updated_at" : "2024-03-17 10:33:28"
+	},
+	{
+		"id" : 9,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/09.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:33:41",
+		"updated_at" : "2024-03-17 10:33:41"
+	},
+	{
+		"id" : 10,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/10.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:33:53",
+		"updated_at" : "2024-03-17 10:33:53"
+	},
+	{
+		"id" : 11,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/11.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:34:04",
+		"updated_at" : "2024-03-17 10:34:04"
+	},
+	{
+		"id" : 12,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/12.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:34:33",
+		"updated_at" : "2024-03-17 10:34:33"
+	},
+	{
+		"id" : 13,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/13.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:35:17",
+		"updated_at" : "2024-03-17 10:35:17"
+	},
+	{
+		"id" : 14,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/14.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:35:35",
+		"updated_at" : "2024-03-17 10:35:35"
+	},
+	{
+		"id" : 15,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/15.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:35:49",
+		"updated_at" : "2024-03-17 10:35:49"
+	},
+	{
+		"id" : 16,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/16.png",
+		"url" : null,
+		"mark" : "porto1",
+		"created_at" : "2024-03-17 10:36:00",
+		"updated_at" : "2024-03-17 10:36:00"
+	},
+	{
+		"id" : 17,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/17.png",
+		"url" : null,
+		"mark" : "porto2",
+		"created_at" : "2024-03-17 10:36:12",
+		"updated_at" : "2024-03-17 10:36:12"
+	},
+	{
+		"id" : 18,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/18.png",
+		"url" : null,
+		"mark" : "porto2",
+		"created_at" : "2024-03-17 10:36:34",
+		"updated_at" : "2024-03-17 10:36:34"
+	},
+	{
+		"id" : 19,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/19.png",
+		"url" : null,
+		"mark" : "porto2",
+		"created_at" : "2024-03-17 10:36:45",
+		"updated_at" : "2024-03-17 10:36:45"
+	},
+	{
+		"id" : 20,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/20.png",
+		"url" : null,
+		"mark" : "porto2",
+		"created_at" : "2024-03-17 10:36:54",
+		"updated_at" : "2024-03-17 10:36:54"
+	},
+	{
+		"id" : 21,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/21.png",
+		"url" : null,
+		"mark" : "porto2",
+		"created_at" : "2024-03-17 10:37:04",
+		"updated_at" : "2024-03-17 10:37:04"
+	},
+	{
+		"id" : 22,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/22.png",
+		"url" : null,
+		"mark" : "porto2",
+		"created_at" : "2024-03-17 10:37:23",
+		"updated_at" : "2024-03-17 10:37:23"
+	},
+	{
+		"id" : 23,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/23.png",
+		"url" : null,
+		"mark" : "porto2",
+		"created_at" : "2024-03-17 10:37:32",
+		"updated_at" : "2024-03-17 10:37:32"
+	},
+	{
+		"id" : 24,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/24.png",
+		"url" : null,
+		"mark" : "porto2",
+		"created_at" : "2024-03-17 10:37:42",
+		"updated_at" : "2024-03-17 10:37:42"
+	},
+	{
+		"id" : 25,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/25.png",
+		"url" : null,
+		"mark" : "porto2",
+		"created_at" : "2024-03-17 10:37:51",
+		"updated_at" : "2024-03-17 10:37:51"
+	},
+	{
+		"id" : 26,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/26.png",
+		"url" : null,
+		"mark" : "porto2",
+		"created_at" : "2024-03-17 10:38:17",
+		"updated_at" : "2024-03-17 10:38:17"
+	},
+	{
+		"id" : 27,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/27.png",
+		"url" : null,
+		"mark" : "porto2",
+		"created_at" : "2024-03-17 10:38:32",
+		"updated_at" : "2024-03-17 10:38:32"
+	},
+	{
+		"id" : 28,
+		"title" : "assets\/images\/slider\/piala_1.png",
+		"text" : "Trusted Partner of Kata.ai\n2018 Innovation Partner of The Year\n2018 Best Partner of The Year\n",
+		"images" : "assets\/images\/slider\/kata-ai.png",
+		"url" : null,
+		"mark" : "penghargaan",
+		"created_at" : "2024-03-17 10:42:43",
+		"updated_at" : "2024-03-17 10:42:43"
+	},
+	{
+		"id" : 29,
+		"title" : "assets\/images\/slider\/piala_2.png",
+		"text" : "Top 20 Startups Demo Day dalam program DSLaunchpad ULTRA 2021",
+		"images" : "assets\/images\/slider\/daily-social.png",
+		"url" : null,
+		"mark" : "penghargaan",
+		"created_at" : "2024-03-17 10:43:00",
+		"updated_at" : "2024-03-17 10:43:00"
+	},
+	{
+		"id" : 30,
+		"title" : "assets\/images\/slider\/hub-id.png",
+		"text" : "Nominasi 43 Startups untuk mengikuti program business matchmaking & networking.",
+		"images" : "assets\/images\/slider\/piala_2.png",
+		"url" : null,
+		"mark" : "penghargaan",
+		"created_at" : "2024-03-17 10:43:17",
+		"updated_at" : "2024-03-17 10:43:17"
+	},
+	{
+		"id" : 31,
+		"title" : "assets\/images\/slider\/hub-id.png",
+		"text" : "First winner Hackathon APAC Competition.\n",
+		"images" : "assets\/images\/slider\/ephesoft.png",
+		"url" : null,
+		"mark" : "penghargaan",
+		"created_at" : "2024-03-17 10:43:46",
+		"updated_at" : "2024-03-17 10:43:46"
+	},
+	{
+		"id" : 32,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/bayarind.png",
+		"url" : null,
+		"mark" : "mitra",
+		"created_at" : "2024-03-17 10:44:32",
+		"updated_at" : "2024-03-17 10:44:32"
+	},
+	{
+		"id" : 33,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/ephesoft.png",
+		"url" : null,
+		"mark" : "mitra",
+		"created_at" : "2024-03-17 10:44:39",
+		"updated_at" : "2024-03-17 10:44:39"
+	},
+	{
+		"id" : 34,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/kata-ai.png",
+		"url" : null,
+		"mark" : "mitra",
+		"created_at" : "2024-03-17 10:44:54",
+		"updated_at" : "2024-03-17 10:44:54"
+	},
+	{
+		"id" : 35,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/prezent.png",
+		"url" : null,
+		"mark" : "mitra",
+		"created_at" : "2024-03-17 10:45:01",
+		"updated_at" : "2024-03-17 10:45:01"
+	},
+	{
+		"id" : 36,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/primkop-idi.png",
+		"url" : null,
+		"mark" : "mitra",
+		"created_at" : "2024-03-17 10:45:10",
+		"updated_at" : "2024-03-17 10:45:10"
+	},
+	{
+		"id" : 37,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/qiscus.png",
+		"url" : null,
+		"mark" : "mitra",
+		"created_at" : "2024-03-17 10:45:18",
+		"updated_at" : "2024-03-17 10:45:18"
+	},
+	{
+		"id" : 38,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/sprint.png",
+		"url" : null,
+		"mark" : "mitra",
+		"created_at" : "2024-03-17 10:45:26",
+		"updated_at" : "2024-03-17 10:45:26"
+	},
+	{
+		"id" : 39,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/telin.png",
+		"url" : null,
+		"mark" : "mitra",
+		"created_at" : "2024-03-17 10:45:33",
+		"updated_at" : "2024-03-17 10:45:33"
+	},
+	{
+		"id" : 40,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/daily-social.png",
+		"url" : null,
+		"mark" : "diliput",
+		"created_at" : "2024-03-17 10:45:47",
+		"updated_at" : "2024-03-17 10:45:47"
+	},
+	{
+		"id" : 41,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/detik-health.png",
+		"url" : null,
+		"mark" : "diliput",
+		"created_at" : "2024-03-17 10:45:55",
+		"updated_at" : "2024-03-17 10:45:55"
+	},
+	{
+		"id" : 42,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/gohitz.png",
+		"url" : null,
+		"mark" : "diliput",
+		"created_at" : "2024-03-17 10:46:05",
+		"updated_at" : "2024-03-17 10:46:05"
+	},
+	{
+		"id" : 43,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/hallo-id.png",
+		"url" : null,
+		"mark" : "diliput",
+		"created_at" : "2024-03-17 10:46:11",
+		"updated_at" : "2024-03-17 10:46:11"
+	},
+	{
+		"id" : 44,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/inilah.png",
+		"url" : null,
+		"mark" : "diliput",
+		"created_at" : "2024-03-17 10:46:22",
+		"updated_at" : "2024-03-17 10:46:22"
+	},
+	{
+		"id" : 45,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/jitunews.png",
+		"url" : null,
+		"mark" : "diliput",
+		"created_at" : "2024-03-17 10:46:30",
+		"updated_at" : "2024-03-17 10:46:30"
+	},
+	{
+		"id" : 46,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/market.png",
+		"url" : null,
+		"mark" : "diliput",
+		"created_at" : "2024-03-17 10:46:43",
+		"updated_at" : "2024-03-17 10:46:43"
+	},
+	{
+		"id" : 47,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/media-indonesia.png",
+		"url" : null,
+		"mark" : null,
+		"created_at" : "2024-03-17 10:46:53",
+		"updated_at" : "2024-03-17 10:46:53"
+	},
+	{
+		"id" : 48,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/media-indonesia.png",
+		"url" : null,
+		"mark" : "diliput",
+		"created_at" : "2024-03-17 10:47:05",
+		"updated_at" : "2024-03-17 10:47:05"
+	},
+	{
+		"id" : 49,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/suara.png",
+		"url" : null,
+		"mark" : "diliput",
+		"created_at" : "2024-03-17 10:47:17",
+		"updated_at" : "2024-03-17 10:47:17"
+	},
+	{
+		"id" : 50,
+		"title" : "porto",
+		"text" : null,
+		"images" : "assets\/images\/slider\/tempo.png",
+		"url" : null,
+		"mark" : "diliput",
+		"created_at" : "2024-03-17 10:47:33",
+		"updated_at" : "2024-03-17 10:47:33"
+	},
+	{
+		"id" : 51,
+		"title" : "medlinx",
+		"text" : "Customized Solution",
+		"images" : "\/assets\/images\/Media\/WhyUs\/65f6cb6f12db3_icon_customer.png",
+		"url" : null,
+		"mark" : "why_us",
+		"created_at" : "2024-03-17 10:52:31",
+		"updated_at" : "2024-03-17 10:52:31"
+	},
+	{
+		"id" : 52,
+		"title" : "medlinx",
+		"text" : "24\/7 Customer Support",
+		"images" : "\/assets\/images\/Media\/WhyUs\/65f6cb7f98678_icon_hour.png",
+		"url" : null,
+		"mark" : "why_us",
+		"created_at" : "2024-03-17 10:52:47",
+		"updated_at" : "2024-03-17 10:52:47"
+	},
+	{
+		"id" : 53,
+		"title" : "medlinx",
+		"text" : "Aman & Performa Terbaik",
+		"images" : "\/assets\/images\/Media\/WhyUs\/65f6cb8d71f38_icon_secure.png",
+		"url" : null,
+		"mark" : "why_us",
+		"created_at" : "2024-03-17 10:53:01",
+		"updated_at" : "2024-03-17 10:53:01"
+	},
+	{
+		"id" : 54,
+		"title" : "medlinx",
+		"text" : "10+ Tahun Pengalaman > 1 Juta Pengguna.",
+		"images" : "\/assets\/images\/Media\/WhyUs\/65f6cb9bc7d00_icon_year.png",
+		"url" : null,
+		"mark" : "why_us",
+		"created_at" : "2024-03-17 10:53:15",
+		"updated_at" : "2024-03-17 10:53:15"
+	},
+	{
+		"id" : 55,
+		"title" : "izidok",
+		"text" : null,
+		"images" : "assets\/images\/slider\/mockup_satu-sehat (1).png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 11:13:30",
+		"updated_at" : "2024-03-17 11:13:30"
+	},
+	{
+		"id" : 56,
+		"title" : "izidok",
+		"text" : null,
+		"images" : "assets\/images\/slider\/mockup_satu-sehat (1).png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 11:13:44",
+		"updated_at" : "2024-03-17 11:13:44"
+	},
+	{
+		"id" : 57,
+		"title" : "izidok",
+		"text" : null,
+		"images" : "assets\/images\/slider\/mockup_PIC-dashboard-izidok (1).png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 11:13:56",
+		"updated_at" : "2024-03-17 11:13:56"
+	},
+	{
+		"id" : 58,
+		"title" : "izidok",
+		"text" : null,
+		"images" : "assets\/images\/slider\/mockup_pemeriksaan-fisik-rekam-medis.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 11:14:08",
+		"updated_at" : "2024-03-17 11:14:08"
+	},
+	{
+		"id" : 59,
+		"title" : "izidok",
+		"text" : null,
+		"images" : "assets\/images\/slider\/mockup_registrasi-antrean-bpjs (1).png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 11:14:22",
+		"updated_at" : "2024-03-17 11:14:22"
+	},
+	{
+		"id" : 60,
+		"title" : "Fasilitas Kesehatan",
+		"text" : "6000",
+		"images" : null,
+		"url" : null,
+		"mark" : "provider",
+		"created_at" : "2024-03-17 18:38:44",
+		"updated_at" : "2024-03-17 18:38:44"
+	},
+	{
+		"id" : 61,
+		"title" : "Peserta",
+		"text" : "2000000",
+		"images" : null,
+		"url" : null,
+		"mark" : "provider",
+		"created_at" : "2024-03-17 18:38:58",
+		"updated_at" : "2024-03-17 18:38:58"
+	},
+	{
+		"id" : 62,
+		"title" : "provider",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/hermina.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:39:22",
+		"updated_at" : "2024-03-17 18:39:22"
+	},
+	{
+		"id" : 63,
+		"title" : "provider",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/ihc.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:39:30",
+		"updated_at" : "2024-03-17 18:39:30"
+	},
+	{
+		"id" : 64,
+		"title" : "provider",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/mitra-keluarga.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:39:36",
+		"updated_at" : "2024-03-17 18:39:36"
+	},
+	{
+		"id" : 65,
+		"title" : "provider",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/pondok-indah.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:39:47",
+		"updated_at" : "2024-03-17 18:39:47"
+	},
+	{
+		"id" : 66,
+		"title" : "provider",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/ramsay.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:39:53",
+		"updated_at" : "2024-03-17 18:39:53"
+	},
+	{
+		"id" : 67,
+		"title" : "provider",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/rscm.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:40:00",
+		"updated_at" : "2024-03-17 18:40:00"
+	},
+	{
+		"id" : 68,
+		"title" : "provider",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/sari-asih.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:40:08",
+		"updated_at" : "2024-03-17 18:40:08"
+	},
+	{
+		"id" : 69,
+		"title" : "provider",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/siloam.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:40:14",
+		"updated_at" : "2024-03-17 18:40:14"
+	},
+	{
+		"id" : 70,
+		"title" : "maps",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/maps.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:40:24",
+		"updated_at" : "2024-03-17 18:40:24"
+	},
+	{
+		"id" : 71,
+		"title" : "client",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/aaa.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:40:46",
+		"updated_at" : "2024-03-17 18:40:46"
+	},
+	{
+		"id" : 72,
+		"title" : "client",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/abadi.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:40:53",
+		"updated_at" : "2024-03-17 18:40:53"
+	},
+	{
+		"id" : 73,
+		"title" : "client",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/apln.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:40:59",
+		"updated_at" : "2024-03-17 18:40:59"
+	},
+	{
+		"id" : 74,
+		"title" : "client",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/car.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:41:05",
+		"updated_at" : "2024-03-17 18:41:05"
+	},
+	{
+		"id" : 75,
+		"title" : "client",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/global-excel.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:41:11",
+		"updated_at" : "2024-03-17 18:41:11"
+	},
+	{
+		"id" : 76,
+		"title" : "client",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/izi.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:41:20",
+		"updated_at" : "2024-03-17 18:41:20"
+	},
+	{
+		"id" : 77,
+		"title" : "client",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/mp.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:41:27",
+		"updated_at" : "2024-03-17 18:41:27"
+	},
+	{
+		"id" : 78,
+		"title" : "client",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/prixa.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:41:33",
+		"updated_at" : "2024-03-17 18:41:33"
+	},
+	{
+		"id" : 79,
+		"title" : "client",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/rey.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:41:40",
+		"updated_at" : "2024-03-17 18:41:40"
+	},
+	{
+		"id" : 80,
+		"title" : "client",
+		"text" : null,
+		"images" : "assets\/images\/slider\/\/syntech.png",
+		"url" : null,
+		"mark" : "slider",
+		"created_at" : "2024-03-17 18:41:48",
+		"updated_at" : "2024-03-17 18:41:48"
+	}
+]}
