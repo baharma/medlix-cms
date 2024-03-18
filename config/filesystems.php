@@ -46,6 +46,7 @@ return [
         'images_local' => [
             'driver' => 'local',
             'root' => public_path('assets/images/'),
+            'permission' => 0777
         ],
 
         's3' => [

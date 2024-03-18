@@ -1,21 +1,21 @@
 @php
 
-function extractParagraphs($data)
-{
-    // Check if <figure> element exists in data
-        if (strpos($data, '<figure') === false) {
-        return $data; // Return early if no <figure> element found
-    }
+// function extractParagraphs($data)
+// {
+//     // Check if <figure> element exists in data
+//         if (strpos($data, '<figure') === false) {
+//         return $data; // Return early if no <figure> element found
+//     }
 
-    // Remove <figure> elements
-    $dataWithoutFigure = preg_replace('/<figure[^>]>.?<\/figure>/s', '', $data);
+//     // Remove <figure> elements
+//     $dataWithoutFigure = preg_replace('/<figure[^>]>.?<\/figure>/s', '', $data);
 
-    // Extract content inside <p> tags
-    preg_match_all('/<p>(.*?)<\/p>/', $dataWithoutFigure, $matches);
+//     // Extract content inside <p> tags
+//     preg_match_all('/<p>(.*?)<\/p>/', $dataWithoutFigure, $matches);
 
-    // Return the extracted content as an array
-    return $matches[1];
-}
+//     // Return the extracted content as an array
+//     return $matches[1];
+// }
 
     @endphp
     @include('preview.izidok.landing.header-page')
@@ -38,10 +38,10 @@ function extractParagraphs($data)
                             </div>
                             <div class="fs-5 fw-semibold text-gray-600 text-justify">
 
-                                <p class="mb-8">
+                                {{-- <p class="mb-8">
 
                                     {!! substr(extractParagraphs($news['0']['description']), 0, 300) !!}...
-                                </p>
+                                </p> --}}
                                 <p>
                                     <a >Baca
                                         selengkapnya</a>
