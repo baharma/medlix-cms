@@ -53,13 +53,13 @@
             </div>
             <!--navigation-->
             <ul class="metismenu" id="menu">
-                <li>
+                {{-- <li>
                     <a href="{{ url('/dashboard') }}" wire:navigate>
                         <div class="parent-icon"><i class="bx bx-home-circle"></i>
                         </div>
                         <div class="menu-title">Dashboard</div>
                     </a>
-                </li>
+                </li> --}}
                 <li class="menu-label">{{ auth()->user()->is_admin ? 'Admin' : '' }} Section</li>
                 @if (auth()->user()->is_admin)
                     <livewire:components.admin-sidebar />

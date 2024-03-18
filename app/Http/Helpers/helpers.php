@@ -78,6 +78,11 @@ function saveImageLocalNew(UploadedFile $file, $path, $name = false) {
         unlink($existingFilePath);
     }
 
+     $directoryPath = public_path('upload/images/' . $path);
+    if (!file_exists($directoryPath)) {
+        mkdir($directoryPath, 0777, true); // Create directory recursively with 777 permissions
+    }
+
     // Store the file with the generated filename
     $file->storeAs($path, $filename, 'images_local');
 

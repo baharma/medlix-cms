@@ -1,3 +1,6 @@
+@php
+    $extend = json_decode($app->extend, true);
+@endphp
 <section class="footer-area footer-dark">
     <div class="container">
         <div class="row justify-content-center">
@@ -14,7 +17,7 @@
                             <div class="footer-title">Address</div>
                             <div class="footer-sub-title">{!! $app->address ??
                                 'PT. Medlinx Asia Teknologi<br>Jl. RS. Fatmawati No 7,
-                                                                                                                                                                                                        12140<br>Jakarta Selatan' !!}</div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            12140<br>Jakarta Selatan' !!}</div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 footer-xs">
@@ -29,7 +32,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 footer-xs">
@@ -76,11 +78,11 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 footer-xs">
                         <div class="footer-support">
                             <ul class="social">
-                                <li><a target="blank" href="https://www.facebook.com/Medlinxasiateknologi"><i
+                                <li><a target="blank" href="{{ $extend['facebook'] ?? '#' }}"><i
                                             class="lni lni-facebook-filled"></i></a></li>
-                                <li><a target="blank" href="https://www.instagram.com/medlinxasia/"><i
+                                <li><a target="blank" href="{{ $extend['instagram'] ?? '#' }}"><i
                                             class="lni lni-instagram-original"></i></a></li>
-                                <li><a target="blank" href="https://www.linkedin.com/company/medlinxasia/"><i
+                                <li><a target="blank" href="{{ $extend['linkedin'] ?? '#' }}"><i
                                             class="lni lni-linkedin-original"></i></a></li>
                             </ul>
                         </div>

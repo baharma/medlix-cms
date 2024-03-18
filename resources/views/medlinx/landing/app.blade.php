@@ -12,7 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--====== Favicon Icon ======-->
-    <link rel="shortcut icon" href="{{ $app->fav ?? asset('medlinx/landing/images/logo_medlinx_white.png') }}" />
+    <link rel="shortcut icon" href="{{ asset($app->favicon) ?? '' }}" />
+
 
     <!--====== Magnific Popup CSS ======-->
     <link rel="stylesheet" href="{{ asset('medlinx/landing/css/magnific-popup.css') }}">
@@ -119,7 +120,7 @@
     <script src="{{ asset('medlinx/landing/js/scrolling-nav.js') }}"></script>
 
     <!--====== Main js ======-->
-    <script src="{{asset('medlinx/landing/js/cu')}}"></script>
+    <script src="{{ asset('medlinx/landing/js/cu') }}"></script>
     <script src="{{ asset('medlinx/landing/js/main.js') }}"></script>
     <script src="{{ asset('medlinx/landing/js/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('medlinx/landing/js/jquery.validate.js') }}"></script>
