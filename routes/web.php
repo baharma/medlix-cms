@@ -43,6 +43,7 @@ use App\Livewire\Pages\VisiMisi\FormIziklaimVisiMisi;
 use App\Livewire\Pages\VisiMisi\VisiMisiiziklaim;
 use App\Livewire\Pages\WhyUs\WhyUs;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+if (env('APP_ENV') === 'production') {
+    URL::forceSchema('https');
+}
+
+
 Route::get('/',function(){
     return redirect()->route('login');
 });
