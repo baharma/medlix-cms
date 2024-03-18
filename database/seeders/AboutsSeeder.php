@@ -15,7 +15,8 @@ class AboutsSeeder extends Seeder
      */
     public function run(): void
     {
-        $dataJson = public_path('JsonSeeder\abouts_202403180338.json');
+        $dataJson = public_path('JsonSeeder/abouts.json');
+
         $dataget = file_get_contents($dataJson);
         $data = json_decode($dataget, true);
 

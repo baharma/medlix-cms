@@ -43,6 +43,7 @@ use App\Livewire\Pages\VisiMisi\FormIziklaimVisiMisi;
 use App\Livewire\Pages\VisiMisi\VisiMisiiziklaim;
 use App\Livewire\Pages\WhyUs\WhyUs;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+if(env('APP_ENV') == "production"){
+    URL::forceScheme('https');
+}
+
+
 Route::get('/',function(){
     return redirect()->route('login');
 });
@@ -66,10 +73,13 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/set-cms',[AuthController::class,'setCms'])->name('set.cms');
     Route::get('/set-cms-id/{cmsId}',[AuthController::class,'setCmsId'])->name('cms.set');
-    Route::get('/dashboard', Dashboard::class);
+    Route::get('/dashboard', function(){
+        return redirect()->route('cms');
+    });
+    // Route::get('/dashboard', Dashboard::class);
     Route::get('/starter', Starter::class);
 
-    Route::get('/cms',CmsApp::class);
+    Route::get('/cms',CmsApp::class)->name('cms');
     Route::get('/event',Event::class);
     Route::get('/izidok-pricing',Plan::class);
     Route::get('/izidok-about',About::class);
