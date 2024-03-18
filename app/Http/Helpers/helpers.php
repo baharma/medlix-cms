@@ -50,12 +50,13 @@ function num($num){
 function saveImageLocal(UploadedFile $file,$path){
     $filename = uniqid() . '_' . $file->getClientOriginalName();
 
-    // if (!file_exists($directoryPath)) {
-    //     mkdir($directoryPath, 0777, true); // Create directory recursively
-    // }
-    
+    $directoryPath = public_path('upload/images/' . $path);
+    if (!file_exists($directoryPath)) {
+        mkdir($directoryPath, 0777, true); // Create directory recursively with 777 permissions
+    }
+
     $file->storeAs($path, $filename, 'images_local');
-    $FilePath = '/assets/images/'.$path.'/'.$filename;
+    $FilePath = '/upload/images/'.$path.'/'.$filename;
 
     return $FilePath;
 }
