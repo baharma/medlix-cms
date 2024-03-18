@@ -49,8 +49,14 @@ function num($num){
 }
 function saveImageLocal(UploadedFile $file,$path){
     $filename = uniqid() . '_' . $file->getClientOriginalName();
+
+    // if (!file_exists($directoryPath)) {
+    //     mkdir($directoryPath, 0777, true); // Create directory recursively
+    // }
+    
     $file->storeAs($path, $filename, 'images_local');
     $FilePath = '/assets/images/'.$path.'/'.$filename;
+
     return $FilePath;
 }
 function saveImageLocalNew(UploadedFile $file, $path, $name = false) {
@@ -63,7 +69,6 @@ function saveImageLocalNew(UploadedFile $file, $path, $name = false) {
     // Check if the file with the same name exists
     $existingFilePath = public_path('assets/images/' . $path . '/' . $filename);
     if (file_exists($existingFilePath)) {
-        // Remove the existing file
         unlink($existingFilePath);
     }
 
