@@ -1,0 +1,25 @@
+{
+"visi_misis": [
+	{
+		"id" : 1,
+		"app_id" : 1,
+		"visi" : "<p>Dikenal sebagai penyedia solusi kesehatan terkemuka di Indonesia.<\/p>",
+		"misi" : "<p>Membantu dan memfasilitasi industri pelayanan kesehatan di Indonesia untuk beroperasi dan bertumbuh dengan menyediakan solusi berupa sistem kesehatan yang terdigitalisasi dan terdepan.<\/p>",
+		"visi_img" : "\/assets\/images\/VisiMisi\/Visi\/65f6bd895a43d_visi.jpg",
+		"misi_img" : "\/assets\/images\/VisiMisi\/Misi\/65f6bd895c5c0_misi.jpg",
+		"detail_img" : "\/assets\/images\/VisiMisi\/Detail\/65f6bd895ce34_timeline.png",
+		"created_at" : "2024-03-17 09:53:13",
+		"updated_at" : "2024-03-17 09:53:13"
+	},
+	{
+		"id" : 2,
+		"app_id" : 3,
+		"visi" : "<p>Menjadi penyedia solusi ekosistem sistem digital layanan kesehatan terdepan dan terpercaya<\/p>",
+		"misi" : "<ul><li><i class=\"bx bx-check-double\"><\/i>Meningkatkan dan menciptakan ekosistem digital pada sistem layanan kesehatan di Rumah Sakit dan Klinik<\/li><li><i class=\"bx bx-check-double\"><\/i>Memiliki jaringan provider terluas yang tersebar diseluruh Indonesia<\/li><li><i class=\"bx bx-check-double\"><\/i>Menjadi solusi sistem layanan kesehatan digital yang dapat diintegrasikan dan disesuaikan dengan sistem lain.<\/li><li><i class=\"bx bx-check-double\"><\/i>Penyedia sistem layanan kesehatan digital yang selalu berkembang mengikuti kemajuan transformasi digital<\/li><\/ul>",
+		"visi_img" : null,
+		"misi_img" : null,
+		"detail_img" : null,
+		"created_at" : "2024-03-17 13:01:20",
+		"updated_at" : "2024-03-17 13:01:20"
+	}
+]}

@@ -14,10 +14,9 @@ class ManageUser extends Component
 
     public $user,$cms,$name,$email,$password,$admin,$edit;
     public $access = [];
-    protected function rules(){ 
+    protected function rules(){
         return [
             'name' => 'required|min:6',
-            'email' => 'required|email|unique:users,email,'.$this->edit->id,
             'access' => 'required',
             'admin' => 'required',
         ];
@@ -32,7 +31,7 @@ class ManageUser extends Component
         $this->mount();
         $this->render();
         $this->dispatch('sweet-alert',icon:'success',title:'User Deleted');
-        
+
     }
     public function mount(){
         $this->user = User::all();
@@ -45,6 +44,7 @@ class ManageUser extends Component
         }
         $access = json_encode(['app_id'=>$data]);
         if($this->edit){
+            $this->validate(['email' => 'required|email|unique:users,email,'.$this->edit->id]);
             $this->edit->update([
                 'name' => $this->name,
                 'email' => $this->email,
@@ -53,6 +53,7 @@ class ManageUser extends Component
                 'is_admin'  => $this->admin
             ]);
         }else{
+            $this->validate(['email' => 'required|email|unique:users,email']);
             User::create([
                 'name' => $this->name,
                 'email' => $this->email,
@@ -61,7 +62,7 @@ class ManageUser extends Component
                 'is_admin'  => $this->admin
             ]);
         }
-         $this->dispatch('sweet-alert',icon:'success',title:'Success Add User');
+        $this->dispatch('sweet-alert',icon:'success',title:'Success Add User');
         $this->dispatch('closeModal');
         $this->reset();
         $this->mount();
