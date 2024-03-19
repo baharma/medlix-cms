@@ -30,7 +30,7 @@ class AuthController extends Controller
          $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             // Authentication successful, redirect to dashboard or desired location
-            return redirect()->intended('/set-cms');
+            return redirect()->route('set.cms');
         } else {
             // Authentication failed, redirect back with error message
             return redirect()->back()->withErrors([
@@ -65,6 +65,6 @@ class AuthController extends Controller
         $user = User::find(Auth::user()->id);
         $user->default_cms = $id;
         $user->save();
-        return redirect()->intended('/dashboard');
+        return redirect()->route('cms');
     }
 }

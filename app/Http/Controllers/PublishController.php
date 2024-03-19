@@ -15,6 +15,7 @@ use App\Models\Product;
 use App\Models\Solution;
 use App\Models\Team;
 use App\Models\VisiMisi;
+use Illuminate\Support\Facades\Session;
 
 class PublishController extends Controller
 {
@@ -151,11 +152,11 @@ class PublishController extends Controller
             $jsonData = json_encode($data);
             file_put_contents($filePath, $jsonData);
 
-
-            session()->push('publish', ['message' => "Successful publish Izidok"]);
-            return to_route('cms.set',2);
+            session()->push('publish', ['message' => "Successful Publish Izidok Data"]); 
+            return redirect()->route('cms.set',2);
         } catch (\Exception $e) {
-            dd($e->getMessage()); // Output the error message for debugging
+            session()->push('errpublish', ['message' => "Successful Publish Izidok Data"]); 
+            return redirect()->route('cms.set',2);
         }
     }
     public function publishIziklaim(){
@@ -288,10 +289,11 @@ class PublishController extends Controller
             $jsonData = json_encode($data);
             file_put_contents($filePath, $jsonData);
 
-            session()->push('publish', ['message' => "Successful Publish Iziklaim"]);
-            return to_route('cms.set',3);
+             session()->push('publish', ['message' => "Successful Publish Iziklaim Data"]); 
+            return redirect()->route('cms.set',3);
         } catch (\Exception $e) {
-            dd($e->getMessage());
+            session()->push('errpublish', ['message' => "Successful Publish Iziklaim Data"]); 
+            return redirect()->route('cms.set',3);
         }
     }
 
@@ -449,11 +451,12 @@ class PublishController extends Controller
             // Encode the new data to JSON format
             $jsonData = json_encode($data);
             file_put_contents($filePath, $jsonData);
-
-            session()->push('publish', ['message' => "Successful Publish medlinx"]);
-            return to_route('cms.set',1);
+            
+            session()->push('publish', ['message' => "Successful Publish Medlinx Data"]); 
+            return redirect()->route('cms.set',1);
         } catch (\Exception $e) {
-            dd($e->getMessage());
+            session()->push('errpublish', ['message' => "Successful Publish Medlinx Data"]); 
+            return redirect()->route('cms.set',1);
         }
 
     }

@@ -140,30 +140,30 @@
         @include('layouts.component.confirm-delete')
 
     </div>
-    @push('script')
-        @script
-            <script>
-                $('.addNewModal').on('click', function() {
-                    document.getElementById("formInp").reset();
-                });
-                $wire.on('closeModal', () => {
-                    const closeButton = document.getElementById('close-modal');
-                    if (closeButton) {
-                        closeButton.click();
-                    } else {
-                        console.error('Button with ID "close-modal" not found');
-                    }
-                })
-                $wire.on('closeModalUpdate', () => {
-                    const closeButton = document.getElementById('close-modal-update');
-                    if (closeButton) {
-                        closeButton.click();
-                    } else {
-                        console.error('Button with ID "close-modal" not found');
-                    }
-                })
-            </script>
-        @endscript
-    @endpush
 
 </div>
+@push('script')
+    @script
+        <script>
+            $('.addNewModal').on('click', function() {
+                document.getElementById("formInp").reset();
+            });
+            $wire.on('closeModal', () => {
+                const closeButton = document.getElementById('close-modal');
+                if (closeButton) {
+                    closeButton.click();
+                } else {
+                    console.error('Button with ID "close-modal" not found');
+                }
+            })
+            $wire.on('closeModalUpdate', () => {
+                const closeButton = document.getElementById('close-modal-update');
+                if (closeButton) {
+                    closeButton.click();
+                } else {
+                    console.error('Button with ID "close-modal" not found');
+                }
+            })
+        </script>
+    @endscript
+@endpush

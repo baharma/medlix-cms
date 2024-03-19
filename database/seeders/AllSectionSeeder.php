@@ -8,146 +8,144 @@ use Illuminate\Database\Seeder;
 
 class AllSectionSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+   
     public function run(): void
     {
         $data = [
             [
                 'name'  => 'CMS',
-                'url'   => '/cms',
+                'url'   => '/admin/cms',
                 'icon'  => 'bx bx-book-reader'
             ],
             [
                 'name'  => 'About',
-                'url'   => '/izidok-about',
+                'url'   => '/admin/izidok-about',
                 'icon'  => 'bx bx-credit-card-front',
                 'group' => 2,
             ],
             [
                 'name'  => 'Pricing',
-                'url'   => '/izidok-pricing',
+                'url'   => '/admin/izidok-pricing',
                 'icon'  => 'bx bx-credit-card',
                 'group' => 2,
             ],
             [
                 'name'  => 'Visi-Misi',
-                'url'   => '/iziklaim-visi-misi',
+                'url'   => '/admin/iziklaim-visi-misi',
                 'icon'  => 'bx bx-message-square-detail',
                 'group' => 3
             ],
             [
                 'name'  => 'Visi-Misi',
-                'url'   => '/medlinx-visi-misi',
+                'url'   => '/admin/medlinx-visi-misi',
                 'icon'  => 'bx bx-message-square-detail',
                 'group' => 1
             ],
             [
                 'name'  => 'Testimoni',
-                'url'   => '/medlinx-testimoni',
+                'url'   => '/admin/medlinx-testimoni',
                 'icon'  => 'bx bxs-like',
                 'group' => 1
             ],
             [
                 'name'  => 'Testimoni',
-                'url'   => '/izidok-testimoni',
+                'url'   => '/admin/izidok-testimoni',
                 'icon'  => 'bx bxs-like',
                 'group' => 2
             ],
             [
                 'name'  => 'News',
-                'url'   => '/news',
+                'url'   => '/admin/news',
                 'icon'  => 'bx bx-news',
             ],
             [
                 'name'  => 'Event',
-                'url'   => '/event',
+                'url'   => '/admin/event',
                 'icon'  => 'bx bx-chalkboard',
                 'group' => 2
             ],
              [
                 'name'  => 'Event',
-                'url'   => '/event',
+                'url'   => '/admin/event',
                 'icon'  => 'bx bx-chalkboard',
                 'group' => 3
             ],
             [
                 'name'  => 'Soluton',
-                'url'   => '/medlinx-solution',
+                'url'   => '/admin/medlinx-solution',
                 'icon'  => 'bx bx-at',
                 'group' => 1,
             ],
              [
                 'name'  => 'Soluton',
-                'url'   => '/iziklaim-solution',
+                'url'   => '/admin/iziklaim-solution',
                 'icon'  => 'bx bx-at',
                 'group' => 3,
             ],
             [
                 'name'  => 'Provider',
-                'url'   => '/provider',
+                'url'   => '/admin/provider',
                 'icon'  => 'bx bx-right-indent',
                 'group' => 3,
             ],
             [
                 'name'  => 'Teams',
-                'url'   => '/teams',
+                'url'   => '/admin/teams',
                 'icon'  => 'bx bx-trophy',
                 'group' => 1,
             ],
             [
                 'name'  => 'Teams',
-                'url'   => '/teams',
+                'url'   => '/admin/teams',
                 'icon'  => 'bx bx-trophy',
                 'group' => 3,
             ],
             [
                 'name'  => 'Portofolio',
-                'url'   => '/porto',
+                'url'   => '/admin/porto',
                 'icon'  => 'bx bx-image',
                 'group' => 1,
             ],
             [
                 'name'  => 'IMG Slider',
-                'url'   => '/slider',
+                'url'   => '/admin/slider',
                 'icon'  => 'bx bx-image',
                 'group' => 2,
             ],
             [
                 'name' => 'Page Hero',
-                'url'  => '/medlinx-hero',
+                'url'  => '/admin/medlinx-hero',
                 'icon' => 'bx bx-credit-card-front',
                 'group'=> 1
             ],
             [
                 'name' => 'Page Hero',
-                'url'  => '/izidok-hero',
+                'url'  => '/admin/izidok-hero',
                 'icon' => 'bx bx-credit-card-front',
                 'group'=> 2
 
             ],
             [
                 'name' => 'Page Hero',
-                'url'  => '/iziklaim-hero',
+                'url'  => '/admin/iziklaim-hero',
                 'icon' => 'bx bx-credit-card-front',
                 'group'=> 3
             ],
             [
                 'name' => 'Keunggulan',
-                'url'  => '/izidok-keunggulan',
+                'url'  => '/admin/izidok-keunggulan',
                 'icon' => 'bx bx-trending-up',
                 'group'=> 2
             ],
             [
                 'name' => 'produk',
-                'url'  => '/medlinx-produk',
+                'url'  => '/admin/medlinx-produk',
                 'icon' => 'bx bxs-briefcase-alt-2',
                 'group'=> 1
             ],
             [
                 'name' => 'Why Us',
-                'url'  => '/medlinx-why-us',
+                'url'  => '/admin/medlinx-why-us',
                 'icon' => 'bx bxs-conversation',
                 'group'=> 1
             ],

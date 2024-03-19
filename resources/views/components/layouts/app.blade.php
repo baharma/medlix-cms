@@ -42,7 +42,7 @@
         <!--sidebar wrapper -->
         <div class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
-                <a href="{{ url('set-cms') }}">
+                <a href="{{ route('set.cms') }}">
                     <div>
                         {!! appLogo() !!}
                     </div>
@@ -168,6 +168,46 @@
     <script src="{{ asset('assets/js/app.js') }}"></script>
 
     @include('layouts.component.sweet-alert')
+    @if (session()->has('publish'))
+        <script>
+            Swal.fire({
+                title: 'Success!',
+                text: "{{ session('publish')[0]['message'] }}",
+                icon: 'success',
+                confirmButtonText: 'Okay'
+            }).then((result) => {
+                // Check if the confirm button is clicked
+                if (result.isConfirmed) {
+                    // Delete the session
+                    @php
+                        session()->forget('publish');
+                    @endphp
+                }
+            });
+        </script>
+    @endif
+
+    @if (session()->has('errpublish'))
+        <script>
+            Swal.fire({
+                title: 'Error!',
+                text: "{{ session('errpublish')[0]['message'] }}",
+                icon: 'success',
+                confirmButtonText: 'Okay'
+            }).then((result) => {
+                // Check if the confirm button is clicked
+                if (result.isConfirmed) {
+                    // Delete the session
+                    @php
+                        session()->forget('errpublish');
+                    @endphp
+                }
+            });
+        </script>
+    @endif
+
+
+
     @stack('script')
 </body>
 
