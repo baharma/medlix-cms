@@ -31,7 +31,7 @@
     <!--====== Style CSS ======-->
     <link rel="stylesheet" href="{{ asset('medlinx/landing/css/style.css') }}">
     <link href="{{ asset('medlinx/landing/css/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{{asset('preview/izidok/css/plugins.bundle.css')}}">
+    <link rel="stylesheet" href="{{ asset('preview/izidok/css/plugins.bundle.css') }}">
 </head>
 
 <body>
@@ -55,8 +55,30 @@
     @include('medlinx.landing.navbar')
 
     @include('medlinx.landing.news-list')
+    @include('medlinx.landing.footer')
 
 
+    @if (isset($type) && $type == 'prev')
+        <nav class="navbar navbar-expand-lg fixed-bottom navbar-light" style="background-color: #FFF67E;">
+            <div class="container">
+                <form action="{{ route('publish.medlinx') }}" method="post">
+                    <span class="navbar-text">
+                        <a href="{{ route('cms') }}" class="btn btn-info btn-sm">
+                            <i class="bx bx-arrow-back">Dashboard</i>
+                        </a>
+                        @csrf
+                        <input type="hidden" name="app" value="{{ $cms->app_name }}">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            <i class="bx bx-save">Publish</i>
+                        </button>
+                        <span>
+                            Tampilan Landing page sebelum semua data di publish
+                        </span>
+                    </span>
+                </form>
+            </div>
+        </nav>
+    @endif
     <div class="loading" style="display: none;">
         <p>Sedang proses pengiriman...</p>
     </div>
@@ -93,7 +115,7 @@
     <script src="{{ asset('medlinx/landing/js/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('medlinx/landing/js/jquery.validate.js') }}"></script>
     <script src="{{ asset('preview/izidok/js/plugins.bundle.js') }}"></script>
-    <script src="{{asset('preview/izidok/js/scripts.bundle.js')}}"></script>
+    <script src="{{ asset('preview/izidok/js/scripts.bundle.js') }}"></script>
 
 
 </body>

@@ -4,7 +4,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a href="{{ url('dashboard') }}"> <button class="btn btn-success"> <i class="bx bx-arrow-back"></i>
+                    <a href="{{ route('cms') }}"> <button class="btn btn-success"> <i class="bx bx-arrow-back"></i>
                             Dashboard</button></a>
                 </li>
                 <form action="{{ route('publish.iziklaim') }}" method="post" id="form-publish">

@@ -29,7 +29,8 @@
                             </div>
                         </div>
                         <br>
-                        <a href="{{ url('view/news/iziklaim') }}" class="fs-6 fw-semibold link-primary mb-5">Kembali</a>
+                        <a href="{{ url('admin/view/news/iziklaim') }}"
+                            class="fs-6 fw-semibold link-primary mb-5">Kembali</a>
                         <br> <br><br>
                     </div>
                 </div>

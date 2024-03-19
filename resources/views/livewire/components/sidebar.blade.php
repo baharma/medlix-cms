@@ -9,10 +9,3 @@
         </li>
     @endforeach
 </div>
-@push('script')
-    <script>
-        document.getElementById("logout").onclick = function() {
-            document.getElementById("formLogout").submit();
-        }
-    </script>
-@endpush

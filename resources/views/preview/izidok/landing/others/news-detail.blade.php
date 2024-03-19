@@ -25,7 +25,7 @@
                                 {!! $news_details !!}
                             </div>
                         </div>
-                        <a href="{{ url('/view/news/izidok') }}" class="fs-6 fw-semibold link-primary">Kembali</a>
+                        <a href="{{ url('admin/view/news/izidok') }}" class="fs-6 fw-semibold link-primary">Kembali</a>
                     </div>
                 </div>
             </div>

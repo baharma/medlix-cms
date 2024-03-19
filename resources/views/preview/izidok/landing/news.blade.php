@@ -8,7 +8,8 @@
                         <h3 class="text-primary">News & Update</h3>
                     </div>
                     <div class="col-4 col-md-2 text-end my-auto">
-                        <a href="{{ route('news-update','izidok') }}" class="fs-6 fw-semibold link-primary">Lihat Semua</a>
+                        <a href="{{ route('news-update', 'izidok') }}" class="fs-6 fw-semibold link-primary">Lihat
+                            Semua</a>
                     </div>
                 </div>
             </div>
@@ -21,10 +22,10 @@
                     @foreach ($news as $item)
                         <div class="card-xl-stretch mx-3">
                             <a
-                                href="{{ $item['check'] == null ? url('view/news/izidok/' . $item['slug']) : $item['check'] }}"><img
+                                href="{{ $item['check'] == null ? url('admin/view/news/izidok/' . $item['slug']) : $item['check'] }}"><img
                                     class="img-fluid rounded w-100" src="{{ $item['images'] }}" alt=""></a>
                             <div class="py-5 px-4 text-start text-md-justify rounded-bottom">
-                                <a href="{{ $item['check'] == null ? url('view/news/izidok/' . $item['slug']) : $item['check'] }}"
+                                <a href="{{ $item['check'] == null ? url('admin/view/news/izidok/' . $item['slug']) : $item['check'] }}"
                                     class="text-gray-800 fw-bold text-hover-primary text-dark lh-base">{{ $item['title'] }}</a>
                             </div>
                         </div>

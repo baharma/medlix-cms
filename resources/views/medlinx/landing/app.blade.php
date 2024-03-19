@@ -72,7 +72,7 @@
             <div class="container">
                 <form action="{{ route('publish.medlinx') }}" method="post">
                     <span class="navbar-text">
-                        <a href="{{ url('/dashboard') }}" class="btn btn-info btn-sm">
+                        <a href="{{ route('cms') }}" class="btn btn-info btn-sm">
                             <i class="bx bx-arrow-back">Dashboard</i>
                         </a>
                         @csrf

@@ -42,7 +42,7 @@
         <!--sidebar wrapper -->
         <div class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
-                <a href="{{ url('set-cms') }}">
+                <a href="{{ route('set.cms') }}">
                     <div>
                         {!! appLogo() !!}
                     </div>
@@ -99,7 +99,7 @@
                 <form action="{{ route('logout') }}" method="post" id="formLogout">
                     @csrf
                     <li>
-                        <a href="#" id="logout" type="submit">
+                        <a href="#" id="sideLogout" type="submit">
                             <div class="parent-icon"><i class="bx bx-log-out"></i>
                             </div>
                             <div class="menu-title">Logout</div>
@@ -107,6 +107,7 @@
                     </li>
                 </form>
             </ul>
+
             <!--end navigation-->
         </div>
 
@@ -151,7 +152,13 @@
     <script src="{{ asset('assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('assets/plugins/dropify/js/dropify.min.js') }}"></script>
+    <script>
+        $('#sideLogout').on('click', function() {
 
+            document.getElementById("formLogout").submit();
+            console.log('logout');
+        })
+    </script>
     <script>
         $('.dropify').dropify({
             messages: {
@@ -168,6 +175,46 @@
     <script src="{{ asset('assets/js/app.js') }}"></script>
 
     @include('layouts.component.sweet-alert')
+    @if (session()->has('publish'))
+        <script>
+            Swal.fire({
+                title: 'Success!',
+                text: "{{ session('publish')[0]['message'] }}",
+                icon: 'success',
+                confirmButtonText: 'Okay'
+            }).then((result) => {
+                // Check if the confirm button is clicked
+                if (result.isConfirmed) {
+                    // Delete the session
+                    @php
+                        session()->forget('publish');
+                    @endphp
+                }
+            });
+        </script>
+    @endif
+
+    @if (session()->has('errpublish'))
+        <script>
+            Swal.fire({
+                title: 'Error!',
+                text: "{{ session('errpublish')[0]['message'] }}",
+                icon: 'success',
+                confirmButtonText: 'Okay'
+            }).then((result) => {
+                // Check if the confirm button is clicked
+                if (result.isConfirmed) {
+                    // Delete the session
+                    @php
+                        session()->forget('errpublish');
+                    @endphp
+                }
+            });
+        </script>
+    @endif
+
+
+
     @stack('script')
 </body>
 

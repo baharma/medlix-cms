@@ -35,7 +35,8 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body text-center">
-                        <img src="{{ $item->image }}" class="card-img-top" alt="...">
+                        <img src="{{ asset($item->image) }}" class="card-img-top" alt="..."
+                            style="max-width: 200px">
                     </div>
                     <div class="card-footer bg-white text-center">
                         <h6 class="card-title">{{ $item->name }}</h6>
