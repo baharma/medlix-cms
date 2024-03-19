@@ -57,6 +57,7 @@
     @include('medlinx.landing.news-list')
 
 
+
     <div class="loading" style="display: none;">
         <p>Sedang proses pengiriman...</p>
     </div>

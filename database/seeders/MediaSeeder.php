@@ -13,7 +13,7 @@ class MediaSeeder extends Seeder
      */
     public function run(): void
     {
-        $dataJson = public_path('JsonSeeder/media_202403180339.json');
+        $dataJson = public_path('JsonSeeder/media_202403190707.json');
         $dataget = file_get_contents($dataJson);
         $data = json_decode($dataget, true);
 

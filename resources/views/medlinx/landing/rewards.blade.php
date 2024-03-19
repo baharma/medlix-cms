@@ -12,7 +12,7 @@
             <div class="col-lg-3 col-md-6 col-sm-9">
                 <div class="rewards-style mt-30">
                     <div class="rewards-icon text-center pt-25">
-                        <img src="{{ asset($item['images']) }}" alt="">
+                        <img src="{{ asset($item['title']) }}" alt="">
                     </div>
                     <div class="rewards-header text-center">
                         <img class="sub-title" src="{{ asset($item['images']) }}"

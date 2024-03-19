@@ -87,6 +87,13 @@
                         </div>
                     </div>
                 </div>
+                @if (isset($type) && $type == 'prev')
+                <a href="{{ route('preview', 'medlinx') }}" class="fs-6 fw-semibold link-primary">Kembali</a>
+                @else
+                <a href="{{ route('medlinx.home') }}" class="fs-6 fw-semibold link-primary">Kembali</a>
+                @endif
             </div>
+
         </div>
+
     </div>
