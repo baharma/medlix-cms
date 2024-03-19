@@ -35,7 +35,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <ol>
                         <li>
-                            <a href="{{ url('prev/iziklaim') }}">Home</a>
+                            <a href="{{ url('admin/prev/iziklaim') }}">Home</a>
                         </li>
                         <li>{{ $title }}</li>
                     </ol>

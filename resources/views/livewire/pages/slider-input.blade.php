@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="{{ url('slider') }}" type="button" id="close-modal" class="btn btn-warning" wire:navigate><i
+                <a href="{{ route('slider') }}" type="button" id="close-modal" class="btn btn-warning" wire:navigate><i
                         class="bx bx-arrow-back"></i>
                     Back</a>
                 <button type="submit" class="btn btn-primary"><i class="bx bx-save"></i> Update</button>

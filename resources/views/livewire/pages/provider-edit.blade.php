@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="{{ url('provider') }}" wire:navigate id="close-modal" class="btn btn-warning"
+                <a href="{{ route('provider') }}" wire:navigate id="close-modal" class="btn btn-warning"
                     data-bs-dismiss="modal"><i class="bx bx-arrow-back"></i> Back</a>
                 <button type="submit" class="btn btn-primary"><i class="bx bx-save"></i> Submit</button>
             </div>

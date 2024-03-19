@@ -116,7 +116,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/provider',Provider::class)->name('provider');
         Route::get('/provider/{id}',ProviderEdit::class)->name('provider.edit');
 
-        Route::get('/slider',Slider::class);
+        Route::get('/slider',Slider::class)->name('slider');
         Route::get('/slider/{id}',SliderInput::class)->name('slider.inp');
 
         Route::get('/medlinx-testimoni',Testimoni::class)->name('medlinx-testimoni');

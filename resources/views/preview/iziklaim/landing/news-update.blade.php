@@ -45,7 +45,7 @@
                                     @endif
                                 </p>
                                 <p>
-                                    <a href="{{ url('view/news/iziklaim/' . $news[0]['slug']) }}">Baca
+                                    <a href="{{ url('admin/view/news/iziklaim/' . $news[0]['slug']) }}">Baca
                                         selengkapnya</a>
                                 </p>
                             </div>
@@ -57,11 +57,11 @@
                                     <div class="col-md-4">
                                         <div class="card-xl-stretch">
                                             <a
-                                                href="{{ $item['check'] == null ? url('view/news/iziklaim/' . $item['slug']) : $item['check'] }}"><img
+                                                href="{{ $item['check'] == null ? url('admin/view/news/iziklaim/' . $item['slug']) : $item['check'] }}"><img
                                                     class="img-fluid rounded w-100" src="{{ $item['images'] }}"
                                                     alt=""></a>
                                             <div class="mt-3">
-                                                <a href="{{ $item['check'] == null ? url('view/news/iziklaim/' . $item['slug']) : $item['check'] }}"
+                                                <a href="{{ $item['check'] == null ? url('admin/view/news/iziklaim/' . $item['slug']) : $item['check'] }}"
                                                     class="text-hover-primary text-dark lh-base">{{ $item['title'] }}</a>
 
                                             </div>

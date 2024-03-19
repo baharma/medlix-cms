@@ -6,7 +6,7 @@
         <div class="events-slider swiper" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper">
                 @foreach ($news as $ev)
-                    <a href="{{ $ev['check'] == null ? url('view/news/iziklaim/' . $ev['slug']) : $ev['check'] }}">
+                    <a href="{{ $ev['check'] == null ? url('admin/view/news/iziklaim/' . $ev['slug']) : $ev['check'] }}">
                         <div class="swiper-slide">
                             <div class="events-item">
                                 <div class="member">
