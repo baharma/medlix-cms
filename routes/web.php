@@ -60,6 +60,9 @@ if(env('APP_ENV') == "production"){
     URL::forceScheme('https');
 }
 
+Route::get('/admin',function(){
+    return redirect()->route('login');
+});
 
 Route::get('/',[LandingMedlinxController::class,'index'])->name('medlinx.home');
 Route::get('/detail-news/{slug}',[LandingMedlinxController::class,'NewsDetail'])->name('medlinx.news-detail');
