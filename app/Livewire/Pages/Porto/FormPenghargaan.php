@@ -10,7 +10,7 @@ use Livewire\Features\SupportFileUploads\WithFileUploads;
 class FormPenghargaan extends Component
 {
     use WithFileUploads;
-    public $icon,$logo,$text;
+    public $icon,$logo,$text,$editId;
     public function save(){
         if(is_string($this->icon) && $this->icon != null){
             $iconName = $this->icon;
@@ -22,12 +22,23 @@ class FormPenghargaan extends Component
         }else{
             $logoName = saveImageLocalNew($this->logo, 'slider');
         }
-        Media::create([
-            'text' => $this->text,
-            'title' => $iconName,
-            'images' => $logoName,
-            'mark'  => 'penghargaan'
-        ]);
+        if($this->editId){
+            Media::find($this->editId)
+            ->update([
+                'text' => $this->text,
+                'title' => $iconName,
+                'images' => $logoName,
+                'mark'  => 'penghargaan'
+            ]);
+        }else{
+            Media::create([
+                'text' => $this->text,
+                'title' => $iconName,
+                'images' => $logoName,
+                'mark'  => 'penghargaan'
+            ]);
+        }
+        
         $this->dispatch('sweet-alert',icon:'success',title:'Image Slider Updated');
         $this->dispatch('refresh');
         $this->dispatch('closeModal');
@@ -35,6 +46,7 @@ class FormPenghargaan extends Component
     #[On('editId')]
     public function editId($id){
         $cms = Media::find($id);
+        $this->editId = $id;
         $this->text = $cms->text;
         $this->icon = asset($cms->title);
         $this->logo = asset($cms->images);

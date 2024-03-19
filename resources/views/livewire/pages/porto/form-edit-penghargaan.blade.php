@@ -1,10 +1,10 @@
 <div>
-    <div class="modal fade" id="modalPenghargaan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="modalEditPenghargaan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         wire:ignore.self aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog" wire:ignore.self>
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title mb-0 text-info" id="staticBackdropLabel">Form Award</h5>
+                    <h5 class="modal-title mb-0 text-info" id="staticBackdropLabel">Form Image</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form wire:submit.prevent="save" enctype="multipart/form-data" id="formInp">
@@ -38,8 +38,8 @@
             </div>
         </div>
     </div>
-
 </div>
+
 @push('script')
     @script
         <script>

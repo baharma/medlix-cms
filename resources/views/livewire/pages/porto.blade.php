@@ -286,7 +286,7 @@
                                 </div>
                                 <div class="card-footer">
 
-                                    <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
+                                    <button class="btn btn-sm btn-warning editAward" data-bs-toggle="modal"
                                         data-bs-target="#modalPenghargaan"
                                         wire:click="editAward({{ $item->id }})"><i class="bx bx-edit"></i></button>
                                     <button class="btn btn-sm btn-danger"
@@ -378,4 +378,64 @@
 
     <livewire:pages.porto.form-penghargaan />
     <livewire:pages.porto.form />
+    <div class="modal fade" id="modalEditPenghargaan" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" wire:ignore.self aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" wire:ignore.self>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mb-0 text-info" id="staticBackdropLabel">Form Edit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form wire:submit.prevent="save" enctype="multipart/form-data" id="formInp">
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-md-6" id="inpList">
+                                <div class="form-group mb-3">
+                                    <x-componen-form.input-image-dropify label='Icon' wireModel="icon"
+                                        class="editIcon" name="icon" imageDefault="{{ $icon ?? '' }}" />
+                                </div>
+                            </div>
+                            <div class="col-md-6" id="inpList">
+                                <div class="form-group mb-3">
+                                    <x-componen-form.input-image-dropify label='Logo' wireModel="logo"
+                                        name="logo" imageDefault="{{ $logo ?? '' }}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <x-componen-form.textarea-input label='Text' wireModel="text" name="text" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="close-modal-edit-penghargaan" class="btn btn-warning"
+                            data-bs-dismiss="modal"><i class="bx bx-x"></i> Close</button>
+                        <button type="submit" class="btn btn-primary"><i class="bx bx-save"></i> Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
+@push('script')
+    @script
+        <script>
+            $wire.on('closeModal', () => {
+                const closeButton = document.getElementById('close-modal-edit-penghargaan');
+                if (closeButton) {
+                    closeButton.click();
+                } else {
+                    console.error('Button with ID "close-modal" not found');
+                }
+                const removeImage = $('.dropify-clear');
+                removeImage.click();
+            });
+            $wire.on('showEdit', () => {
+                $('.editIcon').attr('data-default-file', "{{ $icon }}");
+                $('.editIcon').dropify();
+                console.log('tedt');
+            })
+        </script>
+    @endscript
+@endpush
