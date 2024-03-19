@@ -26,6 +26,7 @@
                             <li class="nav-item"><a class="page-scroll" href="#rewards">Penghargaan</a></li>
                             <li class="nav-item"><a class="page-scroll" href="#testimoni">Testimoni</a></li>
                             <li class="nav-item"><a class="page-scroll" href="#partner">Mitra Kami</a></li>
+                            <li class="nav-item"><a class="page-scroll" href="#news">News</a></li>
                             <li class="nav-item"><a class="page-scroll kontak" href="#contact">Kontak Kami</a></li>
                         </ul>
                     </div>

@@ -200,6 +200,7 @@ class PreviewController extends Controller
                 'check'=>$item->check
             ];
         });
+        $data['cms'] = CmsApp::find(1);
         return $data;
     }
     // public function publish(Request $request){

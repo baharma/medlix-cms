@@ -94,16 +94,19 @@ class MedlinxController extends Controller
         $article = reset($filteredNews);
         $cms = $data['cms'];
 
+
+        $data['app'] = CmsApp::find(1);
+        // dd($data);
         return view('medlinx.landing.detail-news',compact('article','cms'));
     }
-    public function ListNews($slug){
+    public function ListNews(){
         $data['title'] = 'News';
         $data['page'] = 'news-update';
-
         $path = public_path('publishfile/medlinx.json');
         $dataget = file_get_contents($path);
-
+        
         $data += json_decode($dataget, true);
+        $data['app'] = CmsApp::find(1);
 
         return view('medlinx.landing.all-news',$data);
     }

@@ -66,8 +66,8 @@ Route::get('/detail-news/{slug}',[LandingMedlinxController::class,'NewsDetail'])
 Route::get('/detail-news-prev/{prev}',[LandingMedlinxController::class,'prevDetailNews'])->name('medlinx.news-detail-prev');
 
 Route::post('/send-message',[LandingMedlinxController::class,'sendMessage'])->name('send-message');
-Route::get('/all-news/{cms?}',[LandingMedlinxController::class,'ListNews'])->name('publis-medlinx');
-Route::get('/detail-news-medlix/{slug}',[LandingMedlinxController::class,'DetailNewsPublis'])->name('medlinx.news-detail');
+Route::get('/all-news',[LandingMedlinxController::class,'ListNews'])->name('publis-medlinx');
+Route::get('/news/{slug}',[LandingMedlinxController::class,'DetailNewsPublis'])->name('medlinx.news-detail');
 
 
 Route::group(['prefix' => 'admin'], function () {

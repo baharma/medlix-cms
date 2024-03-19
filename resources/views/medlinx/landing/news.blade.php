@@ -9,9 +9,11 @@
                     </div>
                     <div class="col-4 col-md-2 text-end my-auto">
                         @if (isset($type) && $type == 'prev')
-                        <a href="{{ route('news-update','medlinx') }}" class="fs-6 fw-semibold link-primary">Lihat Semua</a>
+                            <a href="{{ route('news-update', 'medlinx') }}" class="fs-6 fw-semibold link-primary">Lihat
+                                Semua</a>
                         @else
-                        <a href="{{ route('publis-medlinx','medlinx') }}" class="fs-6 fw-semibold link-primary">Lihat Semua</a>
+                            <a href="{{ route('publis-medlinx') }}" class="fs-6 fw-semibold link-primary">Lihat
+                                Semua</a>
                         @endif
 
                     </div>
@@ -22,22 +24,23 @@
                     @foreach ($news as $item)
                         <div class="card-xl-stretch mx-3 text-center font-weight-bold ">
                             @if (isset($type) && $type == 'prev')
-                        <a
-                        href="{{ $item['check'] == null ? route('medlinx.news-detail-prev',$item['slug']) : $item['check'] }}"><img
-                            class="img-fluid rounded w-100" src="{{ $item['thumbnail'] }}" alt=""></a>
-                    <div class="py-5 px-4 text-start text-md-justify rounded-bottom">
-                        <a href="{{ $item['check'] == null ? route('medlinx.news-detail-prev',$item['slug']) : $item['check'] }}"
-                            class="text-gray-800 fw-bold text-hover-primary text-dark lh-base">{{ $item['title'] }}</a>
-                    </div>
+                                <a
+                                    href="{{ $item['check'] == null ? route('medlinx.news-detail-prev', $item['slug']) : $item['check'] }}"><img
+                                        class="img-fluid rounded w-100" src="{{ $item['thumbnail'] }}"
+                                        alt=""></a>
+                                <div class="py-5 px-4 text-start text-md-justify rounded-bottom">
+                                    <a href="{{ $item['check'] == null ? route('medlinx.news-detail-prev', $item['slug']) : $item['check'] }}"
+                                        class="text-gray-800 fw-bold text-hover-primary text-dark lh-base">{{ $item['title'] }}</a>
+                                </div>
                             @else
-                            <a
-                            href="{{ $item['check'] == null ? route('medlinx.news-detail',$item['slug']) : $item['check'] }}"><img
-                                class="img-fluid rounded w-100" src="{{ $item['thumbnail'] }}" alt=""></a>
-                        <div class="py-5 px-4 text-start text-md-justify rounded-bottom">
-                            <a href="{{ $item['check'] == null ? route('medlinx.news-detail',$item['slug']) : $item['check'] }}"
-                                class="text-gray-800 fw-bold text-hover-primary text-dark lh-base">{{ $item['title'] }}</a>
-                        </div>
-
+                                <a
+                                    href="{{ $item['check'] == null ? route('medlinx.news-detail', $item['slug']) : $item['check'] }}"><img
+                                        class="img-fluid rounded w-100" src="{{ $item['thumbnail'] }}"
+                                        alt=""></a>
+                                <div class="py-5 px-4 text-start text-md-justify rounded-bottom">
+                                    <a href="{{ $item['check'] == null ? route('medlinx.news-detail', $item['slug']) : $item['check'] }}"
+                                        class="text-gray-800 fw-bold text-hover-primary text-dark lh-base">{{ $item['title'] }}</a>
+                                </div>
                             @endif
 
                         </div>
@@ -53,4 +56,3 @@
         </div>
     </div>
 </div>
-
