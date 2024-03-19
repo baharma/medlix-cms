@@ -99,7 +99,7 @@
                 <form action="{{ route('logout') }}" method="post" id="formLogout">
                     @csrf
                     <li>
-                        <a href="#" id="logout" type="submit">
+                        <a href="#" id="sideLogout" type="submit">
                             <div class="parent-icon"><i class="bx bx-log-out"></i>
                             </div>
                             <div class="menu-title">Logout</div>
@@ -107,6 +107,7 @@
                     </li>
                 </form>
             </ul>
+
             <!--end navigation-->
         </div>
 
@@ -151,7 +152,13 @@
     <script src="{{ asset('assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('assets/plugins/dropify/js/dropify.min.js') }}"></script>
+    <script>
+        $('#sideLogout').on('click', function() {
 
+            document.getElementById("formLogout").submit();
+            console.log('logout');
+        })
+    </script>
     <script>
         $('.dropify').dropify({
             messages: {
