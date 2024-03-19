@@ -422,7 +422,7 @@
     @script
         <script>
             $wire.on('closeModal', () => {
-                const closeButton = document.getElementById('close-modal-edit-penghargaan');
+                const closeButton = document.getElementById('close-modal-penghargaan');
                 if (closeButton) {
                     closeButton.click();
                 } else {
@@ -431,11 +431,6 @@
                 const removeImage = $('.dropify-clear');
                 removeImage.click();
             });
-            $wire.on('showEdit', () => {
-                $('.editIcon').attr('data-default-file', "{{ $icon }}");
-                $('.editIcon').dropify();
-                console.log('tedt');
-            })
         </script>
     @endscript
 @endpush
