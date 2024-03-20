@@ -24,12 +24,12 @@
                 <x-componen-form.input-form idInput="title" label="Title Testimoni" wireModel="title"
                     placeholder="Staf Doctor Rs. Bandung" name="title" classInput="col-sm-9" classLabels="col-sm-3">
                     @slot('classInputInsite')
-                        @error('title')
+                        @error('testimoni')
                             is-invalid
                         @enderror
                     @endslot
                 </x-componen-form.input-form>
-                @error('title')
+                @error('testimoni')
                     <span class="error">{{ $message }}</span>
                 @enderror
             </div>
