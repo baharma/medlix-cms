@@ -3,7 +3,7 @@
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
                 <h4>All Users</h4>
-                <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#inpModal"><i
+                <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#inpModal" wire:click='clear'><i
                         class="bx bx-plus "></i> Add</button>
             </div>
             <table class="table table-bordered">
