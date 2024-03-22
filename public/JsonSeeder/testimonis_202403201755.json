@@ -7,8 +7,8 @@
 		"testi_by" : "Tempo Media Group",
 		"testi_by_title" : null,
 		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6be4477d35_tempo.png",
-		"created_at" : "2024-03-17 09:56:20",
-		"updated_at" : "2024-03-17 09:56:20"
+		"created_at" : "2024-03-20 09:11:56",
+		"updated_at" : "2024-03-20 09:11:56"
 	},
 	{
 		"id" : 2,
@@ -17,8 +17,8 @@
 		"testi_by" : "Hartini",
 		"testi_by_title" : "Staff Counter Rawat Jalan RS Pondok Indah",
 		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6beed4aef4_rs_pondok_indah.png",
-		"created_at" : "2024-03-17 09:59:09",
-		"updated_at" : "2024-03-17 09:59:09"
+		"created_at" : "2024-03-20 09:11:56",
+		"updated_at" : "2024-03-20 09:11:56"
 	},
 	{
 		"id" : 3,
@@ -27,8 +27,8 @@
 		"testi_by" : "dr. Sauri Putra, SpKK",
 		"testi_by_title" : "Batam",
 		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6bf490e45a_dr. Sauri Putra, SpKK.png",
-		"created_at" : "2024-03-17 10:00:41",
-		"updated_at" : "2024-03-17 10:00:41"
+		"created_at" : "2024-03-20 09:11:56",
+		"updated_at" : "2024-03-20 09:11:56"
 	},
 	{
 		"id" : 4,
@@ -37,8 +37,8 @@
 		"testi_by" : "Ani Krisnawati",
 		"testi_by_title" : "Pelaksana Bagian Penjaminan RSIA Bunda Jakarta",
 		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6c029e1b54_rs_bunda.png",
-		"created_at" : "2024-03-17 10:04:25",
-		"updated_at" : "2024-03-17 10:04:25"
+		"created_at" : "2024-03-20 09:11:56",
+		"updated_at" : "2024-03-20 09:11:56"
 	},
 	{
 		"id" : 5,
@@ -47,8 +47,8 @@
 		"testi_by" : "Firdaus Artoni, Sp.OG",
 		"testi_by_title" : "Klinik Salma Nisa-Cileungsi, Bogor",
 		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6c2ab0cdfb_dr. Firdaus Artoni, Sp.OG.png",
-		"created_at" : "2024-03-17 10:15:07",
-		"updated_at" : "2024-03-17 10:15:07"
+		"created_at" : "2024-03-20 09:11:56",
+		"updated_at" : "2024-03-20 09:11:56"
 	},
 	{
 		"id" : 6,
@@ -57,8 +57,8 @@
 		"testi_by" : "Mawi Astri",
 		"testi_by_title" : "Staff Counter Rawat Jalan RS Premier Jatinegara",
 		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6c30a478bb_rs_remier.png",
-		"created_at" : "2024-03-17 10:16:42",
-		"updated_at" : "2024-03-17 10:16:42"
+		"created_at" : "2024-03-20 09:11:56",
+		"updated_at" : "2024-03-20 09:11:56"
 	},
 	{
 		"id" : 7,
@@ -67,8 +67,8 @@
 		"testi_by" : "dr. Kishanty Hardaningtyas, M. Biomed (AAM)",
 		"testi_by_title" : "Wakil Ketua Bidang Kerjasama PERDAWERI Pusat",
 		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6c3608bc34_dr. Kishanty Hardaningtyas, M. Biomed (AAM).png",
-		"created_at" : "2024-03-17 10:18:08",
-		"updated_at" : "2024-03-17 10:18:08"
+		"created_at" : "2024-03-20 09:11:56",
+		"updated_at" : "2024-03-20 09:11:56"
 	},
 	{
 		"id" : 8,
@@ -77,7 +77,67 @@
 		"testi_by" : "dr. Johanes Akolutos Emerald Nalenan",
 		"testi_by_title" : null,
 		"testi_by_img" : "\/assets\/images\/Testimoni\/65f6cd85afd72_dr1.png",
-		"created_at" : "2024-03-17 11:01:25",
-		"updated_at" : "2024-03-17 11:01:25"
+		"created_at" : "2024-03-20 09:11:56",
+		"updated_at" : "2024-03-20 09:11:56"
+	},
+	{
+		"id" : 11,
+		"app_id" : 2,
+		"testi" : "\"Aplikasi izidok memudahkan saya melihat total pasien yang saya periksa selama satu bulan. Sehingga, saat pasien saya di klinik datang. Saya tinggal buka izidok dan tidak perlu menanyakan riwayat rekam medis-nya ke administrasi klinik. Konsultasi pun menjadi lebih cepat dan efektif.\"",
+		"testi_by" : "dr. Nurwaliyah Tawari",
+		"testi_by_title" : null,
+		"testi_by_img" : "\/upload\/images\/Testimoni\/65fab0b51987c_nurwaliyah.png",
+		"created_at" : "2024-03-20 09:47:33",
+		"updated_at" : "2024-03-20 09:47:33"
+	},
+	{
+		"id" : 12,
+		"app_id" : 2,
+		"testi" : "\"Pakai izidok sudah dari 2021. Enaknya pakai izidok bisa terbebas dari kertas. Hal itu menyenangkan banget karena data bisa diakses kapanpun dan dimanapun. Kalo ada pasien konsultasi di luar, tetap bisa mantau rekan medisnya. Sejauh ini aplikasi izidok oke banget\"",
+		"testi_by" : "dr. Andreas Kurniawan, SpKJ",
+		"testi_by_title" : null,
+		"testi_by_img" : "\/upload\/images\/Testimoni\/65fab0eb5c461_andreas.png",
+		"created_at" : "2024-03-20 09:48:27",
+		"updated_at" : "2024-03-20 09:48:27"
+	},
+	{
+		"id" : 13,
+		"app_id" : 2,
+		"testi" : "\"Penggunaan izidok sangat mudah. Input data lebih mudah, dan tampilannya menarik. Dengan adanya program ini, lebih mudah dalam me-recall pasien. Sehingga pelayanan pasien lamalebih cepat. Respon tim izidok cepat setiap terjadi kendala pada aplikasi.\"",
+		"testi_by" : "dr. Mochamad Fauzan Hamzah",
+		"testi_by_title" : null,
+		"testi_by_img" : "\/upload\/images\/Testimoni\/65fab1105e7c6_fauzan.png",
+		"created_at" : "2024-03-20 09:49:04",
+		"updated_at" : "2024-03-20 09:49:04"
+	},
+	{
+		"id" : 14,
+		"app_id" : 2,
+		"testi" : "\"Menurut saya aplikasi izidok cukup mudah digunakan serta fitur-fitur yang disediakan lumayan lengkap dan mudah untuk digunakan. Untuk menginput data 1 pasien bisa 30-60 detik saja. Fitur yang sangat membantu saya adalah e-Rekam medisnya yang engkap jadi saya sudah bisa paperless.\"",
+		"testi_by" : "dr. Totok Subiyanto",
+		"testi_by_title" : null,
+		"testi_by_img" : "\/upload\/images\/Testimoni\/65fab1341315c_totok.png",
+		"created_at" : "2024-03-20 09:49:40",
+		"updated_at" : "2024-03-20 09:49:40"
+	},
+	{
+		"id" : 15,
+		"app_id" : 2,
+		"testi" : "\"Aplikasi izidok sangat membantu praktik mandiri saya. Mengelola rekam medis menjadi lebih efisien. Dengan izidok, tidak ada lagi data rekam medis yang hilang karena semua sudah tersimpan di aplikasi. Semakin lengkap dengan fitur reminder secara otomatis via email, sms atau whatsapp. Saya sangat merekomendasikan izidok untuk praktik dokter gigi mandiri.\"",
+		"testi_by" : "drg. Embun Munggarani",
+		"testi_by_title" : null,
+		"testi_by_img" : "\/upload\/images\/Testimoni\/65fab164ceceb_embun.png",
+		"created_at" : "2024-03-20 09:50:28",
+		"updated_at" : "2024-03-20 09:50:28"
+	},
+	{
+		"id" : 16,
+		"app_id" : 2,
+		"testi" : "\"Aplikasi izidok sangat efisien. Mulai dari pendaftaran pasien, pengolahan data pasien, pengisian rekam medis, hingga selesai konsultasi lebih efektif. Dokter dan asisten dapat mengelola informasi pasien secara bersamaan. izidok tersedia fitur reminder kunjungan berikutnya ke pasien secara otomatis, membuat izidok jauh lebih unggul dibanding sistem manual.\"",
+		"testi_by" : "dr. Sauri Putra, SpKK",
+		"testi_by_title" : null,
+		"testi_by_img" : "\/upload\/images\/Testimoni\/65fab18a25297_sauri.png",
+		"created_at" : "2024-03-20 09:51:06",
+		"updated_at" : "2024-03-20 09:51:06"
 	}
 ]}

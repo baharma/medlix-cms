@@ -50,7 +50,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group mb-3">
-                                    <x-componen-form.input-image-dropify label='favico' wireModel="favico"
+                                    <x-componen-form.input-image-dropify label='favicon' wireModel="favico"
                                         imageDefault="{{ $favico ? asset($favico) : '' }}" name="favico" />
                                 </div>
                             </div>

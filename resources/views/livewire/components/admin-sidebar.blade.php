@@ -51,7 +51,7 @@
         <a href="javascript:;" class="has-arrow">
             <div class="parent-icon"><i class='bx bx-shield-alt-2'></i>
             </div>
-            <div class="menu-title">Izikalim</div>
+            <div class="menu-title">iziklaim</div>
         </a>
         <ul>
             @foreach ($iziklaim as $izik)

@@ -91,7 +91,13 @@
                 </div>
             </div>
             <div class="d-flex flex-row-reverse bd-highlight">
-                <button type="submit" class="btn btn-primary"><i class="bx bx-save"></i>Submit</button>
+                <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" :disabled="$isSubmitting">
+                    <i class="bx bx-save"></i>
+                    <span wire:loading.remove>Save</span>
+                    <span wire:loading>Loading...</span>
+                </button>
+                <!-- Loading Indicator -->
+                <span wire:loading>Loading...</span>
             </div>
         </form>
     </div>

@@ -81,4 +81,13 @@ class ManageUser extends Component
     {
         return view('livewire.admin.manage-user');
     }
+
+    public function clear(){
+        $this->fill([
+            'name'=>null,
+            'email'=>null,
+            'access'=>[],
+            'admin'=>null
+        ]);
+    }
 }

@@ -12,6 +12,7 @@ class Sidebar extends Component
 
     public function mount(){
         $this->section =  AppSection::with('section')->where('app_id',auth()->user()->default_cms)->get();
+
     }
     public function render()
     {
