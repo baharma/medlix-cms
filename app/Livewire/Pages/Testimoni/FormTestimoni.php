@@ -30,13 +30,15 @@ class FormTestimoni extends Component
                 'person'=>$dataModel->testi_by,
                 'title'=>$dataModel->title
             ]);
-
         }
     }
     public function save(){
         $this->validate();
-        $image = saveImageLocal($this->image,'Testimoni');
-
+        if(is_string($this->image)){
+            $image = $this->image ?? null;
+        }else{
+            $image = saveImageLocal($this->image,'Testimoni');
+        }
         $data = [
             'app_id'=> Auth::user()->default_cms,
             'testi'=>$this->testimoni,
@@ -45,6 +47,7 @@ class FormTestimoni extends Component
             'testi_by_img'=>$image
         ];
         if($this->idTestimoni){
+
             $this->model->find($this->idTestimoni)->update($data);
         }else{
             $this->model->create($data);

@@ -57,8 +57,13 @@
                 </div>
                 <div class="modal-footer">
 
-                    <button type="submit" class="btn btn-primary"><i class="bx bx-save"></i>
-                        Submit</button>
+                    <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" :disabled="$isSubmitting">
+                        <i class="bx bx-save"></i>
+                        <span wire:loading.remove>Save</span>
+                        <span wire:loading>Loading...</span>
+                    </button>
+                    <!-- Loading Indicator -->
+                    <span wire:loading>Loading...</span>
                 </div>
         </form>
     </div>
@@ -70,7 +75,7 @@
             $('.dropify-clear').click(function(e) {
                 e.preventDefault();
                 $('#miniImage').attr('data-default-file', '')
-                //Here you can manage you ajax request to delete 
+                //Here you can manage you ajax request to delete
                 //file from database.
             });
             ClassicEditor
