@@ -12,7 +12,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Acess</th>
+                        <th>Access</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
