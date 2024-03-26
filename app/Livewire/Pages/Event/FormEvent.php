@@ -4,6 +4,7 @@ namespace App\Livewire\Pages\Event;
 
 use App\Models\Event;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -13,7 +14,7 @@ class FormEvent extends Component
 
     public $name, $detail , $image;
     public $editEmit,$model;
-    protected $listeners = ['editEvent','clearText'];
+    protected $listeners = ['editEvent'];
 
     protected $rules = [
         'name'=> 'required',
@@ -75,7 +76,7 @@ class FormEvent extends Component
     public function handleButtonClick(){
         $this->dispatch('modalClosed');
     }
-
+    #[On('clearText')]
     public function clearText(){
         $this->clear();
     }

@@ -48,7 +48,7 @@
     overflow: hidden;
     background: #fff;
   }
-  
+
   #preloader:before {
     content: "";
     position: fixed;
@@ -62,12 +62,12 @@
     height: 60px;
     animation: animate-preloader 1s linear infinite;
   }
-  
+
   @keyframes animate-preloader {
     0% {
       transform: rotate(0deg);
     }
-  
+
     100% {
       transform: rotate(360deg);
     }
@@ -129,7 +129,7 @@
     background-color: #fff;
     border-radius: 50%;
     background-position:50% 50%;
-    background-repeat:no-repeat;    
+    background-repeat:no-repeat;
 }
 /* .circle.rekam-medis{
     background-image: url("../images/icons/rekam_medis.png");
@@ -156,8 +156,8 @@
 }
 .recommend{
     position: absolute;
-    min-width: 8rem;
-    right: 9rem;
+    margin-left: 240px;
+    width: 170px;
 }
 
 /* testimoni */
@@ -174,7 +174,7 @@
     height: 100px;
     border-radius: 50%;
     background-position:50% 50%;
-    background-repeat:no-repeat;    
+    background-repeat:no-repeat;
 }
 
 /* contact */
@@ -285,12 +285,7 @@
     .mt-sm-n15rem{
         margin-top: -8rem !important;
     }
-    .recommend{
-        position: absolute;
-        width: 10rem;
-        right: 0.5rem;
-        margin-top: -1rem;
-    }
+
 }
 @media (min-width: 576px) {
     .play-image{
@@ -326,12 +321,7 @@
     .mt-sm-n15rem{
         margin-top: -8rem !important;
     }
-    .recommend{
-        position: absolute;
-        width: 15rem;
-        right: 0.3%;
-        margin-top: -1rem;
-    }
+
 }
 @media (min-width: 768px) {
     .play-image{
@@ -428,12 +418,7 @@
         left: 58%;
         width: 14rem;
     }
-    .recommend{
-        position: absolute;
-        width: 10rem;
-        right: 33.9%;
-        margin-top: -10px;
-    }
+
 }
 @media (min-width: 1400px){
     .play-image{
@@ -449,7 +434,7 @@
     .hero-float-left-top{
         bottom: 18rem;
         right: 52%;
-        width: 20rem;    
+        width: 20rem;
     }
     .hero-float-left-bottom{
         bottom: 6rem;
@@ -483,7 +468,7 @@
         transform: translateX(100%);
     }
 
-    .carousel-inner .carousel-item-start.active, 
+    .carousel-inner .carousel-item-start.active,
     .carousel-inner .carousel-item-prev {
         transform: translateX(-100%);
     }
@@ -502,7 +487,7 @@
         transform: translateX(50%);
     }
 
-    .carousel-inner .carousel-item-start.active, 
+    .carousel-inner .carousel-item-start.active,
     .carousel-inner .carousel-item-prev {
         transform: translateX(-50%);
     }
@@ -515,14 +500,14 @@
         transform: translateX(33.33%);
     }
 
-    .carousel-inner .carousel-item-start.active, 
+    .carousel-inner .carousel-item-start.active,
     .carousel-inner .carousel-item-prev {
         transform: translateX(-33.33%);
     }
 }
 
 .carousel-inner .carousel-item-end,
-.carousel-inner .carousel-item-start { 
+.carousel-inner .carousel-item-start {
     transform: translateX(0);
 }
 
@@ -612,7 +597,7 @@ list-style: none;
 @media (max-width: 1200px) {
     .faq .faq-list {
         padding: 0;
-    }   
+    }
 }
 
 .faq .box-form {
