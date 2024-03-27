@@ -43,15 +43,21 @@ class ManageUser extends Component
             $data[] = (int)$value;
         }
         $access = json_encode(['app_id'=>$data]);
+
         if($this->edit){
             $this->validate(['email' => 'required|email|unique:users,email,'.$this->edit->id]);
+
             $this->edit->update([
                 'name' => $this->name,
                 'email' => $this->email,
-                'password' => Hash::make($this->password),
                 'access'    => $access,
                 'is_admin'  => $this->admin
             ]);
+            if($this->password){
+                $this->edit->update([
+                    'password' => Hash::make($this->password),
+                ]);
+            }
         }else{
             $this->validate(['email' => 'required|email|unique:users,email']);
             User::create([
@@ -87,7 +93,8 @@ class ManageUser extends Component
             'name'=>null,
             'email'=>null,
             'access'=>[],
-            'admin'=>null
+            'admin'=>null,
+            'password'=>null
         ]);
     }
 }

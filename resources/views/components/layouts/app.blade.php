@@ -162,7 +162,7 @@
     <script>
         $('.dropify').dropify({
             messages: {
-                'default': 'Minimum image size 1 MB',
+                'default': 'Maximum image size: 2 MB, JPG, PNG',
                 'replace': 'Drag and drop or click to replace',
                 'remove': 'Remove',
                 'error': 'Oops! Something wrong happened.'
