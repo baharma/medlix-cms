@@ -43,6 +43,7 @@ class FormPlan extends Component
                 'name'=>$this->name,
                 'duration'=>$this->duration,
                 'amount'=>$this->amount,
+                'best_seller'=>$this->best_seller??0,
             ]);
             $thisPlant = $this->plan->find($this->planId);
             if ($this->dataFeatues) {

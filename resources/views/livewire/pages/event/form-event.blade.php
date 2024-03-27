@@ -23,7 +23,7 @@
                                 <div class="row mb-3">
                                     <x-componen-form.input-form idInput="nameEvent" label="Name Event" wireModel="name"
                                         placeholder="Enter Your Name Event" name="name" classInput="col-sm-9"
-                      s                  classLabels="col-sm-3" />
+                                        classLabels="col-sm-3" />
                                 </div>
                                 <div class="row mb-3">
                                     <x-componen-form.textarea-input label="Description details Event"
