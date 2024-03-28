@@ -53,7 +53,7 @@ class TeamsEdit extends Component
             'title' => $title
         ]);
         $this->dispatch('sweet-alert',icon:'success',title:'Team Saved');
-        return redirect()->to('/teams');
+        return redirect()->route('team');
 
     }
     public function render()

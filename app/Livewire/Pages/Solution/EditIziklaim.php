@@ -121,7 +121,7 @@ class EditIziklaim extends Component
             'extend'    => json_encode($data)
         ]);
         $this->dispatch('sweet-alert',icon:'success',title:'Solution Saved');
-        return redirect()->to('/iziklaim-solution');
+        return redirect()->route('solution');
     }
 
     public function render()
