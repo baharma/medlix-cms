@@ -11,7 +11,7 @@ use Livewire\Features\SupportFileUploads\WithFileUploads;
 class SliderInput extends Component
 {
     use WithFileUploads;
-    #[Title('Image Slider')] 
+    #[Title('Image Slider')]
     public $name,$value,$slider,$provider,$image,$mark,$maps,$client,$edit;
 
     #[On('setEdit')]
@@ -32,11 +32,11 @@ class SliderInput extends Component
         ]);
         $this->dispatch('sweet-alert',icon:'success',title:'New Slider Saved');
         $this->render();
-        return redirect()->to('slider');
+        return redirect()->route('slider');
     }
     public function render()
     {
         return view('livewire.pages.slider-input');
     }
-    
+
 }
