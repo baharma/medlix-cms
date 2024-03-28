@@ -138,7 +138,7 @@ class AllSectionSeeder extends Seeder
                 'group'=> 2
             ],
             [
-                'name' => 'produk',
+                'name' => 'Product',
                 'url'  => '/admin/medlinx-produk',
                 'icon' => 'bx bxs-briefcase-alt-2',
                 'group'=> 1
