@@ -1,11 +1,11 @@
 <div>
-    <li>
+    {{-- <li>
         <a href="{{ route('admin.section') }}" wire:navigate>
             <div class="parent-icon"><i class="bx bx-list-plus"></i>
             </div>
             <div class="menu-title">Sidebar Section</div>
         </a>
-    </li>
+    </li> --}}
     <li>
         <a href="{{ route('admin.users') }}" wire:navigate>
             <div class="parent-icon"><i class="bx bx-user-circle"></i>
