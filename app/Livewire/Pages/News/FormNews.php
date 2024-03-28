@@ -88,11 +88,8 @@ class FormNews extends Component
 
         $this->reset(['title', 'thumbnail', 'check', 'description']);
 
-        if ($this->check) {
-            return to_route('news');
-        }else{
-            return to_route('artikel.detail',$artikel);
-        }
+        return to_route('news');
+        
     }
 
 }
