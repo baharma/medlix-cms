@@ -46,6 +46,7 @@ class FormNews extends Component
         }else{
             $artikel = Article::find($this->artikelId);
             $thumbnail = $artikel->thumbnail;
+
         }
 
         $data = [
@@ -63,6 +64,7 @@ class FormNews extends Component
             $data['description'] = $this->description;
         }
         if($this->artikelId){
+            $artikel = Article::find($this->artikelId);
             $artikel->update($data);
             $this->dispatch('sweet-alert', ['icon' => 'success', 'title' => 'New News Update']);
         }else{
