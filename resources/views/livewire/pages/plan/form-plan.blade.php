@@ -23,9 +23,9 @@
                             <div class="form-group row mb-3">
                                 <label for="name" class="col-sm-4 col-form-label">Plan Duration</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control  @error('name') is-invalid @enderror"
+                                    <input type="text" class="form-control  @error('duration') is-invalid @enderror"
                                         type="number" wire:model="duration" placeholder="12">
-                                    @error('name')
+                                    @error('duration')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
