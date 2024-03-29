@@ -43,7 +43,7 @@
         <div class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
                 <a href="{{ route('set.cms') }}">
-                    <div>
+                    <div class="logoActive">
                         {!! appLogo() !!}
                     </div>
                 </a>

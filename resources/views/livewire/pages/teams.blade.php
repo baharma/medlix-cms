@@ -13,7 +13,7 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body text-center">
-                        <img src="{{ $item->image }}" class="card-img-top" alt="...">
+                        <img src="{{ asset($item->image) }}" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body text-center">
                         <h6 class="card-title">{{ $item->name }}</h6>
@@ -110,13 +110,14 @@
                     <div class="modal-footer">
                         <button type="button" id="close-modal" class="btn btn-warning" data-bs-dismiss="modal"><i
                                 class="bx bx-x"></i> Close</button>
-                                <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" :disabled="$isSubmitting">
-                                    <i class="bx bx-save"></i>
-                                    <span wire:loading.remove>Save</span>
-                                    <span wire:loading>Loading...</span>
-                                </button>
-                                <!-- Loading Indicator -->
-                                <span wire:loading>Loading...</span>
+                        <button class="btn btn-primary" type="submit" wire:loading.attr="disabled"
+                            :disabled="$isSubmitting">
+                            <i class="bx bx-save"></i>
+                            <span wire:loading.remove>Save</span>
+                            <span wire:loading>Loading...</span>
+                        </button>
+                        <!-- Loading Indicator -->
+                        <span wire:loading>Loading...</span>
                     </div>
 
                 </form>

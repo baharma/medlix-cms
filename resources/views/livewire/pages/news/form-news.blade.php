@@ -34,20 +34,22 @@
                 </div>
             </div>
             @if (is_null($artikelId))
-            <div class="row mb-3">
-                <label for="" class="form-label">Website News</label>
-                <div class="col-lg-6">
-                    @foreach ($cms as $item)
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1-{{$item->id}}" value="{{$item->id}}" wire:model='app_id'>
-                        <label class="form-check-label" for="inlineCheckbox1-{{$item->id}}">{{$item->app_name}}</label>
-                      </div>
-                    @endforeach
-                    @error('app_id')
-                    <span class="error">{{ $message }}</span>
-                @enderror
+                <div class="row mb-3">
+                    <label for="" class="form-label">Website News</label>
+                    <div class="col-lg-6">
+                        @foreach ($cms as $item)
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1-{{ $item->id }}"
+                                    value="{{ $item->id }}" wire:model='app_id'>
+                                <label class="form-check-label"
+                                    for="inlineCheckbox1-{{ $item->id }}">{{ $item->app_name }}</label>
+                            </div>
+                        @endforeach
+                        @error('app_id')
+                            <span class="error">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
-            </div>
             @endif
             <div x-data="{ link: false, descriptions: false }" x-init="link = {{ $check ? 'true' : 'false' }};
             descriptions = {{ $description ? 'true' : 'false' }};">
@@ -70,8 +72,7 @@
                 <div class="row mb-3" wire:ignore>
                     <hr>
                     <div class="col-md-12" x-show="descriptions">
-                        <h5 class="text-center mt-3 mb-2">The News Artile</h5>
-                        {{-- <label class="h5">The News Article</label> --}}
+                        <h5 class="text-center mt-3 mb-2">The News Article</h5>
                         <textarea class="form-control @error('description') is-invalid @enderror" wire:model='description'
                             placeholder="Leave a comment here" id="editor" style="height: 500px"></textarea>
                     </div>
@@ -91,7 +92,7 @@
                 </div>
             </div>
             <div class="d-flex flex-row-reverse bd-highlight">
-                <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" :disabled="$isSubmitting">
+                <button class="btn btn-primary" type="submit" wire:loading.attr="disabled" :disabled="$isSubmitting">
                     <i class="bx bx-save"></i>
                     <span wire:loading.remove>Save</span>
                     <span wire:loading>Loading...</span>

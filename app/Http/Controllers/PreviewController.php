@@ -203,173 +203,6 @@ class PreviewController extends Controller
         $data['cms'] = CmsApp::find(1);
         return $data;
     }
-    // public function publish(Request $request){
-    //     $app = CmsApp::where('app_name',$request->app)->first();
-    //     $app_id = $app->id;
-    //         $this->copyCMS($app_id);
-    //         if ($app_id == 1) {
-    //             $this->copyHero($app_id);
-    //             $this->copysolution($app_id);
-    //             $this->copyTestimony($app_id);
-    //             $this->copyVisiMisi($app_id);
-    //             $this->copyTeam(0);
-    //             $this->copyProduk($app_id);
-    //             $this->copyHero($app_id);
-    //             $this->copyMediaMedlinx();
-    //             session()->push('publish', ['message' => "Successful publish Medlinx"]);
-    //             return to_route('cms.set',$app_id);
-    //         }
-    //         if ($app_id == 2) {
-    //             $this->copyAbout($app_id);
-    //             $this->copyPlan($app_id);
-    //             $this->copyTestimony($app_id);
-    //             $this->copyNews($app_id);
-    //             $this->copyEvent($app_id);
-    //             $this->imgSliderIzidok();
-    //             $this->copyHero($app_id);
-    //             $this->copyKeunggun($app_id);
-    //             session()->push('publish', ['message' => "Successful publish Izidok"]);
-    //             return to_route('cms.set',$app_id);
-    //         }
-    //         if ($app_id == 3) {
-    //             $this->copyTeamIziklaim();
-    //             $this->copyVisiMisi($app_id);
-    //             $this->copyHero($app_id);
-    //             $this->copyEvent($app_id);
-    //             $this->copysolution($app_id);
-    //             $this->copyMediaIziklaim();
-    //             session()->push('publish', ['message' => "Successful publish IziKlaim"]);
-    //             return to_route('cms.set',$app_id);
-    //         }
-    // }
-    // public function copyProduk($app_id){
-    //     $produk = Product::where('app_id',$app_id)->get();
-
-    //     foreach($produk as $item){
-    //         $this->repository->deleteAddProduct($item);
-    //     }
-    // }
-    // public function copyTeam($app_id){
-    //     $team = Team::where('app_id',$app_id)->get();
-    //     foreach($team as $data){
-    //         $this->repository->deleteAddTeam($data);
-    //     }
-    // }
-    // public function copyVisiMisi($app_id){
-    //     $mainVisiMisi = VisiMisi::where('app_id',$app_id)->get();
-    //     foreach($mainVisiMisi as $data){
-    //         $this->repository->deleteAddVisiMisi($data);
-    //     }
-    // }
-    // public function copyMediaMedlinx(){
-    //     $mark1 = Media::where('mark','porto1')->get();
-    //     $mark2= Media::where('mark','porto2')->get();
-    //     $mitra = Media::where('mark','mitra')->get();
-    //     $diliput = Media::where('mark','diliput')->get();
-    //     $why = Media::where('mark','why_us')->get();
-
-    //     foreach($mark1 as $data){
-    //         $this->repository->deleteAddMedia($data);
-    //     }
-    //     foreach($why as $data){
-    //         $this->repository->deleteAddMedia($data);
-    //     }
-    //     foreach($mark2 as $data){
-    //         $this->repository->deleteAddMedia($data);
-    //     }
-    //     foreach($mitra as $data){
-    //         $this->repository->deleteAddMedia($data);
-    //     }
-    //     foreach($diliput as $data){
-    //         $this->repository->deleteAddMedia($data);
-    //     }
-    // }
-    // public function copysolution($app_id){
-    //     $solition = Solution::where('app_id',$app_id)->get();
-    //     foreach($solition as $item){
-    //         $this->repository->deleteAddSolution($item);
-    //     }
-    // }
-
-    // public function copyCMS($app_id){
-    //     $mainCMS = MainCmsApp::find($app_id);
-    //     $cmsToCopy = CmsApp::find($app_id);
-    //     if($mainCMS){
-    //         $mainCMS->update($cmsToCopy->attributesToArray());
-    //     }else {
-    //         $cms  = new MainCmsApp();
-    //         $cms->fill($cmsToCopy->attributesToArray());
-    //         $cms->save();
-    //     }
-    // }
-    // public function copyPlan($app_id){
-    //     $plans = Plan::where('app_id',$app_id)->get();
-    //     foreach ($plans as $plan) {
-    //         $this->repository->deletePlanAndAddMain($plan);
-    //     }
-    //     foreach (PlanDetail::all() as $detail) {
-    //         $this->repository->deletePlanDetailAddMain($detail);
-    //     }
-    //     foreach (PlanFeatue::all() as $feature) {
-    //         $this->repository->deletePlanFeatureAddMain($feature);
-    //     }
-    // }
-    // public function copyAbout($app_id){
-    //     $abouts = About::where('app_id',$app_id)->get();
-
-    //     foreach ($abouts as $about) {
-    //         $this->repository->deleteAddAbout($about);
-    //     }
-    // }
-    // public function copyTestimony($app_id){
-    //     $testimoni = Testimoni::where('app_id',$app_id)->get();
-    //     foreach ($testimoni as $testi) {
-    //         $this->repository->deleteAddTestimomni($testi);
-    //     }
-    // }
-    // public function copyNews($app_id){
-    //     $newses = Article::where('app_id',$app_id)->get();
-    //     foreach ($newses as $news) {
-    //         $this->repository->deleteAddArticle($news);
-    //     }
-    // }
-    // public function copyEvent($app_id){
-
-    //     $allEvent = Event::where('app_id',$app_id)->get();
-
-    //     foreach ($allEvent as $event) {
-    //         $this->repository->deleteAddEvent($event);
-    //     }
-    // }
-    // public function imgSliderIzidok(){
-    //     $allMedia = Media::where(['title'=>'izidok','mark'=>'slider'])->get();
-    //     foreach ($allMedia as $media) {
-    //         $this->repository->deleteAddMedia($media);
-    //     }
-    // }
-    // public function copyHero($app_id){
-    //     $heros = AppHero::where('app_id',$app_id)->get();
-    //     foreach ($heros as $key => $value) {
-    //         $mainCMS = MainAppHero::find($value->id);
-    //         if($mainCMS){
-    //             $mainCMS->update($value->attributesToArray());
-    //         }else {
-    //             $cms  = new MainAppHero();
-    //             $cms->fill($value->attributesToArray());
-    //             $cms->save();
-    //         }
-    //     }
-    // }
-    // public function copyKeunggun($app_id){
-    //     $keunggulan = Keunggulan::where('app_id',$app_id)->first();
-    //     $this->repository->deleteAddKeunggulan($keunggulan);
-
-    //     $list = KeunggulanList::where('keunggulan_id',$keunggulan->id)->get();
-
-    //     foreach ($list as $value) {
-    //         $this->repository->deleteAddKeunggulanListMain($value);
-    //     }
-    // }
     public function newsUpdateDetail($cms,$slug){
         $data = [
             'title' => 'News & Update Detail',
@@ -521,27 +354,7 @@ class PreviewController extends Controller
 
        return $data;
     }
-    // public function copyTeamIziklaim(){
-    //     $teamUp     = Team::where('up_lv',1)->get();
-    //     $teamDown   = Team::where('up_lv',0)->get();
 
-    //     foreach($teamUp as $data){
-    //         $this->repository->deleteAddTeam($data);
-    //     }
-    //     foreach($teamDown as $data){
-    //         $this->repository->deleteAddTeam($data);
-    //     }
-    // }
-    // public function copyMediaIziklaim(){
-    //     $prov = Media::whereIn('mark',['provider'])->get();
-    //     $provimg = Media::whereIn('title',['provider','client','maps'])->where(['mark'=>'slider'])->get();
-    //     foreach ($prov as $media) {
-    //         $this->repository->deleteAddMedia($media);
-    //     }
-    //     foreach ($provimg as $media) {
-    //         $this->repository->deleteAddMedia($media);
-    //     }
-    // }
     public function iziklaim(){
         $hero       = AppHero::where('app_id',3)->first();
         $heroMini   = json_decode($hero->extend,true);
@@ -645,11 +458,13 @@ class PreviewController extends Controller
             'name'  => $contact->app_name,
             'url'   => $contact->app_url,
             'logo'  => $contact->logo,
+            'fav'   => asset($contact->favicon),
             'address'   => $contact->app_address,
             'mail'  => $contact->app_mail,
             'phone' => $contact->app_phone,
             'wa'    => $contact->app_wa,
-            'gmaps' => $contact->app_gmaps
+            'gmaps' => $contact->app_gmaps,
+            
         ];
 
         return $data;
