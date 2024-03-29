@@ -69,7 +69,7 @@
                 @if (ActiveApp('id') == 1 && checkPreviewMedlinx())
                     <li class="menu-label">Preview</li>
                     <li>
-                        <a href="{{ route('preview', strtolower(ActiveApp('name'))) }}" id="logout" type="submit">
+                        <a href="{{ route('preview', strtolower(ActiveApp('slug'))) }}" id="logout" type="submit">
                             <div class="parent-icon"><i class="bx bx-window"></i>
                             </div>
                             <div class="menu-title">Preview</div>
@@ -78,7 +78,7 @@
                 @elseif (ActiveApp('id') == 2 && checkPreviewIzidok())
                     <li class="menu-label">Preview</li>
                     <li>
-                        <a href="{{ route('preview', strtolower(ActiveApp('name'))) }}" id="logout" type="submit">
+                        <a href="{{ route('preview', strtolower(ActiveApp('slug'))) }}" id="logout" type="submit">
                             <div class="parent-icon"><i class="bx bx-window"></i>
                             </div>
                             <div class="menu-title">Preview</div>
@@ -87,7 +87,7 @@
                 @elseif (ActiveApp('id') == 3 && checkPreviewIziklaim())
                     <li class="menu-label">Preview</li>
                     <li>
-                        <a href="{{ route('preview', strtolower(ActiveApp('name'))) }}" id="logout" type="submit">
+                        <a href="{{ route('preview', strtolower(ActiveApp('slug'))) }}" id="logout" type="submit">
                             <div class="parent-icon"><i class="bx bx-window"></i>
                             </div>
                             <div class="menu-title">Preview</div>
