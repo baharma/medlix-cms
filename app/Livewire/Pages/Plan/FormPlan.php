@@ -25,6 +25,7 @@ class FormPlan extends Component
     protected $rules = [
         'name' => 'required|min:6',
         'amount'    => 'required|numeric',
+        'duration'  => 'required|numeric|min:1',
         'best_seller'    => 'required|numeric',
     ];
 

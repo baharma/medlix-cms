@@ -7,11 +7,26 @@ $(function() {
 	}), $(".mobile-toggle-menu").on("click", function() {
 		$(".wrapper").addClass("toggled")
 	}), $(".toggle-icon").click(function() {
+		//check ass class minimized;
+		
 		$(".wrapper").hasClass("toggled") ? ($(".wrapper").removeClass("toggled"), $(".sidebar-wrapper").unbind("hover")) : ($(".wrapper").addClass("toggled"), $(".sidebar-wrapper").hover(function() {
-			$(".wrapper").addClass("sidebar-hovered")
+			$(".wrapper").addClass("sidebar-hovered");
+			// $('.LogoIcon').css({"width":"100px"});
+			
 		}, function() {
-			$(".wrapper").removeClass("sidebar-hovered")
-		}))
+			$(".wrapper").removeClass("sidebar-hovered");
+			// $('.LogoIcon').css({"width":"50px"})
+
+		}));
+
+		if ($(this).hasClass('minimized')) {
+			$(this).removeClass('minimized');
+			$('.LogoIcon').css({"width":"100px"});
+		}else{
+			$(this).addClass('minimized');
+			$('.LogoIcon').css({"width":"50px"});
+		}
+
 	}), $(document).ready(function() {
 		$(window).on("scroll", function() {
 			$(this).scrollTop() > 300 ? $(".back-to-top").fadeIn() : $(".back-to-top").fadeOut()

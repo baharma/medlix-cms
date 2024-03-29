@@ -33,7 +33,7 @@ class ProviderEdit extends Component
             'mark'  => 'slider'
         ]);
         $this->dispatch('sweet-alert',icon:'success',title:'New Data Saved');
-        return redirect()->to('provider');
+        return redirect()->route('provider');
 
     }
     public function render()

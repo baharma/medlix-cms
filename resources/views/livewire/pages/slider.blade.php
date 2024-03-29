@@ -21,7 +21,7 @@
                     @foreach ($slider as $item)
                         <tr>
                             <td>
-                                <a href="{{ route('slider', $item->id) }}" wire:navigate class="btn btn-warning btn-sm"><i
+                                <a href="{{ route('slider.inp', $item->id) }}" wire:navigate class="btn btn-warning btn-sm"><i
                                         class="bx bx-edit"></i></a>
                                 <button class="btn btn-sm btn-danger"
                                     @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })"><i

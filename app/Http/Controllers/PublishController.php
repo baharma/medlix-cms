@@ -262,6 +262,7 @@ class PublishController extends Controller
             'name'  => $contact->app_name,
             'url'   => $contact->app_url,
             'logo'  => $contact->logo,
+            'fav'   => asset($contact->favicon),
             'address'   => $contact->app_address,
             'mail'  => $contact->app_mail,
             'phone' => $contact->app_phone,

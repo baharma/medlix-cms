@@ -39,7 +39,7 @@ function ActiveApp($get = 'null'){
     return $data[$get];
 }
 function appLogo(){
-    return "<img src=".asset(ActiveApp('logo'))." style='width: 110px' alt='logo icon'>";
+    return "<img src=".asset(ActiveApp('logo'))." style='width: 110px' class='LogoIcon' alt='logo icon'>";
 }
 function mataUang($num){
     return 'Rp'. number_format($num,0,',' ,'.');
