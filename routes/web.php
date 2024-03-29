@@ -83,7 +83,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => ['auth'],['prefix' => 'admin']], function () {
         Route::get('/set-cms',[AuthController::class,'setCms'])->name('set.cms');
         Route::get('/set-cms-id/{cmsId}',[AuthController::class,'setCmsId'])->name('cms.set');
-        
+
         Route::get('/dashboard', function(){
             return redirect()->route('cms');
         });
@@ -142,7 +142,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/newsOper/{AppIdArray}/{app?}','newsOper')->name('News.oper');
             Route::post('/imageCkEditor','UploadImageCkEditor')->name('image.upload');
         });
-        
+
         Route::post('/logout', [AuthController::class,'logout'])->name('logout');
 
         Route::get('/section', Section::class);

@@ -69,17 +69,18 @@ class CmsApp extends Component
         $this->validate();
 
         $cms = $this->renderRefresh();
-        
+
         if (is_string($this->logo)) {
             $logoName = $cms->logo;
         } else {
             $logoName = saveImageLocal($this->logo, 'Logo');
         }
-        if (is_string($this->favico)) {
-            $ico = $cms->favicon;
-        } else {
+        if (is_file($this->favico)) {
             $ico = saveImageLocalNew($this->favico, 'Logo');
+        } else {
+            $ico = $cms->favicon;
         }
+
         $user = Auth::user();
         $cms  =  ModelsCmsApp::find($user->default_cms);
         $social = [
@@ -88,7 +89,7 @@ class CmsApp extends Component
             'instagram' => $this->instagram,
             'twitter' => $this->twitter,
             'linkedin' => $this->linkedin,
-        ]; 
+        ];
         // dd($social);
         $cms->update([
             'app_name'  => $this->app_name,
