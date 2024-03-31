@@ -34,6 +34,9 @@ class WhyUs extends Component
         $this->model = Media::where('title','medlinx')->get();
     }
 
+    public function clearWhy(){
+        $this->dispatch('ClearWhy');
+    }
 }
 
 

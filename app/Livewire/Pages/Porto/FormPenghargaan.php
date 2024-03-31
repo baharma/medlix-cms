@@ -11,7 +11,13 @@ class FormPenghargaan extends Component
 {
     use WithFileUploads;
     public $icon,$logo,$text,$editId;
+    protected $rules = [
+        'icon' => 'required',
+        'logo'=> 'required',
+        'text'=> 'required'
+    ];
     public function save(){
+        $this->validate();
         if(is_string($this->icon) && $this->icon != null){
             $iconName = $this->icon;
         }else{
@@ -38,7 +44,7 @@ class FormPenghargaan extends Component
                 'mark'  => 'penghargaan'
             ]);
         }
-        
+
         $this->dispatch('sweet-alert',icon:'success',title:'Image Slider Updated');
         $this->dispatch('refresh');
         $this->dispatch('closeModal');
@@ -54,5 +60,14 @@ class FormPenghargaan extends Component
     public function render()
     {
         return view('livewire.pages.porto.form-penghargaan');
+    }
+
+    #[On('clearPenghargaan')]
+    public function clearPenghargaan(){
+        $this->fill([
+            'icon' =>null,
+            'logo'=> null,
+            'text'=>null
+        ]);
     }
 }

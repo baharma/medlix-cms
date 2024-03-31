@@ -185,7 +185,7 @@
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
                 <h4>Faskes & Peserta</h4>
-                <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#modalFaskes"><i
+                <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#modalFaskes" wire:click='clearFaskes'><i
                         class="bx bx-plus "></i> Add</button>
             </div>
             <table class="table">
@@ -221,7 +221,7 @@
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
                 <h4>Image & Slider</h4>
-                <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#modalImage"><i
+                <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#modalImage" ><i
                         class="bx bx-plus "></i> Add</button>
             </div>
             <div class="accordion">

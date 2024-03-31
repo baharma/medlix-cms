@@ -4,10 +4,6 @@
 <div>
     <div class="d-flex justify-content-between mb-3">
         <h4></h4>
-        {{-- <button type="button" class="btn btn-lg btn-success"
-            style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" data-bs-toggle="modal"
-            data-bs-target="#formPlanFeatures"> <i class="bx bx-plus"></i> Add Plan
-            Feature</button> --}}
         <button type="button" class="btn"
             style="background-color: #3652AD; color: white; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
             data-bs-toggle="modal" data-bs-target="#ModalHero"> <i class="bx bx-plus"></i> Add/Change Hero Content
@@ -41,14 +37,15 @@
                         @endif
                     </div>
                     <div class="col-md-6">
-                        <img src="{{ asset($image) }}" alt="image" style="max-width: 300px">
+                        <img src="{{ asset($image) }}" alt="image" style="max-width: 300px" >
+                        <br>
                         @if ($mini_image)
                             <img src="{{ asset($mini_image) }}" alt="image" style="max-width: 100px">
                         @endif
                     </div>
                 @else
                     <div class="col-md-6">
-                        <img src="{{ $image }}" alt="image" style="max-width: 300px">
+                        <img src="{{ asset($image) }}" alt="image" style="max-width: 300px">
                         @if ($mini_image)
                             <img src="{{ asset($mini_image) }}" alt="image" style="max-width: 100px">
                         @endif
@@ -190,8 +187,13 @@
                         <div class="modal-footer">
                             <button type="button" id="close-modal" class="btn btn-warning close-modal"
                                 data-bs-dismiss="modal"><i class="bx bx-x"></i> Close</button>
-                            <button type="submit" class="btn btn-primary"><i class="bx bx-save"></i>
-                                Submit</button>
+                            <button type="submit" class="btn btn-primary"
+                            wire:loading.attr="disabled" :disabled="$isSubmitting"
+                            ><i class="bx bx-save"></i>
+                                <span wire:loading.remove>Submit</span>
+                                <span wire:loading>Loading...</span>
+                                </button>
+                                <span wire:loading>Loading...</span>
                         </div>
                     </form>
                 </div>

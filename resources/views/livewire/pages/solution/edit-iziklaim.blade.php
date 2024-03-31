@@ -9,14 +9,12 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group mb-3">
-
                                 <x-componen-form.input-image-dropify label='Image' wireModel="image" id="EdtImage"
                                     name="image" imageDefault="{{ asset($image) }}" />
                                 @error('image')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-
                         </div>
                         <div class="col-md-4">
                             <div class="form-group mb-3">
@@ -77,16 +75,12 @@
                                             </button>
                                         </div>
                                     @endforeach
-
-
-
                                     <button type="button" class="btn btn-success btn-sm" wire:click="addItem">
                                         <i class="bx bx-plus"></i> Add Item
                                     </button>
 
                                 </div>
                             </div>
-
                         </div>
                         <div class="col-md-12" id="inpList">
                             <div class="form-group mb-3" wire:ignore>
@@ -101,8 +95,14 @@
                     <a href="{{ route('solution') }}" wire:navigates type="button" id="close-modal"
                         class="btn btn-warning"><i class="bx bx-arrow-back"></i>
                         Back</a>
-                    <button type="submit" class="btn btn-primary"><i class="bx bx-save"></i>
-                        Update</button>
+
+                    <button type="submit" class="btn btn-primary"
+                    wire:loading.attr="disabled" :disabled="$isSubmitting"
+                    ><i class="bx bx-save"></i>
+                    <span wire:loading.remove>Update</span>
+                    <span wire:loading>Loading...</span>
+                </button>
+                <span wire:loading>Loading...</span>
                 </div>
             </form>
         </div>
@@ -115,7 +115,7 @@
                 $('.dropify-clear').click(function(e) {
                     e.preventDefault();
                     $('#miniImage').attr('data-default-file', '')
-                    //Here you can manage you ajax request to delete 
+                    //Here you can manage you ajax request to delete
                     //file from database.
                 });
                 $wire.on('setSubTitle', (subtitle) => {

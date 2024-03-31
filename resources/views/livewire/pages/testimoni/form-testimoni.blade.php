@@ -4,7 +4,14 @@
             <!-- Image Upload -->
             <div class="row mb-3">
                 <x-componen-form.input-image-dropify label="Profile Image<span class='text-danger'>*</span>"
-                    wireModel="image" imageDefault="{{ $image }}" name="image" />
+                    wireModel="image" imageDefault="{{ $image }}" name="image" >
+
+                    @slot('error')
+                        @error('{{ $name }}')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    @endslot
+                </x-componen-form.input-image-dropify>
             </div>
 
             <!-- Name Testimony Input -->
@@ -17,12 +24,13 @@
                             is-invalid
                         @enderror
                     @endslot
+                    @slot('error')
+                        @error('person')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    @endslot
                 </x-componen-form.input-form>
-                @error('person')
-                    <span class="error">{{ $message }}</span>
-                @enderror
             </div>
-
             <!-- Title Testimony Input -->
             <div class="row mb-3">
                 <x-componen-form.input-form idInput="title" label="Title Testimony" wireModel="title"
@@ -32,17 +40,25 @@
                             is-invalid
                         @enderror
                     @endslot
-                </x-componen-form.input-form>
-                @error('testimoni')
-                    <span class="error">{{ $message }}</span>
+                    @slot('error')
+                    @error('testimoni')
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
+                @endslot
+                </x-componen-form.input-form>
             </div>
 
             <!-- Testimonial Textarea -->
             <div class="row mb-3">
                 <x-componen-form.textarea-input label="Testimonial<span class='text-danger'>*</span>"
                     idTextarea="testimoni" wireModel="testimoni" rows="5" classInput="col-sm-9"
-                    classLabels="col-sm-3" placeholder="Description Testimonial" />
+                    classLabels="col-sm-3" placeholder="Description Testimonial" >
+                    @slot('testimoni')
+                        @error('testimoni')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    @endslot
+                </x-componen-form.textarea-input>
             </div>
 
             <!-- Submit Button with Loading Indicator -->
