@@ -5,6 +5,7 @@
     'name' => null,
     'classInputValidate' => null,
     'id' => null,
+    'error'=>null
 ])
 <label for="inputAddress4" class="col col-form-label">{!! $label !!}</label>
 <div class="col" wire:ignore>
@@ -13,6 +14,5 @@
         wire:model='{{ $wireModel }}' name="{{ $name }}" data-default-file="{{ $imageDefault }}"
         data-max-file-size="2M">
 </div>
-@error('{{ $name }}')
-    <span class="error">{{ $message }}</span>
-@enderror
+{{$error}}
+

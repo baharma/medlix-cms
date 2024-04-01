@@ -18,20 +18,16 @@ class Medlinx extends Component
     public function mount(){
         $this->model = AppHero::where('app_id',1)->get();
         $this->count = $this->model->count();
-
-   
     }
     public function save(){
         if ($this->editEmit) {
             $hero  =  AppHero::find($this->editEmit);
             if ($hero?->image == $this->image) {
-                $imageName = $hero->image;        
+                $imageName = $hero->image;
             } else {
                 $name  = $hero->image;
                 $imageName = saveImageLocalnew($this->image, 'hero',$name);
             }
-            
-            
             $hero->update([
                 'app_id' => 1,
                 'image'  => $imageName,
@@ -43,12 +39,12 @@ class Medlinx extends Component
         }else{
             $cms = $this->renderRefresh();
             if ($cms?->image == $this->image) {
-                $imageName = $cms->image;        
+                $imageName = $cms->image;
             } else {
                 $name  = 'medlinx-hero-img-'.$this->count;
                 $imageName = saveImageLocalnew($this->image, 'hero',$name);
             }
-            
+
             AppHero::create([
                 'app_id' => 1,
                 'image'  => $imageName,
@@ -72,7 +68,6 @@ class Medlinx extends Component
              $this->dispatch('sweet-alert',icon:'success',title:'Heros deleted!');
              $this->mount();
              $this->render();
-
         }
     }
 
@@ -81,7 +76,7 @@ class Medlinx extends Component
         $this->title = '';
         $this->action = '';
     }
-    
+
     public function editEvent($id)
     {
         $this->editEmit = $id;
@@ -94,6 +89,10 @@ class Medlinx extends Component
     }
     public function renderRefresh(){
         return AppHero::where('app_id',1)->first();
+    }
+
+    public function clear(){
+        $this->resetform();
     }
     public function render()
     {

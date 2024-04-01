@@ -14,12 +14,12 @@ class FormTestimoni extends Component
     #[Title('Form Testimoni')]
     public $model,$idTestimoni;
     public $image,$testimoni,$person,$title;
-
     protected $rules = [
         'testimoni' => 'required|min:5',
         'person'=> 'required',
         'image'=> 'required'
     ];
+
     public function mount(Testimoni $testimoni){
         $this->model = $testimoni;
         if($this->idTestimoni){
@@ -28,7 +28,7 @@ class FormTestimoni extends Component
                 'image'=>$dataModel->testi_by_img,
                 'testimoni'=>$dataModel->testi,
                 'person'=>$dataModel->testi_by,
-                'title'=>$dataModel->title
+                'title'=>$dataModel->testi_by_title
             ]);
         }
     }

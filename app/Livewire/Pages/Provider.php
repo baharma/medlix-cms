@@ -11,7 +11,7 @@ use Livewire\Features\SupportFileUploads\WithFileUploads;
 class Provider extends Component
 {
     use WithFileUploads;
-    #[Title('Provider')] 
+    #[Title('Provider')]
     public $name,$value,$faskes,$provider,$image,$mark,$maps,$client,$edit;
     public function mount(){
         $this->faskes = Media::where('mark','provider')->get();
@@ -19,7 +19,14 @@ class Provider extends Component
         $this->maps = Media::where(['mark'=>'slider','title'=>'maps'])->get();
         $this->client = Media::where(['mark'=>'slider','title'=>'client'])->get();
     }
-    
+    public function clearFaskes(){
+        $this->fill([
+            'name'=>null,
+            'value'=>null
+        ]);
+    }
+
+
     public function store(){
         $edit = $this->edit;
         $name = $this->name;
@@ -48,7 +55,7 @@ class Provider extends Component
             DB::rollBack();
             $this->dispatch('sweet-alert',icon:'error',title:'Some Error:' . $th->getMessage() );
         }
-        
+
     }
 
     public function save(){

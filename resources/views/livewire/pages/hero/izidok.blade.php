@@ -1,10 +1,7 @@
 <div>
     <div class="d-flex justify-content-between mb-3">
         <h4></h4>
-        {{-- <button type="button" class="btn btn-lg btn-success"
-            style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" data-bs-toggle="modal"
-            data-bs-target="#formPlanFeatures"> <i class="bx bx-plus"></i> Add Plan
-            Feature</button> --}}
+=
         <button type="button" class="btn"
             style="background-color: #3652AD; color: white; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
             data-bs-toggle="modal" data-bs-target="#ModalHero"> <i class="bx bx-plus"></i> Add/Change Hero Content
@@ -13,6 +10,8 @@
     <div class="card">
         <div class="card-body row">
             <div class="col-md-6">
+
+
                 <img src="{{ checkImage($image) }}" alt="HeroImage" style="max-width: 500px">
             </div>
             <div class="col-md-6 text-center p-5">
@@ -64,7 +63,6 @@
                                         <br>
                                         @foreach ($extend as $index => $post)
                                             <div class="input-group mb-2">
-                                                {{-- <span class="input-group-text">Key and Value</span> --}}
                                                 <input type="text" placeholder="Key | exp: app_vid_url"
                                                     class="form-control" wire:model="extend.{{ $index }}.key"
                                                     readonly>
@@ -80,9 +78,7 @@
 
 
 
-                                        {{-- <button type="button" class="btn btn-success btn-sm" wire:click="addItem">
-                                            <i class="bx bx-plus"></i> Add Item
-                                        </button> --}}
+
 
                                     </div>
 

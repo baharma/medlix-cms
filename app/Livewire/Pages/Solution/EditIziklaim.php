@@ -11,19 +11,19 @@ use Livewire\Features\SupportFileUploads\WithFileUploads;
 class EditIziklaim extends Component
 {
     use WithFileUploads;
-    
-    #[Title('Edit Solution')] 
+
+    #[Title('Edit Solution')]
     public $model,$image,$miniImage,$svg,$title,$subtitle,$left,$right,$url,$postion;
     public $extend  = [];
 
     public function mount($id){
         $this->model = Solution::find($id);
         $cms = $this->model;
-        $extend	 = json_decode($cms?->extend,true);	
+        $extend	 = json_decode($cms?->extend,true);
         $this->title = $cms->title;
         $this->subtitle = $cms->sub_title;
         $this->image = $extend['image'];
-    
+
         if (isset($extend['mini_image'])) {
             $this->miniImage = $extend['mini_image'];
         }
@@ -46,11 +46,7 @@ class EditIziklaim extends Component
             'extend' => collect($data),
         ]);
     }
-    protected $rules = [
-        'image'=>'required',
-        'title'=>'required',
-        'postion'=>'required'
-    ];
+
     public function addItem()
     {
         $this->extendVar();
@@ -62,12 +58,12 @@ class EditIziklaim extends Component
     }
     public function save(){
         $this->validate();
-        
+
         $cms = $this->model;
 
-        $extend	 = json_decode($cms?->extend,true);	
+        $extend	 = json_decode($cms?->extend,true);
 
-        
+
         if(is_string($this->image) && $this->image != null){
             $imageName = $extend['image'];
             $data['image'] = $imageName;
@@ -87,7 +83,7 @@ class EditIziklaim extends Component
                $data['mini_image'] = $mini_img;
            }
         }
-       
+
         if($this->svg != null  && is_string($this->svg)){
             $icon = $extend['icon'];
             $data['icon'] = $icon;
@@ -96,7 +92,7 @@ class EditIziklaim extends Component
                 $icon = saveImageLocalNew($this->svg, 'solution');
                 $data['icon'] = $icon;
             }
-            
+
         }
         $data['img_postion'] = $this->postion;
 
@@ -114,6 +110,7 @@ class EditIziklaim extends Component
         }else{
             $subtitle = insertIcon($this->subtitle);
         }
+
         $cms->update([
             'app_id'  => 3,
             'title'     => $title,

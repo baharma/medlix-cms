@@ -12,7 +12,20 @@ class Form extends Component
     use WithFileUploads;
 
     public $image,$type;
+    protected $rules = [
+        'image' => 'required',
+        'type'=> 'required',
+    ];
+
+    #[On('clearporto')]
+    public function clearporto(){
+        $this->fill([
+            'image'=>null,
+            'type'=>null
+        ]);
+    }
     public function save(){
+        $this->validate();
         if(is_string($this->image) && $this->image != null){
             $imageName = $this->image;
         }else{
