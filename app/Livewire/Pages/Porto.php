@@ -67,11 +67,21 @@ class Porto extends Component
     public function setType($type){
         $this->type = $type;
         $this->dispatch('setType',$type);
-
+        $this->dispatch('clearporto');
     }
+
     #[On('refresh')]
     public function refresh(){
         $this->mount();
         $this->render();
-    }    
+    }
+
+
+    public function clearPorto(){
+        $this->dispatch('clearporto');
+    }
+
+    public function clearPenghargaan(){
+        $this->dispatch('clearPenghargaan');
+    }
 }

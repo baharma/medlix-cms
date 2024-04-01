@@ -9,6 +9,7 @@
     'classLabels' => null,
     'type' => null,
     'classInputInsite' => null,
+    'error'=>null
 ])
 
 <label for="{{ $idInput }}" class="{{ $classLabels }} col-form-label">{!! $label !!}</label>
@@ -20,4 +21,5 @@
     @error('{{ $name }}')
         <span class="error">{{ $message }}</span>
     @enderror
+    {{$error}}
 </div>

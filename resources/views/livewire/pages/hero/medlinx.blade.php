@@ -3,7 +3,7 @@
         <h4></h4>
         <button type="button" class="btn"
             style="background-color: #3652AD; color: white; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
-            data-bs-toggle="modal" data-bs-target="#ModalHero"> <i class="bx bx-plus"></i> Add/Change Hero Content
+            data-bs-toggle="modal" data-bs-target="#ModalHero" wire:click='clear'> <i class="bx bx-plus"></i> Add/Change Hero Content
         </button>
     </div>
     <div class="card">

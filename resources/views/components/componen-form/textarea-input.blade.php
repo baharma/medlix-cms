@@ -8,6 +8,7 @@
     'classLabels' => null,
     'classInput' => null,
     'inpVal' => null,
+    'error'=>null
 ])
 
 
@@ -15,4 +16,5 @@
 <div class="{{ $classInput }}">
     <textarea class="form-control" id="{{ $idTextarea }}" wire:model="{{ $wireModel }}" rows="{{ $rows }}"
         placeholder="{{ $placeholder }}" cols="{{ $cols }}">{!! $inpVal !!}</textarea>
+        {{$error}}
 </div>

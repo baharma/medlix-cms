@@ -70,6 +70,9 @@
                                 <div class="form-group mb-3">
                                     <x-componen-form.input-image-dropify label='Image' wireModel="image"
                                         imageDefault="{{ $image }}" name="image" />
+                                        @error('image')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -77,6 +80,9 @@
                                 <div class="form-group mb-2">
                                     <x-componen-form.input-form label='Name' wireModel="name" name="name"
                                         placeholder="Fauzi Sungkar" />
+                                        @error('name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-group mb-2">
                                     <x-componen-form.input-form label='Title' wireModel="title" name="title"
