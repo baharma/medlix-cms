@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('title')->nullable();
             $table->boolean('up_lv')->default(false);
+            $table->longText('extend')->nullable();
             $table->timestamps();
         });
     }

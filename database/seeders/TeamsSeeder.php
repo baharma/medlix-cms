@@ -17,15 +17,118 @@ class TeamsSeeder extends Seeder
         $dataget = file_get_contents($dataJson);
         $data = json_decode($dataget, true);
 
-        foreach ($data['teams'] as $aboutData) {
-            Team::create([
-                'id' => $aboutData['id'],
-                'app_id' => $aboutData['app_id'],
-                'image' => $aboutData['image'],
-                'name' => $aboutData['name'],
-                'title' => $aboutData['title'],
-                'up_lv' => $aboutData['up_lv'],
-            ]);
+        $data = [
+            [
+                'app_id' => '1',
+                'image'  => 'assets/images/teams/fauzi-sungkar.png',
+                'name'   => 'Fauzi Sungkar',
+                'title'  => 'Direktur',
+                'up_lv'  => '1',
+                'extend' => '{"twitter":"#","linkedin":"#","instagram":"#"}',
+            ],
+            [
+                'app_id' => '1',
+                'image'  => 'assets/images/teams/alan-maulana.png',
+                'name'   => 'Alan Maulana',
+                'title'  => 'COO',
+                'up_lv'  => '1',
+                'extend' => '{"twitter":"#","linkedin":"#","instagram":"#"}',
+            ],
+            [
+                'app_id' => '1',
+                'image'  => 'assets/images/teams//marisa-sibarani.png',
+                'name'   => 'Marisa Sibarani',
+                'title'  => 'GM Business dan Partnership',
+                'up_lv'  => '1',
+                'extend' => '{"twitter":"#","linkedin":"#","instagram":"#"}',
+            ],
+            [
+                'app_id' => '3',
+                'image'  => 'assets/images/teams/fauzi-sungkar.png',
+                'name'   => 'Fauzi Sungkar',
+                'title'  => 'Direktur',
+                'up_lv'  => '1',
+                'extend' => '{"twitter":"#","linkedin":"#","instagram":"#"}',
+            ],
+            [
+                'app_id' => '3',
+                'image'  => 'assets/images/teams/alan-maulana.png',
+                'name'   => 'Alan Maulana',
+                'title'  => 'COO',
+                'up_lv'  => '1',
+                'extend' => '{"twitter":"#","linkedin":"#","instagram":"#"}',
+            ],
+            [
+                'app_id' => '3',
+                'image'  => 'assets/images/teams/marisa-sibarani.png',
+                'name'   => 'Marisa Sibarani',
+                'title'  => 'GM Business dan Partnership',
+                'up_lv'  => '1',
+                'extend' => '{"twitter":"#","linkedin":"#","instagram":"#"}',
+            ],
+            [
+                'app_id' => '3',
+                'image'  => 'assets/images/teams/setyo-harsoyo.png',
+                'name'   => 'Setyo Harsoyo',
+                'title'  => 'Business Advisor',
+                'up_lv'  => '1',
+                'extend' => '{"twitter":"#","linkedin":"#","instagram":"#"}',
+            ],
+            [
+                'app_id' => '3',
+                'image'  => 'assets/images/teams//business-sales-and-partnership.png',
+                'name'   => 'Business, Sales and Partnership',
+                'title'  => null,
+                'up_lv'  => 0,
+                'extend' => null,
+            ],
+            [
+                'app_id' => '3',
+                'image'  => 'assets/images/teams//finance-and-ga.png',
+                'name'   => 'Finance and GA',
+                'title'  => null,
+                'up_lv'  => 0,
+                'extend' => null,
+            ],
+            [
+                'app_id' => '3',
+                'image'  => 'assets/images/teams//it-dev-and-infra.png',
+                'name'   => 'IT Dev and Infra',
+                'title'  => null,
+                'up_lv'  => 0,
+                'extend' => null,
+            ],
+            [
+                'app_id' => '3',
+                'image'  => 'assets/images/teams//operational-and-customer-care.png',
+                'name'   => 'Operational and Customer Care',
+                'title'  => null,
+                'up_lv'  => 0,
+                'extend' => null,
+            ],
+            [
+                'app_id' => '3',
+                'image'  => 'assets/images/teams//pm-and-qa.png',
+                'name'   => 'PM and QA',
+                'title'  => null,
+                'up_lv'  => 0,
+                'extend' => null,
+            ],
+            [
+                'app_id' => '3',
+                'image'  => 'assets/images/teams//product-management.png',
+                'name'   => 'Product Management',
+                'title'  => null,
+                'up_lv'  => 0,
+                'extend' => null,
+            ],
+
+
+        ];
+
+
+        foreach ($data as $team) {
+            Team::create($team);
         }
     }
 }

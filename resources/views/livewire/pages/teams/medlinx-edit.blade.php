@@ -10,19 +10,29 @@
                         </div>
 
                     </div>
-
                     <div class="col-md-6" id="inpList">
                         <div class="form-group mb-2">
                             <x-componen-form.input-form label='Name' wireModel="name" name="name"
                                 placeholder="Fauzi Sungkar" />
                         </div>
-                        @if ($up_lv)
+                        <div class="form-group mb-2">
+                            <x-componen-form.input-form label='Title' wireModel="title" name="title"
+                                placeholder="Director" />
+                        </div>
+                        <div class="container mt-3">
                             <div class="form-group mb-2">
-                                <x-componen-form.input-form label='Title' wireModel="title" name="title"
-                                    placeholder="Director" />
+                                <x-componen-form.input-form label='twitter' wireModel="twitter" name="twitter"
+                                    placeholder="twitter url" />
                             </div>
-                        @endif
-
+                            <div class="form-group mb-2">
+                                <x-componen-form.input-form label='LinkedIn' wireModel="linkedin" name="linkedin"
+                                    placeholder="LinkedIn url" />
+                            </div>
+                            <div class="form-group mb-2">
+                                <x-componen-form.input-form label='Instagram' wireModel="instagram" name="instagram"
+                                    placeholder="instagram url" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

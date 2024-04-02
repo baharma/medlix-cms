@@ -90,7 +90,7 @@ class AllSectionSeeder extends Seeder
             ],
             [
                 'name'  => 'Teams',
-                'url'   => '/admin/teams',
+                'url'   => '/admin/team/medlinx',
                 'icon'  => 'bx bx-trophy',
                 'group' => 1,
             ],
