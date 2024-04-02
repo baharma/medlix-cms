@@ -77,8 +77,9 @@ class MedlinxController extends Controller
     public function prevDetailNews($slug){
         $article = Article::where('slug',$slug)->first();
         $app = CmsApp::find($article->app_id);
+        $cms = $app;
         $type = "prev";
-        return view('medlinx.landing.detail-news',compact('article','app','type'));
+        return view('medlinx.landing.detail-news',compact('article','app','type','cms'));
     }
     public function DetailNewsPublis($slug){
 

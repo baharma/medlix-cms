@@ -66,7 +66,7 @@
                 @else
                     <livewire:components.sidebar />
                 @endif
-                @if (ActiveApp('id') == 1 && checkPreviewMedlinx())
+                @if (ActiveApp('id') == 1)
                     <li class="menu-label">Preview</li>
                     <li>
                         <a href="{{ route('preview', strtolower(ActiveApp('slug'))) }}" id="logout" type="submit">
@@ -75,7 +75,7 @@
                             <div class="menu-title">Preview</div>
                         </a>
                     </li>
-                @elseif (ActiveApp('id') == 2 && checkPreviewIzidok())
+                @elseif (ActiveApp('id') == 2)
                     <li class="menu-label">Preview</li>
                     <li>
                         <a href="{{ route('preview', strtolower(ActiveApp('slug'))) }}" id="logout" type="submit">
@@ -84,7 +84,7 @@
                             <div class="menu-title">Preview</div>
                         </a>
                     </li>
-                @elseif (ActiveApp('id') == 3 && checkPreviewIziklaim())
+                @elseif (ActiveApp('id') == 3)
                     <li class="menu-label">Preview</li>
                     <li>
                         <a href="{{ route('preview', strtolower(ActiveApp('slug'))) }}" id="logout" type="submit">
