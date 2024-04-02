@@ -14,6 +14,9 @@
                                 <div class="form-group mb-3">
                                     <x-componen-form.input-image-dropify label='Image' wireModel="image" name="image"
                                         imageDefault="{{ $image }}" />
+                                    @error('image')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -49,8 +52,9 @@
                                         </label>
                                     </div>
                                 </div>
-
-
+                                @error('type')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                     </div>

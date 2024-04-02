@@ -1,7 +1,9 @@
+<div class="section-title">
+    <h2>Solusi Kami</h2>
+</div>
+
 <section id="solution" class="solution">
-    <div class="section-title">
-        <h2>Solusi Kami</h2>
-    </div>
+
     @foreach ($solution as $item)
         @if ($item['position'] == 'right')
             @if ($item['default'] == 1)

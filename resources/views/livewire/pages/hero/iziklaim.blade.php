@@ -46,12 +46,18 @@
                                     <div class="form-group mb-3">
                                         <x-componen-form.input-image-dropify label='Image' wireModel="image"
                                             imageDefault="{{ $image }}" name="image" />
+                                            @error('image')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group mb-3">
                                         <x-componen-form.input-image-dropify label='SubImage' wireModel="subimage"
                                             imageDefault="{{ $subimage }}" name="subimage" />
+                                            @error('subimage')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-12" id="inpList">
@@ -59,6 +65,9 @@
                                         <label for="inpTitle">Hero Title</label>
                                         <textarea name="" id="" cols="30" rows="3" class="form-control" wire:model="title"
                                             id="inpTitle"></textarea>
+                                            @error('title')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>

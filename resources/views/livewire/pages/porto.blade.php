@@ -194,8 +194,8 @@
                     <div class="col-md-12">
                         <div class="d-flex justify-content-between mb-3">
                             <h5>Portofolio Slider</h5>
-                            <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#modalAdd"><i
-                                    class="bx bx-plus "></i> Add</button>
+                            <button class="btn btn-primary btn-sm " wire:click='clearPorto' data-bs-toggle="modal" data-bs-target="#modalAdd"><i
+                                    class="bx bx-plus "></i>Add</button>
                         </div>
                     </div>
                     <hr>
@@ -268,7 +268,7 @@
                     <div class="col-md-12">
                         <div class="d-flex justify-content-between mb-3">
                             <h5>Penghargaan</h5>
-                            <button class="btn btn-primary btn-sm " data-bs-toggle="modal"
+                            <button class="btn btn-primary btn-sm " data-bs-toggle="modal" wire:click='clearPenghargaan'
                                 data-bs-target="#modalPenghargaan"><i class="bx bx-plus "></i> Add</button>
                         </div>
                     </div>

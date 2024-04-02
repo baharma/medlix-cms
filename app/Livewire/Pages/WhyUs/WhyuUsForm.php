@@ -62,6 +62,11 @@ class WhyuUsForm extends Component
         ]);
     }
 
+    #[On('ClearWhy')]
+    public function ClearWhy(){
+        $this->clearMedia();
+    }
+
     #[On('showEdit')]
     public function showEdit($id){
         $this->idMedia = $id;

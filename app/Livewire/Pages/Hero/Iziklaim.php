@@ -15,7 +15,11 @@ class Iziklaim extends Component
 
     public $image,$title,$model,$subimage;
     public $extend  = [];
-
+    protected $rules = [
+        'image'=>'required',
+        'title'=>'required',
+        'subimage'=>'required'
+    ];
     public function mount(){
         $this->model = AppHero::where('app_id',3)->first();
         $this->image = $this->model?->image??'';
@@ -23,17 +27,18 @@ class Iziklaim extends Component
 
         $extend = json_decode($this->model?->extend,true);
         $this->subimage = $extend['sub_image']??'';
-   
+
     }
     public function save(){
+        $this->validate();
         $cms = $this->renderRefresh();
-        if ($cms?->image == $this->image) {
-            $imageName = $cms->image;        
+        if (is_string($this->image)) {
+            $imageName = $cms->image;
         } else {
             $imageName = saveImageLocalnew($this->image, 'hero','iziklaim-hero-img');
         }
         $extend = json_decode($cms?->extend,true);
-        if ($extend!=null && $extend['sub_image'] == $this->image) {
+        if (is_string($this->subimage)) {
             $subImageName = $extend['sub_image'];
         }else{
             $subImageName = saveImageLocalnew($this->subimage, 'hero','iziklaim-sub-hero-img');
@@ -50,7 +55,7 @@ class Iziklaim extends Component
         $this->mount();
 
     }
-    
+
     public function removeItem($index)
     {
         unset($this->extend[$index]);

@@ -98,9 +98,14 @@
         <div class="d-flex justify-content-between mb-3">
             {{-- <h4></h4> --}}
 
-            <button type="submit" class="btn btn-lg"
+
+            <button type="submit" class="btn btn-lg" wire:loading.attr="disabled"
                 style="background-color: #3652AD; color: white; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
-                <i class="bx bx-save"></i>SUBMIT</button>
+                <i class='bx bx-save'></i>
+                <span wire:loading.remove>Save</span>
+                <span wire:loading>Loading...</span>
+            </button>
+            <span wire:loading>Loading...</span>
         </div>
     </form>
 </div>

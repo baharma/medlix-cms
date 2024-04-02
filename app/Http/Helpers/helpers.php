@@ -34,6 +34,7 @@ function ActiveApp($get = 'null'){
     $data['name'] = strtoupper($app?->app_name)??'';
     $data['url'] = $app?->app_url??null;
     $data['logo'] = $app?->logo??null;
+    $data['slug'] = $app?->slug??null;
     // dd($app);
 
     return $data[$get];
@@ -97,14 +98,11 @@ function isNull($data){
 function decode($data){
     return json_decode($data,true);
 }
-function checkImage($filePath,$size = 200) {
-    $placeholderURL = 'https://placehold.co/'.$size;
-    // Check if the file exists
-    if (file_exists($filePath)) {
-        // If the file exists, return the file path
+function checkImage($filePath, $size = 200) {
+    $placeholderURL = 'https://placehold.co/' . $size;
+    if ($filePath) {
         return asset($filePath);
     } else {
-        // If the file does not exist, return the placeholder URL
         return $placeholderURL;
     }
 }

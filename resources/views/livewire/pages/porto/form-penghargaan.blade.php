@@ -15,16 +15,25 @@
                                 <div class="form-group mb-3">
                                     <x-componen-form.input-image-dropify label='Icon' wireModel="icon" name="icon"
                                         imageDefault="{{ $icon }}" />
+                                        @error('icon')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6" id="inpList">
                                 <div class="form-group mb-3">
                                     <x-componen-form.input-image-dropify label='Logo' wireModel="logo" name="logo"
                                         imageDefault="{{ $logo }}" />
+                                        @error('logo')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <x-componen-form.textarea-input label='Text' wireModel="text" name="text" />
+                                @error('text')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                     </div>
