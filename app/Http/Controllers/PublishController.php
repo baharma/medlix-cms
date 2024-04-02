@@ -329,7 +329,7 @@ class PublishController extends Controller
                 ];
             });
 
-            $data['team'] = collect(Team::where('app_id',0)->get())->map(function($event){
+            $data['team'] = collect(Team::where('app_id',1)->get())->map(function($event){
                 $social = $event->extend;
                 if ($social != null) {
                     $s = json_decode($social, true);
