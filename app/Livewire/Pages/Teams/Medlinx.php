@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Pages;
+namespace App\Livewire\Pages\Teams;
 
 use App\Models\Team;
 use Illuminate\Support\Facades\DB;
@@ -9,15 +9,13 @@ use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
-class Teams extends Component
+class Medlinx extends Component
 {
     use WithFileUploads;
     #[Title('Teams')]
-    public $model,$image,$name,$title,$upLv,$team,$only,$edit;
+    public $model,$image,$name,$title,$upLv,$team,$only,$edit,$twitter,$linkedin,$instagram;
     public function mount(){
-        $this->model = Team::where('app_id',3)->where('up_lv',1)->get();
-        $this->team = Team::where('app_id',3)->where('up_lv',0)->get();
-       
+        $this->model = Team::where('app_id',1)->get();
     }
 
     public function save()
@@ -30,30 +28,36 @@ class Teams extends Component
         $image = $this->image;
         $name = $this->name;
         $title = $this->title;
-
-        $up_lv = $title ? 1 : 0;
+        $twitter = $this->twitter??'#';
+        $linkedin = $this->linkedin??'#';
+        $instagram = $this->instagram??'#';
+        $social = [
+            'twitter'=>$twitter,
+            'linkedin'=>$linkedin,
+            'instagram'=>$instagram,
+        ];
 
         if (is_string($this->image) && $this->image != null) {
             $imageName = $image;
         } else {
             $name = Str::slug($name);
-            $imageName = saveImageLocalNew($this->image, 'teams/', $name);
+            $imageName = saveImageLocalNew($this->image, 'teams', $name);
         }
 
         Team::create([
-            'app_id' => 3,
+            'app_id' => 1,
             'image' => $imageName,
             'name' => $this->name,
             'title' => $title,
-            'up_lv' => $up_lv
+            'up_lv' => 1,
+            'extend'=> json_encode($social)
         ]);
 
-      $this->dispatch('sweet-alert', icon: 'success', title: 'Team Saved');
+       $this->dispatch('sweet-alert', icon: 'success', title: 'Team Saved');
         $this->dispatch('closeModal');
         $this->render();
         $this->reset();
         $this->mount();
-
     }
 
     public function confirmDelete($get_id)
@@ -80,6 +84,6 @@ class Teams extends Component
 
     public function render()
     {
-        return view('livewire.pages.teams');
+        return view('livewire.pages.teams.medlinx');
     }
 }

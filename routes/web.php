@@ -36,6 +36,8 @@ use App\Livewire\Pages\Starter;
 use App\Livewire\Pages\VisiMisi;
 use App\Livewire\Pages\VisiMisi\FormVisiMisi;
 use App\Livewire\Pages\Teams;
+use App\Livewire\Pages\Teams\Medlinx as TeamsMedlinx;
+use App\Livewire\Pages\Teams\MedlinxEdit;
 use App\Livewire\Pages\TeamsEdit;
 use App\Livewire\Pages\Testimoni\FormTestimoni;
 use App\Livewire\Pages\Testimoni\Testimoni;
@@ -118,6 +120,9 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::get('/teams',Teams::class)->name('team');
         Route::get('/teams/{id}',TeamsEdit::class)->name('team.edit');
+
+        Route::get('/team/medlinx',TeamsMedlinx::class)->name('team.medlinx');
+        Route::get('/team/medlinx/{id}',MedlinxEdit::class)->name('team.medlinx.edit');
 
         Route::get('/provider',Provider::class)->name('provider');
         Route::get('/provider/{id}',ProviderEdit::class)->name('provider.edit');
