@@ -37,10 +37,16 @@ class FormPlanFeatues extends Component
             $dataPlan->update([
                 'name'=>$this->planFeatues
             ]);
+            $this->dispatch('updatePlan');
         }else{
-            $this->modal->create([
+            $data =  $this->modal->create([
                 'name'=>$this->planFeatues
             ]);
+            $plan = Plan::all();
+            foreach($plan as $item){
+                $item->feature()->sync($data->id,false);
+            }
+            $this->dispatch('updatePlan');
         }
         $this->clearInput();
         $this->dispatch('showInput',['event'=>false]);

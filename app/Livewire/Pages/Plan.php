@@ -27,7 +27,10 @@ class Plan extends Component
         $this->dispatch('reloadPage');
 
     }
-
+    #[On('updatePlan')]
+    public function updatePlan(){
+        $this->dataUpdatePlan();
+    }
     public function mount(ModelsPlan $Plan){
         $this->plan = $Plan;
         $this->myplan = $this->refreshPlan();
@@ -39,7 +42,7 @@ class Plan extends Component
          DB::beginTransaction();
          try {
              $planDetails = PlanDetail::where('plan_id',$get_id)->get();
-            
+
              if ($planDetails->count() >=1) {
                  foreach ($planDetails as $planDetail) {
                      $planDetail->delete();
