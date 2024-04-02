@@ -1,13 +1,13 @@
 <div>
     {{-- <li>
-        <a href="{{ route('admin.section') }}" wire:navigate>
+        <a href="{{ route('admin.section') }}">
             <div class="parent-icon"><i class="bx bx-list-plus"></i>
             </div>
             <div class="menu-title">Sidebar Section</div>
         </a>
     </li> --}}
     <li>
-        <a href="{{ route('admin.users') }}" wire:navigate>
+        <a href="{{ route('admin.users') }}">
             <div class="parent-icon"><i class="bx bx-user-circle"></i>
             </div>
             <div class="menu-title">Manage User</div>
@@ -24,7 +24,7 @@
         <ul>
             @foreach ($medlinx as $item)
                 <li>
-                    <a href="{{ $item->section->url }}" wire:navigate><i
+                    <a href="{{ $item->section->url }}"><i
                             class="bx bx-right-arrow-alt"></i>{{ $item->section->name }}</a>
                 </li>
             @endforeach
@@ -40,7 +40,7 @@
         <ul>
             @foreach ($izidok as $izid)
                 <li>
-                    <a href="{{ $izid->section->url }}" wire:navigate><i
+                    <a href="{{ $izid->section->url }}"><i
                             class="bx bx-right-arrow-alt"></i>{{ $izid->section->name }}</a>
                 </li>
             @endforeach
@@ -56,7 +56,7 @@
         <ul>
             @foreach ($iziklaim as $izik)
                 <li>
-                    <a href="{{ $izik->section->url }}" wire:navigate><i
+                    <a href="{{ $izik->section->url }}"><i
                             class="bx bx-right-arrow-alt"></i>{{ $izik->section->name }}</a>
                 </li>
             @endforeach
