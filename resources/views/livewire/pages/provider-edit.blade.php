@@ -40,7 +40,7 @@
             <div class="modal-footer">
                 <a href="{{ route('provider') }}" wire:navigate id="close-modal" class="btn btn-warning"
                     data-bs-dismiss="modal"><i class="bx bx-arrow-back"></i> Back</a>
-                    <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" :disabled="$isSubmitting">
+                    <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" >
                         <i class="bx bx-save"></i>
                         <span wire:loading.remove>Save</span>
                         <span wire:loading>Loading...</span>
