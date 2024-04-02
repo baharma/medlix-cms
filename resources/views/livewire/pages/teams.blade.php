@@ -117,7 +117,7 @@
                         <button type="button" id="close-modal" class="btn btn-warning" data-bs-dismiss="modal"><i
                                 class="bx bx-x"></i> Close</button>
                         <button class="btn btn-primary" type="submit" wire:loading.attr="disabled"
-                            :disabled="$isSubmitting">
+                            >
                             <i class="bx bx-save"></i>
                             <span wire:loading.remove>Save</span>
                             <span wire:loading>Loading...</span>
