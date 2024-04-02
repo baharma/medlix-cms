@@ -36,7 +36,7 @@
                                 <button @click="edit = false;detail=true" type="button" class="btn btn-warning mr-2">
                                     <i class='bx bx-x'></i>
                                     Cancel</button>
-                                    <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" :disabled="$isSubmitting">
+                                    <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" >
                                         <i class="bx bx-save"></i>
                                         <span wire:loading.remove>Save</span>
                                         <span wire:loading>Loading...</span>
@@ -68,7 +68,7 @@
                                 <button @click="edits = false; details=true" type="button" class="btn btn-warning">
                                     <i class='bx bx-x'></i>
                                     Cancel</button>
-                                    <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" :disabled="$isSubmitting">
+                                    <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" >
                                         <i class="bx bx-save"></i>
                                         <span wire:loading.remove>Save</span>
                                         <span wire:loading>Loading...</span>

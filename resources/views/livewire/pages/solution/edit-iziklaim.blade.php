@@ -97,7 +97,7 @@
                         Back</a>
 
                     <button type="submit" class="btn btn-primary"
-                    wire:loading.attr="disabled" :disabled="$isSubmitting"
+                    wire:loading.attr="disabled"
                     ><i class="bx bx-save"></i>
                     <span wire:loading.remove>Update</span>
                     <span wire:loading>Loading...</span>
