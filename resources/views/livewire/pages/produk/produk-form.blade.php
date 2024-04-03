@@ -1,5 +1,11 @@
 <div>
    <div class="card p-3">
+    <div class="d-inline-flex p-2">
+        <a href="{{route('produk')}}" class="btn btn-warning">
+            <i class='bx bx-arrow-back'></i>
+            Back</a>
+    </div>
+
         <form wire:submit='save'>
             <div class="row mb-3">
                 <div class="col">
