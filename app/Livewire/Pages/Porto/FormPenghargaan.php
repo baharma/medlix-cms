@@ -56,6 +56,7 @@ class FormPenghargaan extends Component
         $this->text = $cms->text;
         $this->icon = asset($cms->title);
         $this->logo = asset($cms->images);
+        $this->dispatch('showImage',true);
     }
     public function render()
     {
@@ -67,7 +68,16 @@ class FormPenghargaan extends Component
         $this->fill([
             'icon' =>null,
             'logo'=> null,
-            'text'=>null
+            'text'=>null,
+            'editId'=>null
         ]);
+        $this->dispatch('clearimage');
+    }
+
+    #[On('clearInputValidate')]
+    public function clearInputValidate(){
+        $this->resetErrorBag('icon');
+        $this->resetErrorBag('logo');
+        $this->resetErrorBag('text');
     }
 }

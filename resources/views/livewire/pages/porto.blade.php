@@ -378,6 +378,7 @@
 
     <livewire:pages.porto.form-penghargaan />
     <livewire:pages.porto.form />
+
     <div class="modal fade" id="modalEditPenghargaan" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" wire:ignore.self aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog" wire:ignore.self>

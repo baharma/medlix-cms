@@ -45,4 +45,9 @@ class Form extends Component
     {
         return view('livewire.pages.porto.form');
     }
+    #[On('clearValidate')]
+    public function clearValidate(){
+        $this->resetErrorBag('image');
+        $this->resetErrorBag('type');
+    }
 }

@@ -10,9 +10,11 @@ use Livewire\Attributes\On;
 class FormPlanFeatues extends Component
 {
     public $feature,$modal,$planFeatues,$id;
+
     protected $rules = [
         'planFeatues'=>'required|min:6'
     ];
+
     public function render()
     {
         $this->feature = PlanFeatue::all();
