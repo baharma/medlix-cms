@@ -40,7 +40,9 @@ class FormNews extends Component
     }
    
     public function save(){
-        $this->validate();
+        if(!$this->artikelId){
+            $this->validate();
+        }
 
         if(!is_string($this->thumbnail) && $this->thumbnail != null){
             $thumbnail = saveImageLocal($this->thumbnail, 'news/thumbnail');
@@ -49,6 +51,7 @@ class FormNews extends Component
             $thumbnail = $artikel->thumbnail;
 
         }
+
         $data = [
             'slug'  => Str::slug($this->title),
             'title' => $this->title,

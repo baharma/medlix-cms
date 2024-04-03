@@ -94,7 +94,7 @@
             <div class="d-flex flex-row-reverse bd-highlight">
                 <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
                     <i class="bx bx-save"></i>
-                    <span wire:loading.remove>Save</span>
+                    <span wire:loading.remove> {{ $artikelId ? 'Update' : 'Save' }} Article</span>
                     <span wire:loading>Loading...</span>
                 </button>
                 <!-- Loading Indicator -->
