@@ -12,20 +12,22 @@ class SliderInput extends Component
 {
     use WithFileUploads;
     #[Title('Image Slider')]
-    public $name,$value,$slider,$provider,$image,$mark,$maps,$client,$edit;
+    public $name,$value,$slider,$provider,$image,$mark,$maps,$client,$edit,$id;
 
-    #[On('setEdit')]
-    public function mount($id){
-        $this->edit = Media::find($id);
+
+    public function mount(){
+        $this->edit = Media::find($this->id);
         $this->image = $this->edit->images;
     }
     public function save(){
-        if(is_string($this->image) && $this->image != null){
-            $imageName = $this->image;
-        }else{
+
+        if(is_file($this->image)){
             $imageName = saveImageLocalNew($this->image, 'slider');
+        }else{
+            $imageName = $this->edit->images;
         }
-        Media::create([
+
+        $this->edit->update([
             'title' => 'izidok',
             'images' => $imageName,
             'mark'  => 'slider'

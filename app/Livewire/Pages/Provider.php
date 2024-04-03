@@ -19,15 +19,29 @@ class Provider extends Component
         $this->maps = Media::where(['mark'=>'slider','title'=>'maps'])->get();
         $this->client = Media::where(['mark'=>'slider','title'=>'client'])->get();
     }
+
     public function clearFaskes(){
         $this->fill([
             'name'=>null,
-            'value'=>null
+            'value'=>null,
+            'mark'=>null,
+            'image'=>null
         ]);
+        $this->resetErrorBag('name');
+        $this->resetErrorBag('value');
+        $this->resetErrorBag('mark');
+        $this->resetErrorBag('image');
+        $this->dispatch('imageClear');
     }
 
-
     public function store(){
+
+        $this->validate([
+            'name'=>'required',
+            'value'=>'required',
+
+        ]);
+
         $edit = $this->edit;
         $name = $this->name;
         $val = $this->value;
@@ -47,7 +61,7 @@ class Provider extends Component
             ]);
            }
             DB::commit();
-            $this->dispatch('sweet-alert',icon:'success',title:'New Data Saved');
+            $this->dispatch('sweet-alert',icon:'success',title:'Data Saved');
             $this->dispatch('closeModal');
             $this->mount();
             $this->render();
@@ -61,7 +75,10 @@ class Provider extends Component
     public function save(){
         $name = $this->mark;
         $image  = $this->image;
-
+      $this->validate([
+            'mark'=>'required',
+            'image'=>'required'
+        ]);
         if(is_string($this->image) && $this->image != null){
             $imageName = $image;
         }else{
@@ -75,7 +92,7 @@ class Provider extends Component
                 'mark'  => 'slider'
             ]);
             DB::commit();
-            $this->dispatch('sweet-alert',icon:'success',title:'New Data Saved');
+            $this->dispatch('sweet-alert',icon:'success',title:'Data Saved');
             $this->dispatch('closeModal');
             $this->mount();
             $this->render();
@@ -84,14 +101,15 @@ class Provider extends Component
             $this->dispatch('sweet-alert',icon:'error',title:'Some Error:' . $th->getMessage() );
         }
     }
+
     public  function confirmDelete($id){
         $media = Media::find($id);
         $media->delete();
         $this->dispatch('sweet-alert',icon:'success',title:'Deleted Success');
         $this->mount();
         $this->render();
-
     }
+
     public function editEvent($id){
         $media = Media::find($id);
         $this->edit = $media;
@@ -102,5 +120,8 @@ class Provider extends Component
     {
         return view('livewire.pages.provider');
     }
+
+
+
 
 }

@@ -10,12 +10,15 @@ use Livewire\Features\SupportFileUploads\WithFileUploads;
 class Slider extends Component
 {
      use WithFileUploads;
-    #[Title('Image Slider')] 
+    #[Title('Image Slider')]
     public $name,$value,$slider,$provider,$image,$mark,$maps,$client,$edit;
     public function mount(){
         $this->slider = Media::where('title','izidok')->get();
     }
      public function save(){
+        $this->validate([
+            'image'=>'required'
+        ]);
         if(is_string($this->image) && $this->image != null){
             $imageName = $this->image;
         }else{
@@ -43,5 +46,9 @@ class Slider extends Component
     public function render()
     {
         return view('livewire.pages.slider');
+    }
+
+    public function clearImage(){
+        $this->dispatch('clearImage');
     }
 }

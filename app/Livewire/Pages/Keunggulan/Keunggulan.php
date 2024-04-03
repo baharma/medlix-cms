@@ -51,6 +51,7 @@ class Keunggulan extends Component
         }
         $this->data = $data;
     }
+
     public function newlist(){
         $data =  $this->data->KeunggulanList()->create([
             'title'=>'please edit'
@@ -58,14 +59,15 @@ class Keunggulan extends Component
         $this->dispatch('renderDrofi',$data->id);
         $this->render();
     }
-    public function delete($id){
-        $keunggulan = KeunggulanList::find($id);
-        $keunggulan->delete();
-        $this->render();
-    }
+
+
 
 
     public function save(){
+        if (!$this->data) {
+            // Handle the case where $this->data is null
+            return;
+        }
         $data = collect($this->imageList)->map(function ($temporaryUploadedFile, $index) {
             $imageData = is_string($temporaryUploadedFile) ? $temporaryUploadedFile : saveImageLocal($temporaryUploadedFile, 'KeunggulanList');
             $titleData = isset($this->titleList[$index]) ? $this->titleList[$index] : null;
@@ -124,12 +126,19 @@ class Keunggulan extends Component
             $this->titleList[$items->id] = $items->title;
             $this->imageList[$items->id] = $items->image;
         }
-
     }
-
+    public function deleteThis($id){
+        $keunggulan = KeunggulanList::find($id);
+        if ($keunggulan) {
+            $keunggulan->delete();
+            $this->render();
+        } else {
+            return response()->json(['message' => 'Record not found.'], 404);
+        }
+    }
     public function render()
     {
-        $data = $this->model->with('keunggulanList')->where('app_id', Auth::user()->default_cms)->first();
-        return view('livewire.pages.keunggulan.keunggulan',compact('data'));
+        $this->data = $this->model->with('keunggulanList')->where('app_id', Auth::user()->default_cms)->first();
+        return view('livewire.pages.keunggulan.keunggulan');
     }
 }

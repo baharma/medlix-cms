@@ -70,6 +70,12 @@
 @push('script')
 @script
 <script>
+    $wire.on('clearDrof',()=>{
+        $('.dropify').attr('data-default-file', '')
+                    $('.dropify').dropify();
+                    var clear = $('.dropify-clear');
+                    clear.click();
+    })
     $wire.on('closeModal', () => {
         const closemodal = document.getElementById('close-modal');
         if (closemodal) {
