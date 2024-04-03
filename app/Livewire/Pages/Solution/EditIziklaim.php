@@ -18,7 +18,7 @@ class EditIziklaim extends Component
 
     public function mount($id){
         $this->model = Solution::find($id);
-
+        // dd($this->model);
         $cms = $this->model;
         $extend	 = json_decode($cms?->extend,true);
 
@@ -32,6 +32,7 @@ class EditIziklaim extends Component
         if (isset($extend['icon'])) {
             $this->svg = $extend['icon'];
         }
+        // dd($this->svg);
         $this->postion   = $extend['img_postion'];
         $this->dispatch('setSubTitle',$cms->sub_title);
         $button = $extend['button'] ?? false;
