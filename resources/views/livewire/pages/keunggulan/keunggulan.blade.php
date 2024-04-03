@@ -24,7 +24,7 @@
                     <div x-show="detail" x-transition>
                         @include('pages.keunggulan.form-detail')
                         <div class="d-flex flex-row-reverse bd-highlight">
-                            <button @click="edit = true; detail=false" class="btn btn-primary">
+                            <button @click="edit = true; detail=false" class="btn btn-primary" wire:click='getdetail'>
                                 <i class='bx bxs-edit'></i>
                                 Add/Edit</button>
                         </div>

@@ -70,6 +70,7 @@ class FormEvent extends Component
         $this->name = $event->name;
         $this->detail = $event->details;
         $this->image = $event->image ;
+        $this->dispatch('ImageShow');
         $this->dispatch('sentToImage',$this->image);
 
     }
@@ -85,6 +86,7 @@ class FormEvent extends Component
         $this->name = '';
         $this->detail = '';
         $this->image = '';
+        $this->dispatch('clearCancel');
     }
 
 }

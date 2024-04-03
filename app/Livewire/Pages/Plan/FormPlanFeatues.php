@@ -57,6 +57,15 @@ class FormPlanFeatues extends Component
     public function clearInput(){
         $this->planFeatues = '';
         $this->id = '';
+        $this->resetErrorBag('planFeatues');
+        $this->dispatch('clearCancel');
+    }
+
+    public function deleteThis($get_id){
+        $dataPlan = $this->modal->find($get_id);
+        $dataPlan->delete();
+        $this->dispatch('updatePlan');
+        $this->dispatch('showInput',['event'=>false]);
     }
 
 }
