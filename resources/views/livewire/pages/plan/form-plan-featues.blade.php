@@ -44,7 +44,7 @@
                             @enderror
                             <br>
                             <button type="button" class="btn btn-primary mt-2" x-on:click="showInput = ! showInput">
-                                <i class='bx bx-plus'></i>Add New Featues
+                                <i class='bx bx-plus'></i>Add New Feature
                             </button>
                         </div>
                     </div>

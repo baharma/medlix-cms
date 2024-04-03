@@ -24,6 +24,7 @@ class About extends Component
 
     public function mount(){
         $this->model = ModelsAbout::where('app_id',auth()->user()->default_cms)->first();
+        // dd($this->model);
         if (!$this->model) {
             $this->image = '';
             $this->title = '';
@@ -62,7 +63,7 @@ class About extends Component
             }
             $this->toArr[] = $list;
         }
-
+        $listArr =  removeDuplicates($this->toArr);
         $cms = $this->renderRefresh();
         if (is_string($this->image)) {
             $imageName = $cms->image;
@@ -75,11 +76,11 @@ class About extends Component
                 'app_id'=> auth()->user()->default_cms,
                 'image'=> $imageName,
                 'title'=> $this->title,
-                'list'=> json_encode($this->toArr)
-
+                'list'=> json_encode($listArr)
             ]);
             DB::commit();
             $this->dispatch('sweet-alert',icon:'success',title:'Data About Saved');
+            $this->mount();
         } catch (\Throwable $th) {
             DB::rollBack();
             $this->dispatch('sweet-alert',icon:'error',title:'Error: ' . $th->getMessage() );

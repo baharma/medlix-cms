@@ -45,8 +45,8 @@
                                 <div class="col-md-8">
                                     <div class="form-group mb-3">
                                         <x-componen-form.input-image-dropify label='Image' wireModel="image"
-                                            imageDefault="{{ $image }}" name="image" />
-                                            @error('image')
+                                            imageDefault="{{ asset($image) }}" name="image" />
+                                        @error('image')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -54,8 +54,8 @@
                                 <div class="col-md-4">
                                     <div class="form-group mb-3">
                                         <x-componen-form.input-image-dropify label='SubImage' wireModel="subimage"
-                                            imageDefault="{{ $subimage }}" name="subimage" />
-                                            @error('subimage')
+                                            imageDefault="{{ asset($subimage) }}" name="subimage" />
+                                        @error('subimage')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -65,7 +65,7 @@
                                         <label for="inpTitle">Hero Title</label>
                                         <textarea name="" id="" cols="30" rows="3" class="form-control" wire:model="title"
                                             id="inpTitle"></textarea>
-                                            @error('title')
+                                        @error('title')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -73,15 +73,15 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" id="close-modal" class="btn btn-warning" data-bs-dismiss="modal"><i
-                                    class="bx bx-x"></i> Close</button>
-                                    <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" >
-                                        <i class="bx bx-save"></i>
-                                        <span wire:loading.remove>Save</span>
-                                        <span wire:loading>Loading...</span>
-                                    </button>
-                                    <!-- Loading Indicator -->
-                                    <span wire:loading>Loading...</span>
+                            <button type="button" id="close-modal" class="btn btn-warning reload"
+                                data-bs-dismiss="modal" wire:click="clear"><i class="bx bx-x"></i> Close</button>
+                            <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
+                                <i class="bx bx-save"></i>
+                                <span wire:loading.remove>Save</span>
+                                <span wire:loading>Loading...</span>
+                            </button>
+                            <!-- Loading Indicator -->
+                            <span wire:loading>Loading...</span>
                         </div>
                     </form>
                 </div>
@@ -108,6 +108,9 @@
                     image.setAttribute('data-default-file', imageUrl);
 
                 });
+                $('.reload').on('click', function() {
+                    location.reload();
+                })
             </script>
         @endscript
     @endpush

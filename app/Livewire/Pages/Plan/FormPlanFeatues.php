@@ -52,6 +52,8 @@ class FormPlanFeatues extends Component
         }
         $this->clearInput();
         $this->dispatch('showInput',['event'=>false]);
+        $this->resetValidation();
+
     }
 
     public function clearInput(){

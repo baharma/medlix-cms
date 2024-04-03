@@ -273,9 +273,9 @@
                         </div>
                     </div>
                     <hr>
-                    <div style="display: flex; justify-content: space-around" class="row">
+                    <div class="row">
                         @foreach ($award as $item)
-                            <div class="card col-md-4" style="width: 18rem;">
+                            <div class="card col-md-4 mr-3 ml-3" style="width: 18rem;">
                                 <div class="card-body text-center">
                                     <img src="{{ asset($item->title) }}" alt="" style="max-width: 80px">
                                     <br>
