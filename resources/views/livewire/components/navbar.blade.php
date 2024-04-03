@@ -94,14 +94,14 @@
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="{{ asset('assets/images/avatars/avatar-2.png') }}" class="user-img" alt="user avatar">
                         <div class="user-info ps-3">
-                            <p class="user-name mb-0">{{ strtoupper(Auth::user()->name) }}</p>
+                            <p class="user-name mb-0">{{ strtoupper($user->name) }}</p>
                             <p class="designattion mb-0 text-primary">Active</p>
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <li><a class="dropdown-item" href="javascript:;"><i
+                            <li><a class="dropdown-item" href="{{ route('profile') }}" wire:navigate><i
                                         class="bx bx-user"></i><span>Profile</span></a>
                             </li>
                             <li>

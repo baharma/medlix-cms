@@ -23,6 +23,7 @@ use App\Livewire\Pages\Porto;
 use App\Livewire\Pages\PortoEdit;
 use App\Livewire\Pages\Produk\Produk;
 use App\Livewire\Pages\Produk\ProdukForm;
+use App\Livewire\Pages\Profile;
 use App\Livewire\Pages\Provider;
 use App\Livewire\Pages\ProviderEdit;
 use App\Livewire\Pages\Section;
@@ -97,7 +98,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/dashboard', function(){
             return redirect()->route('cms');
         });
-        // Route::get('/dashboard', Dashboard::class);
+        Route::get('/profile',Profile::class)->name('profile');
         Route::get('/starter', Starter::class);
 
         Route::get('/cms',CmsApp::class)->name('cms');
