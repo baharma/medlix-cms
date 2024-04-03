@@ -101,5 +101,9 @@
         </script>
     @endscript
 
-    <script></script>
+    <script>
+
+
+
+    </script>
 @endpush

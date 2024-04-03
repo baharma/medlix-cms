@@ -85,6 +85,7 @@ class Keunggulan extends Component
             'title'=>$this->title,
             'description'=>$this->description
         ]);
+
         $this->dispatch('sweet-alert',icon:'success',title:'Keunggulan Update');
         $this->dispatch('showdetail',[
             'detail'=>true,
@@ -141,4 +142,4 @@ class Keunggulan extends Component
         return view('livewire.pages.keunggulan.keunggulan');
     }
 }
-//sdad
+
