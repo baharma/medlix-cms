@@ -68,7 +68,8 @@ class FormPenghargaan extends Component
         $this->fill([
             'icon' =>null,
             'logo'=> null,
-            'text'=>null
+            'text'=>null,
+            'editId'=>null
         ]);
         $this->dispatch('clearimage');
     }

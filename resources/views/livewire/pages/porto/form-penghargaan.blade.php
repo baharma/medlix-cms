@@ -9,23 +9,28 @@
                 </div>
                 <form wire:submit.prevent="save" enctype="multipart/form-data" id="formInp">
                     <div class="modal-body">
-                        <div class="row" x-data="{showdrofy:true , image:false}" x-init="
+                        <div class="row" x-data="{showdrofy:true , image:false,showdrofyLogo:true,imagelogo:false, cancel:true}" x-init="
                         $wire.on('showImage', value => {
                             image=value;
+                            imagelogo=value;
+                            showdrofyLogo=false;
                             showdrofy=false
+                            cancel=true
                         });
                         $wire.on('clearimage', () => {
                             image=false;
+                            imagelogo=false;
+                            showdrofyLogo=true;
                             showdrofy=true;
+                            cancel=false
                         });
 
                         " >
-
                             <div class="col-md-6" id="inpList">
                                 <div class="form-group mb-3" x-show='image'>
                                     <label for="">Icon</label>
                                     <img src="{{ $icon }}" alt="" style="width: 210px;height: 200px;">
-
+                                    <a href="#" x-on:click="image = ! image , showdrofy = ! showdrofy" >Edit Image</a>
                                 </div>
                                 <div class="form-group mb-3" x-show='showdrofy'>
                                     <x-componen-form.input-image-dropify label='Icon' wireModel="icon" name="icon"
@@ -33,23 +38,26 @@
                                         @error('icon')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
+                                    <a href="#" x-on:click="image = ! image , showdrofy = ! showdrofy" x-show='cancel'>cancel</a>
                                 </div>
                             </div>
 
                             <div class="col-md-6" id="inpList">
-                                <div class="form-group mb-3" x-show='image'>
+                                <div class="form-group mb-3" x-show='imagelogo'>
                                     <label for="">Logo</label>
                                     <img src="{{ $logo }}" alt="" style="width: 210px;height: 200px;">
+                                    <a href="#" x-on:click="imagelogo = ! imagelogo , showdrofyLogo = ! showdrofyLogo"  >Edit Image</a>
                                 </div>
-                                <div class="form-group mb-3" x-show='showdrofy'>
+                                <div class="form-group mb-3" x-show='showdrofyLogo'>
                                     <x-componen-form.input-image-dropify label='Logo' wireModel="logo" name="logo"
                                         imageDefault="{{ $logo }}" />
                                         @error('logo')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
+                                    <a href="#" x-on:click="imagelogo = ! imagelogo , showdrofyLogo = ! showdrofyLogo" x-show='cancel' >cancel</a>
                                 </div>
                             </div>
-                            <a href="#" x-on:click="image = ! image , showdrofy = ! showdrofy"  x-show='image'>Edit Image</a>
+
                             <div class="form-group">
                                 <x-componen-form.textarea-input label='Text' wireModel="text" name="text" />
                                 @error('text')
