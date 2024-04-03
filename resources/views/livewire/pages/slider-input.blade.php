@@ -17,7 +17,7 @@
                         class="bx bx-arrow-back"></i>
                     Back</a>
                 <button type="submit" class="btn btn-primary" wire:loading.attr="disabled"><i class="bx bx-save"></i> Update
-                    <span wire:loading.remove>Loading...</span>
+
                     <span wire:loading>Loading...</span>
                 </button>
                 <span wire:loading>Loading...</span>
