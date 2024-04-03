@@ -45,4 +45,8 @@ class HelperController extends Controller
             }
         }
     }
+
+    public function CheckeUnggulan(Request $request){
+
+    }
 }

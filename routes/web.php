@@ -154,6 +154,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::controller(HelperController::class)->group(function(){
             Route::get('/newsOper/{AppIdArray}/{app?}','newsOper')->name('News.oper');
             Route::post('/imageCkEditor','UploadImageCkEditor')->name('image.upload');
+            Route::Post('/CheckeUnggulan','CheckeUnggulan');
         });
 
         Route::post('/logout', [AuthController::class,'logout'])->name('logout');

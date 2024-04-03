@@ -47,6 +47,29 @@
                         </form>
                     </div>
                 </div>
+                <div class="d-flex flex-row-reverse mt-5">
+                    <button type="button" class="btn btn-primary" wire:click='clearModal' data-bs-toggle="modal" data-bs-target="#ListKeunggulan">
+                        <i class='bx bx-add-to-queue' ></i> Add List Keunggulan</button>
+                </div>
+                <div class="row p-3 mt-3">
+                    @foreach ($data->KeunggulanList as $items)
+                    <div class="card col-lg-5 mx-4" style="width: 18rem;">
+                        <img class="card-img-top" src="{{$items->image}}" alt="Card image cap">
+                        <div class="card-body">
+                          <p class="card-text">{{$items->title}}</p>
+                          <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-primary" wire:click="EditList('{{$items->id}}')" data-bs-toggle="modal" data-bs-target="#ListKeunggulan">
+                                <i class='bx bx-edit-alt'></i>
+                                Edit</button>
+                            <button type="button" class="btn btn-danger"  wire:click="$dispatch('deleteNow','{{ $items->id }}')">
+                                <i class='bx bxs-trash-alt' ></i>
+                                Delete</button>
+                          </div>
+                        </div>
+                    </div>
+                @endforeach
+                </div>
+                @livewire('pages.keunggulan.keunggulan-list',['idKeunggulan'=>$data->id])
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" wire:ignore.self>
                 <div x-data="{ details: true, edits: false }" x-init="$wire.on('showdetailKeunggulan', (event) => {
@@ -81,10 +104,11 @@
                 </div>
             </div>
         </div>
+
     </div>
+
     @include('layouts.component.sweetalert-js')
 </div>
-
 
 @push('script')
     @script
@@ -99,6 +123,4 @@
             })
         </script>
     @endscript
-
-    <script></script>
 @endpush
