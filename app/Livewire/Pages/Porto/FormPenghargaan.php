@@ -70,4 +70,11 @@ class FormPenghargaan extends Component
             'text'=>null
         ]);
     }
+
+    #[On('clearInputValidate')]
+    public function clearInputValidate(){
+        $this->resetErrorBag('icon');
+        $this->resetErrorBag('logo');
+        $this->resetErrorBag('text');
+    }
 }

@@ -195,7 +195,7 @@
                         <div class="d-flex justify-content-between mb-3">
                             <h5>Portofolio Slider</h5>
                             <button class="btn btn-primary btn-sm " wire:click='clearPorto' data-bs-toggle="modal" data-bs-target="#modalAdd"><i
-                                    class="bx bx-plus "></i>Add</button>
+                                    class="bx bx-plus "></i> Add</button>
                         </div>
                     </div>
                     <hr>
@@ -378,6 +378,7 @@
 
     <livewire:pages.porto.form-penghargaan />
     <livewire:pages.porto.form />
+
     <div class="modal fade" id="modalEditPenghargaan" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" wire:ignore.self aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog" wire:ignore.self>
