@@ -124,7 +124,6 @@ class Keunggulan extends Component
             $this->imageList[$items->id] = $items->image;
         }
     }
-
     public function deleteThis($id){
         $keunggulan = KeunggulanList::find($id);
         if ($keunggulan) {
