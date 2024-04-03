@@ -11,7 +11,7 @@
 <div class="col" wire:ignore>
     <input type="file" class="dropify {{ $classInputValidate }}" id="{{ $id ?? $name }}" wire:ignore.self
         wire:model='{{ $wireModel }}' name="{{ $name }}" data-default-file="{{ $imageDefault }}"
-        data-max-file-size="2M">
+        data-allowed-file-extensions="jpeg jpg png gif ico svg" data-max-file-size="2M">
 </div>
 <div class="row">
     <div class="col-md-3">

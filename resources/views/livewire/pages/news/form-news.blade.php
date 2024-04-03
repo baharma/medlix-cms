@@ -8,20 +8,19 @@
         <form wire:submit="save">
             <div class="row mb-3">
                 <div class="col">
-                    <x-componen-form.input-image-dropify label='Thumbnail News' wireModel="thumbnail" imageDefault=""
-                        imageDefault="{{ $thumbnail }}" name="thumbnail">
-                        @slot('classInputValidate')
-                            @error('thumbnail')
-                                is-invalid
-                            @enderror
-                        @endslot
+                    <x-componen-form.input-image-dropify label='Thumbnail News<span class="text-danger">*</span>'
+                        wireModel="thumbnail" imageDefault="" imageDefault="{{ $thumbnail }}" name="thumbnail">
                     </x-componen-form.input-image-dropify>
+                    @error('thumbnail')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="col">
-                    <x-componen-form.input-form idInput="title" label="Title News" wireModel="title"
-                        placeholder="News Title" name="title" classInput="col" classLabels="col-sm-3">
+                    <x-componen-form.input-form idInput="title" label='Title News<span class="text-danger">*</span>'
+                        wireModel="title" placeholder="News Title" name="title" classInput="col"
+                        classLabels="col-sm-3">
                         @slot('classInputInsite')
                             @error('title')
                                 is-invalid
@@ -29,13 +28,13 @@
                         @endslot
                     </x-componen-form.input-form>
                     @error('title')
-                        <span class="error">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
             @if (is_null($artikelId))
                 <div class="row mb-3">
-                    <label for="" class="form-label">Website News</label>
+                    <label for="" class="form-label">Website News<span class="text-danger">*</span></label>
                     <div class="col-lg-6">
                         @foreach ($cms as $item)
                             <div class="form-check form-check-inline">
@@ -45,8 +44,9 @@
                                     for="inlineCheckbox1-{{ $item->id }}">{{ $item->app_name }}</label>
                             </div>
                         @endforeach
+                        <br>
                         @error('app_id')
-                            <span class="error">{{ $message }}</span>
+                            <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
@@ -86,15 +86,15 @@
                             @endslot
                         </x-componen-form.input-form>
                         @error('check')
-                            <span class="error">{{ $message }}</span>
+                            <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
             </div>
             <div class="d-flex flex-row-reverse bd-highlight">
-                <button class="btn btn-primary" type="submit" wire:loading.attr="disabled" >
+                <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
                     <i class="bx bx-save"></i>
-                    <span wire:loading.remove>Save</span>
+                    <span wire:loading.remove> {{ $artikelId ? 'Update' : 'Save' }} Article</span>
                     <span wire:loading>Loading...</span>
                 </button>
                 <!-- Loading Indicator -->

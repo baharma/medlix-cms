@@ -11,9 +11,11 @@ class News extends Component
 {
     #[Title('News')]
     public $app=[];
+    
     protected $rules = [
         'app'=> 'required',
     ];
+
     public function render()
     {
         $data = Article::where(function ($query) {
