@@ -31,11 +31,9 @@
                                         @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })"><i
                                             class="bx bx-trash"></i></button>
                                 </div>
-
                             </td>
                         </tr>
                     @endforeach
-
                 </tbody>
             </table>
         </div>
@@ -55,11 +53,28 @@
                     <form wire:submit.prevent="save" enctype="multipart/form-data" id="formInp">
                         <div class="modal-body">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group mb-3">
+                                <div class="col-md-12" x-data={image:false,dropify:true,cancel:true} x-init="
+                                    $wire.on('imageshow', (value) => {
+                                        image=value;
+                                        dropify=false;
+                                        cancel=true;
+                                    })
+                                    $wire.on('clearCancel',()=>{
+                                        image=false;
+                                        dropify=true;
+                                        cancel=false;
+                                    })
+                                ">
+                                    <div class="form-group mb-3" x-show="image">
+                                       <img src="{{asset($image)}}" alt="" style="max-width: 700px"><br>
+                                       <a href="#" x-on:click="image = ! image, dropify = ! dropify" >Edit Image</a>
+                                    </div>
+                                    <div class="form-group mb-3" x-show="dropify">
                                         <x-componen-form.input-image-dropify label='Image' wireModel="image"
                                             imageDefault="{{ $image }}" name="image" />
+                                            <a href="#" x-on:click="image = ! image, dropify = ! dropify " x-show='cancel' >Cancel</a>
                                     </div>
+
                                 </div>
 
                                 <div class="col-md-12" id="inpList">

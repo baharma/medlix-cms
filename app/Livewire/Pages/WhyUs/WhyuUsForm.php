@@ -60,11 +60,13 @@ class WhyuUsForm extends Component
             'idMedia'=>'',
             'image'=>''
         ]);
+        $this->dispatch('clearAll');
     }
 
     #[On('ClearWhy')]
     public function ClearWhy(){
         $this->clearMedia();
+
     }
 
     #[On('showEdit')]
@@ -76,5 +78,6 @@ class WhyuUsForm extends Component
             'image'=>$data->images
         ]);
         $this->dispatch("showImage",$data->images);
+        $this->dispatch('imageshow',true);
     }
 }
