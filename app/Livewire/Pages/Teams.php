@@ -17,7 +17,7 @@ class Teams extends Component
     public function mount(){
         $this->model = Team::where('app_id',3)->where('up_lv',1)->get();
         $this->team = Team::where('app_id',3)->where('up_lv',0)->get();
-       
+
     }
 
     public function save()
@@ -53,7 +53,7 @@ class Teams extends Component
         $this->render();
         $this->reset();
         $this->mount();
-
+        $this->clearValidate();
     }
 
     public function confirmDelete($get_id)
@@ -76,6 +76,11 @@ class Teams extends Component
              DB::rollBack();
              $this->dispatch('sweet-alert', icon: 'error', title: 'An error occurred during deletion, ' . $e->getMessage() );
          }
+    }
+
+    public function clearValidate(){
+        $this->resetErrorBag('image');
+        $this->resetErrorBag('name');
     }
 
     public function render()

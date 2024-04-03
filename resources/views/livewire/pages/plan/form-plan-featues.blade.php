@@ -37,6 +37,7 @@
                             @error('planFeatues')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
+                            <br>
                             <button type="button" class="btn btn-primary" x-on:click="showInput = ! showInput">
                                 <i class='bx bx-plus'></i>Add New Featues
                             </button>
