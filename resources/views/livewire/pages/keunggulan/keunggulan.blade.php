@@ -93,20 +93,10 @@
                 setTimeout(() => {
                     $('.dropify').dropify();
                 }, 500);
-            }); <<
-            <<
-            << < HEAD
+            });
             $wire.on('reloadPage', () => {
-                        ===
-                        ===
-                        =
-
-                        $wire.on('reaload', () => {
-                            >>>
-                            >>>
-                            > 97236548 acd6fa458d3459e1d81c58561d220d42
-                            location.reload();
-                        })
+                location.reload();
+            })
         </script>
     @endscript
 
