@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('plan_id');
             $table->unsignedBigInteger('feature_id');
-            $table->boolean('check')->default(true);
+            $table->boolean('check')->default(false);
             $table->timestamps();
 
             $table->foreign('plan_id')
