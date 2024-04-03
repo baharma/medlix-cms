@@ -7,7 +7,7 @@
                     wireModel="image" imageDefault="{{ $image }}" name="image" >
 
                     @slot('error')
-                        @error('{{ $name }}')
+                        @error('image')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     @endslot
@@ -35,16 +35,6 @@
             <div class="row mb-3">
                 <x-componen-form.input-form idInput="title" label="Title Testimony" wireModel="title"
                     placeholder="Staff Doctor Rs. Bandung" name="title" classInput="col-sm-9" classLabels="col-sm-3">
-                    @slot('classInputInsite')
-                        @error('testimoni')
-                            is-invalid
-                        @enderror
-                    @endslot
-                    @slot('error')
-                    @error('testimoni')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-                @endslot
                 </x-componen-form.input-form>
             </div>
 
@@ -53,7 +43,12 @@
                 <x-componen-form.textarea-input label="Testimonial<span class='text-danger'>*</span>"
                     idTextarea="testimoni" wireModel="testimoni" rows="5" classInput="col-sm-9"
                     classLabels="col-sm-3" placeholder="Description Testimonial" >
-                    @slot('testimoni')
+                    @slot('classEroor')
+                    @error('testimoni')
+                    is-invalid
+                @enderror
+                    @endslot
+                    @slot('error')
                         @error('testimoni')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

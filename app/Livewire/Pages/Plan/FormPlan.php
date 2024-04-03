@@ -22,6 +22,7 @@ class FormPlan extends Component
 
         return view('livewire.pages.plan.form-plan');
     }
+
     protected $rules = [
         'name' => 'required|min:6',
         'amount'    => 'required|numeric',

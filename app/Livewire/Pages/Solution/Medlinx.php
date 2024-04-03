@@ -10,7 +10,7 @@ use Livewire\Attributes\On;
 
 class Medlinx extends Component
 {
-    #[Title('Solution')] 
+    #[Title('Solution')]
     public $id,$title,$sub_title,$solution,$model,$user,$app_id,$solution_id;
 
     protected $rules = [
@@ -28,11 +28,11 @@ class Medlinx extends Component
             $this->dispatch('sweet-alert',icon:'error',title:'Delete Failed');
         }
         $section->delete();
-        
+
         $this->updateSolution();
         $this->render();
         $this->dispatch('sweet-alert',icon:'success',title:'Solution Deleted');
-        
+
     }
     public function updateSolution()
     {
@@ -51,16 +51,18 @@ class Medlinx extends Component
             $this->dispatch('sweet-alert',icon:'success',title:'Created Solution Success');
             $this->dispatch('closeModal');
             $this->updateSolution();
+
             DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();
         }
-        
+
     }
     public function ClearInput(){
       $this->reset();
     }
     public function dataToEdit($id){
+      $this->resetValidatemassge();
       $data = SolutionModel::find($id);
       $this->title = $data->title;
       $this->sub_title = $data->sub_title;
@@ -70,7 +72,7 @@ class Medlinx extends Component
     }
 
     public function update(){
-     
+
         $solution = SolutionModel::find($this->solution_id);
         if (!$solution) {
             $this->dispatch('sweet-alert',icon:'error',title:'Solution Not Found');
@@ -88,5 +90,10 @@ class Medlinx extends Component
     public function render()
     {
         return view('livewire.pages.solution.medlinx');
+    }
+
+    public function resetValidatemassge(){
+        $this->resetErrorBag('sub_title');
+        $this->resetErrorBag('title');
     }
 }
