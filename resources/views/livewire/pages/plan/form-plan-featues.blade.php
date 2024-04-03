@@ -9,24 +9,29 @@
                 </div>
 
                 <div class="modal-body" style="height: 500px; overflow: auto">
-                    @foreach ($feature as $item)
-                        <div class="d-flex justify-content-between mb-3">
-                            <div>
-                                <div>
-                                    <span>{{ $item->name }}</span>
+                    <ul class="list-group">
+                        @foreach ($feature as $item)
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-9 mt-2">
+                                        <div>
+                                            <span>{{ $item->name }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-2">
+                                        <div>
+                                            <button class="btn btn-warning p-1"
+                                                wire:click="Edit('{{ $item->id }}')">
+                                                <i class='bx bxs-edit'></i>
+                                            </button>
+                                            <button class="btn btn-danger p-1"><i class="bx bx-trash"></i></button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <button class="btn btn-warning p-1" wire:click="Edit('{{ $item->id }}')">
-                                        <i class='bx bxs-edit-alt'></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                    <hr>
-                    <div class="col">
+                            </li>
+                        @endforeach
+                    </ul>
+                    <div class="col mt-2">
                         <div style="" x-data="{ showInput: false }" x-init="$wire.on('showInput', (event) => { showInput = event[0].event })">
                             <div class="input-group mb-2" x-show="showInput" x-transition>
                                 <input type="text" class="form-control @error('planFeatues') is-invalid @enderror"
@@ -38,15 +43,15 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                             <br>
-                            <button type="button" class="btn btn-primary" x-on:click="showInput = ! showInput">
+                            <button type="button" class="btn btn-primary mt-2" x-on:click="showInput = ! showInput">
                                 <i class='bx bx-plus'></i>Add New Featues
                             </button>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="close-modal-plan" class="btn btn-warning" data-bs-dismiss="modal">
-                        <i class="bx bx-x"></i> Cancel</button>
+                    <button type="button" id="close-modal-plan" class="btn btn-danger" data-bs-dismiss="modal">
+                        <i class="bx bx-x"></i> Close</button>
                 </div>
             </div>
         </div>

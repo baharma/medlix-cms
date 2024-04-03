@@ -18,11 +18,13 @@
                         <div class="team-content">
                             <div class="team-social">
                                 <ul class="social">
-                                    <li><a target="blank" href="{{ $item['twitter'] ?? '#' }}"><i
-                                                class="lni lni-twitter-original"></i></a></li>
-                                    <li><a target="blank" href="{{ $item['linkedin'] ?? '#' }}"><i
-                                                class="lni lni-linkedin-original"></i></a></li>
-                                    <li><a target="blank" href="{{ $item['instagram'] ?? '#' }}"><i
+                                    <li><a target="_blank" href="{{ $item['twitter'] }}"><i
+                                                class="lni lni-twitter-original"></i></a>
+                                    </li>
+                                    <li><a target="_blank" href="{{ $item['linkedin'] }}"><i
+                                                class="lni lni-linkedin-original"></i></a>
+                                    </li>
+                                    <li><a target="_blank" href="{{ $item['instagram'] }}"><i
                                                 class="lni lni-instagram"></i></a></li>
                                 </ul>
                             </div>
