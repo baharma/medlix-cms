@@ -24,7 +24,9 @@
                                                 wire:click="Edit('{{ $item->id }}')">
                                                 <i class='bx bxs-edit'></i>
                                             </button>
-                                            <button class="btn btn-danger p-1"><i class="bx bx-trash"></i></button>
+                                            <button class="btn btn-danger p-1"
+                                                wire:click="$dispatch('deleteNow','{{ $item->id }}')"><i
+                                                    class="bx bx-trash"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -43,8 +45,9 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                             <br>
-                            <button type="button" class="btn btn-primary mt-2" x-on:click="showInput = ! showInput">
-                                <i class='bx bx-plus'></i>Add New Feature
+                            <button type="button" class="btn btn-primary mt-2" x-on:click="showInput = ! showInput"
+                                wire:click='clearInput'>
+                                <i class='bx bx-plus'></i>Add New Featues
                             </button>
                         </div>
                     </div>
@@ -57,3 +60,6 @@
         </div>
     </div>
 </div>
+
+
+@include('layouts.component.sweetalert-js')

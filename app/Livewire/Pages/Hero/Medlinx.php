@@ -75,6 +75,8 @@ class Medlinx extends Component
         $this->image = '';
         $this->title = '';
         $this->action = '';
+        $this->editEmit = '';
+        $this->dispatch('clearCancel');
     }
 
     public function editEvent($id)
@@ -82,7 +84,7 @@ class Medlinx extends Component
         $this->editEmit = $id;
         $data = AppHero::find($id);
         $this->dispatch('sentToImage',$data->image);
-
+        $this->dispatch('imageshow',true);
         $this->image = $data->image;
         $this->title = $data->title;
         $this->action = json_decode($data->extend,true)['btn_action'];
@@ -90,7 +92,6 @@ class Medlinx extends Component
     public function renderRefresh(){
         return AppHero::where('app_id',1)->first();
     }
-
     public function clear(){
         $this->resetform();
     }
