@@ -94,7 +94,7 @@
                     $('.dropify').dropify();
                 }, 500);
             });
-            $wire.on('reloadPage', () => {
+            $wire.on('reaload', () => {
                 location.reload();
             })
         </script>
