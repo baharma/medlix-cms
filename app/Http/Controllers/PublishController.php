@@ -163,8 +163,8 @@ class PublishController extends Controller
         $hero       = AppHero::where('app_id',3)->first();
         $heroMini   = json_decode($hero->extend,true);
         $visiMisi   = VisiMisi::where('app_id',3)->first();
-        $teamUp     = Team::where('up_lv',1)->get();
-        $teamDown   = Team::where('up_lv',0)->get();
+        $teamUp     = Team::where('up_lv',1)->where('app_id',3)->get();
+        $teamDown   = Team::where('up_lv',0)->where('app_id',3)->get();
         $team       = [];
         $team2       = [];
         foreach ($teamUp as $value) {
