@@ -60,12 +60,8 @@ class Keunggulan extends Component
         $this->render();
     }
 
-
-
-
     public function save(){
         if (!$this->data) {
-            // Handle the case where $this->data is null
             return;
         }
         $data = collect($this->imageList)->map(function ($temporaryUploadedFile, $index) {
@@ -127,15 +123,13 @@ class Keunggulan extends Component
             $this->imageList[$items->id] = $items->image;
         }
     }
-    public function refresh(){
-        
-    }
     public function deleteThis($id){
         $keunggulan = KeunggulanList::find($id);
         if ($keunggulan) {
             $keunggulan->delete();
             $this->render();
-             $this->dispatch('reloadPage');
+            $this->dispatch('sweet-alert',icon:'success',title:'Keunggulan Update');
+            $this->dispatch('reaload');
         } else {
             return response()->json(['message' => 'Record not found.'], 404);
         }
@@ -146,3 +140,4 @@ class Keunggulan extends Component
         return view('livewire.pages.keunggulan.keunggulan');
     }
 }
+//sdad
