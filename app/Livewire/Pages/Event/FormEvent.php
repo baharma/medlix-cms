@@ -71,6 +71,7 @@ class FormEvent extends Component
         $this->detail = $event->details;
         $this->image = $event->image ;
         $this->dispatch('ImageShow');
+        $this->dispatch('clearImage');
         $this->dispatch('sentToImage',$this->image);
 
     }

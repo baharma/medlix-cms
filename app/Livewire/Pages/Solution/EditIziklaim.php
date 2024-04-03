@@ -21,6 +21,7 @@ class EditIziklaim extends Component
         // dd($this->model);
         $cms = $this->model;
         $extend	 = json_decode($cms?->extend,true);
+
         $this->title = $cms->title;
         $this->subtitle = $cms->sub_title;
         $this->image = $extend['image'];

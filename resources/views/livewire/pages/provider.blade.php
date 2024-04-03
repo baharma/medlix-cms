@@ -222,7 +222,7 @@
             <div class="d-flex justify-content-between mb-3">
                 <h4>Image & Slider</h4>
                 <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#modalImage" ><i
-                        class="bx bx-plus "></i> Add</button>
+                        class="bx bx-plus " wire:click='clearFaskes'></i> Add</button>
             </div>
             <div class="accordion">
                 <input class="accordion__radio" type="radio" name="accordion-tabs" id="tab-one" checked />
@@ -346,16 +346,22 @@
                                 <div class="form-group mb-3">
                                     <x-componen-form.input-image-dropify label='Image' wireModel="image"
                                         name="image" />
+                                        @error('image')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="inpTitle">Mark</label>
                                     <div class="form-check  mt-2">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
                                             wire:model="mark" value="provider" id="flexRadioDefault2">
+
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             Provider
                                         </label>
+
                                     </div>
+
                                     <div class="form-check  mt-2">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
                                             wire:model="mark" value="maps" id="flexRadioDefault3">
@@ -370,7 +376,7 @@
                                             Client
                                         </label>
                                     </div>
-                                    @error('only')
+                                    @error('mark')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
@@ -409,10 +415,16 @@
                                 <div class="form-group mb-2">
                                     <x-componen-form.input-form label='Name' wireModel="name" name="name"
                                         placeholder="Fasilitas Kesehatan" />
+                                        @error('name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-group mb-2">
                                     <x-componen-form.input-form label='Value' type="number" wireModel="value"
                                         name="value" placeholder="200000" />
+                                        @error('value')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -445,6 +457,14 @@
                 } else {
                     console.error('Button with ID "close-modal" not found');
                 }
+            })
+
+
+            $wire.on('imageClear',()=>{
+                $('.dropify').attr('data-default-file', '')
+                    $('.dropify').dropify();
+                    var clear = $('.dropify-clear');
+                    clear.click();
             })
         </script>
     @endscript

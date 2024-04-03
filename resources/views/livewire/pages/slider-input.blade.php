@@ -16,9 +16,14 @@
                 <a href="{{ route('slider') }}" type="button" id="close-modal" class="btn btn-warning" wire:navigate><i
                         class="bx bx-arrow-back"></i>
                     Back</a>
-                <button type="submit" class="btn btn-primary"><i class="bx bx-save"></i> Update</button>
+                <button type="submit" class="btn btn-primary" wire:loading.attr="disabled"><i class="bx bx-save"></i> Update
+                    <span wire:loading.remove>Loading...</span>
+                    <span wire:loading>Loading...</span>
+                </button>
+                <span wire:loading>Loading...</span>
             </div>
 
         </form>
     </div>
 </div>
+
