@@ -275,7 +275,8 @@
                     <hr>
                     <div class="row">
                         @foreach ($award as $item)
-                            <div class="card col-md-4 mr-3 ml-3" style="width: 18rem;">
+                            <div class="card col-md-4 mr-3 ml-3"
+                                style="width: 18rem; margin-left: 10px; margin-right: 10px;">
                                 <div class="card-body text-center">
                                     <img src="{{ asset($item->title) }}" alt="" style="max-width: 80px">
                                     <br>
