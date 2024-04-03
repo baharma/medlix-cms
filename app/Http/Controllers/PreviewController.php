@@ -37,6 +37,7 @@ class PreviewController extends Controller
             return view('preview.izidok.izidok-app',$data);
         }elseif($slug == 'medlinx'){
             $data = $this->priviewMadlinx();
+            // dd($data);
             $dataChunks = $data['mark1']->chunk(4);
             $porto2Chunks = $data['mark2']->chunk(4);
             $app = CmsApp::find(1);
