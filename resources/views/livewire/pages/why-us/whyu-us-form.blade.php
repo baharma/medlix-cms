@@ -10,13 +10,28 @@
                 <form wire:submit.prevent="save" enctype="multipart/form-data" id="formInp">
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group mb-3">
+                            <div class="col-md-12" x-data="{image:false,dropify:true,cancel:false}" x-init="
+                                $wire.on('imageshow', (event) => {
+                                    image=true;
+                                    dropify=false;
+                                })
+                                $wire.on('clearAll',()=>{
+                                    cancel=false
+                                    image=false;
+                                    dropify=true;
+                                })
+                            ">
+                                <div class="form-group mb-3" style="text-align: center" x-show='image'>
+                                    <img src="{{asset($image)}}" alt="" style="width: 300px;"><br>
+                                    <a href="#" x-on:click="image = ! image, dropify = ! dropify,cancel = ! cancel ">Edit Image</a>
+                                </div>
+                                <div class="form-group mb-3" x-show='dropify'>
                                     <x-componen-form.input-image-dropify label='Image' wireModel="image"
                                         imageDefault="{{ $image }}" name="image" />
                                     @error('image')
                                         <span class="error">{{ $message }}</span>
                                     @enderror
+                                    <a href="#" x-on:click="image = ! image, dropify = ! dropify,cancel = ! cancel" x-show="cancel">Cancel</a>
                                 </div>
                             </div>
 
