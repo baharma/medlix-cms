@@ -71,7 +71,6 @@ Route::get('/login',function(){
 });
 
 Route::get('/redirect-to/{url}',function($url){
-    // dd($url);
     return redirect()->to($url);
 })->name('redirect');
 
