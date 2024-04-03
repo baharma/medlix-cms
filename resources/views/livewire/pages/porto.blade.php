@@ -194,8 +194,8 @@
                     <div class="col-md-12">
                         <div class="d-flex justify-content-between mb-3">
                             <h5>Portofolio Slider</h5>
-                            <button class="btn btn-primary btn-sm " wire:click='clearPorto' data-bs-toggle="modal" data-bs-target="#modalAdd"><i
-                                    class="bx bx-plus "></i> Add</button>
+                            <button class="btn btn-primary btn-sm " wire:click='clearPorto' data-bs-toggle="modal"
+                                data-bs-target="#modalAdd"><i class="bx bx-plus "></i>Add</button>
                         </div>
                     </div>
                     <hr>
@@ -273,9 +273,9 @@
                         </div>
                     </div>
                     <hr>
-                    <div style="display: flex; justify-content: space-around">
+                    <div style="display: flex; justify-content: space-around" class="row">
                         @foreach ($award as $item)
-                            <div class="card" style="width: 18rem;">
+                            <div class="card col-md-4" style="width: 18rem;">
                                 <div class="card-body text-center">
                                     <img src="{{ asset($item->title) }}" alt="" style="max-width: 80px">
                                     <br>
@@ -411,13 +411,13 @@
                     <div class="modal-footer">
                         <button type="button" id="close-modal-edit-penghargaan" class="btn btn-warning"
                             data-bs-dismiss="modal"><i class="bx bx-x"></i> Close</button>
-                            <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" >
-                                <i class="bx bx-save"></i>
-                                <span wire:loading.remove>Save</span>
-                                <span wire:loading>Loading...</span>
-                            </button>
-                            <!-- Loading Indicator -->
+                        <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
+                            <i class="bx bx-save"></i>
+                            <span wire:loading.remove>Save</span>
                             <span wire:loading>Loading...</span>
+                        </button>
+                        <!-- Loading Indicator -->
+                        <span wire:loading>Loading...</span>
                     </div>
 
                 </form>

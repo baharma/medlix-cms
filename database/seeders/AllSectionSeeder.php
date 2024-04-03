@@ -71,13 +71,13 @@ class AllSectionSeeder extends Seeder
                 'group' => 3
             ],
             [
-                'name'  => 'Soluton',
+                'name'  => 'Solution',
                 'url'   => '/admin/medlinx-solution',
                 'icon'  => 'bx bx-at',
                 'group' => 1,
             ],
              [
-                'name'  => 'Soluton',
+                'name'  => 'Solution',
                 'url'   => '/admin/iziklaim-solution',
                 'icon'  => 'bx bx-at',
                 'group' => 3,
