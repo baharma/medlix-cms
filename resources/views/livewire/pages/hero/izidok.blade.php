@@ -1,8 +1,7 @@
 <div>
     <div class="d-flex justify-content-between mb-3">
         <h4></h4>
-=
-        <button type="button" class="btn"
+        <button type="button" class="btn" wire:click="refresh"
             style="background-color: #3652AD; color: white; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
             data-bs-toggle="modal" data-bs-target="#ModalHero"> <i class="bx bx-plus"></i> Add/Change Hero Content
         </button>
@@ -43,7 +42,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group mb-3">
                                         <x-componen-form.input-image-dropify label='Hero  Image' wireModel="image"
-                                            imageDefault="{{ $image }}" name="image" />
+                                            imageDefault="{{ asset($image) }}" name="image" />
                                     </div>
 
                                 </div>
@@ -89,13 +88,13 @@
                         <div class="modal-footer">
                             <button type="button" id="close-modal" class="btn btn-warning" data-bs-dismiss="modal"><i
                                     class="bx bx-x"></i> Close</button>
-                                    <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" >
-                                        <i class="bx bx-save"></i>
-                                        <span wire:loading.remove>Save</span>
-                                        <span wire:loading>Loading...</span>
-                                    </button>
-                                    <!-- Loading Indicator -->
-                                    <span wire:loading>Loading...</span>
+                            <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
+                                <i class="bx bx-save"></i>
+                                <span wire:loading.remove>Save</span>
+                                <span wire:loading>Loading...</span>
+                            </button>
+                            <!-- Loading Indicator -->
+                            <span wire:loading>Loading...</span>
                         </div>
                     </form>
                 </div>

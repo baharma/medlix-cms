@@ -61,7 +61,10 @@ class Izidok extends Component
         $this->mount();
 
     }
-    
+    public function refresh()
+    {
+        $this->mount();
+    }
     
     public function removeItem($index)
     {
@@ -70,6 +73,7 @@ class Izidok extends Component
     public function renderRefresh(){
         return AppHero::where('app_id',2)->first();
     }
+
 
     public function render()
     {

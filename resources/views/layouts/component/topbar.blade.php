@@ -90,7 +90,7 @@
                     <ul class="dropdown-menu dropdown-menu-end">
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <li><a class="dropdown-item" href="javascript:;"><i
+                            <li><a class="dropdown-item" href="{{ route('profile') }}"><i
                                         class="bx bx-user"></i><span>Profile</span></a>
                             </li>
                             <li>

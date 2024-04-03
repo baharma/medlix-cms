@@ -110,6 +110,10 @@ class Keunggulan extends Component
             'edits'=>false
         ]);
     }
+    // public function refresh()
+    // {
+    //     $this->mount();
+    // }
     public function render()
     {
         $data = $this->model->with('keunggulanList')->where('app_id', Auth::user()->default_cms)->first();
