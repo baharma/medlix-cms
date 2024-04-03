@@ -4,11 +4,11 @@
             name="title" classInput="col-sm-10" classLabels="col-sm-2" />
     </div>
     <div class="row mb-3">
-        <x-componen-form.textarea-input label="Description details Event" idTextarea="DescriptionEvent"
+        <x-componen-form.textarea-input label="Description" idTextarea="DescriptionEvent"
             wireModel="description" rows="3" classInput="col-sm-10" classLabels="col-sm-2"
             placeholder="Description Event" />
     </div>
-    <div class="row mt-5" wire:ignore.self>
+    {{-- <div class="row mt-5" wire:ignore.self>
         @if ($data && isset($data->KeunggulanList))
             <div id="show-data"></div>
             @foreach ($data->KeunggulanList as $items)
@@ -34,8 +34,8 @@
         @else
             <h4>None</h4>
         @endif
-    </div>
-    <button type="button" class="btn btn-primary mt-4" wire:click='newlist'>
+    </div> --}}
+    {{-- <button type="button" class="btn btn-primary mt-4" wire:click='newlist'>
         <i class='bx bx-add-to-queue'></i>
-        Add List</button>
+        Add List</button> --}}
 </div>
