@@ -24,7 +24,7 @@
                     <div x-show="detail" x-transition>
                         @include('pages.keunggulan.form-detail')
                         <div class="d-flex flex-row-reverse bd-highlight">
-                            <button @click="edit = true; detail=false" class="btn btn-primary" >
+                            <button @click="edit = true; detail=false" class="btn btn-primary" wire:click="refresh">
                                 <i class='bx bxs-edit'></i>
                                 Add/Edit</button>
                         </div>
@@ -36,13 +36,13 @@
                                 <button @click="edit = false;detail=true" type="button" class="btn btn-warning mr-2">
                                     <i class='bx bx-x'></i>
                                     Cancel</button>
-                                    <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" >
-                                        <i class="bx bx-save"></i>
-                                        <span wire:loading.remove>Save</span>
-                                        <span wire:loading>Loading...</span>
-                                    </button>
-                                    <!-- Loading Indicator -->
+                                <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
+                                    <i class="bx bx-save"></i>
+                                    <span wire:loading.remove>Save</span>
                                     <span wire:loading>Loading...</span>
+                                </button>
+                                <!-- Loading Indicator -->
+                                <span wire:loading>Loading...</span>
                             </div>
                         </form>
                     </div>
@@ -68,13 +68,13 @@
                                 <button @click="edits = false; details=true" type="button" class="btn btn-warning">
                                     <i class='bx bx-x'></i>
                                     Cancel</button>
-                                    <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" >
-                                        <i class="bx bx-save"></i>
-                                        <span wire:loading.remove>Save</span>
-                                        <span wire:loading>Loading...</span>
-                                    </button>
-                                    <!-- Loading Indicator -->
+                                <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
+                                    <i class="bx bx-save"></i>
+                                    <span wire:loading.remove>Save</span>
                                     <span wire:loading>Loading...</span>
+                                </button>
+                                <!-- Loading Indicator -->
+                                <span wire:loading>Loading...</span>
                             </div>
                         </form>
                     </div>
@@ -94,6 +94,9 @@
                     $('.dropify').dropify();
                 }, 500);
             });
+            $wire.on('reloadPage', () => {
+                location.reload();
+            })
         </script>
     @endscript
 

@@ -127,11 +127,15 @@ class Keunggulan extends Component
             $this->imageList[$items->id] = $items->image;
         }
     }
+    public function refresh(){
+        
+    }
     public function deleteThis($id){
         $keunggulan = KeunggulanList::find($id);
         if ($keunggulan) {
             $keunggulan->delete();
             $this->render();
+             $this->dispatch('reloadPage');
         } else {
             return response()->json(['message' => 'Record not found.'], 404);
         }
