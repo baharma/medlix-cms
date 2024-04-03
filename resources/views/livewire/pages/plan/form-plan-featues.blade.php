@@ -50,8 +50,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="close-modal-plan" class="btn btn-warning" data-bs-dismiss="modal">
-                        <i class="bx bx-x"></i> Cancel</button>
+                    <button type="button" id="close-modal-plan" class="btn btn-danger" data-bs-dismiss="modal">
+                        <i class="bx bx-x"></i> Close</button>
                 </div>
             </div>
         </div>
