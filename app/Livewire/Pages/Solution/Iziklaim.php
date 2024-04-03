@@ -11,13 +11,13 @@ use Livewire\Features\SupportFileUploads\WithFileUploads;
 class Iziklaim extends Component
 {
     use WithFileUploads;
-    
-    #[Title('Solution')] 
+
+    #[Title('Solution')]
     public $model,$image,$miniImage,$svg,$title,$subtitle,$left,$right,$url,$postion;
     public $extend  = [];
 
     public function mount(){
-        $this->model = Solution::where('app_id',3)->get();   
+        $this->model = Solution::where('app_id',3)->get();
     }
     #[On('extendVar')]
     public function extendVar(){
@@ -31,6 +31,23 @@ class Iziklaim extends Component
         'title'=>'required',
         'postion'=>'required'
     ];
+
+    public function clearText(){
+        $this->fill([
+            'image'=>null,
+            'title'=>null,
+            'postion'=>null,
+            'miniImage'=>null,
+            'svg'=>null,
+            'subtitle'=>null
+        ]);
+
+        $this->resetErrorBag('image');
+        $this->resetErrorBag('title');
+        $this->resetErrorBag('postion');
+        $this->dispatch('clearImage');
+    }
+
     public function addItem()
     {
         $this->extendVar();
@@ -44,11 +61,11 @@ class Iziklaim extends Component
         $this->validate();
         $cms = $this->renderRefresh();
 
-        $extend	 = json_decode($cms?->extend,true);	
+        $extend	 = json_decode($cms?->extend,true);
         $name = 'iziklaim-solution-img-'. $cms?->id + 1;
         $imageName = saveImageLocalNew($this->image, 'solution',$name);
         $data['image'] = $imageName;
-       
+
         if($this->miniImage){
             $name = 'iziklaim-solution-mini-img-'. $cms?->id + 1;
             $mini_img = saveImageLocalNew($this->miniImage, 'solution',$name);
@@ -84,10 +101,10 @@ class Iziklaim extends Component
 
     public  function editEvent($id){
         $cms  = Solution::where('id',$id)->first();
-        $extend	 = json_decode($cms?->extend,true);	
+        $extend	 = json_decode($cms?->extend,true);
         $this->title = $cms->title;
         $this->subtitle = $cms->sub_title;
-        
+
         $this->dispatch('setImage',$extend['image']);
 
 
@@ -106,10 +123,10 @@ class Iziklaim extends Component
             $this->dispatch('sweet-alert',icon:'error',title:'Delete Failed');
         }
         $section->delete();
-        
+
         $this->mount();
         $this->dispatch('sweet-alert',icon:'success',title:'Solution Deleted');
-        
+
     }
 
     public function renderRefresh(){

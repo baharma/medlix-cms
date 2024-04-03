@@ -69,6 +69,11 @@ class WhyuUsForm extends Component
 
     }
 
+    #[On('clearImageDrof')]
+    public function clearImageDrof(){
+        $this->dispatch('clearDrof');
+    }
+
     #[On('showEdit')]
     public function showEdit($id){
         $this->idMedia = $id;

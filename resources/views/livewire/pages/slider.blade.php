@@ -7,7 +7,7 @@
                 @else
                     <h4>Slider Image</h4>
                 @endif
-                <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#modalFaskes"><i
+                <button class="btn btn-primary btn-sm " data-bs-toggle="modal" wire:click='clearImage' data-bs-target="#modalFaskes"><i
                         class="bx bx-plus "></i> Add</button>
             </div>
             <table class="table">
@@ -79,6 +79,12 @@
 @push('script')
     @script
         <script>
+            $wire.on('clearImage',()=>{
+                    $('.dropify').attr('data-default-file', '')
+                    $('.dropify').dropify();
+                    var clear = $('.dropify-clear');
+                    clear.click();
+            })
             $wire.on('closeModal', () => {
                 const closeButton = document.getElementById('close-modal');
                 if (closeButton) {

@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2">
-                    <button class="btn btn-danger" wire:click="delete({{ $items->id }})">
+                    <button class="btn btn-danger" type="button" wire:click="deleteThis({{$items->id}})">
                         <i class="bx bx-trash"></i>
                     </button>
                 </div>

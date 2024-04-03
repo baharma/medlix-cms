@@ -6,7 +6,7 @@
         <h4></h4>
         <button type="button" class="btn"
             style="background-color: #3652AD; color: white; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
-            data-bs-toggle="modal" data-bs-target="#ModalHero"> <i class="bx bx-plus"></i> Add/Change Hero Content
+            data-bs-toggle="modal" data-bs-target="#ModalHero" wire:click='clearText'> <i class="bx bx-plus"></i> Add/Change Hero Content
         </button>
     </div>
     @foreach ($model as $item)
@@ -206,6 +206,7 @@
 
     @push('scripts')
         <script>
+
             $(function() {
                 $('[data-bs-toggle="tooltip"]').tooltip();
             })
@@ -213,6 +214,15 @@
 
         @script
             <script>
+
+                $wire.on('clearImage',()=>{
+                    $('.dropify').attr('data-default-file', '')
+                    $('.dropify').dropify();
+                    var clear = $('.dropify-clear');
+                    clear.click();
+                })
+
+
                 $wire.on('modalClosed', () => {
                     const closeButton = document.getElementById('close-modal');
                     if (closeButton) {
@@ -248,6 +258,10 @@
                             console.error(error);
                         });
                 });
+
+
+
+
             </script>
         @endscript
     @endpush

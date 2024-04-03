@@ -24,7 +24,7 @@
                     <div x-show="detail" x-transition>
                         @include('pages.keunggulan.form-detail')
                         <div class="d-flex flex-row-reverse bd-highlight">
-                            <button @click="edit = true; detail=false" class="btn btn-primary" wire:click='getdetail'>
+                            <button @click="edit = true; detail=false" class="btn btn-primary" >
                                 <i class='bx bxs-edit'></i>
                                 Add/Edit</button>
                         </div>
@@ -82,6 +82,7 @@
             </div>
         </div>
     </div>
+    @include('layouts.component.sweetalert-js')
 </div>
 
 

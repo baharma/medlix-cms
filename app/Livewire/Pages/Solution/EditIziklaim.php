@@ -18,8 +18,10 @@ class EditIziklaim extends Component
 
     public function mount($id){
         $this->model = Solution::find($id);
+
         $cms = $this->model;
         $extend	 = json_decode($cms?->extend,true);
+
         $this->title = $cms->title;
         $this->subtitle = $cms->sub_title;
         $this->image = $extend['image'];
@@ -27,7 +29,7 @@ class EditIziklaim extends Component
         if (isset($extend['mini_image'])) {
             $this->miniImage = $extend['mini_image'];
         }
-        if (isset($extend['svg'])) {
+        if (isset($extend['icon'])) {
             $this->svg = $extend['icon'];
         }
         $this->postion   = $extend['img_postion'];

@@ -27,6 +27,7 @@ class WhyUs extends Component
     }
     public function Edit($id){
         $this->dispatch('showEdit',$id);
+        $this->dispatch('clearImageDrof');
     }
 
     #[On('refresh')]
@@ -36,6 +37,7 @@ class WhyUs extends Component
 
     public function clearWhy(){
         $this->dispatch('ClearWhy');
+        $this->dispatch('clearImageDrof');
     }
 }
 
