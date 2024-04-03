@@ -96,6 +96,7 @@ class FormPlan extends Component
         $this->dispatch('showDelete',['event'=>false]);
         $this->dispatch('closeModalPlan');
         $this->dispatch('dataUpdatePlan');
+        $this->resetValidation();
     }
     #[On('EditPlanToEdit')]
     public function EditPlanToEdit($id){
@@ -130,9 +131,12 @@ class FormPlan extends Component
     }
     public function clearInput(){
         $this->name = '';
+        $this->duration = '';
         $this->amount = '';
         $this->planId = '';
+        $this->best_seller = '';
         $this->dataFeatues = [];
+        $this->checkDetail = [];
     }
     public function AddFeatuesPlan(){
         PlanFeatue::create([

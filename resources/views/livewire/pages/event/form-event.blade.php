@@ -16,9 +16,32 @@
                                 </div>
                             </div>
                             <div wire:loading.remove>
-                                <div class="row mb-3">
-                                    <x-componen-form.input-image-dropify label='Image Event' wireModel="image"
+                                <div x-data="{image:false,dropify:true,cancel:false}" x-init="
+                                    $wire.on('ImageShow',()=>{
+                                        image=true
+                                        dropify=false
+                                    })
+                                    $wire.on('clearCancel',()=>{
+                                        cancel=false
+                                        image=false
+                                        dropify=true
+                                    })
+                                ">
+                                    <div class="row mb-3" x-show="image">
+                                        <label for="inputAddress4" class="col col-form-label">Image Event</label>
+                                        <img src="{{$image}}" style="width: 350px">
+                                        <div class="d-flex flex-row-reverse bd-highlight">
+                                            <a href="#" x-on:click="image = ! image,dropify = ! dropify,cancel = ! cancel">Edit Image</a>
+                                        </div>
+
+                                    </div>
+                                    <div class="row mb-3" x-show="dropify">
+                                        <x-componen-form.input-image-dropify label='Image Event' wireModel="image"
                                         imageDefault="" name="image" />
+                                        <div class="d-flex flex-row-reverse bd-highlight">
+                                            <a href="#" x-on:click="image = ! image,dropify = ! dropify,cancel = ! cancel" x-show="cancel">Cancel</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row mb-3">
                                     <x-componen-form.input-form idInput="nameEvent" label="Name Event" wireModel="name"

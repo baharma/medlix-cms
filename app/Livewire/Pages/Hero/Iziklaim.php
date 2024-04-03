@@ -55,6 +55,9 @@ class Iziklaim extends Component
         $this->mount();
 
     }
+    public function clear(){
+        $this->mount();
+    }
 
     public function removeItem($index)
     {

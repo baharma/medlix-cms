@@ -23,8 +23,8 @@
                             <div class="form-group row mb-3">
                                 <label for="name" class="col-sm-4 col-form-label">Plan Duration</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control  @error('duration') is-invalid @enderror"
-                                        type="number" wire:model="duration" placeholder="12">
+                                    <input class="form-control  @error('duration') is-invalid @enderror" type="number"
+                                        wire:model="duration" placeholder="12">
                                     @error('duration')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -87,20 +87,20 @@
                                 </div>
                                 <div x-show="dataUpdate">
                                     @foreach ($checkDetail as $item)
-                                    <div class="form-check form-switch" wire:ignore.self>
-                                        <input class="form-check-input" type="checkbox"
-                                            @if ($item->pivot->check) checked @endif
-                                            wire:click="unSwitch('{{ $item->pivot->id }}')">
-                                        <label class="form-check-label"
-                                            for="flexSwitchCheckDefault">{{ $item->name }}</label>
-                                    </div>
-                                @endforeach
+                                        <div class="form-check form-switch" wire:ignore.self>
+                                            <input class="form-check-input" type="checkbox"
+                                                @if ($item->pivot->check) checked @endif
+                                                wire:click="unSwitch('{{ $item->pivot->id }}')">
+                                            <label class="form-check-label"
+                                                for="flexSwitchCheckDefault">{{ $item->name }}</label>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="close-modal-plan" class="btn btn-warning"
+                        <button type="button" id="close-modal-plan" class="btn btn-warning reloadPage"
                             data-bs-dismiss="modal">
                             <i class="bx bx-x"></i> Cancel</button>
                         <button type="submit" class="btn btn-primary">
@@ -125,6 +125,9 @@
                 } else {
                     console.error('Button with ID "close-modal" not found');
                 }
+            })
+            $('.reloadPage').on('click', function() {
+                location.reload();
             })
         </script>
     @endscript

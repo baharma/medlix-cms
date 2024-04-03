@@ -110,10 +110,23 @@ class Keunggulan extends Component
             'edits'=>false
         ]);
     }
-    // public function refresh()
-    // {
-    //     $this->mount();
-    // }
+
+    public function getdetail(){
+        $data = $this->model->where('app_id',Auth::user()->default_cms)->first();
+        $this->fill([
+            'title'=>$data->title,
+            'description'=>$data->description,
+            'imageTitle'=>$data->image_title,
+            'image'=>$data->image
+        ]);
+        $listKeunggulan =  $data->KeunggulanList;
+        foreach($listKeunggulan as $items){
+            $this->titleList[$items->id] = $items->title;
+            $this->imageList[$items->id] = $items->image;
+        }
+
+    }
+
     public function render()
     {
         $data = $this->model->with('keunggulanList')->where('app_id', Auth::user()->default_cms)->first();

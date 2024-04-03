@@ -39,6 +39,11 @@ function ActiveApp($get = 'null'){
 
     return $data[$get];
 }
+function removeDuplicates(&$array) {
+    $array = array_values(array_unique($array));
+    return $array;
+}
+
 function appLogo(){
     return "<img src=".asset(ActiveApp('logo'))." style='width: 110px' class='LogoIcon' alt='logo icon'>";
 }

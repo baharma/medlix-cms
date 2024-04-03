@@ -55,16 +55,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
 
-                    <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" >
-                        <i class="bx bx-save"></i>
-                        <span wire:loading.remove>Save</span>
-                        <span wire:loading>Loading...</span>
-                    </button>
-                    <!-- Loading Indicator -->
+            </div>
+            <div class="card-footer" style="display: flex; justify-content: end">
+                <button class="btn btn-primary" type="submit" wire:loading.attr="disabled"
+                    onclick="function() { this.disabled = true; this.form.submit(); }">
+                    <i class="bx bx-save"></i>
+                    <span wire:loading.remove>Save</span>
                     <span wire:loading>Loading...</span>
-                </div>
+                </button>
+                <!-- Loading Indicator -->
+                <span wire:loading>Loading...</span>
+            </div>
         </form>
     </div>
 </div>
