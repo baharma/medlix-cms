@@ -48,6 +48,7 @@ class Event extends Component
         $this->dispatch('editEvent',$id);
     }
     public function closeEdit(){
+        $this->dispatch('clearImage');
         $this->dispatch('clearText');
     }
 }

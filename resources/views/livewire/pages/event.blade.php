@@ -65,3 +65,16 @@
 
 
 </div>
+
+@push('script')
+    @script
+        <script>
+            $wire.on('clearImage', () => {
+                var clear = $('.dropify-clear');
+                    clear.click();
+                    $('#image').attr('data-default-file', '')
+                    $('#image').dropify();
+            })
+        </script>
+    @endscript
+@endpush
