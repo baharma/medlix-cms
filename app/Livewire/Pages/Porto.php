@@ -86,6 +86,7 @@ class Porto extends Component
 
     public function clearPenghargaan(){
         $this->dispatch('clearPenghargaan');
+
         $this->dispatch('clearInputValidate');
     }
 }

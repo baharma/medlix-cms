@@ -9,10 +9,25 @@
                 </div>
                 <form wire:submit.prevent="save" enctype="multipart/form-data" id="formInp">
                     <div class="modal-body">
+                        <div class="row" x-data="{showdrofy:true , image:false}" x-init="
+                        $wire.on('showImage', value => {
+                            image=value;
+                            showdrofy=false
+                        });
+                        $wire.on('clearimage', () => {
+                            image=false;
+                            showdrofy=true;
+                        });
 
-                        <div class="row">
+                        " >
+
                             <div class="col-md-6" id="inpList">
-                                <div class="form-group mb-3">
+                                <div class="form-group mb-3" x-show='image'>
+                                    <label for="">Icon</label>
+                                    <img src="{{ $icon }}" alt="" style="width: 210px;height: 200px;">
+
+                                </div>
+                                <div class="form-group mb-3" x-show='showdrofy'>
                                     <x-componen-form.input-image-dropify label='Icon' wireModel="icon" name="icon"
                                         imageDefault="{{ $icon }}" />
                                         @error('icon')
@@ -20,8 +35,13 @@
                                     @enderror
                                 </div>
                             </div>
+
                             <div class="col-md-6" id="inpList">
-                                <div class="form-group mb-3">
+                                <div class="form-group mb-3" x-show='image'>
+                                    <label for="">Logo</label>
+                                    <img src="{{ $logo }}" alt="" style="width: 210px;height: 200px;">
+                                </div>
+                                <div class="form-group mb-3" x-show='showdrofy'>
                                     <x-componen-form.input-image-dropify label='Logo' wireModel="logo" name="logo"
                                         imageDefault="{{ $logo }}" />
                                         @error('logo')
@@ -29,6 +49,7 @@
                                     @enderror
                                 </div>
                             </div>
+                            <a href="#" x-on:click="image = ! image , showdrofy = ! showdrofy"  x-show='image'>Edit Image</a>
                             <div class="form-group">
                                 <x-componen-form.textarea-input label='Text' wireModel="text" name="text" />
                                 @error('text')
@@ -68,6 +89,7 @@
                 const removeImage = $('.dropify-clear');
                 removeImage.click();
             })
+
         </script>
     @endscript
 @endpush
