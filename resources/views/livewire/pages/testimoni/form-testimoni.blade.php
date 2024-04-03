@@ -4,8 +4,7 @@
             <!-- Image Upload -->
             <div class="row mb-3">
                 <x-componen-form.input-image-dropify label="Profile Image<span class='text-danger'>*</span>"
-                    wireModel="image" imageDefault="{{ $image }}" name="image" >
-
+                    wireModel="image" imageDefault="{{ $image }}" name="image">
                     @slot('error')
                         @error('image')
                             <span class="text-danger">{{ $message }}</span>
@@ -42,11 +41,11 @@
             <div class="row mb-3">
                 <x-componen-form.textarea-input label="Testimonial<span class='text-danger'>*</span>"
                     idTextarea="testimoni" wireModel="testimoni" rows="5" classInput="col-sm-9"
-                    classLabels="col-sm-3" placeholder="Description Testimonial" >
+                    classLabels="col-sm-3" placeholder="Description Testimonial">
                     @slot('classEroor')
-                    @error('testimoni')
-                    is-invalid
-                @enderror
+                        @error('testimoni')
+                            is-invalid
+                        @enderror
                     @endslot
                     @slot('error')
                         @error('testimoni')
