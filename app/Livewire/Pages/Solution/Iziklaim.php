@@ -79,6 +79,7 @@ class Iziklaim extends Component
         $this->dispatch('sweet-alert',icon:'success',title:'Solution Saved');
         $this->reset();
         $this->dispatch('modalClosed');
+        $this->dispatch('reloadPage');
         $this->mount();
     }
 

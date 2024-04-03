@@ -59,13 +59,16 @@ class ProdukForm extends Component
 
         if($this->idproduk){
             $this->product->update($data);
+            $this->dispatch('sweet-alert', icon:'success', title: 'New Product Update');
+
         }else{
             $this->model->create($data);
+            $this->dispatch('sweet-alert', icon:'success', title: 'New Product Created');
+
         }
 
 
         $this->reset(['text', 'url', 'image', 'logo']);
-        $this->dispatch('sweet-alert', ['icon' => 'success', 'title' => 'New News Update']);
         return to_route('produk');
     }
 

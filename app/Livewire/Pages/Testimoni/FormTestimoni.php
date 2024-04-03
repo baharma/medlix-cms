@@ -53,7 +53,7 @@ class FormTestimoni extends Component
             $this->model->create($data);
         }
 
-        $this->dispatch('sweet-alert',icon:'success',title:'New Event Added');
+        $this->dispatch('sweet-alert',icon:'success',title:'New Testimony Added');
         if(1 == Auth::user()->default_cms){
             $route = "medlinx-testimoni";
         }else{

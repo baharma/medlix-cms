@@ -68,7 +68,7 @@
                     </div>
                 @endif
                 <div class="card-footer mt-3">
-                    <a href="{{ route('solution.edit', $item->id) }}" wire:navigate class="btn btn-warning"><i
+                    <a href="{{ route('solution.edit', $item->id) }}" class="btn btn-warning"><i
                             class="bx bx-edit"></i></a>
                     {{-- <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ModalEdit"
                         wire:click="editEvent('{{ $item->id }}')"><i class="bx bx-edit"></i></button> --}}
@@ -188,7 +188,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" id="close-modal" class="btn btn-warning close-modal"
+                            <button type="button" id="close-modal" class="btn btn-warning close-modal closeModal"
                                 data-bs-dismiss="modal"><i class="bx bx-x"></i> Close</button>
                             <button type="submit" class="btn btn-primary" wire:loading.attr="disabled"><i
                                     class="bx bx-save"></i>
@@ -221,6 +221,12 @@
                         console.error('Button with ID "close-modal" not found');
                     }
                 });
+                $wire.on('reloadPage', () => {
+                    location.reload();
+                });
+                $('.closeModal').on('click', function() {
+                    location.reload();
+                })
                 $wire.on('setImage', (Image) => {
                     const image = document.getElementById('EdtImage');
                     const imageUrl = `${window.location.origin}/${Image[0]}`;

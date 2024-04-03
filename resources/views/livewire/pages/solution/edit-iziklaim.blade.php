@@ -3,6 +3,13 @@
         <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
     @endpush
     <div class="card">
+        <div class="card-header">
+            <div class="d-flex justify-content-start">
+                <a href="{{ route('solution') }}" class="h5">
+                    <i class='bx bx-arrow-back'></i> Back
+                </a>
+            </div>
+        </div>
         <div class="card-body">
             <form wire:submit.prevent="save" enctype="multipart/form-data">
                 <div class="modal-body">
@@ -96,13 +103,12 @@
                         class="btn btn-warning"><i class="bx bx-arrow-back"></i>
                         Back</a>
 
-                    <button type="submit" class="btn btn-primary"
-                    wire:loading.attr="disabled"
-                    ><i class="bx bx-save"></i>
-                    <span wire:loading.remove>Update</span>
+                    <button type="submit" class="btn btn-primary" wire:loading.attr="disabled"><i
+                            class="bx bx-save"></i>
+                        <span wire:loading.remove>Update</span>
+                        <span wire:loading>Loading...</span>
+                    </button>
                     <span wire:loading>Loading...</span>
-                </button>
-                <span wire:loading>Loading...</span>
                 </div>
             </form>
         </div>
