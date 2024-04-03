@@ -13,4 +13,11 @@
         wire:model='{{ $wireModel }}' name="{{ $name }}" data-default-file="{{ $imageDefault }}"
         data-max-file-size="2M">
 </div>
-{{ $error }}
+<div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col">
+        {{ $error }}
+    </div>
+</div>
