@@ -32,12 +32,13 @@
                             <div class="col">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
                                     data-bs-placement="right" title="{{ $button['val'] }}">
-                                    {{ $button['name'] }}</button>
+                                    {{ $button['name'] }}</button> <br>
+                                <span class="badge bg-primary">url: {{ $button['val'] }} </span>
                             </div>
                         @endif
                     </div>
                     <div class="col-md-6">
-                        <img src="{{ asset($image) }}" alt="image" style="max-width: 300px" >
+                        <img src="{{ asset($image) }}" alt="image" style="max-width: 300px">
                         <br>
                         @if ($mini_image)
                             <img src="{{ asset($mini_image) }}" alt="image" style="max-width: 100px">
@@ -60,7 +61,8 @@
                             <div class="col">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="tooltip"
                                     data-bs-placement="right" title="{{ $button['val'] }}">
-                                    {{ $button['name'] }}</button>
+                                    {{ $button['name'] }}</button><br>
+                                <span class="badge bg-primary">url: {{ $button['val'] }} </span>
                             </div>
                         @endif
                     </div>
@@ -124,8 +126,9 @@
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                    wire:model="postion" value="left" id="flexRadioDefault1">
+                                                <input class="form-check-input" type="radio"
+                                                    name="flexRadioDefault" wire:model="postion" value="left"
+                                                    id="flexRadioDefault1">
                                                 <label class="form-check-label" for="flexRadioDefault1">
                                                     Image on Left
                                                 </label>
@@ -187,13 +190,12 @@
                         <div class="modal-footer">
                             <button type="button" id="close-modal" class="btn btn-warning close-modal"
                                 data-bs-dismiss="modal"><i class="bx bx-x"></i> Close</button>
-                            <button type="submit" class="btn btn-primary"
-                            wire:loading.attr="disabled"
-                            ><i class="bx bx-save"></i>
+                            <button type="submit" class="btn btn-primary" wire:loading.attr="disabled"><i
+                                    class="bx bx-save"></i>
                                 <span wire:loading.remove>Submit</span>
                                 <span wire:loading>Loading...</span>
-                                </button>
-                                <span wire:loading>Loading...</span>
+                            </button>
+                            <span wire:loading>Loading...</span>
                         </div>
                     </form>
                 </div>

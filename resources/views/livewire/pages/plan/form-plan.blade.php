@@ -60,7 +60,6 @@
                                             No
                                         </label>
                                     </div>
-
                                     @error('best_seller')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -87,54 +86,15 @@
                                     </div>
                                 </div>
                                 <div x-show="dataUpdate">
-                                    <div class="modal-body" style="height: 500px; overflow: auto">
-                                        <nav>
-                                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
-                                                    data-bs-target="#nav-home" type="button" role="tab"
-                                                    aria-controls="nav-home" aria-selected="true">Add And Delete
-                                                    Feature</button>
-                                                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
-                                                    data-bs-target="#nav-profile" type="button" role="tab"
-                                                    aria-controls="nav-profile" aria-selected="false">Feature</button>
-
-                                            </div>
-                                        </nav>
-                                        <div class="tab-content" id="nav-tabContent">
-                                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                                wire:ignore.self aria-labelledby="nav-home-tab">
-                                                @foreach ($featues as $index => $detas)
-                                                    <div style="display: flex" wire:ignore.self>
-                                                        <div class="form-check mx-2">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                id="planDetails{{ $detas->id }}"
-                                                                @foreach ($checkDetail as $items)
-                                                            @if ($items->id == $detas->id)
-                                                        checked
-                                                        @endif @endforeach
-                                                                wire:click="getDataCheckbox('{{ $detas->id }}',$event.target.checked)">
-                                                            <label class="form-check-label"
-                                                                for="planDetails{{ $detas->id }}">
-                                                                {{ $detas->name }}
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                                wire:ignore.self aria-labelledby="nav-profile-tab">
-                                                @foreach ($checkDetail as $item)
-                                                    <div class="form-check form-switch" wire:ignore.self>
-                                                        <input class="form-check-input" type="checkbox"
-                                                            @if ($item->pivot->check) checked @endif
-                                                            wire:click="unSwitch('{{ $item->pivot->id }}')">
-                                                        <label class="form-check-label"
-                                                            for="flexSwitchCheckDefault">{{ $item->name }}</label>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
+                                    @foreach ($checkDetail as $item)
+                                    <div class="form-check form-switch" wire:ignore.self>
+                                        <input class="form-check-input" type="checkbox"
+                                            @if ($item->pivot->check) checked @endif
+                                            wire:click="unSwitch('{{ $item->pivot->id }}')">
+                                        <label class="form-check-label"
+                                            for="flexSwitchCheckDefault">{{ $item->name }}</label>
                                     </div>
+                                @endforeach
                                 </div>
                             </div>
                         </div>

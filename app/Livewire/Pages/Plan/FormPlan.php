@@ -29,6 +29,11 @@ class FormPlan extends Component
         'best_seller'    => 'required|numeric',
     ];
 
+    #[On('updatePlan')]
+    public function updatePlan(){
+        $this->featues = PlanFeatue::all();
+    }
+
     public function mount(Plan $model,PlanFeatue $planFeatue){
         $this->featues = $planFeatue->all();
         $this->plan = $model;
@@ -69,8 +74,19 @@ class FormPlan extends Component
                 'best_seller'=>$this->best_seller??0,
                 'app_id'=>Auth::user()->default_cms,
             ]);
+            $planfeature = PlanFeatue::all();
+            foreach($planfeature as $data){
+                $plan->feature()->sync($data->id,false);
+            }
+
             $datas = collect($this->dataFeatues)->each(function ($event) use ($plan) {
-                $plan->feature()->sync($event,false);
+                $result = PlanDetail::where('plan_id',$plan->id)->where('feature_id',$event)->first();
+                if ($result) {
+                    $result->update([
+                        'check' => true
+                    ]);
+                }
+                return $result;
             });
 
             $this->dispatch('sweet-alert',icon:'success',title:'Your Plan Is Create!');

@@ -4,6 +4,7 @@
 
 <section id="solution" class="solution">
 
+    {{-- @dd($solution) --}}
     @foreach ($solution as $item)
         @if ($item['position'] == 'right')
             @if ($item['default'] == 1)
@@ -16,9 +17,10 @@
                             {!! $item['sub_title'] !!}
                             <div class="text-center text-sm-start d-grid d-md-block">
 
-                                @if(is_array($item['button']))
-                                <a href="{{ $item['button']['val'] }}" class="btn btn-download-profile">{{ $item['button']['name'] }}</a>
-                            @endif
+                                @if (is_array($item['button']))
+                                    <a href="{{ $item['button']['val'] }}"
+                                        class="btn btn-download-profile">{{ $item['button']['name'] }}</a>
+                                @endif
                             </div>
                         </div>
                         <div class="col-lg-6 video-box align-self-baseline d-none d-lg-block m-auto"
@@ -43,10 +45,16 @@
                                     @endif
                                     <div class="col-10 col-lg-12 my-auto">
                                         <h3 class="text-start">{{ $item['title'] }}</h3>
+
                                     </div>
                                 </div>
                                 {!! $item['sub_title'] !!}
-
+                                <div class="text-center text-sm-start d-grid d-md-block">
+                                    @if (is_array($item['button']))
+                                        <a href="{{ $item['button']['val'] }}"
+                                            class="btn btn-download-profile">{{ $item['button']['name'] }}</a>
+                                    @endif
+                                </div>
                             </div>
                             <div class="col-lg-6 video-box align-self-baseline order-1 order-lg-2 m-auto">
                                 <img src="{{ $item['image'] }}" class="img-fluid" alt="" data-aos="fade-right"
@@ -83,6 +91,12 @@
                                 </div>
                             </div>
                             {!! $item['sub_title'] !!}
+                            <div class="text-center text-sm-start d-grid d-md-block">
+                                @if (is_array($item['button']))
+                                    <a href="{{ $item['button']['val'] }}"
+                                        class="btn btn-download-profile">{{ $item['button']['name'] }}</a>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>

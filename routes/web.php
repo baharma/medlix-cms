@@ -69,6 +69,11 @@ Route::get('/login',function(){
     return redirect()->route('login');
 });
 
+Route::get('/redirect-to/{url}',function($url){
+    // dd($url);
+    return redirect()->to($url);
+})->name('redirect');
+
 Route::get('/',[LandingMedlinxController::class,'index'])->name('medlinx.home');
 Route::get('/detail-news/{slug}',[LandingMedlinxController::class,'NewsDetail'])->name('medlinx.news-detail');
 Route::get('/detail-news-prev/{prev}',[LandingMedlinxController::class,'prevDetailNews'])->name('medlinx.news-detail-prev');

@@ -56,6 +56,11 @@ class EditIziklaim extends Component
     {
         unset($this->extend[$index]);
     }
+    protected $rules = [
+        'image'=>'required',
+        'title'=>'required',
+        'postion'=>'required'
+    ];
     public function save(){
         $this->validate();
 
