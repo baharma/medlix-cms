@@ -10,7 +10,7 @@
                         </div>
 
                     </div>
-                    <div class="col-md-6" id="inpList">
+                    <div class="col-md-6" id="inpList" >
                         <div class="form-group mb-2">
                             <x-componen-form.input-form label='Name' wireModel="name" name="name"
                                 placeholder="Fauzi Sungkar" />
@@ -32,12 +32,17 @@
                                 <x-componen-form.input-form label='Instagram' wireModel="instagram" name="instagram"
                                     placeholder="instagram url" />
                             </div>
+
+                            <div class="form-group mb-2" >
+                                <x-componen-form.input-form label='Facebook' wireModel="facebook"
+                                    name="facebook" placeholder="facebook url" />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="{{ route('team') }}" wire:navigate id="close-modal" class="btn btn-warning"
+                <a href="{{ route('team.medlinx') }}" wire:navigate id="close-modal" class="btn btn-warning"
                     data-bs-dismiss="modal">
                     <i class="bx bx-arrow-back"></i> Back</a>
                 <button type="submit" class="btn btn-primary"><i class="bx bx-save"></i> Submit</button>
@@ -46,3 +51,15 @@
         </form>
     </div>
 </div>
+
+@push('script')
+@script
+    <script>
+
+
+    </script>
+@endscript
+@endpush
+</div>
+
+

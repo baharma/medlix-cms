@@ -5,7 +5,7 @@
         <h4></h4>
         <button type="button" class="btn addBtn"
             style="background-color: #3652AD; color: white; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
-            data-bs-toggle="modal" data-bs-target="#ModalHero"> <i class="bx bx-plus"></i> Teams
+            data-bs-toggle="modal" data-bs-target="#ModalHero" wire:click='clear'> <i class="bx bx-plus"></i> Teams
         </button>
     </div>
     <div class="row mb-3">
@@ -14,14 +14,15 @@
                 $social = $item->extend;
                 if ($social != null) {
                     $s = json_decode($social, true);
-
                     $twitter = $s['twitter'];
                     $instagram = $s['instagram'];
                     $linkedin = $s['linkedin'];
+                    $facebook = $s['facebook'];
                 } else {
                     $twitter = '#';
                     $instagram = '#';
                     $linkedin = '#';
+                    $facebook = '#';
                 }
             @endphp
             <div class="col-md-3">
@@ -36,6 +37,7 @@
                             <li class="list-group-item"><i class="bx bxl-twitter"></i>:{{ $twitter }}</li>
                             <li class="list-group-item"><i class="bx bxl-linkedin"></i>:{{ $linkedin }}</li>
                             <li class="list-group-item"><i class="bx bxl-instagram"></i>:{{ $instagram }}</li>
+                            <li class="list-group-item"><i class='bx bxl-facebook' ></i>:{{ $facebook }}</li>
                         </ul>
                     </div>
                     <div class="card-footer">
@@ -72,7 +74,11 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12" id="inpList">
+                            <div class="col-md-12" id="inpList" x-data="{facebook:false}" x-init="
+                                $wire.on('clearFacebook', () => {
+                                    facebook = false
+                                })
+                            ">
                                 <div class="form-group mb-2">
                                     <x-componen-form.input-form label='Name' wireModel="name" name="name"
                                         placeholder="Fauzi Sungkar" />
@@ -98,6 +104,14 @@
                                     <div class="form-group mb-2">
                                         <x-componen-form.input-form label='Instagram' wireModel="instagram"
                                             name="instagram" placeholder="instagram url" />
+                                    </div>
+                                    <button type="button" class="btn btn-primary my-3" x-on:click="facebook = ! facebook"
+                            >
+                                        <i class='bx bxl-facebook' ></i>
+                                        Add Facebook</button>
+                                    <div class="form-group mb-2" x-show="facebook" x-transition>
+                                        <x-componen-form.input-form label='Facebook' wireModel="facebook"
+                                            name="facebook" placeholder="facebook url" />
                                     </div>
                                 </div>
                             </div>
