@@ -47,6 +47,39 @@
                         </form>
                     </div>
                 </div>
+                <hr>
+                <div class="d-flex flex-row-reverse mt-5">
+                    <button type="button" class="btn btn-primary" wire:click='clearModal' data-bs-toggle="modal"
+                        data-bs-target="#ListKeunggulan">
+                        <i class='bx bx-plus'></i> Add List Keunggulan</button>
+                </div>
+                <div class="row p-3 mt-3" style="justify-content: center">
+                    @foreach ($data->KeunggulanList as $items)
+                        <div class="card border col-md-2" style="margin-left: 10px; margin-right: 10px;">
+                            <div class="card-body text-center">
+                                <div style="display: flex; justify-content: center">
+                                    <img class="card-img-top" src="{{ $items->image }}" alt="Card image cap"
+                                        style="width: 50px">
+                                </div>
+                                <p class="card-text mt-3">{{ $items->title }}</p>
+                            </div>
+                            <div class="card-footer ">
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn btn-primary"
+                                        wire:click="EditList('{{ $items->id }}')" data-bs-toggle="modal"
+                                        data-bs-target="#ListKeunggulan">
+                                        <i class='bx bx-edit-alt'></i>
+                                        Edit</button>
+                                    <button type="button" class="btn btn-danger"
+                                        wire:click="$dispatch('deleteNow','{{ $items->id }}')">
+                                        <i class='bx bxs-trash-alt'></i>
+                                        Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                @livewire('pages.keunggulan.keunggulan-list', ['idKeunggulan' => $data->id])
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" wire:ignore.self>
                 <div x-data="{ details: true, edits: false }" x-init="$wire.on('showdetailKeunggulan', (event) => {
@@ -81,10 +114,11 @@
                 </div>
             </div>
         </div>
+
     </div>
+
     @include('layouts.component.sweetalert-js')
 </div>
-
 
 @push('script')
     @script
@@ -94,11 +128,9 @@
                     $('.dropify').dropify();
                 }, 500);
             });
-            $wire.on('reloadPage', () => {
+            $wire.on('reaload', () => {
                 location.reload();
             })
         </script>
     @endscript
-
-    <script></script>
 @endpush
