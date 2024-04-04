@@ -36,6 +36,7 @@ class Medlinx extends Component
 
         $social = [
             'twitter'=>$twitter,
+            'tw_check'=>$tw_check,
             'linkedin'=>$linkedin,
             'instagram'=>$instagram,
             'facebook'=>$facebook,

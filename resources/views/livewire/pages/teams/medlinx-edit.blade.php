@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="{{ route('team') }}" wire:navigate id="close-modal" class="btn btn-warning"
+                <a href="{{ route('team.medlinx') }}" wire:navigate id="close-modal" class="btn btn-warning"
                     data-bs-dismiss="modal">
                     <i class="bx bx-arrow-back"></i> Back</a>
                 <button type="submit" class="btn btn-primary"><i class="bx bx-save"></i> Submit</button>
