@@ -31,8 +31,10 @@ class Medlinx extends Component
         $twitter = $this->twitter??'#';
         $linkedin = $this->linkedin??'#';
         $instagram = $this->instagram??'#';
+        $tw_check = $this->twitter != null ? 1 : 0;
         $social = [
             'twitter'=>$twitter,
+            'tw_check'=>$tw_check,
             'linkedin'=>$linkedin,
             'instagram'=>$instagram,
         ];
