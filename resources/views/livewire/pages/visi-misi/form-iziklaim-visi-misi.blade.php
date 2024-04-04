@@ -1,5 +1,9 @@
 <div>
     <div class="card p-3">
+        <a href="{{route('visi-misi.iziklaim')}}" class="card-link mb-4 h6">
+            <i class='bx bx-arrow-back'></i>
+            Back
+        </a>
             <form wire:submit='save'>
                 <div class="row mb-3" wire:ignore>
                     <div class="col">

@@ -1,5 +1,10 @@
 <div>
+
     <div class="card p-3">
+        <a href="{{route('visi-misi.medlinx')}}" class="card-link mb-4 h6">
+            <i class='bx bx-arrow-back'></i>
+            Back
+        </a>
         <form wire:submit.prevent="save" id="myForm" enctype="multipart/form-data">
             <div class="row mb-3">
                 <div class="col">
