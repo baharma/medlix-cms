@@ -80,7 +80,7 @@
                 var clear = $('.dropify-clear');
                     clear.click();
                     $('.dropify').attr('data-default-file', '')
-                    $('.dropify').dropify();;
+                    $('.dropify').dropify();
             })
 
             $wire.on('closeModal', () => {
