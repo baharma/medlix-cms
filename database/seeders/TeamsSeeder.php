@@ -24,7 +24,7 @@ class TeamsSeeder extends Seeder
                 'name'   => 'Fauzi Sungkar',
                 'title'  => 'Direktur',
                 'up_lv'  => '1',
-                'extend' => '{"twitter":"https://twitter.com/","linkedin":"https://www.linkedin.com","instagram":"https://www.instagram.com/"}',
+                'extend' => '{"twitter":"https://twitter.com/","linkedin":"https://www.linkedin.com","instagram":"https://www.instagram.com/","facebook":"https:\/\/www.facebook.com\/","fb_check":true,"ig_check":true,"in_check":true,"tw_check":true}'
             ],
             [
                 'app_id' => '1',
@@ -32,7 +32,7 @@ class TeamsSeeder extends Seeder
                 'name'   => 'Alan Maulana',
                 'title'  => 'COO',
                 'up_lv'  => '1',
-                'extend' => '{"twitter":"https://twitter.com/","linkedin":"https://www.linkedin.com","instagram":"https://www.instagram.com/"}',
+                'extend' => '{"twitter":"https://twitter.com/","linkedin":"https://www.linkedin.com","instagram":"https://www.instagram.com/","facebook":"https:\/\/www.facebook.com\/","fb_check":true,"ig_check":true,"in_check":true,"tw_check":true}'
             ],
             [
                 'app_id' => '1',
@@ -40,7 +40,9 @@ class TeamsSeeder extends Seeder
                 'name'   => 'Marisa Sibarani',
                 'title'  => 'GM Business dan Partnership',
                 'up_lv'  => '1',
-                'extend' => '{"twitter":"https://twitter.com/","linkedin":"https://www.linkedin.com","instagram":"https://www.instagram.com/"}',
+                'extend' => '{"twitter":"https://twitter.com/","linkedin":"https://www.linkedin.com","instagram":"https://www.instagram.com/","facebook":"https:\/\/www.facebook.com\/","fb_check":true,"ig_check":true,"in_check":true,"tw_check":true}',
+
+
             ],
             [
                 'app_id' => '3',
