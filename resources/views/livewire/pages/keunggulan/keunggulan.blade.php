@@ -98,7 +98,7 @@
                         <form wire:submit='saveKeunggulan'>
                             @include('pages.indonesia-keunggulan.form-edit')
                             <div class="d-flex justify-content-end gap-3">
-                                <button @click="edits = false; details=true" type="button" class="btn btn-warning">
+                                <button @click="edits = false; details=true" type="button" class="btn btn-warning ">
                                     <i class='bx bx-x'></i>
                                     Cancel</button>
                                 <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
@@ -123,6 +123,9 @@
 @push('script')
     @script
         <script>
+            $('.closeBtn').on('click', function() {
+                location.reload()
+            })
             $wire.on('renderDrofi', (event) => {
                 setTimeout(() => {
                     $('.dropify').dropify();

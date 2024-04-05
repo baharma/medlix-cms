@@ -185,8 +185,8 @@
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
                 <h4>Faskes & Peserta</h4>
-                <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#modalFaskes" wire:click='clearFaskes'><i
-                        class="bx bx-plus "></i> Add</button>
+                <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#modalFaskes"
+                    wire:click='clearFaskes'><i class="bx bx-plus "></i> Add</button>
             </div>
             <table class="table">
                 <thead>
@@ -221,7 +221,7 @@
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
                 <h4>Image & Slider</h4>
-                <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#modalImage" ><i
+                <button class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#modalImage"><i
                         class="bx bx-plus " wire:click='clearFaskes'></i> Add</button>
             </div>
             <div class="accordion">
@@ -346,7 +346,7 @@
                                 <div class="form-group mb-3">
                                     <x-componen-form.input-image-dropify label='Image' wireModel="image"
                                         name="image" />
-                                        @error('image')
+                                    @error('image')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
@@ -384,15 +384,15 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="close-modal" class="btn btn-warning" data-bs-dismiss="modal"><i
-                                class="bx bx-x"></i> Close</button>
-                                <button class="btn btn-primary" type="submit" wire:loading.attr="disabled" >
-                                    <i class="bx bx-save"></i>
-                                    <span wire:loading.remove>Save</span>
-                                    <span wire:loading>Loading...</span>
-                                </button>
-                                <!-- Loading Indicator -->
-                                <span wire:loading>Loading...</span>
+                        <button type="button" id="close-modal" class="btn btn-warning closeBtn"
+                            data-bs-dismiss="modal"><i class="bx bx-x"></i> Close</button>
+                        <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
+                            <i class="bx bx-save"></i>
+                            <span wire:loading.remove>Save</span>
+                            <span wire:loading>Loading...</span>
+                        </button>
+                        <!-- Loading Indicator -->
+                        <span wire:loading>Loading...</span>
                     </div>
 
                 </form>
@@ -415,14 +415,14 @@
                                 <div class="form-group mb-2">
                                     <x-componen-form.input-form label='Name' wireModel="name" name="name"
                                         placeholder="Fasilitas Kesehatan" />
-                                        @error('name')
+                                    @error('name')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group mb-2">
                                     <x-componen-form.input-form label='Value' type="number" wireModel="value"
                                         name="value" placeholder="200000" />
-                                        @error('value')
+                                    @error('value')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
@@ -430,7 +430,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="close-modal-provider" class="btn btn-warning"
+                        <button type="button" id="close-modal-provider" class="btn btn-warning closeBtn"
                             data-bs-dismiss="modal"><i class="bx bx-x"></i> Close</button>
                         <button type="submit" class="btn btn-primary"><i class="bx bx-save"></i> Submit</button>
                     </div>
@@ -460,11 +460,14 @@
             })
 
 
-            $wire.on('imageClear',()=>{
+            $wire.on('imageClear', () => {
                 $('.dropify').attr('data-default-file', '')
-                    $('.dropify').dropify();
-                    var clear = $('.dropify-clear');
-                    clear.click();
+                $('.dropify').dropify();
+                var clear = $('.dropify-clear');
+                clear.click();
+            })
+            $('.closeBtn').on('click', function() {
+                location.reload()
             })
         </script>
     @endscript

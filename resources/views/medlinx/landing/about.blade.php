@@ -8,6 +8,7 @@
             </div>
         </div> <!-- row -->
         <div class="row">
+            {{-- @dd($data['team']) --}}
             @foreach ($data['team'] as $item)
                 <div class="col-lg-4 col-sm-12">
                     <div class="team-style-eleven text-center mt-30 wow fadeIn" data-wow-duration="1s"
@@ -18,14 +19,25 @@
                         <div class="team-content">
                             <div class="team-social">
                                 <ul class="social">
-                                    <li><a target="_blank" href="{{ $item['twitter'] }}"><i
-                                                class="lni lni-twitter-original"></i></a>
-                                    </li>
-                                    <li><a target="_blank" href="{{ $item['linkedin'] }}"><i
-                                                class="lni lni-linkedin-original"></i></a>
-                                    </li>
-                                    <li><a target="_blank" href="{{ $item['instagram'] }}"><i
-                                                class="lni lni-instagram"></i></a></li>
+                                    @if ($item['check']['tw'])
+                                        <li>
+                                            <a target="_blank" href="{{ $item['twitter'] }}"><i
+                                                    class="lni lni-twitter-original"></i></a>
+                                        </li>
+                                    @endif
+                                    @if ($item['check']['in'])
+                                        <li><a target="_blank" href="{{ $item['linkedin'] }}"><i
+                                                    class="lni lni-linkedin-original"></i></a>
+                                        </li>
+                                    @endif
+                                    @if ($item['check']['ig'])
+                                        <li><a target="_blank" href="{{ $item['instagram'] }}"><i
+                                                    class="lni lni-instagram"></i></a></li>
+                                    @endif
+                                    @if ($item['check']['fb'])
+                                        <li><a target="_blank" href="{{ $item['facebook'] }}"><i
+                                                    class="lni lni-facebook-original"></i></a></li>
+                                    @endif
                                 </ul>
                             </div>
                             <h4 class="team-name"><a href="javascript:;">{{ $item['name'] }}</a></h4>

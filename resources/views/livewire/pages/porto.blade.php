@@ -386,7 +386,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title mb-0 text-info" id="staticBackdropLabel">Form Edit</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close closeBtn" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <form wire:submit.prevent="save" enctype="multipart/form-data" id="formInp">
                     <div class="modal-body">
@@ -410,7 +411,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="close-modal-edit-penghargaan" class="btn btn-warning"
+                        <button type="button" id="close-modal-edit-penghargaan" class="btn btn-warning closeBtn"
                             data-bs-dismiss="modal"><i class="bx bx-x"></i> Close</button>
                         <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
                             <i class="bx bx-save"></i>
@@ -439,6 +440,9 @@
                 const removeImage = $('.dropify-clear');
                 removeImage.click();
             });
+            $('.closeBtn').on('click', function() {
+                location.reload()
+            })
         </script>
     @endscript
 @endpush

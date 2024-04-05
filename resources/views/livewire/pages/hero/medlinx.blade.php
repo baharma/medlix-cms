@@ -3,7 +3,8 @@
         <h4></h4>
         <button type="button" class="btn"
             style="background-color: #3652AD; color: white; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
-            data-bs-toggle="modal" data-bs-target="#ModalHero" wire:click='clear'> <i class="bx bx-plus"></i> Add/Change Hero Content
+            data-bs-toggle="modal" data-bs-target="#ModalHero" wire:click='clear'> <i class="bx bx-plus"></i> Add/Change
+            Hero Content
         </button>
     </div>
     <div class="card">
@@ -48,31 +49,33 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title mb-0 text-info" id="staticBackdropLabel">Form Hero Area</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close closeBtn" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
                     <form wire:submit.prevent="save" enctype="multipart/form-data" id="formInp">
                         <div class="modal-body">
                             <div class="row">
-                                <div class="col-md-12" x-data={image:false,dropify:true,cancel:true} x-init="
-                                    $wire.on('imageshow', (value) => {
-                                        image=value;
-                                        dropify=false;
-                                        cancel=true;
+                                <div class="col-md-12" x-data={image:false,dropify:true,cancel:true}
+                                    x-init="$wire.on('imageshow', (value) => {
+                                        image = value;
+                                        dropify = false;
+                                        cancel = true;
                                     })
-                                    $wire.on('clearCancel',()=>{
-                                        image=false;
-                                        dropify=true;
-                                        cancel=false;
-                                    })
-                                ">
+                                    $wire.on('clearCancel', () => {
+                                        image = false;
+                                        dropify = true;
+                                        cancel = false;
+                                    })">
                                     <div class="form-group mb-3" x-show="image">
-                                       <img src="{{asset($image)}}" alt="" style="max-width: 700px"><br>
-                                       <a href="#" x-on:click="image = ! image, dropify = ! dropify" >Edit Image</a>
+                                        <img src="{{ asset($image) }}" alt="" style="max-width: 700px"><br>
+                                        <a href="#" x-on:click="image = ! image, dropify = ! dropify">Edit
+                                            Image</a>
                                     </div>
                                     <div class="form-group mb-3" x-show="dropify">
                                         <x-componen-form.input-image-dropify label='Image' wireModel="image"
                                             imageDefault="{{ $image }}" name="image" />
-                                            <a href="#" x-on:click="image = ! image, dropify = ! dropify " x-show='cancel' >Cancel</a>
+                                        <a href="#" x-on:click="image = ! image, dropify = ! dropify "
+                                            x-show='cancel'>Cancel</a>
                                     </div>
 
                                 </div>
@@ -92,15 +95,15 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" id="close-modal" class="btn btn-warning" data-bs-dismiss="modal"><i
-                                    class="bx bx-x"></i> Close</button>
-                                    <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" >
-                                        <i class="bx bx-save"></i>
-                                        <span wire:loading.remove>Save</span>
-                                        <span wire:loading>Loading...</span>
-                                    </button>
-                                    <!-- Loading Indicator -->
-                                    <span wire:loading>Loading...</span>
+                            <button type="button" id="close-modal" class="btn btn-warning closeBtn"
+                                data-bs-dismiss="modal"><i class="bx bx-x"></i> Close</button>
+                            <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
+                                <i class="bx bx-save"></i>
+                                <span wire:loading.remove>Save</span>
+                                <span wire:loading>Loading...</span>
+                            </button>
+                            <!-- Loading Indicator -->
+                            <span wire:loading>Loading...</span>
                         </div>
                     </form>
                 </div>
@@ -112,6 +115,9 @@
     @push('scripts')
         @script
             <script>
+                $('.closeBtn').on('click', function() {
+                    location.reload()
+                })
                 $wire.on('modalClosed', () => {
 
                     const form = document.getElementById('formInp');

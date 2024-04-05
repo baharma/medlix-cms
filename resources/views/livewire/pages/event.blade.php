@@ -11,8 +11,8 @@
                 </div>
                 <div class="ms-auto"><a href="javascript:;"
                         style="background-color: #3652AD; color: white; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
-                        class="btn mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#ModalEventCreate" wire:click="closeEdit"><i
-                            class="bx bxs-plus-square" ></i>Add New Event</a></div>
+                        class="btn mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#ModalEventCreate"
+                        wire:click="closeEdit"><i class="bx bxs-plus-square"></i>Add New Event</a></div>
             </div>
             <div class="table-responsive">
                 <table class="table mb-0">
@@ -71,9 +71,9 @@
         <script>
             $wire.on('clearImage', () => {
                 var clear = $('.dropify-clear');
-                    clear.click();
-                    $('#image').attr('data-default-file', '')
-                    $('#image').dropify();
+                clear.click();
+                $('#image').attr('data-default-file', '')
+                $('#image').dropify();
             })
         </script>
     @endscript

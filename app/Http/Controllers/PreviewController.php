@@ -96,17 +96,19 @@ class PreviewController extends Controller
 
         $data['team'] = collect(Team::where('app_id',1)->get())->map(function($event){
             $social = $event->extend;
-            if ($social != null) {
-                $s = json_decode($social, true);
-
-                $twitter = $s['twitter'];
-                $instagram = $s['instagram'];
-                $linkedin = $s['linkedin'];
-            } else {
-                $twitter = '#';
-                $instagram = '#';
-                $linkedin = '#';
-            }
+           
+            $s = json_decode($social, true);
+            $twitter = $s['twitter'];
+            $instagram = $s['instagram'];
+            $linkedin = $s['linkedin'];
+            $facebook = $s['facebook'];
+           
+            $check = [
+                'fb' => $s['fb_check'],
+                'ig' => $s['ig_check'],
+                'in' => $s['in_check'],
+                'tw' => $s['tw_check'],
+            ];
             return [
                 'image'=>$event->image,
                 'name'=>$event->name,
@@ -115,6 +117,8 @@ class PreviewController extends Controller
                 'twitter'=>$twitter,
                 'linkedin'=>$linkedin,
                 'instagram'=>$instagram,
+                'facebook' => $facebook,
+                'check' => $check
             ];
         });
 

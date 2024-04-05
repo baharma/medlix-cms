@@ -57,8 +57,11 @@
 
             <!-- Submit Button with Loading Indicator -->
             <div class="form-group row">
+
                 <label for="inputPassword" class="col-sm-3 col-form-label"></label>
                 <div class="col-sm-9">
+                    <a href="javascript:history.go(-1)" class="btn btn-warning"><i class="bx bx-arrow-back"></i>
+                        Back</a>
                     <button type="submit" class="btn btn-primary" wire:loading.attr="disabled">
                         <i class='bx bx-save'></i>
                         <span wire:loading.remove>Save</span>

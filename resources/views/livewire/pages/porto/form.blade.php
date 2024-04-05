@@ -59,15 +59,15 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="close-modal" class="btn btn-warning" data-bs-dismiss="modal"><i
-                                class="bx bx-x"></i> Close</button>
-                                <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" >
-                                    <i class="bx bx-save"></i>
-                                    <span wire:loading.remove>Save</span>
-                                    <span wire:loading>Loading...</span>
-                                </button>
-                                <!-- Loading Indicator -->
-                                <span wire:loading>Loading...</span>
+                        <button type="button" id="close-modal" class="btn btn-warning closeBtn"
+                            data-bs-dismiss="modal"><i class="bx bx-x"></i> Close</button>
+                        <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
+                            <i class="bx bx-save"></i>
+                            <span wire:loading.remove>Save</span>
+                            <span wire:loading>Loading...</span>
+                        </button>
+                        <!-- Loading Indicator -->
+                        <span wire:loading>Loading...</span>
                     </div>
 
                 </form>

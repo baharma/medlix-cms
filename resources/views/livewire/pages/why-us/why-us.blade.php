@@ -22,7 +22,7 @@
 
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button class="btn btn-warning btn-sm mr-2 mt-2"
+                                    <button class="btn btn-warning btn-sm mr-2 mt-2 "
                                         wire:click="Edit('{{ $item->id }}')" data-bs-toggle="modal"
                                         data-bs-target="#ModalHero"><i class="bx bx-pencil"></i></button>
                                     <button class="btn btn-danger btn-sm mt-2"
