@@ -36,15 +36,16 @@
                             @if ($check['tw'])
                                 <li class="list-group-item"><i class="bx bxl-twitter"></i>:{{ $twitter }}</li>
                             @endif
+                            @if ($check['fb'])
+                                <li class="list-group-item"><i class='bx bxl-facebook'></i>:{{ $facebook }}</li>
+                            @endif
                             @if ($check['in'])
                                 <li class="list-group-item"><i class="bx bxl-linkedin"></i>:{{ $linkedin }}</li>
                             @endif
                             @if ($check['ig'])
                                 <li class="list-group-item"><i class="bx bxl-instagram"></i>:{{ $instagram }}</li>
                             @endif
-                            @if ($check['fb'])
-                                <li class="list-group-item"><i class='bx bxl-facebook'></i>:{{ $facebook }}</li>
-                            @endif
+
                         </ul>
                     </div>
                     <div class="card-footer">
