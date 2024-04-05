@@ -25,6 +25,10 @@
                                                     class="lni lni-twitter-original"></i></a>
                                         </li>
                                     @endif
+                                    @if ($item['check']['fb'])
+                                        <li><a target="_blank" href="{{ $item['facebook'] }}"><i
+                                                    class="lni lni-facebook-original"></i></a></li>
+                                    @endif
                                     @if ($item['check']['in'])
                                         <li><a target="_blank" href="{{ $item['linkedin'] }}"><i
                                                     class="lni lni-linkedin-original"></i></a>
@@ -34,10 +38,7 @@
                                         <li><a target="_blank" href="{{ $item['instagram'] }}"><i
                                                     class="lni lni-instagram"></i></a></li>
                                     @endif
-                                    @if ($item['check']['fb'])
-                                        <li><a target="_blank" href="{{ $item['facebook'] }}"><i
-                                                    class="lni lni-facebook-original"></i></a></li>
-                                    @endif
+
                                 </ul>
                             </div>
                             <h4 class="team-name"><a href="javascript:;">{{ $item['name'] }}</a></h4>

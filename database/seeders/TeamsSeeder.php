@@ -41,8 +41,6 @@ class TeamsSeeder extends Seeder
                 'title'  => 'GM Business dan Partnership',
                 'up_lv'  => '1',
                 'extend' => '{"twitter":"#","linkedin":"https://www.linkedin.com","instagram":"https://www.instagram.com/","facebook":"https:\/\/www.facebook.com\/","fb_check":true,"ig_check":true,"in_check":true,"tw_check":false}',
-
-
             ],
             [
                 'app_id' => '3',
