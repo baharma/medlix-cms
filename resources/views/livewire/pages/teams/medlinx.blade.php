@@ -12,18 +12,17 @@
         @foreach ($model as $item)
             @php
                 $social = $item->extend;
-                if ($social != null) {
-                    $s = json_decode($social, true);
-                    $twitter = $s['twitter'];
-                    $instagram = $s['instagram'];
-                    $linkedin = $s['linkedin'];
-                    $facebook = $s['facebook'];
-                } else {
-                    $twitter = '#';
-                    $instagram = '#';
-                    $linkedin = '#';
-                    $facebook = '#';
-                }
+                $s = json_decode($social, true);
+                $twitter = $s['twitter'];
+                $instagram = $s['instagram'];
+                $linkedin = $s['linkedin'];
+                $facebook = $s['facebook'];
+                $check = [
+                    'fb' => $s['fb_check'],
+                    'ig' => $s['ig_check'],
+                    'in' => $s['in_check'],
+                    'tw' => $s['tw_check'],
+                ];
             @endphp
             <div class="col-md-3">
                 <div class="card">
@@ -34,10 +33,19 @@
                         <h6 class="card-title">{{ $item->name }}</h6>
                         <p class="card-text">{{ $item->title }}</p>
                         <ul class="list-group">
-                            <li class="list-group-item"><i class="bx bxl-twitter"></i>:{{ $twitter }}</li>
-                            <li class="list-group-item"><i class="bx bxl-linkedin"></i>:{{ $linkedin }}</li>
-                            <li class="list-group-item"><i class="bx bxl-instagram"></i>:{{ $instagram }}</li>
-                            <li class="list-group-item"><i class='bx bxl-facebook' ></i>:{{ $facebook }}</li>
+                            @if ($check['tw'])
+                                <li class="list-group-item"><i class="bx bxl-twitter"></i>:{{ $twitter }}</li>
+                            @endif
+                            @if ($check['fb'])
+                                <li class="list-group-item"><i class='bx bxl-facebook'></i>:{{ $facebook }}</li>
+                            @endif
+                            @if ($check['in'])
+                                <li class="list-group-item"><i class="bx bxl-linkedin"></i>:{{ $linkedin }}</li>
+                            @endif
+                            @if ($check['ig'])
+                                <li class="list-group-item"><i class="bx bxl-instagram"></i>:{{ $instagram }}</li>
+                            @endif
+
                         </ul>
                     </div>
                     <div class="card-footer">
@@ -59,7 +67,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title mb-0 text-info" id="staticBackdropLabel">Form Teams</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close closeBtn" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <form wire:submit.prevent="save" enctype="multipart/form-data" id="formInp">
                     <div class="modal-body">
@@ -74,11 +83,9 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12" id="inpList" x-data="{facebook:false}" x-init="
-                                $wire.on('clearFacebook', () => {
-                                    facebook = false
-                                })
-                            ">
+                            <div class="col-md-12" id="inpList" x-data="{ facebook: false }" x-init="$wire.on('clearFacebook', () => {
+                                facebook = false
+                            })">
                                 <div class="form-group mb-2">
                                     <x-componen-form.input-form label='Name' wireModel="name" name="name"
                                         placeholder="Fauzi Sungkar" />
@@ -92,56 +99,44 @@
                                 </div>
                                 {{-- <span style="margin-top: 10px; font-weight: bold">Social</span> --}}
                                 {{-- <hr> --}}
-                                <div class="container mt-3">
-                                    <div class="form-group mb-2">
-                                        <x-componen-form.input-form label='twitter' wireModel="twitter" name="twitter"
-                                            placeholder="twitter url" />
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <x-componen-form.input-form label='LinkedIn' wireModel="linkedin"
-                                            name="linkedin" placeholder="LinkedIn url" />
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <x-componen-form.input-form label='Instagram' wireModel="instagram"
-                                            name="instagram" placeholder="instagram url" />
-                                    </div>
-                                    <button type="button" class="btn btn-primary my-3" x-on:click="facebook = ! facebook"
-                            >
-                                        <i class='bx bxl-facebook' ></i>
-                                        Add Facebook</button>
-                                    <div class="form-group mb-2" x-show="facebook" x-transition>
-                                        <x-componen-form.input-form label='Facebook' wireModel="facebook"
-                                            name="facebook" placeholder="facebook url" />
-                                    </div>
+                                <label for="Social" class="mt-3">Social</label>
+                                <div class="input-group mb-3 ">
+                                    <button type="button" class="btn btn-info text-light" id="btnTwitter"
+                                        style="width: 170px">
+                                        <i class='bx bxl-twitter'></i>
+                                        Add Twitter</button>
+                                    <input type="text" class="form-control d-none" id="inpTwitter"
+                                        placeholder="twitter url" wire:model="twitter">
+                                </div>
+                                <div class="input-group mb-3 ">
+                                    <button type="button" class="btn btn-danger" id="btnInstagram"
+                                        style="width: 170px">
+                                        <i class='bx bxl-instagram'></i> Add instagram</button>
+                                    <input type="text" class="form-control d-none" id="inpInstagram"
+                                        placeholder="instagram url" wire:model="instagram">
+                                </div>
+                                <div class="input-group mb-3 ">
+                                    <button type="button" class="btn btn-info text-light" id="btnLinkedin"
+                                        style="width: 170px">
+                                        <i class='bx bxl-linkedin'></i>
+                                        Add LinkedIn</button>
+                                    <input type="text" class="form-control d-none" id="inpLinkedin"
+                                        placeholder="linked url" wire:model="linkedin">
+                                </div>
+                                <div class="input-group mb-3 ">
+                                    <button type="button" class="btn btn-primary" id="btnFacebook"
+                                        style="width: 170px"> <i class='bx bxl-facebook'></i> Add
+                                        Facebook</button>
+                                    <input type="text" class="form-control d-none" id="inpFacebook"
+                                        placeholder="facebook url" wire:model="facebook">
                                 </div>
                             </div>
-                            <div class="col-md-12 @if (auth()->user()->default_cms != 3) d-none @endif">
-                                <div class="form-group mt-3">
-                                    <label for="inpTitle">Only Medlinx Team</label>
-                                    <div class="form-check  mt-2">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            wire:model="only" value="3" id="flexRadioDefault2">
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            Yes
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            wire:model="only" value="null" id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            No
-                                        </label>
-                                    </div>
-                                    @error('only')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="close-modal" class="btn btn-warning" data-bs-dismiss="modal"><i
-                                class="bx bx-x"></i> Close</button>
+                        <button type="button" id="close-modal" class="btn btn-warning closeBtn"
+                            data-bs-dismiss="modal"><i class="bx bx-x"></i> Close</button>
                         <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
                             <i class="bx bx-save"></i>
                             <span wire:loading.remove>Save</span>
@@ -159,11 +154,27 @@
     @push('script')
         @script
             <script>
+                $("#btnTwitter").click(function() {
+                    $("#inpTwitter").toggleClass("d-none");
+                });
+                $("#btnInstagram").click(function() {
+                    $("#inpInstagram").toggleClass("d-none");
+                });
+                $("#btnLinkedin").click(function() {
+                    $("#inpLinkedin").toggleClass("d-none");
+                });
+                $("#btnFacebook").click(function() {
+                    $("#inpFacebook").toggleClass("d-none");
+                });
+
                 $('.addBtn').on('click', function() {
                     $('.image').attr('data-default-file', '')
                     $('.image').dropify();
                     var clear = $('.dropify-clear');
                     clear.click();
+                })
+                $('.closeBtn').on('click', function() {
+                    location.reload()
                 })
                 $wire.on('closeModal', () => {
                     const closeButton = document.getElementById('close-modal');

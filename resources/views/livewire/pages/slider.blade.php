@@ -7,8 +7,8 @@
                 @else
                     <h4>Slider Image</h4>
                 @endif
-                <button class="btn btn-primary btn-sm " data-bs-toggle="modal" wire:click='clearImage' data-bs-target="#modalFaskes"><i
-                        class="bx bx-plus "></i> Add</button>
+                <button class="btn btn-primary btn-sm " data-bs-toggle="modal" wire:click='clearImage'
+                    data-bs-target="#modalFaskes"><i class="bx bx-plus "></i> Add</button>
             </div>
             <table class="table">
                 <thead>
@@ -21,8 +21,8 @@
                     @foreach ($slider as $item)
                         <tr>
                             <td>
-                                <a href="{{ route('slider.inp', $item->id) }}" wire:navigate class="btn btn-warning btn-sm"><i
-                                        class="bx bx-edit"></i></a>
+                                <a href="{{ route('slider.inp', $item->id) }}" wire:navigate
+                                    class="btn btn-warning btn-sm"><i class="bx bx-edit"></i></a>
                                 <button class="btn btn-sm btn-danger"
                                     @click="$dispatch('confirm-delete', { get_id: {{ $item->id }} })"><i
                                         class="bx bx-trash"></i></button>
@@ -43,7 +43,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title mb-0 text-info" id="staticBackdropLabel">Form Image</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close  closeBtn" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <form wire:submit.prevent="save" enctype="multipart/form-data" id="formInp">
                     <div class="modal-body">
@@ -58,16 +59,16 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="close-modal" class="btn btn-warning" data-bs-dismiss="modal"
+                        <button type="button" id="close-modal" class="btn btn-warning closeBtn" data-bs-dismiss="modal"
                             aria-label="Close"><i class="bx bx-x"></i>
                             Close</button>
-                            <button class="btn btn-primary" type="submit"  wire:loading.attr="disabled" >
-                                <i class="bx bx-save"></i>
-                                <span wire:loading.remove>Save</span>
-                                <span wire:loading>Loading...</span>
-                            </button>
-                            <!-- Loading Indicator -->
+                        <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
+                            <i class="bx bx-save"></i>
+                            <span wire:loading.remove>Save</span>
                             <span wire:loading>Loading...</span>
+                        </button>
+                        <!-- Loading Indicator -->
+                        <span wire:loading>Loading...</span>
                     </div>
 
                 </form>
@@ -79,11 +80,11 @@
 @push('script')
     @script
         <script>
-            $wire.on('clearImage',()=>{
-                    $('.dropify').attr('data-default-file', '')
-                    $('.dropify').dropify();
-                    var clear = $('.dropify-clear');
-                    clear.click();
+            $wire.on('clearImage', () => {
+                $('.dropify').attr('data-default-file', '')
+                $('.dropify').dropify();
+                var clear = $('.dropify-clear');
+                clear.click();
             })
             $wire.on('closeModal', () => {
                 const closeButton = document.getElementById('close-modal');
@@ -98,6 +99,9 @@
                 } else {
                     console.error('Button with ID "close-modal" not found');
                 }
+            })
+            $('.closeBtn').on('click', function() {
+                location.reload()
             })
         </script>
     @endscript

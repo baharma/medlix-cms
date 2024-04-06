@@ -13,7 +13,7 @@ class MedlinxEdit extends Component
 {
     use WithFileUploads;
     #[Title('Edit Teams')]
-    public $model,$image,$name,$title,$upLv,$team,$only,$edit,$extend,$twitter,$facebook,$linkedin,$instagram;
+    public $model,$image,$name,$title,$upLv,$team,$only,$edit,$extend,$twitter,$facebook,$linkedin,$instagram,$check;
     public function mount($id){
         $cms = Team::find($id);
         $this->edit = $cms;
@@ -22,29 +22,19 @@ class MedlinxEdit extends Component
         $this->title = $cms->title;
         $this->extend = $cms->extend;
         $social = $this->extend;
-        if ($social != null) {
-                $s = json_decode($social, true);
-                $this->twitter = $s['twitter'];
-                $this->instagram = $s['instagram'];
-                $this->linkedin = $s['linkedin'];
-                $this->facebook = $s['facebook'];
-            } else {
-                $this->twitter = '#';
-                $this->instagram = '#';
-                $this->linkedin = '#';
-                $this->facebook = '#';
-            }
-        if(auth()->user()->default_cms==3){
-            $this->model = Team::where('up_lv',1)->get();
-            $this->team = Team::where('up_lv',0)->get();
-            $this->only = 3;
-        }else{
-            $this->model = Team::where('up_lv',null)->get();
-            $this->team = Team::where('app_id',null)->get();
-            $this->only = false;
-        }
+        $s = json_decode($social, true);
+        $this->twitter = $s['twitter'];
+         $this->instagram = $s['instagram'];
+         $this->linkedin = $s['linkedin'];
+         $this->facebook = $s['facebook'];
+         $this->check = [
+            'fb' => $s['fb_check'],
+            'ig' => $s['ig_check'],
+            'in' => $s['in_check'],
+            'tw' => $s['tw_check'],
+        ];
     }
-
+   
     public function save(){
         $image  = $this->image;
         $name  = $this->name;

@@ -4,8 +4,8 @@
     <div class="d-flex justify-content-between mb-3">
         <h4></h4>
         <button type="button" class="btn addBtn"
-            style="background-color: #3652AD; color: white; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" wire:click='clearValidate'
-            data-bs-toggle="modal" data-bs-target="#ModalHero"> <i class="bx bx-plus"></i> Teams
+            style="background-color: #3652AD; color: white; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
+            wire:click='clearValidate' data-bs-toggle="modal" data-bs-target="#ModalHero"> <i class="bx bx-plus"></i> Teams
         </button>
     </div>
     <div class="row mb-3">
@@ -62,7 +62,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title mb-0 text-info" id="staticBackdropLabel">Form Teams</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close closeBtn" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <form wire:submit.prevent="save" enctype="multipart/form-data" id="formInp">
                     <div class="modal-body">
@@ -94,8 +95,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="close-modal" class="btn btn-warning" data-bs-dismiss="modal"><i
-                                class="bx bx-x"></i> Close</button>
+                        <button type="button" id="close-modal" class="btn btn-warning closeBtn"
+                            data-bs-dismiss="modal"><i class="bx bx-x"></i> Close</button>
                         <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
                             <i class="bx bx-save"></i>
                             <span wire:loading.remove>Save</span>
@@ -127,6 +128,9 @@
                     } else {
                         console.error('Button with ID "close-modal" not found');
                     }
+                })
+                $('.closeBtn').on('click', function() {
+                    location.reload()
                 })
             </script>
         @endscript
